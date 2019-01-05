@@ -7,3 +7,6 @@ install:
 script: "bash $TRAVIS_BUILD_DIR/bin/check_config.sh"
 notifications:
   email: false
+branches:
+  only:
+    - staging
