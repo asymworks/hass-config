@@ -3,6 +3,7 @@ python:
   - "3.5"
 install:
   - "pip install homeassistant"
+  - "bash $TRAVIS_BUILD_DIR/bin/dummy_secretys.py | $TRAVIS_BUILD_DIR/secrets.yaml"
 script: "bash $TRAVIS_BUILD_DIR/bin/check_config.sh"
 notifications:
   email: false
