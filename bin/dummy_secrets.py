@@ -4,12 +4,12 @@
 import os, re, sys
 
 # Regexes
-re_include = re.compile(r'!include +(.*\.ya?ml) *$')
-re_secret = re.compile(r'!secret +(.*) *$')
+re_include = re.compile(r'!include\s+(?P<filename>.*\.ya?ml)\s*$')
+re_secret = re.compile(r'!secret\s+(?P<key>\w+?)(\s*# dummy:?\s+(?P<default>.*))?\s*$')
 
 # Prevent Loops
 files = []
-secrets = []
+secrets = {}
 
 def scan_file(filename):
 	abs_fn = os.path.abspath(filename)
@@ -22,10 +22,16 @@ def scan_file(filename):
 		for line in f:
 			m = re_include.search(line)
 			if m:
-				scan_file(m.group(1))
+				scan_file(m.group('filename'))
 			m = re_secret.search(line)
 			if m:
-				secrets.append(m.group(1))
+				key = m.group('key')
+				
+				print(m.groupdict())
+				if key not in secrets.keys():
+					secrets[key] = 'dummy'
+					if 'default' in m.groupdict().keys():
+						secrets[key] = m.group('default')
 
 if __name__ == '__main__':
 	if 'TRAVIS_BUILD_DIR' in os.environ:
@@ -34,7 +40,7 @@ if __name__ == '__main__':
 	scan_file('configuration.yaml')
 
 	with open('secrets.yaml', 'w') as f:
-		for s in secrets:
-			f.write('{}: dummy\n'.format(s))
+		for k, v in secrets.items():
+			f.write('{}: {}\n'.format(k, v))
 
 	sys.exit(0)
