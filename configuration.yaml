@@ -1,0 +1,101 @@
+# Home Assistant Configuration for the KraussNet
+homeassistant:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: 45
+  unit_system: imperial
+  time_zone: America/Los_Angeles
+  customize: !include customize.yaml
+
+# MQTT Broker Connection
+mqtt:
+  broker: mqtt.ha.snrhome.com
+  port: 8883
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  certificate: network-ca-chain.pem
+  tls_version: '1.2'
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
+
+# Logging
+logger:
+  default: warning
+  logs:
+    homeassistant.components.http: warning
+    homeassistant.components.mqtt: info
+
+# API Access for Dashing
+http:
+  api_password: !secret http_password
+  trusted_networks:
+    - 127.0.0.1
+    - ::1
+    - 10.0.1.0/24
+    - 10.0.2.0/24
+
+# Enable the Front End
+frontend:
+
+# Enable the Configuration UI
+config:
+
+# Checks for Updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Telegram Notifier
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chat_id
+
+# Notifiers
+notify:
+  - name: telegram_bot
+    platform: telegram
+    chat_id: !secret telegram_chat_id
+  
+  - name: pushover
+    platform: pushover
+    api_key: !secret pushover_api_key
+    user_key: !secret pushover_user_key
+
+# Node-Red IFrame
+panel_iframe:
+  nodered:
+    title: 'Node-Red'
+    icon: mdi:shuffle-variant
+    url: 'http://localhost:1880'
+
+# Include Files
+group: !include config/groups.yaml
+automation: !include config/automation.yaml
+scene: !include config/scene.yaml
+script: !include config/script.yaml
+sensor: !include config/sensor.yaml
+switch: !include config/switch.yaml
+light: !include config/light.yaml
+input_slider: !include config/input_slider.yaml
+input_select: !include config/input_select.yaml
+input_boolean: !include config/input_boolean.yaml
