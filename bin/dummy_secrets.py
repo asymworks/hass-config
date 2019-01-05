@@ -26,8 +26,6 @@ def scan_file(filename):
 			m = re_secret.search(line)
 			if m:
 				key = m.group('key')
-				
-				print(m.groupdict())
 				if key not in secrets.keys():
 					secrets[key] = 'dummy'
 					if 'default' in m.groupdict().keys():

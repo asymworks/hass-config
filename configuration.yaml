@@ -96,6 +96,6 @@ script: !include config/script.yaml
 sensor: !include config/sensor.yaml
 switch: !include config/switch.yaml
 light: !include config/light.yaml
-input_slider: !include config/input_slider.yaml
+input_number: !include config/input_number.yaml
 input_select: !include config/input_select.yaml
 input_boolean: !include config/input_boolean.yaml
