@@ -1,2 +1,3 @@
 # hass-config
-Home Assistant Configuration
+Home Assistant Configuration for the KraussNet ([Home Assistant](https://home-assistant.io))
+
