@@ -1,8 +1,8 @@
 # Home Assistant Configuration for the KraussNet
 homeassistant:
   name: Home
-  latitude: !secret home_latitude
-  longitude: !secret home_longitude
+  latitude: !secret home_latitude # dummy: 0.0
+  longitude: !secret home_longitude # dummy: 0.0
   elevation: 45
   unit_system: imperial
   time_zone: America/Los_Angeles
@@ -68,7 +68,7 @@ telegram_bot:
   - platform: polling
     api_key: !secret telegram_api_key
     allowed_chat_ids:
-      - !secret telegram_chat_id
+      - !secret telegram_chat_id # dummy: 1234567
 
 # Notifiers
 notify:
