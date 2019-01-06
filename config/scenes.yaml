@@ -1,0 +1,31 @@
+#### Scene Definitions ########################################################
+
+- name: Living Room Normal
+  entities:
+    light.living_room_main:
+      state: on
+      transition: 5
+      brightness_pct: 80
+    light.hue_ambiance_lamp_1:
+      state: on
+      transition: 5
+      brightness_pct: 80
+    light.hue_ambiance_lamp_2:
+      state: on
+      transition: 5
+      brightness_pct: 80
+
+- name: Living Room Dim
+  entities:
+    light.living_room_main:
+      state: on
+      transition: 5
+      brightness_pct: 20
+    light.hue_ambiance_lamp_1:
+      state: on
+      transition: 5
+      brightness_pct: 20
+    light.hue_ambiance_lamp_2:
+      state: on
+      transition: 5
+      brightness_pct: 20

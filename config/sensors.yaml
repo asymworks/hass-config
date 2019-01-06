@@ -1,0 +1,41 @@
+#### Sensor Definitions #######################################################
+
+# Weather prediction
+- platform: darksky
+  api_key: e9672e30f410b55ba7a0a7db31f7b4ca
+  monitored_conditions:
+    - summary
+    - icon
+    - temperature
+
+# Bluetooth Presence (JPK Nexus 5X)
+- platform: mqtt
+  name: btp_entryway_jpk_nexus5x
+  state_topic: 'monitor/btp0-entry/64:BC:0C:FA:01:18'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  
+# Home Occupancy Confidence (JPK Nexus 5X)
+- platform: min_max
+  name: home_occupancy_confidence_jpk
+  type: max
+  round_digits: 0
+  entity_ids:
+    - sensor.btp_entryway_jpk_nexus5x
+
+# TP-Link Smart Plugs
+- platform: template
+  sensors:
+    tplink_media_center_amps:
+      friendly_name_template: "{{ states.switch.tplink_media_center.name }}"
+      value_template: '{{ states.switch.tplink_media_center.attributes["current_a"] | float }}'
+      unit_of_measurement: 'A'
+    tplink_media_center_watts:
+      friendly_name_template: "{{ states.switch.tplink_media_center.name }}"
+      value_template: '{{ states.switch.tplink_media_center.attributes["current_power_w"] | float }}'
+      unit_of_measurement: 'W'
+    tplink_media_center_volts:
+      friendly_name_template: "{{ states.switch.tplink_media_center.name }}"
+      value_template: '{{ states.switch.tplink_media_center.attributes["voltage"] | float }}'
+      unit_of_measurement: 'V'
+

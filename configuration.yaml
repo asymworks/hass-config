@@ -14,7 +14,7 @@ mqtt:
   port: 8883
   username: !secret mqtt_username
   password: !secret mqtt_password
-  certificate: network-ca-chain.pem
+  certificate: /srv/hass/network-ca-chain.pem
   tls_version: '1.2'
   birth_message:
     topic: 'hass/status'
@@ -28,7 +28,7 @@ logger:
   default: warning
   logs:
     homeassistant.components.http: warning
-    homeassistant.components.mqtt: info
+    homeassistant.components.mqtt: debug
 
 # API Access for Dashing
 http:
@@ -88,14 +88,54 @@ panel_iframe:
     icon: mdi:shuffle-variant
     url: 'http://localhost:1880'
 
+# Device Tracking
+device_tracker:
+
+  # Track WiFi with Tomato Router/AP
+  - platform: tomato
+    host: 10.0.2.253
+    username: !secret tomato_username
+    password: !secret tomato_password
+    http_id: !secret tomato_http_id
+    interval_seconds: 10
+    consider_home: 180
+    new_device_defaults:
+      track_new_devices: false
+      hide_if_away: true
+
+  # Track with Built-In Bluetooth
+  #- platform: bluetooth_tracker
+  #  request_rssi: true
+  #  new_device_defaults:
+  #    track_new_devices: false
+  #    hide_if_away: false
+
+# FireTV and Kodi Media Players
+media_player:
+  - platform: firetv
+    name: Living Room FireTV
+    host: 10.0.1.91
+    adbkey: /srv/hass/adb/adbkey
+
+# OwnTracks Setup
+owntracks:
+  max_gps_accuracy: 50
+  waypoints: true
+  mqtt_topic: 'owntracks/#'
+  events_only: false
+  waypoint_whitelist:
+    - jp
+  region_mapping:
+    Home: home
+    Work: work
+
 # Include Files
 group: !include config/groups.yaml
-automation: !include config/automation.yaml
-scene: !include config/scene.yaml
-script: !include config/script.yaml
-sensor: !include config/sensor.yaml
-switch: !include config/switch.yaml
-light: !include config/light.yaml
-input_number: !include config/input_number.yaml
-input_select: !include config/input_select.yaml
-input_boolean: !include config/input_boolean.yaml
+automation: !include config/automations.yaml
+scene: !include config/scenes.yaml
+script: !include config/scripts.yaml
+sensor: !include config/sensors.yaml
+switch: !include config/switches.yaml
+binary_sensor: !include config/binary_sensors.yaml
+input_select: !include config/input_selects.yaml
+

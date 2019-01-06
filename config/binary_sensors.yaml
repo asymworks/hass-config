@@ -1,0 +1,22 @@
+#### Binary Sensor Definitions ################################################
+
+# Bayesian Presence
+- platform: bayesian
+  prior: 0.5
+  name: 'J.P. Presence'
+  probability_threshold: 0.9
+  observations:
+    - entity_id: device_tracker.jp_nexus5x_mac
+      prob_given_true: 0.9
+      prob_given_false: 0.2
+      platform: state
+      to_state: home
+    - entity_id: device_tracker.jp_nexus5x
+      prob_given_true: 0.9
+      prob_given_false: 0.4
+      platform: state
+      to_state: home
+    - entity_id: sensor.btp_entryway_jpk_nexus5x
+      prob_given_true: 0.9
+      platform: numeric_state
+      above: 50
