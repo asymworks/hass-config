@@ -98,7 +98,7 @@ device_tracker:
     password: !secret tomato_password
     http_id: !secret tomato_http_id
     interval_seconds: 10
-    consider_home: 180
+    consider_home: 120
     new_device_defaults:
       track_new_devices: false
       hide_if_away: true

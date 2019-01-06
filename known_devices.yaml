@@ -1,0 +1,14 @@
+jp_n5xot:
+  # OwnTracks on Nexus 5X
+  hide_if_away: false
+  name: Owntracks
+  icon: mdi:crosshairs-gps
+  track: true
+
+jp_n5x_ip:
+  # WiFi MAC on Nexus 5X
+  hide_if_away: false
+  mac: !secret jp_n5x_ip_mac
+  name: WiFi
+  icon: mdi:access-point
+  track: true
