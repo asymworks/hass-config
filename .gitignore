@@ -8,3 +8,8 @@ tts/
 secrets.yaml
 home-assistant*.log
 home-assistant*.db
+OZW_Log.txt
+pyozw.sqlite
+options.xml
+zwscene.xml
+zwcfg_*
