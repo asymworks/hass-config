@@ -1,0 +1,15 @@
+#### UI Customizations ########################################################
+
+# Z-Wave Door Sensor Extra Attributes
+sensor.zw_front_door_sensor_access_control:
+  - hidden: true
+sensor.zw_front_door_sensor_alarm_type:
+  - hidden: true
+sensor.zw_front_door_sensor_alarm_level:
+  - hidden: true
+sensor.zw_front_door_sensor_burglar:
+  - hidden: true
+sensor.zw_front_door_sensor_power_management:
+  - hidden: true
+sensor.zw_front_door_sensor_sourcenodeid:
+  - hidden: true
