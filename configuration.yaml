@@ -129,9 +129,12 @@ owntracks:
     Home: home
     Work: work
 
+# Automation File for Configuration UI
+automation: !include automations.yaml
+
 # Include Files
 group: !include config/groups.yaml
-automation: !include config/automations.yaml
+automation old: !include config/automations.yaml
 scene: !include config/scenes.yaml
 script: !include config/scripts.yaml
 sensor: !include config/sensors.yaml

@@ -33,3 +33,52 @@ jp_win_ip:
   mac: !secret jp_win_ip_mac
   name: Win Phone
   track: false
+
+jp_mbp_ip:
+  # WiFi MAC on MacBook Pro
+  hide_if_away: true
+  icon:
+  mac: !secret jp_mbp_ip_mac
+  name: MacBook Pro
+  picture:
+  track: false
+
+001cbf31f33f:
+  hide_if_away: true
+  icon:
+  mac: 00:1C:BF:31:F3:3F
+  name: 001cbf31f33f
+  picture:
+  track: false
+
+50c7bf412a24:
+  hide_if_away: true
+  icon:
+  mac: 50:C7:BF:41:2A:24
+  name: 50c7bf412a24
+  picture:
+  track: false
+
+b827eb40bb74:
+  hide_if_away: true
+  icon:
+  mac: B8:27:EB:40:BB:74
+  name: b827eb40bb74
+  picture:
+  track: false
+
+50dce72ca65c:
+  hide_if_away: true
+  icon:
+  mac: 50:DC:E7:2C:A6:5C
+  name: 50dce72ca65c
+  picture:
+  track: false
+
+4473d60d59a3:
+  hide_if_away: true
+  icon:
+  mac: 44:73:D6:0D:59:A3
+  name: 4473d60d59a3
+  picture:
+  track: false
