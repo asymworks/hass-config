@@ -14,7 +14,7 @@ mqtt:
   port: 8883
   username: !secret mqtt_username
   password: !secret mqtt_password
-  certificate: /srv/hass/config/network-ca-chain.pem
+  certificate: /srv/hass/network-ca-chain.pem
   tls_version: '1.2'
   birth_message:
     topic: 'hass/status'

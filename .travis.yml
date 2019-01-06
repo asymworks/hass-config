@@ -4,6 +4,7 @@ python:
 install:
   - "pip install homeassistant"
   - "python $TRAVIS_BUILD_DIR/bin/dummy_secrets.py"
+  - "mkdir -p /srv/hass && cp $TRAVIS_BUILD_DIR/bin/network-ca-chain.pem /srv/hass/"
 script: "bash $TRAVIS_BUILD_DIR/bin/check_config.sh"
 notifications:
   email: false

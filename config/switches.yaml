@@ -1,4 +1,4 @@
-#### Switches #################################################################
+#### Switch Definitions #######################################################
 
 # TP-Link TP-110 Switch/Power Monitors
 - platform: tplink
