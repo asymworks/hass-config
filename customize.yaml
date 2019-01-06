@@ -2,14 +2,14 @@
 
 # Z-Wave Door Sensor Extra Attributes
 sensor.zw_front_door_sensor_access_control:
-  - hidden: true
+  hidden: true
 sensor.zw_front_door_sensor_alarm_type:
-  - hidden: true
+  hidden: true
 sensor.zw_front_door_sensor_alarm_level:
-  - hidden: true
+  hidden: true
 sensor.zw_front_door_sensor_burglar:
-  - hidden: true
+  hidden: true
 sensor.zw_front_door_sensor_power_management:
-  - hidden: true
+  hidden: true
 sensor.zw_front_door_sensor_sourcenodeid:
-  - hidden: true
+  hidden: true
