@@ -1,0 +1,11 @@
+#### Input Select Definitions #################################################
+
+# Media Center State (based on power)
+media_center_state:
+  name: Media Center
+  icon: mdi:audio-video
+  options:
+    - Idle
+    - TV
+    - Rcvr
+    - All

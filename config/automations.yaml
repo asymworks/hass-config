@@ -1,0 +1,106 @@
+- id: '1546488317587'
+  alias: Media Player Stopped
+  trigger:
+  - entity_id: media_player.living_room_firetv
+    from: playing
+    platform: state
+    to: standby
+  condition:
+  - after: sunset
+    condition: sun
+  action:
+  - data:
+      entity_id: scene.living_room_normal
+    service: scene.turn_on
+- id: '1546488433417'
+  alias: Media Player Started
+  trigger:
+  - entity_id: media_player.living_room_firetv
+    from: standby
+    platform: state
+    to: playing
+  condition:
+  - after: sunset
+    condition: sun
+  action:
+  - data:
+      entity_id: scene.living_room_dim
+    service: scene.turn_on
+- id: '1546550883902'
+  alias: Nexus 5X Leaves Home
+  trigger:
+  - below: '20'
+    entity_id: sensor.btp_entryway_jpk_nexus5x
+    for: 0:00:10
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      message: bye lol
+    service: notify.pushover
+- id: '1546550943034'
+  alias: Nexus 5X Arrives Home
+  trigger:
+  - above: '80'
+    entity_id: sensor.btp_entryway_jpk_nexus5x
+    for: 0:00:10
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      message: O HAI
+    service: notify.pushover
+- id: '1546577615833'
+  alias: Media Center Idle
+  trigger:
+  - below: '10'
+    entity_id: sensor.tplink_media_center_watts
+    for: 0:00:10
+    platform: numeric_state
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.media_center_state
+      option: Idle
+- id: '1546577737160'
+  alias: Media Center TV
+  trigger:
+  - above: '20'
+    below: '50'
+    entity_id: sensor.tplink_media_center_watts
+    for: 0:00:10
+    platform: numeric_state
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.media_center_state
+      option: TV
+- id: '1546577815227'
+  alias: Media Center Receiver
+  trigger:
+  - above: '60'
+    below: '150'
+    entity_id: sensor.tplink_media_center_watts
+    for: 0:00:10
+    platform: numeric_state
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.media_center_state
+      option: Rcvr
+- id: '1546577854908'
+  alias: Media Center On
+  trigger:
+  - above: '160'
+    entity_id: sensor.tplink_media_center_watts
+    for: 0:00:10
+    platform: numeric_state
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.media_center_state
+      option: All

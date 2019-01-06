@@ -1,0 +1,21 @@
+# Group Definitions
+#
+
+#default_view:
+#  view: true
+#  icon: mdi:home
+#  entities:
+#    - group.living_room
+#    - group.bedroom
+
+Living Room:
+  entities:
+    - light.living_room_main
+    - light.hue_ambiance_lamp_1
+    - light.hue_ambiance_lamp_2
+      #- switch.living_room_lamp
+      #- switch.entry_lamp
+
+Bedroom:
+  entities:
+    - light.hue_color_lamp_1

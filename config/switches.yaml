@@ -1,0 +1,6 @@
+#### Switches #################################################################
+
+# TP-Link TP-110 Switch/Power Monitors
+- platform: tplink
+  name: "TPLink Media Center"
+  host: 10.0.2.231
