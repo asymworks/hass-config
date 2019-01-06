@@ -5,7 +5,7 @@ install:
   - "pip install homeassistant"
   - "python $TRAVIS_BUILD_DIR/bin/dummy_secrets.py"
   - "sudo mkdir -p /srv/hass && sudo cp $TRAVIS_BUILD_DIR/bin/fake-ca.pem /srv/hass/network-ca-chain.pem"
-  - "sudo mkdir /srv/hass/adb && sudo cp $TRAVIS_BUILD_DIR/bin/fake-adbkey.pem /srv/hass/adb/adbkey"
+  - "sudo mkdir /srv/hass/adb && sudo touch /srv/hass/adb/adbkey{,.pub}"
 script: "bash $TRAVIS_BUILD_DIR/bin/check_config.sh"
 notifications:
   email: false
