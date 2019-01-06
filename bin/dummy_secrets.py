@@ -36,6 +36,7 @@ if __name__ == '__main__':
 		os.chdir(os.environ['TRAVIS_BUILD_DIR'])
 
 	scan_file('configuration.yaml')
+	scan_file('known_devices.yaml')
 
 	with open('secrets.yaml', 'w') as f:
 		for k, v in secrets.items():

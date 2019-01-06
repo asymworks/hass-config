@@ -1,5 +1,6 @@
 .HA_VERSION
 .cloud
+.storage
 .uuid
 *.conf
 deps/
