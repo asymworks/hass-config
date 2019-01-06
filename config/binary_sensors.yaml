@@ -6,17 +6,18 @@
   name: 'J.P. Presence'
   probability_threshold: 0.9
   observations:
-    - entity_id: device_tracker.jp_nexus5x_mac
+    - entity_id: device_tracker.jp_n5x_ip
       prob_given_true: 0.9
-      prob_given_false: 0.2
+      prob_given_false: 0.1
       platform: state
       to_state: home
-    - entity_id: device_tracker.jp_nexus5x
+    - entity_id: device_tracker.jp_n5xot
       prob_given_true: 0.9
       prob_given_false: 0.4
       platform: state
       to_state: home
-    - entity_id: sensor.btp_entryway_jpk_nexus5x
-      prob_given_true: 0.9
+    - entity_id: sensor.monitor_entry_jp_n5x
+      prob_given_true: 0.8
+      prob_given_false: 0.3
       platform: numeric_state
-      above: 50
+      above: 80
