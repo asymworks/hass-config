@@ -12,3 +12,24 @@ jp_n5x_ip:
   name: WiFi
   icon: mdi:access-point
   track: true
+
+jp_ipad_ip:
+  # WiFi MAC on iPad
+  hide_if_away: true
+  mac: !secret jp_ipad_ip_mac
+  name: iPad
+  track: false
+
+jp_tab_ip:
+  # WiFi MAC on Galaxy Tablet
+  hide_if_away: true
+  mac: !secret jp_tab_ip_mac
+  name: Tablet
+  track: false
+
+jp_win_ip:
+  # WiFi MAC on Windows Phone
+  hide_if_away: true
+  mac: !secret jp_win_ip_mac
+  name: Win Phone
+  track: false
