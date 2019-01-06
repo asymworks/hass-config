@@ -2,7 +2,7 @@
 
 # Weather prediction
 - platform: darksky
-  api_key: e9672e30f410b55ba7a0a7db31f7b4ca
+  api_key: !secret darksky_api_key
   monitored_conditions:
     - summary
     - icon
@@ -10,8 +10,8 @@
 
 # Bluetooth Presence (JPK Nexus 5X)
 - platform: mqtt
-  name: btp_entryway_jpk_nexus5x
-  state_topic: 'monitor/btp0-entry/64:BC:0C:FA:01:18'
+  name: monitor_entry_jp_n5x
+  state_topic: !secret monitor_entry_jp_n5x_topic
   value_template: '{{ value_json.confidence }}'
   unit_of_measurement: '%'
   
@@ -21,7 +21,7 @@
   type: max
   round_digits: 0
   entity_ids:
-    - sensor.btp_entryway_jpk_nexus5x
+    - sensor.monitor_entry_jp_n5x
 
 # TP-Link Smart Plugs
 - platform: template
