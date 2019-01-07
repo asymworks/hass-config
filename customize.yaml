@@ -7,7 +7,7 @@ binary_sensor.jp_presence:
 
 # Presence Pictures
 sensor.jp_status:
-  entity_picture: https://gravatar.com/avatar/83455c48dedd9d2399575f7d4c6f39b1
+  entity_picture: https://gravatar.com/avatar/e78e623948f3675cf1c51544f9bec928
 
 # Z-Wave Door Sensor
 binary_sensor.front_door_open:
