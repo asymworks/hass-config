@@ -1,6 +1,6 @@
 #### Sensor Definitions #######################################################
 
-# Weather prediction
+# Weather Prediction
 - platform: darksky
   api_key: !secret darksky_api_key
   monitored_conditions:
@@ -8,7 +8,7 @@
     - icon
     - temperature
 
-# Bluetooth Presence (JPK Nexus 5X)
+# Bluetooth Presence (JPK Nexus 5X at Entryway)
 - platform: mqtt
   name: monitor_entry_jp_n5x
   state_topic: !secret monitor_entry_jp_n5x_topic
@@ -22,6 +22,13 @@
   round_digits: 0
   entity_ids:
     - sensor.monitor_entry_jp_n5x
+
+# Presence Status
+- platform: template
+  sensors:
+    jp_status:
+      value_template: '{{ states.input_select.jp_presence_status.state }}'
+      friendly_name_template: '{{ states.input_select.jp_presence_status.name }}'
 
 # TP-Link Smart Plugs
 - platform: template

@@ -18,3 +18,8 @@ automations:
   icon: mdi:settings
   entities:
     - group.all_automations
+
+people:
+  name: People Status
+  entities:
+    - sensor.jp_status

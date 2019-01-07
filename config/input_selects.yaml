@@ -9,3 +9,14 @@ media_center_state:
     - TV
     - Rcvr
     - All
+
+# J.P. Extended Presence Status
+jp_presence_status:
+  name: J.P.
+  options:
+    - Home
+    - Just Arrived
+    - Just Left
+    - Away
+    - Extended Away
+  initial: Home
