@@ -140,5 +140,6 @@ script: !include config/scripts.yaml
 sensor: !include config/sensors.yaml
 switch: !include config/switches.yaml
 binary_sensor: !include config/binary_sensors.yaml
+input_boolean: !include config/input_booleans.yaml
 input_select: !include config/input_selects.yaml
 

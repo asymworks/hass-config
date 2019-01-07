@@ -1,4 +1,16 @@
-
+# Manually Trigger Presence Departure Scan
+- alias: Departure Scan
+  trigger:
+    - platform: state
+      entity_id: input_boolean.departure_scan
+      to: 'on'
+  action:
+    - service: mqtt.publish
+      data:
+        payload: zw_front_door
+        topic: monitor/scan/DEPART
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.departure_scan
 
 # 5-ary Presence State Machine
 - alias: Presence - Just Arrived
