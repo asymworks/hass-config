@@ -2,30 +2,30 @@
 
 - name: Living Room Normal
   entities:
-    light.living_room_main:
+    light.living_room_front:
       state: on
       transition: 5
       brightness_pct: 80
-    light.hue_ambiance_lamp_1:
+    light.living_room_back:
       state: on
       transition: 5
       brightness_pct: 80
-    light.hue_ambiance_lamp_2:
+    light.living_room_entry:
       state: on
       transition: 5
       brightness_pct: 80
 
 - name: Living Room Dim
   entities:
-    light.living_room_main:
+    light.living_room_front:
       state: on
       transition: 5
       brightness_pct: 20
-    light.hue_ambiance_lamp_1:
+    light.living_room_back:
       state: on
       transition: 5
       brightness_pct: 20
-    light.hue_ambiance_lamp_2:
+    light.living_room_entry:
       state: on
       transition: 5
       brightness_pct: 20

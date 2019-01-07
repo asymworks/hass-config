@@ -5,6 +5,10 @@ binary_sensor.jp_presence:
   friendly_name: J.P.
   device_class: presence
 
+# Presence Pictures
+sensor.jp_status:
+  entity_picture: https://gravatar.com/avatar/83455c48dedd9d2399575f7d4c6f39b1
+
 # Z-Wave Door Sensor
 binary_sensor.front_door_open:
   friendly_name: Front Door
