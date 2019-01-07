@@ -24,7 +24,7 @@
       data_template:
         entity_id: input_select.jp_presence_status
         option: >
-          {% if states.input_select.jp_presence_status == 'Just Left' %}
+          {% if states.input_select.jp_presence_status.state == 'Just Left' %}
             Home
           {% else %}
             Just Arrived
