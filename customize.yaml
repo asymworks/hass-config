@@ -1,4 +1,14 @@
-#### UI Customizations ########################################################
+#### Device Customizations ####################################################
+
+# Presence Sensors
+binary_sensor.jp_presence:
+  friendly_name: J.P.
+  device_class: presence
+
+# Z-Wave Door Sensor
+binary_sensor.front_door_open:
+  friendly_name: Front Door
+  device_class: door
 
 # Z-Wave Door Sensor Extra Attributes
 sensor.zw_front_door_sensor_access_control:
@@ -12,4 +22,18 @@ sensor.zw_front_door_sensor_burglar:
 sensor.zw_front_door_sensor_power_management:
   hidden: true
 sensor.zw_front_door_sensor_sourcenodeid:
+  hidden: true
+
+# Hue App Groups
+light.bedroom:
+  hidden: true
+light.group_for_wakeup:
+  hidden: true
+light.group_for_wakeup_2:
+  hidden: true
+light.living_room:
+  hidden: true
+
+# TP Link for Monitoring Only
+switch.tplink_media_center:
   hidden: true

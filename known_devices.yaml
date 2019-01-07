@@ -82,3 +82,19 @@ b827eb40bb74:
   name: 4473d60d59a3
   picture:
   track: false
+
+d073d52a7eb3:
+  hide_if_away: true
+  icon:
+  mac: D0:73:D5:2A:7E:B3
+  name: d073d52a7eb3
+  picture:
+  track: false
+
+74da386baec9:
+  hide_if_away: true
+  icon:
+  mac: 74:DA:38:6B:AE:C9
+  name: 74da386baec9
+  picture:
+  track: false
