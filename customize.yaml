@@ -9,6 +9,10 @@ binary_sensor.jp_presence:
 sensor.jp_status:
   entity_picture: https://gravatar.com/avatar/e78e623948f3675cf1c51544f9bec928
 
+# Device Pictures
+sensor.media_center_status:
+  icon: mdi:audio-video
+
 # Z-Wave Door Sensor
 binary_sensor.front_door_open:
   friendly_name: Front Door

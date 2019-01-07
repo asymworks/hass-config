@@ -1,25 +1,133 @@
 #### Group Definitions ########################################################
 
+# Default View
+default_view:
+  view: true
+  name: Home
+  entities:
+    - binary_sensor.front_door_open
+    - binary_sensor.jp_presence
+    - device_tracker.jp_n5x_ip
+    - device_tracker.jp_n5xot
+    - sun.sun
+    - group.people
+    - group.weather
+    - group.device_status
+    - group.living_room
+    - group.bedroom
+    - media_player.living_room_firetv
+
+# People Status Card
+people:
+  name: People Status
+  entities:
+    - sensor.jp_status
+
+# Weather Card
+weather:
+  name: Weather
+  entities:
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature
+
+# Device Status Card
+device_status:
+  name: Device Status
+  entities:
+    - sensor.media_center_status
+
+# Living Room Card
 living_room:
   name: Living Room
   entities:
     - light.living_room_front
     - light.living_room_back
     - light.living_room_entry
+    - scene.living_room_normal
+    - scene.living_room_dim
 
+# Bedroom Card
 bedroom:
   name: Bedroom
   entities:
     - light.bedroom_nightstand
 
-automations:
-  view: yes
+#### Power Status View ########################################################
+power_view:
+  view: true
+  name: Power
+  entities:
+    - group.tplink_media_center
+
+# Media Center TP-Link Card
+tplink_media_center:
+  name: TP-Link Media Center
+  entities:
+    - sensor.tplink_media_center_watts
+    - sensor.tplink_media_center_volts
+    - sensor.tplink_media_center_amps
+
+#### Automations View #########################################################
+automations_view:
+  view: true
   name: Automations
-  icon: mdi:settings
+  icon: mdi:cog
   entities:
     - group.all_automations
 
-people:
-  name: People Status
+# Presence Automations
+automations_presence:
+  name: Presence Automations
   entities:
-    - sensor.jp_status
+    - automation.presence__just_arrived
+    - automation.presence__home
+    - automation.presence__just_left
+    - automation.presence__away
+    - automation.presence__extended_away
+
+# Media Player Automations
+automations_player:
+  name: Media Player Automations
+  entities:
+    - automation.media_player_started
+    - automation.media_player_stopped
+
+# Media Center State Automations
+automations_media_center_state:
+  name: Media Center State Automations
+  entities:
+    - automation.media_center_idle
+    - automation.media_center_tv
+    - automation.media_center_receiver
+    - automation.media_center_on
+
+# Sensor Automations
+automation_sensors:
+  name: Sensor Automations
+  entities:
+    - automation.front_door_open
+    - automation.front_door_departure_scan
+
+# Other Automations
+automation_other:
+  name: Other Automations
+  entities:
+    - automation.arrived_home
+    - automation.left_home
+    - automation.departure_scan
+    - automation.nexus_5x_arrives_home
+    - automation.nexus_5x_leaves_home
+
+#### Debug View ###############################################################
+debug_view:
+  view: true
+  name: Debug
+  icon: mdi:resistor
+  entities:
+    - group.bluetooth_presence
+
+# Bluetooth Presence Card
+bluetooth_presence:
+  name: Presence Metrics
+  entities:
+    - sensor.monitor_entry_jp_n5x
