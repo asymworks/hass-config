@@ -1,11 +1,20 @@
 #### Group Definitions ########################################################
 
-Living Room:
+living_room:
+  name: Living Room
   entities:
-    - light.living_room_main
-    - light.hue_ambiance_lamp_1
-    - light.hue_ambiance_lamp_2
+    - light.living_room_front
+    - light.living_room_back
+    - light.living_room_entry
 
-Bedroom:
+bedroom:
+  name: Bedroom
   entities:
-    - light.hue_color_lamp_1
+    - light.bedroom_nightstand
+
+automations:
+  view: yes
+  name: Automations
+  icon: mdi:settings
+  entities:
+    - group.all_automations

@@ -4,7 +4,7 @@
 - platform: bayesian
   prior: 0.5
   name: 'J.P. Presence'
-  probability_threshold: 0.9
+  probability_threshold: 0.85
   observations:
     - entity_id: device_tracker.jp_n5x_ip
       prob_given_true: 0.9
@@ -12,8 +12,8 @@
       platform: state
       to_state: home
     - entity_id: device_tracker.jp_n5xot
-      prob_given_true: 0.9
-      prob_given_false: 0.4
+      prob_given_true: 0.7
+      prob_given_false: 0.2
       platform: state
       to_state: home
     - entity_id: sensor.monitor_entry_jp_n5x
