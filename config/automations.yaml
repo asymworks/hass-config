@@ -1,3 +1,71 @@
+
+
+# 5-ary Presence State Machine
+- alias: Presence - Just Arrived
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.jp_presence
+      from: 'off'
+      to: 'on'
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: input_select.jp_presence_status
+        option: >
+          {% if states.input_select.jp_presence_status == 'Just Left' %}
+            Home
+          {% else %}
+            Just Arrived
+          {% endif %}
+- alias: Presence - Home
+  trigger:
+    - platform: state
+      entity_id: input_select.jp_presence_status
+      to: 'Just Arrived'
+      for:
+        minutes: 10
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.jp_presence_status
+        option: Home
+- alias: Presence - Just Left
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.jp_presence
+      from: 'on'
+      to: 'off'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.jp_presence_status
+        option: Just Left
+- alias: Presence - Away
+  trigger:
+    - platform: state
+      entity_id: input_select.jp_presence_status
+      to: 'Just Left'
+      for:
+        minutes: 10
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.jp_presence_status
+        option: Away
+- alias: Presence - Extended Away
+  trigger:
+    - platform: state
+      entity_id: input_select.jp_presence_status
+      to: 'Away'
+      for:
+        hours: 24
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.jp_presence_status
+        option: Extended Away
+
+
 - id: '1546488317587'
   alias: Media Player Stopped
   trigger:
@@ -12,6 +80,7 @@
   - data:
       entity_id: scene.living_room_normal
     service: scene.turn_on
+
 - id: '1546488433417'
   alias: Media Player Started
   trigger:
@@ -26,6 +95,7 @@
   - data:
       entity_id: scene.living_room_dim
     service: scene.turn_on
+
 - id: '1546550883902'
   alias: Nexus 5X Leaves Home
   trigger:
@@ -50,6 +120,7 @@
   - data:
       message: O HAI
     service: notify.pushover
+
 - id: '1546577615833'
   alias: Media Center Idle
   trigger:
@@ -63,6 +134,7 @@
     data:
       entity_id: input_select.media_center_state
       option: Idle
+
 - id: '1546577737160'
   alias: Media Center TV
   trigger:
@@ -77,6 +149,7 @@
     data:
       entity_id: input_select.media_center_state
       option: TV
+
 - id: '1546577815227'
   alias: Media Center Receiver
   trigger:
@@ -91,6 +164,7 @@
     data:
       entity_id: input_select.media_center_state
       option: Rcvr
+
 - id: '1546577854908'
   alias: Media Center On
   trigger:
