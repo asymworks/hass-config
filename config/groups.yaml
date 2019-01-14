@@ -15,6 +15,7 @@ default_view:
     - group.device_status
     - group.living_room
     - group.bedroom
+    - group.office
     - media_player.living_room_firetv
 
 # People Status Card
@@ -52,6 +53,12 @@ bedroom:
   entities:
     - light.bedroom_nightstand
 
+# Office Card
+office:
+  name: Office
+  entities:
+    - light.office_lamp
+
 #### Power Status View ########################################################
 power_view:
   view: true
@@ -71,9 +78,13 @@ tplink_media_center:
 automations_view:
   view: true
   name: Automations
-  icon: mdi:cog
+  icon: mdi:cogs
   entities:
-    - group.all_automations
+    - group.automations_presence
+    - group.automations_player
+    - group.automations_media_center_state
+    - group.automations_sensors
+    - group.automations_other
 
 # Presence Automations
 automations_presence:
@@ -102,16 +113,17 @@ automations_media_center_state:
     - automation.media_center_on
 
 # Sensor Automations
-automation_sensors:
+automations_sensors:
   name: Sensor Automations
   entities:
     - automation.front_door_open
     - automation.front_door_departure_scan
 
 # Other Automations
-automation_other:
+automations_other:
   name: Other Automations
   entities:
+    - automation_arrive_home_night
     - automation.arrived_home
     - automation.left_home
     - automation.departure_scan
@@ -130,4 +142,5 @@ debug_view:
 bluetooth_presence:
   name: Presence Metrics
   entities:
+    - input_boolean.departure_scan
     - sensor.monitor_entry_jp_n5x
