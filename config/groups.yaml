@@ -123,10 +123,10 @@ automations_sensors:
 automations_other:
   name: Other Automations
   entities:
-    - automation_arrive_home_night
     - automation.arrived_home
     - automation.left_home
     - automation.departure_scan
+    - automation.sunrise_automation
     - automation.nexus_5x_arrives_home
     - automation.nexus_5x_leaves_home
 

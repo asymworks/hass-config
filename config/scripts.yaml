@@ -1,0 +1,75 @@
+#### Script Definitions #######################################################
+
+sunrise:
+  # Simulated Sunrise on Nightstand Lamp (30 min, from Off)
+  sequence:
+    # Dark Red
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom_nightstand
+        xy_color: [0.67,0.39]
+        brightness: 1
+        transition: 60
+    - delay:
+        seconds: 60
+    # Warm Orange
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom_nightstand
+        xy_color: [0.65,0.41]
+        brightness: 85
+        transition: 600
+    - delay:
+        seconds: 600
+    # Yellow
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom_nightstand
+        xy_color: [0.60,0.40]
+        brightness: 170
+        transition: 600
+    - delay:
+        seconds: 600
+    # White
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom_nightstand
+        xy_color: [0.48,0.40]
+        brightness: 255
+        transition: 600
+    - delay:
+        seconds: 600
+
+sunrise:
+  # Simulated Sunset on Nightstand Lamp (10 min, from On)
+  sequence:
+    # Yellow
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom_nightstand
+        xy_color: [0.60,0.40]
+        brightness: 170
+        transition: 180
+    - delay:
+        seconds: 180
+    # Warm Orange
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom_nightstand
+        xy_color: [0.65,0.41]
+        brightness: 85
+        transition: 180
+    - delay:
+        seconds: 180
+    # Dark Red
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom_nightstand
+        xy_color: [0.67,0.39]
+        brightness: 1
+        transition: 240
+    - delay:
+        seconds: 240
+    # Off
+    - service: light.turn_off
+      entity_id: light.bedroom_nightstand
