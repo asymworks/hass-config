@@ -40,7 +40,7 @@ sunrise:
     - delay:
         seconds: 600
 
-sunrise:
+sunset:
   # Simulated Sunset on Nightstand Lamp (10 min, from On)
   sequence:
     # Yellow
