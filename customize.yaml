@@ -45,3 +45,9 @@ light.living_room:
 # TP Link for Monitoring Only
 switch.tplink_media_center:
   hidden: true
+
+# Scripts
+script.sunrise:
+  friendly_name: Sunrise Script
+script.sunset:
+  friendly_name: Sunset Script
