@@ -47,6 +47,15 @@ living_room:
     - scene.living_room_normal
     - scene.living_room_dim
 
+# Dining Room Card
+dining_room:
+  name: Dining Room
+  entities:
+    - light.dining_room_1
+    - light.dining_room_2
+    - light.dining_room_3
+    - scene.dining_room_normal
+
 # Bedroom Card
 bedroom:
   name: Bedroom
