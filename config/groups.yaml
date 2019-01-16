@@ -14,6 +14,7 @@ default_view:
     - group.weather
     - group.device_status
     - group.living_room
+    - group.dining_room
     - group.bedroom
     - group.office
     - media_player.living_room_firetv
