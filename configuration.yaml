@@ -75,11 +75,6 @@ notify:
   - name: telegram_bot
     platform: telegram
     chat_id: !secret telegram_chat_id
-  
-  - name: pushover
-    platform: pushover
-    api_key: !secret pushover_api_key
-    user_key: !secret pushover_user_key
 
 # Node-Red IFrame
 panel_iframe:
@@ -102,13 +97,6 @@ device_tracker:
     new_device_defaults:
       track_new_devices: false
       hide_if_away: true
-
-  # Track with Built-In Bluetooth
-  #- platform: bluetooth_tracker
-  #  request_rssi: true
-  #  new_device_defaults:
-  #    track_new_devices: false
-  #    hide_if_away: false
 
 # FireTV and Kodi Media Players
 media_player:

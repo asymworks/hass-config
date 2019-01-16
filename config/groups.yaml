@@ -14,6 +14,7 @@ default_view:
     - group.weather
     - group.device_status
     - group.living_room
+    - group.dining_room
     - group.bedroom
     - media_player.living_room_firetv
 
@@ -46,11 +47,24 @@ living_room:
     - scene.living_room_normal
     - scene.living_room_dim
 
+# Dining Room Card
+dining_room:
+  name: Dining Room
+  entities:
+    - light.dining_room_1
+    - light.dining_room_2
+    - light.dining_room_3
+    - scene.dining_room_normal
+    - scene.dining_room_low
+    - scene.dining_room_dim
+
 # Bedroom Card
 bedroom:
   name: Bedroom
   entities:
     - light.bedroom_nightstand
+    - script.sunrise
+    - script.sunset
 
 #### Power Status View ########################################################
 power_view:
@@ -71,9 +85,13 @@ tplink_media_center:
 automations_view:
   view: true
   name: Automations
-  icon: mdi:cog
+  icon: mdi:cogs
   entities:
-    - group.all_automations
+    - group.automations_presence
+    - group.automations_player
+    - group.automations_media_center_state
+    - group.automations_sensors
+    - group.automations_other
 
 # Presence Automations
 automations_presence:
@@ -102,19 +120,20 @@ automations_media_center_state:
     - automation.media_center_on
 
 # Sensor Automations
-automation_sensors:
+automations_sensors:
   name: Sensor Automations
   entities:
     - automation.front_door_open
     - automation.front_door_departure_scan
 
 # Other Automations
-automation_other:
+automations_other:
   name: Other Automations
   entities:
     - automation.arrived_home
     - automation.left_home
     - automation.departure_scan
+    - automation.sunrise_automation
     - automation.nexus_5x_arrives_home
     - automation.nexus_5x_leaves_home
 
@@ -130,4 +149,5 @@ debug_view:
 bluetooth_presence:
   name: Presence Metrics
   entities:
+    - input_boolean.departure_scan
     - sensor.monitor_entry_jp_n5x
