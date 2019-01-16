@@ -44,3 +44,33 @@
       state: on
       brightness_pct: 100
       color_temp: 366
+
+- name: Dining Room Low
+  entities:
+    light.dining_room_1:
+      state: on
+      brightness_pct: 40
+      color_temp: 366
+    light.dining_room_2:
+      state: on
+      brightness_pct: 40
+      color_temp: 366
+    light.dining_room_3:
+      state: on
+      brightness_pct: 40
+      color_temp: 366
+
+- name: Dining Room Dim
+  entities:
+    light.dining_room_1:
+      state: on
+      brightness_pct: 15
+      color_temp: 366
+    light.dining_room_2:
+      state: on
+      brightness_pct: 15
+      color_temp: 366
+    light.dining_room_3:
+      state: on
+      brightness_pct: 15
+      color_temp: 366

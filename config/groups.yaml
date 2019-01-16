@@ -16,7 +16,6 @@ default_view:
     - group.living_room
     - group.dining_room
     - group.bedroom
-    - group.office
     - media_player.living_room_firetv
 
 # People Status Card
@@ -56,6 +55,8 @@ dining_room:
     - light.dining_room_2
     - light.dining_room_3
     - scene.dining_room_normal
+    - scene.dining_room_low
+    - scene.dining_room_dim
 
 # Bedroom Card
 bedroom:
@@ -64,12 +65,6 @@ bedroom:
     - light.bedroom_nightstand
     - script.sunrise
     - script.sunset
-
-# Office Card
-office:
-  name: Office
-  entities:
-    - light.office_lamp
 
 #### Power Status View ########################################################
 power_view:
