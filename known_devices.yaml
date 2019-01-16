@@ -98,3 +98,43 @@ d073d52a7eb3:
   name: 74da386baec9
   picture:
   track: false
+
+tile_b5782b152d7043df:
+  hide_if_away: true
+  icon: mdi:view-grid
+  mac:
+  name: tile b5782b152d7043df
+  picture:
+  track: true
+
+807d3a295b29:
+  hide_if_away: true
+  icon:
+  mac: 80:7D:3A:29:5B:29
+  name: 807d3a295b29
+  picture:
+  track: false
+
+jp_nexus5x:
+  hide_if_away: true
+  icon:
+  mac:
+  name: jp
+  picture:
+  track: false
+
+d073d52a4566:
+  hide_if_away: true
+  icon:
+  mac: D0:73:D5:2A:45:66
+  name: d073d52a4566
+  picture:
+  track: false
+
+d073d52a4c74:
+  hide_if_away: true
+  icon:
+  mac: D0:73:D5:2A:4C:74
+  name: d073d52a4c74
+  picture:
+  track: false
