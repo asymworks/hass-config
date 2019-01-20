@@ -1,7 +1,7 @@
 #### Device Customizations ####################################################
 
 # Presence Sensors
-binary_sensor.jp_presence:
+binary_sensor.j_p_presence:
   friendly_name: J.P.
   device_class: presence
 
