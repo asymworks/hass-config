@@ -3,6 +3,10 @@
 .storage
 .uuid
 *.conf
+*.pem
+*.crt
+*.key
+adb/
 deps/
 tts/
 secrets.yaml

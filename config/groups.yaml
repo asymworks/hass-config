@@ -6,7 +6,7 @@ default_view:
   name: Home
   entities:
     - binary_sensor.front_door_open
-    - binary_sensor.jp_presence
+    - binary_sensor.j_p_presence
     - device_tracker.jp_n5x_ip
     - device_tracker.jp_n5xot
     - sun.sun
@@ -62,7 +62,7 @@ dining_room:
 bedroom:
   name: Bedroom
   entities:
-    - light.bedroom_nightstand
+    - light.nightstand_right
     - script.sunrise
     - script.sunset
 
