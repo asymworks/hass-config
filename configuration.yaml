@@ -14,7 +14,7 @@ mqtt:
   port: 8883
   username: !secret mqtt_username
   password: !secret mqtt_password
-  certificate: /srv/hass/network-ca-chain.pem
+  certificate: /config/network-ca-chain.pem
   tls_version: '1.2'
   birth_message:
     topic: 'hass/status'
@@ -38,6 +38,7 @@ http:
     - ::1
     - 10.0.1.0/24
     - 10.0.2.0/24
+    - 10.99.0.0/24
 
 # Enable the Front End
 frontend:
@@ -81,7 +82,7 @@ panel_iframe:
   nodered:
     title: 'Node-Red'
     icon: mdi:shuffle-variant
-    url: 'http://localhost:1880'
+    url: 'http://nodered.ha.snrhome.com:1880'
 
 # Device Tracking
 device_tracker:
@@ -103,7 +104,7 @@ media_player:
   - platform: firetv
     name: Living Room FireTV
     host: 10.0.1.91
-    adbkey: /srv/hass/adb/adbkey
+    adbkey: /config/adb/adbkey
 
 # OwnTracks Setup
 owntracks:
