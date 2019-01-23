@@ -53,3 +53,14 @@
       value_template: '{{ states.switch.tplink_media_center.attributes["voltage"] | float }}'
       unit_of_measurement: 'V'
 
+# ESP8266 Bed Sensors
+- platform: mqtt
+  state_topic: 'sensor/esp8266-bed-right'
+  name: 'bed_right_value'
+
+- platform: template
+  sensors:
+    jp_bed:
+      friendly_name_template: "J.P. Bed"
+      value_template: "{% if states('sensor.bed_right_value') | float > 300 %}Occupied{% else %}Empty{% endif %}"
+      icon_template: "{% if states('sensor.bed_right_value') | float > 300 %}mdi:hotel{% else %}mdi:bed-empty{% endif %}"
