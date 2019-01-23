@@ -134,8 +134,6 @@ automations_other:
     - automation.left_home
     - automation.departure_scan
     - automation.sunrise_automation
-    - automation.nexus_5x_arrives_home
-    - automation.nexus_5x_leaves_home
 
 #### Debug View ###############################################################
 debug_view:
