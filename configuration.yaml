@@ -125,7 +125,7 @@ influxdb:
   database: home_assistant
   tags:
     source: hass
-    instance: !secret influxdb_instance   # Development or Production
+    instance: !secret influxdb_instance   # dummy: dev
 
 # Automation File for Configuration UI
 automation: !include automations.yaml
