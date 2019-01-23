@@ -3,7 +3,7 @@
 # Bayesian Presence
 - platform: bayesian
   prior: 0.5
-  name: 'J.P. Presence'
+  name: jp_presence
   probability_threshold: 0.85
   observations:
     - entity_id: device_tracker.jp_n5x_ip

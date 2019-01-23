@@ -6,7 +6,7 @@ default_view:
   name: Home
   entities:
     - binary_sensor.front_door_open
-    - binary_sensor.j_p_presence
+    - binary_sensor.jp_presence
     - device_tracker.jp_n5x_ip
     - device_tracker.jp_n5xot
     - sun.sun
