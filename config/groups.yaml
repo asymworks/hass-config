@@ -62,6 +62,7 @@ dining_room:
 bedroom:
   name: Bedroom
   entities:
+    - sensor.jp_bed
     - light.nightstand_right
     - script.sunrise
     - script.sunset
