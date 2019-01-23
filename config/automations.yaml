@@ -35,7 +35,7 @@
       entity_id: input_select.jp_presence_status
       to: 'Just Arrived'
       for:
-        minutes: 10
+        minutes: 5
   action:
     - service: input_select.select_option
       data:
@@ -58,7 +58,7 @@
       entity_id: input_select.jp_presence_status
       to: 'Just Left'
       for:
-        minutes: 10
+        minutes: 5
   action:
     - service: input_select.select_option
       data:
@@ -107,31 +107,6 @@
   - data:
       entity_id: scene.living_room_dim
     service: scene.turn_on
-
-- id: '1546550883902'
-  alias: Nexus 5X Leaves Home
-  trigger:
-  - below: '20'
-    entity_id: sensor.btp_entryway_jpk_nexus5x
-    for: 0:00:10
-    platform: numeric_state
-  condition: []
-  action:
-  - data:
-      message: bye lol
-    service: notify.pushover
-- id: '1546550943034'
-  alias: Nexus 5X Arrives Home
-  trigger:
-  - above: '80'
-    entity_id: sensor.btp_entryway_jpk_nexus5x
-    for: 0:00:10
-    platform: numeric_state
-  condition: []
-  action:
-  - data:
-      message: O HAI
-    service: notify.pushover
 
 - id: '1546577615833'
   alias: Media Center Idle
