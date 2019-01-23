@@ -118,6 +118,15 @@ owntracks:
     Home: home
     Work: work
 
+# InfluxDB Configuration
+influxdb:
+  host: influx.ha.snrhome.com
+  port: 8086
+  database: home_assistant
+  tags:
+    source: hass
+    instance: !secret influxdb_instance   # dummy: dev
+
 # Automation File for Configuration UI
 automation: !include automations.yaml
 
@@ -131,4 +140,3 @@ switch: !include config/switches.yaml
 binary_sensor: !include config/binary_sensors.yaml
 input_boolean: !include config/input_booleans.yaml
 input_select: !include config/input_selects.yaml
-
