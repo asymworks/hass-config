@@ -1,0 +1,67 @@
+#### Lovelace UI Configuration ################################################
+
+title: Krauss Home
+resources:
+  # Animated DarkSky Card
+  - url: /local/custom_ui/dark-sky-weather-card.js
+    type: module
+
+views:
+  # Legacy UI (groups.yaml) Tab
+  - title: Legacy
+    badges:
+      - binary_sensor.front_door_open
+      - binary_sensor.jp_presence
+      - device_tracker.jp_n5x_ip
+      - device_tracker.jp_n5xot
+      - sun.sun
+    cards:
+      - type: entities
+        title: People
+        show_header_toggle: false
+        entities:
+          - sensor.jp_status
+
+      - type: entities
+        title: Weather
+        show_header_toggle: false
+        entities:
+          - sensor.dark_sky_summary
+          - sensor.dark_sky_temperature
+
+      - type: entities
+        title: Device Status
+        show_header_toggle: false
+        entities:
+          - sensor.media_center_status
+
+      - type: entities
+        title: Living Room
+        entities:
+          - light.living_room_front
+          - light.living_room_back
+          - light.living_room_entry
+          - type: divider
+          - scene.living_room_normal
+          - scene.living_room_dim
+
+      - type: entities
+        title: Dining Room
+        entities:
+          - light.dining_room_1
+          - light.dining_room_2
+          - light.dining_room_3
+          - type: divider
+          - scene.dining_room_normal
+          - scene.dining_room_low
+          - scene.dining_room_dim
+
+      - type: entities
+        title: Bedroom
+        show_header_toggle: false
+        badges:
+          - sensor.jp_bed
+        entities:
+          - light.nightstand_right
+          - script.sunrise
+          - script.sunset
