@@ -31,8 +31,8 @@ mqtt:
 logger:
   default: warning
   logs:
-    homeassistant.components.http: warning
-    homeassistant.components.mqtt: debug
+    homeassistant.components.http: info
+    homeassistant.components.mqtt: info
 
 # API Access for Dashing
 http:
@@ -130,8 +130,6 @@ influxdb:
   tags:
     source: hass
     instance: !secret influxdb_instance   # dummy: dev
-  exclude:
-
 
 # Automation File for Configuration UI
 automation: !include automations.yaml
