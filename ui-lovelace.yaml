@@ -115,7 +115,7 @@ views:
         entity_current_text: sensor.dark_sky_current_text
         # Configuration Flags
         locale: en
-        static_icons: false
+        static_icons: true
         tooltip_bg_color: 'rgb( 75,155,239)'
         tooltip_border_color: orange
         tooltip_border_width: 3
