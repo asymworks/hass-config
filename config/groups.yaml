@@ -98,11 +98,11 @@ automations_view:
 automations_presence:
   name: Presence Automations
   entities:
-    - automation.presence__just_arrived
-    - automation.presence__home
-    - automation.presence__just_left
-    - automation.presence__away
-    - automation.presence__extended_away
+    - automation.presence_just_arrived
+    - automation.presence_home
+    - automation.presence_just_left
+    - automation.presence_away
+    - automation.presence_extended_away
 
 # Media Player Automations
 automations_player:

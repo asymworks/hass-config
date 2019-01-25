@@ -30,9 +30,6 @@ mqtt:
 # Logging
 logger:
   default: warning
-  logs:
-    homeassistant.components.http: info
-    homeassistant.components.mqtt: info
 
 # API Access for Dashing
 http:
