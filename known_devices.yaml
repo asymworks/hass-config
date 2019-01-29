@@ -122,3 +122,11 @@ d073d52a4c74:
   name: d073d52a4c74
   picture:
   track: false
+
+80_7d_3a_75_e9_29:
+  hide_if_away: true
+  icon:
+  mac: 80:7D:3A:75:E9:29
+  name: 80 7d 3a 75 e9 29
+  picture:
+  track: false
