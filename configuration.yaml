@@ -14,7 +14,7 @@ lovelace:
 
 # MQTT Broker Connection
 mqtt:
-  broker: mqtt.ha.snrhome.com
+  broker: mqtt.ha.kraussnet.com
   port: 8883
   username: !secret mqtt_username
   password: !secret mqtt_password
@@ -83,7 +83,7 @@ panel_iframe:
   nodered:
     title: 'Node-Red'
     icon: mdi:shuffle-variant
-    url: 'http://nodered.ha.snrhome.com:1880'
+    url: 'http://nodered.ha.kraussnet.com:1880'
 
 # Device Tracking
 device_tracker:
@@ -94,6 +94,7 @@ device_tracker:
     username: !secret tomato_username
     password: !secret tomato_password
     http_id: !secret tomato_http_id
+    verify_ssl: false
     interval_seconds: 10
     consider_home: 60
     new_device_defaults:
@@ -121,7 +122,7 @@ owntracks:
 
 # InfluxDB Configuration
 influxdb:
-  host: influx.ha.snrhome.com
+  host: influx.ha.kraussnet.com
   port: 8086
   database: home_assistant
   tags:

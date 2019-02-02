@@ -3,4 +3,4 @@
 # TP-Link TP-110 Switch/Power Monitors
 - platform: tplink
   name: "TPLink Media Center"
-  host: 10.0.2.231
+  host: 10.2.101.231
