@@ -37,8 +37,8 @@ http:
   trusted_networks:
     - 127.0.0.1
     - ::1
-    - 10.0.1.0/24
-    - 10.0.2.0/24
+    - 10.1.0.0/16
+    - 10.2.0.0/16
     - 10.99.0.0/24
 
 # Enable the Front End
@@ -90,7 +90,7 @@ device_tracker:
 
   # Track WiFi with Tomato Router/AP
   - platform: tomato
-    host: 10.0.2.253
+    host: 10.2.0.254
     username: !secret tomato_username
     password: !secret tomato_password
     http_id: !secret tomato_http_id
