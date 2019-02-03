@@ -36,11 +36,10 @@ http:
   api_password: !secret http_password
   trusted_networks:
     - 127.0.0.1
+    - 10.2.1.11
     - ::1
     - 10.1.0.0/16
-    - 10.2.0.0/16
-    - 10.99.0.0/24
-
+    
 # Enable the Front End
 frontend:
 
