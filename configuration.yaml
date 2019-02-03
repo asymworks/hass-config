@@ -34,11 +34,13 @@ logger:
 # API Access for Dashing
 http:
   api_password: !secret http_password
+  ip_ban_enabled: true
+  login_attempts_threshold: 2
   trusted_networks:
     - 127.0.0.1
+    - 10.1.0.13
+    - 10.1.1.21
     - 10.2.1.11
-    - ::1
-    - 10.1.0.0/16
     
 # Enable the Front End
 frontend:
