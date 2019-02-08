@@ -61,6 +61,24 @@
   state_topic: !secret monitor_entry_jp_n5x_topic
   value_template: '{{ value_json.confidence }}'
   unit_of_measurement: '%'
+
+- platform: mqtt
+  name: rssi_entry_jp_n5x_raw
+  state_topic: !secret rssi_entry_jp_n5x_topic
+  unit_of_measurement: 'dBm'
+
+- platform: filter
+  name: rssi_entry_jp_n5x
+  entity_id: sensor.rssi_entry_jp_n5x_raw
+  filters:
+    - filter: outlier
+      window_size: 2
+      radius: 1.0
+    - filter: lowpass
+      time_constant: 2
+    - filter: time_simple_moving_average
+      window_size: 00:01
+      precision: 1
   
 # Home Occupancy Confidence (JPK Nexus 5X)
 - platform: min_max
