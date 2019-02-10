@@ -130,3 +130,19 @@ d073d52a4c74:
   name: 80 7d 3a 75 e9 29
   picture:
   track: false
+
+b8_27_eb_66_9e_03:
+  hide_if_away: true
+  icon:
+  mac: B8:27:EB:66:9E:03
+  name: b8 27 eb 66 9e 03
+  picture:
+  track: false
+
+50_c7_bf_41_29_fc:
+  hide_if_away: true
+  icon:
+  mac: 50:C7:BF:41:29:FC
+  name: 50 c7 bf 41 29 fc
+  picture:
+  track: false
