@@ -118,6 +118,21 @@
       value_template: '{{ states.switch.tplink_media_center.attributes["voltage"] | float }}'
       unit_of_measurement: 'V'
 
+- platform: template
+  sensors:
+    tplink_server_rack_amps:
+      friendly_name_template: "{{ states.switch.tplink_server_rack.name }}"
+      value_template: '{{ states.switch.tplink_server_rack.attributes["current_a"] | float }}'
+      unit_of_measurement: 'A'
+    tplink_server_rack_volts:
+      friendly_name_template: "{{ states.switch.tplink_server_rack.name }}"
+      value_template: '{{ states.switch.tplink_server_rack.attributes["voltage"] | float }}'
+      unit_of_measurement: 'V'
+    tplink_server_rack_watts:
+      friendly_name_template: "{{ states.switch.tplink_server_rack.name }}"
+      value_template: '{{ states.switch.tplink_server_rack.attributes["current_power_w"] | float }}'
+      unit_of_measurement: 'W'
+
 # ESP8266 Bed Sensors
 - platform: mqtt
   state_topic: 'sensor/esp8266-bed-right'
