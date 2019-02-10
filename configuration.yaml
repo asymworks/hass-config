@@ -103,11 +103,11 @@ device_tracker:
       hide_if_away: true
 
 # FireTV and Kodi Media Players
-#media_player:
-#  - platform: firetv
-#    name: Living Room FireTV
-#    host: 10.0.1.91
-#    adbkey: /config/adb/adbkey
+media_player:
+  - platform: firetv
+    name: Living Room FireTV
+    host: 10.1.2.11
+    adbkey: /config/adb/adbkey
 
 # OwnTracks Setup
 owntracks:
