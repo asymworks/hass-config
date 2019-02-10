@@ -4,3 +4,7 @@
 - platform: tplink
   name: "TPLink Media Center"
   host: 10.2.1.231
+
+- platform: tplink
+  name: "TPLink Server Rack"
+  host: 10.2.1.232
