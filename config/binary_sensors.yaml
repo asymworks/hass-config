@@ -26,4 +26,4 @@
 - platform: threshold
   name: bathroom_motion
   entity_id: sensor.zooz_zse40_4_in_1_sensor_burglar
-  lower: 2
+  upper: 2
