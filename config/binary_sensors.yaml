@@ -21,3 +21,9 @@
       prob_given_false: 0.3
       platform: numeric_state
       above: 80
+
+# Bathroom Motion Sensor
+- platform: threshold
+  name: bathroom_motion
+  entity_id: sensor.zooz_zse40_4_in_1_sensor_burglar
+  lower: 2
