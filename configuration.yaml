@@ -66,6 +66,9 @@ map:
 # Track the sun
 sun:
 
+# System Health monitor
+system_health:
+        
 # Telegram Notifier
 telegram_bot:
   - platform: polling
@@ -104,7 +107,7 @@ device_tracker:
 
 # FireTV and Kodi Media Players
 media_player:
-  - platform: firetv
+  - platform: androidtv
     name: Living Room FireTV
     host: 10.1.2.11
     adbkey: /config/adb/adbkey
@@ -129,6 +132,13 @@ influxdb:
   tags:
     source: hass
     instance: !secret influxdb_instance   # dummy: dev
+
+# TP-Link Components
+tplink:
+  discovery: false
+  switch:
+    - host: 10.2.1.231
+    - host: 10.2.1.232
 
 # Automation File for Configuration UI
 automation: !include automations.yaml

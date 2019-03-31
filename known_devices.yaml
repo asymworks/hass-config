@@ -146,3 +146,51 @@ b8_27_eb_66_9e_03:
   name: 50 c7 bf 41 29 fc
   picture:
   track: false
+
+00_f1_40_42_0e_42:
+  hide_if_away: true
+  icon:
+  mac: 00:F1:40:42:0E:42
+  name: 00 f1 40 42 0e 42
+  picture:
+  track: false
+
+b8_27_eb_0c_d7_ba:
+  hide_if_away: true
+  icon:
+  mac: B8:27:EB:0C:D7:BA
+  name: b8 27 eb 0c d7 ba
+  picture:
+  track: false
+
+b8_27_eb_18_08_b2:
+  hide_if_away: true
+  icon:
+  mac: B8:27:EB:18:08:B2
+  name: b8 27 eb 18 08 b2
+  picture:
+  track: false
+
+d0_73_d5_2a_7c_8c:
+  hide_if_away: true
+  icon:
+  mac: D0:73:D5:2A:7C:8C
+  name: d0 73 d5 2a 7c 8c
+  picture:
+  track: false
+
+cc_2f_71_6a_98_66:
+  hide_if_away: true
+  icon:
+  mac: CC:2F:71:6A:98:66
+  name: cc 2f 71 6a 98 66
+  picture:
+  track: false
+
+10_98_c3_8f_49_61:
+  hide_if_away: true
+  icon:
+  mac: 10:98:C3:8F:49:61
+  name: 10 98 c3 8f 49 61
+  picture:
+  track: false

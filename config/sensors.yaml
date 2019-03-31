@@ -33,7 +33,7 @@
     - daily_summary
     - pressure
     - visibility
-  update_interval:
+  scan_interval:
     minutes: 5
 
 # Dark Sky Current Condition
@@ -106,32 +106,32 @@
 - platform: template
   sensors:
     tplink_media_center_amps:
-      friendly_name_template: "{{ states.switch.tplink_media_center.name }}"
-      value_template: '{{ states.switch.tplink_media_center.attributes["current_a"] | float }}'
+      friendly_name_template: "{{ states.switch.media_center.name }}"
+      value_template: '{{ states.switch.media_center.attributes["current_a"] | float }}'
       unit_of_measurement: 'A'
     tplink_media_center_watts:
-      friendly_name_template: "{{ states.switch.tplink_media_center.name }}"
-      value_template: '{{ states.switch.tplink_media_center.attributes["current_power_w"] | float }}'
+      friendly_name_template: "{{ states.switch.media_center.name }}"
+      value_template: '{{ states.switch.media_center.attributes["current_power_w"] | float }}'
       unit_of_measurement: 'W'
     tplink_media_center_volts:
-      friendly_name_template: "{{ states.switch.tplink_media_center.name }}"
-      value_template: '{{ states.switch.tplink_media_center.attributes["voltage"] | float }}'
+      friendly_name_template: "{{ states.switch.media_center.name }}"
+      value_template: '{{ states.switch.media_center.attributes["voltage"] | float }}'
       unit_of_measurement: 'V'
 
-- platform: template
-  sensors:
-    tplink_server_rack_amps:
-      friendly_name_template: "{{ states.switch.tplink_server_rack.name }}"
-      value_template: '{{ states.switch.tplink_server_rack.attributes["current_a"] | float }}'
-      unit_of_measurement: 'A'
-    tplink_server_rack_volts:
-      friendly_name_template: "{{ states.switch.tplink_server_rack.name }}"
-      value_template: '{{ states.switch.tplink_server_rack.attributes["voltage"] | float }}'
-      unit_of_measurement: 'V'
-    tplink_server_rack_watts:
-      friendly_name_template: "{{ states.switch.tplink_server_rack.name }}"
-      value_template: '{{ states.switch.tplink_server_rack.attributes["current_power_w"] | float }}'
-      unit_of_measurement: 'W'
+#- platform: template
+#  sensors:
+#    tplink_server_rack_amps:
+#      friendly_name_template: "{{ states.switch.tplink_server_rack.name }}"
+#      value_template: '{{ states.switch.tplink_server_rack.attributes["current_a"] | float }}'
+#      unit_of_measurement: 'A'
+#    tplink_server_rack_volts:
+#      friendly_name_template: "{{ states.switch.tplink_server_rack.name }}"
+#      value_template: '{{ states.switch.tplink_server_rack.attributes["voltage"] | float }}'
+#      unit_of_measurement: 'V'
+#    tplink_server_rack_watts:
+#      friendly_name_template: "{{ states.switch.tplink_server_rack.name }}"
+#      value_template: '{{ states.switch.tplink_server_rack.attributes["current_power_w"] | float }}'
+#      unit_of_measurement: 'W'
 
 # ESP8266 Bed Sensors
 - platform: mqtt
