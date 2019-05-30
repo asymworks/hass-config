@@ -113,6 +113,7 @@ device_tracker:
     verify_ssl: false
     interval_seconds: 10
     consider_home: 60
+    detection_time: 60                # consider_home synonym for UniFi
     new_device_defaults:
       track_new_devices: false
       hide_if_away: true
