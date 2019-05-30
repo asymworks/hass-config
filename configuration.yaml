@@ -152,6 +152,14 @@ tplink:
     - host: 10.2.1.231
     - host: 10.2.1.232
 
+# WeMo Components
+wemo:
+  discovery: false
+  static:
+    - 10.2.1.241
+    - 10.2.1.242
+    - 10.2.1.243
+
 # Automation File for Configuration UI
 automation: !include automations.yaml
 
