@@ -68,6 +68,14 @@ views:
           - script.sunrise
           - script.sunset
 
+  # Security Card
+  - title: Security
+    cards:
+      - type: entities
+        title: Inside Camera Switches
+        entities:
+          - switch.living_room_camera
+
   # DarkSky Animated Weather Card Dev
   - title: DarkSky
     cards:
