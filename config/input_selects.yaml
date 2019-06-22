@@ -29,4 +29,4 @@ ht_lighting_mode:
     - TV              # Dim Lights on Playing/Pause, Raise on Stopped
     - Cinema          # Lights Off on Playing, Dim on Pause, Low on Stopped
     - Date Night      # Lights Off on Playing, Dim on Pause, Off on Stopped
-  initial: TV Watching
+  initial: TV
