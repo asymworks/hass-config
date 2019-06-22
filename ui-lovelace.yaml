@@ -7,8 +7,8 @@ resources:
     type: module
 
 views:
-  # Legacy UI (groups.yaml) Tab
-  - title: Legacy
+  # Main Dashboard Card
+  - title: Home
     badges:
       - binary_sensor.front_door_open
       - binary_sensor.jp_presence
@@ -29,12 +29,37 @@ views:
           - sensor.dark_sky_summary
           - sensor.dark_sky_temperature
 
-      - type: entities
-        title: Device Status
-        show_header_toggle: false
-        entities:
-          - sensor.media_center_status
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: light
+                entity: light.living_room_lights
+              - type: entities
+                entities:
+                  - scene.living_room_normal
+                  - scene.living_room_dim
+          - type: vertical-stack
+            cards:
+              - type: light
+                entity: light.dining_room_lights
+              - type: entities
+                entities:
+                  - scene.dining_room_normal
+                  - scene.dining_room_low
+                  - scene.dining_room_dim
 
+  # Security Card
+  - title: Security
+    cards:
+      - type: entities
+        title: Inside Camera Switches
+        entities:
+          - switch.living_room_camera
+
+  # Lighting Card
+  - title: Lighting
+    cards:
       - type: entities
         title: Living Room
         entities:
@@ -68,13 +93,21 @@ views:
           - script.sunrise
           - script.sunset
 
-  # Security Card
-  - title: Security
+  # Home Theater Card
+  - title: Theater
     cards:
       - type: entities
-        title: Inside Camera Switches
+        title: Cinema Mode
         entities:
-          - switch.living_room_camera
+          - input_boolean.cinema_mode
+          - input_boolean.auto_cinema_mode
+
+      - type: media-control
+        entity: media_player.living_room_osmc
+
+      - type: media-control
+        entity: media_player.living_room_firetv
+
 
   # DarkSky Animated Weather Card Dev
   - title: DarkSky

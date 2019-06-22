@@ -4,3 +4,11 @@ departure_scan:
   name: 'Trigger Departure Scan'
   initial: off
   icon: mdi:refresh
+
+cinema_mode:
+  name: 'Enable Cinema Mode'
+  icon: mdi:movie
+
+auto_cinema_mode:
+  name: 'Automatic Cinema Mode'
+  icon: mdi:transition
