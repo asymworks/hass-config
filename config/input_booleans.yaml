@@ -16,7 +16,3 @@ ht_raise_on_pause:
 ht_raise_on_stop:
   name: 'Raise Lights on Media Stopped'
   icon: mdi:movie-outline
-
-ht_auto_cinema_mode:
-  name: 'Set Cinema Mode for Movies'
-  icon: mdi:transition
