@@ -30,25 +30,14 @@ views:
           - sensor.dark_sky_temperature
 
       - type: horizontal-stack
-        cards:
-          - type: vertical-stack
-            cards:
-              - type: light
-                entity: light.living_room_lights
-              - type: entities
-                entities:
-                  - scene.living_room_normal
-                  - scene.living_room_dim
-          - type: vertical-stack
-            cards:
-              - type: light
-                entity: light.dining_room_lights
-              - type: entities
-                entities:
-                  - scene.dining_room_normal
-                  - scene.dining_room_low
-                  - scene.dining_room_dim
-
+        - type: light
+          entity: light.dining_room_lights
+        - type: entities
+          entities:
+            - scene.dining_room_normal
+            - scene.dining_room_low
+            - scene.dining_room_dim
+      
   # Security Card
   - title: Security
     cards:
@@ -69,6 +58,7 @@ views:
           - type: divider
             background-color: “#B3B3B3”
           - scene.living_room_normal
+          - scene.living_room_low
           - scene.living_room_dim
 
       - type: entities
@@ -100,8 +90,12 @@ views:
         title: Cinema Mode
         show_header_toggle: false
         entities:
-          - input_boolean.cinema_mode
-          - input_boolean.auto_cinema_mode
+          - input_select.ht_lighting_mode
+          - type: divider
+            background-color: “#B3B3B3”
+          - input_boolean.ht_dim_on_play
+          - input_boolean.ht_raise_on_pause
+          - input_boolean.ht_raise_on_stop
 
       - type: media-control
         entity: media_player.living_room_osmc

@@ -20,3 +20,13 @@ jp_presence_status:
     - Away
     - Extended Away
   initial: Home
+
+# Home Theater Lighting Mode
+ht_lighting_mode:
+  name: Theater Lighting Mode
+  options:
+    - Disabled        # Disables Media Lighting Automation
+    - TV Watching     # Dim Lights on Playing/Pause, Raise on Stopped
+    - Cinema          # Lights Off on Playing, Dim on Pause, Low on Stopped
+    - Date Night      # Lights Off on Playing, Dim on Pause, Off on Stopped
+  initial: TV Watching
