@@ -5,10 +5,18 @@ departure_scan:
   initial: off
   icon: mdi:refresh
 
-cinema_mode:
-  name: 'Enable Cinema Mode'
+ht_dim_on_play:
+  name: 'Dim Lights on Media Playing'
   icon: mdi:movie
 
-auto_cinema_mode:
-  name: 'Automatic Cinema Mode'
+ht_raise_on_pause:
+  name: 'Raise Lights on Media Paused'
+  icon: mdi:movie-outline
+
+ht_raise_on_stop:
+  name: 'Raise Lights on Media Stopped'
+  icon: mdi:movie-outline
+
+ht_auto_cinema_mode:
+  name: 'Set Cinema Mode for Movies'
   icon: mdi:transition
