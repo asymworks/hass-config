@@ -125,6 +125,11 @@ media_player:
     host: 10.1.2.11
     adbkey: /config/adb/adbkey
 
+  - platform: kodi
+    name: Living Room OSMC
+    host: 10.1.2.12
+    port: 80
+
 # OwnTracks Setup
 owntracks:
   max_gps_accuracy: 50
@@ -166,6 +171,7 @@ automation: !include automations.yaml
 
 # Include Files
 group: !include config/groups.yaml
+light: !include config/lights.yaml
 scene: !include config/scenes.yaml
 script: !include config/scripts.yaml
 sensor: !include config/sensors.yaml

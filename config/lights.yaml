@@ -1,0 +1,17 @@
+#### Light Group Definitions ##################################################
+
+# Living Room Lights
+- platform: group
+  name: Living Room Lights
+  entities:
+    - light.living_room_entry
+    - light.living_room_front
+    - light.living_room_back
+
+# Dining Room Lights
+- platform: group
+  name: Dining Room Lights
+  entities:
+    - light.dining_room_1
+    - light.dining_room_2
+    - light.dining_room_3
