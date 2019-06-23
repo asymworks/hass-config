@@ -26,7 +26,8 @@ ht_lighting_mode:
   name: Theater Lighting Mode
   options:
     - Disabled        # Disables Media Lighting Automation
+    - Auto            # TV or Cinema depending on Media Type (TV or Movie)
     - TV              # Dim Lights on Playing/Pause, Raise on Stopped
     - Cinema          # Lights Off on Playing, Dim on Pause, Low on Stopped
     - Date Night      # Lights Off on Playing, Dim on Pause, Off on Stopped
-  initial: TV
+  initial: Auto
