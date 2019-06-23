@@ -21,6 +21,24 @@ jp_presence_status:
     - Extended Away
   initial: Home
 
+# Home Theater Player State
+ht_player_state:
+  options:
+    - Idle
+    - Playing
+    - Paused
+    - Stopped
+  initial: Idle
+
+# Home Theater Player Media Type
+ht_player_media:
+  options:
+    - TV
+    - Movie
+    - Music
+    - Unknown
+  initial: Unknown
+
 # Home Theater Lighting Mode
 ht_lighting_mode:
   name: Theater Lighting Mode
