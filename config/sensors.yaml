@@ -95,12 +95,19 @@
       value_template: '{{ states.input_select.jp_presence_status.state }}'
       friendly_name_template: '{{ states.input_select.jp_presence_status.name }}'
 
-# Media Center Status
+# Home Theater Player Status
 - platform: template
   sensors:
-    media_center_status:
-      value_template: '{{ states.input_select.media_center_state.state }}'
-      friendly_name_template: '{{ states.input_select.media_center_state.name }}'
+    ht_player_state_state:
+      value_template: '{{ states.input_select.ht_player_state.state }}'
+      friendly_name_template: '{{ states.input_select.ht_player_state.name }}'
+
+# Home Theater Player Media
+- platform: template
+  sensors:
+    ht_player_media_state:
+      value_template: '{{ states.input_select.ht_player_media.state }}'
+      friendly_name_template: '{{ states.input_select.ht_player_media.name }}'
 
 # TP-Link Smart Plugs
 - platform: template

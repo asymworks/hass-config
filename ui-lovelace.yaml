@@ -29,7 +29,15 @@ views:
           - sensor.dark_sky_summary
           - sensor.dark_sky_temperature
 
+      - type: entities
+        title: Presets
+        show_header_toggle: false
+        entities:
+          - input_boolean.ht_set_mode_auto
+          - input_boolean.ht_set_mode_datenight
+
       - type: horizontal-stack
+        cards:
         - type: light
           entity: light.dining_room_lights
         - type: entities
@@ -96,7 +104,11 @@ views:
           - input_boolean.ht_dim_on_play
           - input_boolean.ht_raise_on_pause
           - input_boolean.ht_raise_on_stop
-
+          - type: divider
+            background-color: “#B3B3B3”
+          - sensor.ht_player_state_state
+          - sensor.ht_player_media_state
+          
       - type: media-control
         entity: media_player.living_room_osmc
 
