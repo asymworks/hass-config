@@ -16,3 +16,15 @@ ht_raise_on_pause:
 ht_raise_on_stop:
   name: 'Raise Lights on Media Stopped'
   icon: mdi:movie-outline
+
+ht_reload_lights:
+  name: 'Reload Home Theater Lights'
+  icon: mdi:lightbulb-on-outline
+
+ht_set_mode_auto:
+  name: 'Set Home Theater Lighting to Auto'
+  icon: mdi:lightbulb-on-outline
+
+ht_set_mode_datenight:
+  name: 'Set Home Theater Lighting to Date Night'
+  icon: mdi:human-male-female

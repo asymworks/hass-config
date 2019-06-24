@@ -47,5 +47,5 @@ ht_lighting_mode:
     - Auto            # TV or Cinema depending on Media Type (TV or Movie)
     - TV              # Dim Lights on Playing/Pause, Raise on Stopped
     - Cinema          # Lights Off on Playing, Dim on Pause, Low on Stopped
-    - Date Night      # Lights Off on Playing, Dim on Pause, Off on Stopped
+    - Date Night      # Lights Off on Playing, Dim on Pause, Dim on Stopped
   initial: Auto
