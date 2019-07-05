@@ -28,3 +28,7 @@ ht_set_mode_auto:
 ht_set_mode_datenight:
   name: 'Set Home Theater Lighting to Date Night'
   icon: mdi:human-male-female
+
+guest:
+  name: 'Guest Mode'
+  icon: mdi:face

@@ -21,6 +21,16 @@ jp_presence_status:
     - Extended Away
   initial: Home
 
+# Global House State
+house_state:
+  options:
+    - Day
+    - Night
+    - Asleep
+    - Armed
+    - Vacation
+  initial: Day
+
 # Home Theater Player State
 ht_player_state:
   options:
