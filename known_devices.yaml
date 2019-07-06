@@ -194,3 +194,35 @@ cc_2f_71_6a_98_66:
   name: 10 98 c3 8f 49 61
   picture:
   track: false
+
+amazon_734ec02e9:
+  hide_if_away: true
+  icon:
+  mac: 10:AE:60:80:C3:9B
+  name: amazon-734ec02e9
+  picture:
+  track: false
+
+npi202898:
+  hide_if_away: true
+  icon:
+  mac: A8:6B:AD:4D:24:62
+  name: NPI202898
+  picture:
+  track: false
+
+wemo:
+  hide_if_away: true
+  icon:
+  mac: 24:F5:A2:1B:F7:97
+  name: wemo
+  picture:
+  track: false
+
+5c_cf_7f_2b_bb_98:
+  hide_if_away: true
+  icon:
+  mac: 5C:CF:7F:2B:BB:98
+  name: 5c cf 7f 2b bb 98
+  picture:
+  track: false
