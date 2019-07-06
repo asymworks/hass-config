@@ -5,10 +5,21 @@ resources:
   # Animated DarkSky Card
   - url: /local/custom_ui/dark-sky-weather-card.js?v=7.1
     type: module
-  
+
+  # Compact Custom Header
+  - url: /local/custom_ui/compact-custom-header.js?v=1.2.0
+    type: module
+
   # Vertical Stack in Card
   - url: /local/custom_ui/vertical-stack-in-card.js?v=0.1.3
     type: js
+
+cch:
+  # Compact Custom Header Configuration
+  menu: show
+  notifications: show
+  voice: hide
+  options: clock
 
 views:
   # Main Dashboard Card
