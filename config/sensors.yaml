@@ -93,44 +93,44 @@
   sensors:
     jp_status:
       value_template: '{{ states.input_select.jp_presence_status.state }}'
-      friendly_name_template: '{{ states.input_select.jp_presence_status.name }}'
+      friendly_name_template: 'J.P. Presence Status'
 
 # House State
 - platform: template
   sensors:
     house_state:
       value_template: '{{ states.input_select.house_state.state }}'
-      friendly_name_template: '{{ states.input_select.house_state.state }}'
+      friendly_name_template: 'House State'
 
 # Home Theater Player Status
 - platform: template
   sensors:
     ht_player_state_state:
       value_template: '{{ states.input_select.ht_player_state.state }}'
-      friendly_name_template: '{{ states.input_select.ht_player_state.state }}'
+      friendly_name_template: 'Home Theater Player Status'
 
 # Home Theater Player Media
 - platform: template
   sensors:
     ht_player_media_state:
       value_template: '{{ states.input_select.ht_player_media.state }}'
-      friendly_name_template: '{{ states.input_select.ht_player_media.state }}'
+      friendly_name_template: 'Home Theater Media Type'
 
 # TP-Link Smart Plugs
-- platform: template
-  sensors:
-    tplink_media_center_amps:
-      friendly_name_template: "{{ states.switch.media_center.name }}"
-      value_template: '{{ states.switch.media_center.attributes["current_a"] | float }}'
-      unit_of_measurement: 'A'
-    tplink_media_center_watts:
-      friendly_name_template: "{{ states.switch.media_center.name }}"
-      value_template: '{{ states.switch.media_center.attributes["current_power_w"] | float }}'
-      unit_of_measurement: 'W'
-    tplink_media_center_volts:
-      friendly_name_template: "{{ states.switch.media_center.name }}"
-      value_template: '{{ states.switch.media_center.attributes["voltage"] | float }}'
-      unit_of_measurement: 'V'
+#- platform: template
+#  sensors:
+#    tplink_media_center_amps:
+#      friendly_name_template: "{{ states.switch.media_center.name }}"
+#      value_template: '{{ states.switch.media_center.attributes["current_a"] | float }}'
+#      unit_of_measurement: 'A'
+#    tplink_media_center_watts:
+#      friendly_name_template: "{{ states.switch.media_center.name }}"
+#      value_template: '{{ states.switch.media_center.attributes["current_power_w"] | float }}'
+#      unit_of_measurement: 'W'
+#    tplink_media_center_volts:
+#      friendly_name_template: "{{ states.switch.media_center.name }}"
+#      value_template: '{{ states.switch.media_center.attributes["voltage"] | float }}'
+#      unit_of_measurement: 'V'
 
 #- platform: template
 #  sensors:
