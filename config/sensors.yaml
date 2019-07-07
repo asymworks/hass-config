@@ -99,7 +99,7 @@
 - platform: template
   sensors:
     house_state:
-      value_template: '{{ states.input_select.house_state.state }}'
+      value_template: '{{ states.input_select.house_mode.state }}'
       friendly_name_template: 'House State'
 
 # Home Theater Player Status
