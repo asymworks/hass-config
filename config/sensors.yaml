@@ -130,7 +130,7 @@
 
 # NUT UPS Sensors
 - platform: nut
-  name: Main Rack UPS 1 (CyberPower PR750LCDRT1U)
+  name: Main Rack UPS 1
   host: nut-1.lan.kraussnet.com
   port: 3493
   alias: mainrack-ups-1
