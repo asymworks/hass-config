@@ -92,19 +92,6 @@ panel_iframe:
 # Device Tracking
 device_tracker:
 
-  # Track WiFi with Tomato Router/AP
-  #- platform: tomato
-  #  host: 10.2.0.254
-  #  username: !secret tomato_username
-  #  password: !secret tomato_password
-  #  http_id: !secret tomato_http_id
-  #  verify_ssl: false
-  #  interval_seconds: 10
-  #  consider_home: 60
-  #  new_device_defaults:
-  #    track_new_devices: false
-  #    hide_if_away: true
-
   # Track WiFi with UniFi AP
   - platform: unifi
     host: unifi.mgmt.kraussnet.com

@@ -1,15 +1,5 @@
 #### Input Select Definitions #################################################
 
-# Media Center State (based on power)
-media_center_state:
-  name: Media Center
-  icon: mdi:audio-video
-  options:
-    - Idle
-    - TV
-    - Rcvr
-    - All
-
 # J.P. Extended Presence Status
 jp_presence_status:
   name: J.P.
@@ -21,15 +11,34 @@ jp_presence_status:
     - Extended Away
   initial: Home
 
-# Global House State
-house_state:
+# Global House Mode
+house_mode:
   options:
+    - Morning
     - Day
+    - Evening
     - Night
-    - Asleep
-    - Armed
-    - Vacation
+    - Sleep
   initial: Day
+
+# Global House Presence
+house_presence:
+  options:
+    - Home
+    - Just Arrived
+    - Just Left
+    - Away
+    - Extended Away
+  initial: Home
+
+# Global House Security
+house_security:
+  options:
+    - Disarmed
+    - Armed
+    - Alarm
+    - Silenced
+  initial: Disarmed
 
 # Home Theater Player State
 ht_player_state:
