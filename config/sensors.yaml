@@ -116,6 +116,33 @@
       value_template: '{{ states.input_select.ht_player_media.state }}'
       friendly_name_template: 'Home Theater Media Type'
 
+# ESP8266 Bed Sensors
+- platform: mqtt
+  state_topic: 'sensor/esp8266-bed-right'
+  name: 'bed_right_value'
+
+- platform: template
+  sensors:
+    jp_bed:
+      friendly_name_template: "J.P. Bed"
+      value_template: "{% if states('sensor.bed_right_value') | float > 300 %}Occupied{% else %}Empty{% endif %}"
+      icon_template: "{% if states('sensor.bed_right_value') | float > 300 %}mdi:hotel{% else %}mdi:bed-empty{% endif %}"
+
+# NUT UPS Sensors
+- platform: nut
+  name: Main Rack UPS 1 (CyberPower PR750LCDRT1U)
+  host: nut-1.lan.kraussnet.com
+  port: 3493
+  alias: mainrack-ups-1
+  username: !secret ups_username # dummy: ups_user
+  password: !secret ups_password # dummy: ups_pass
+  resources:
+    - ups.load
+    - ups.status.display
+    - input.voltage
+    - output.voltage
+    - battery.runtime
+
 # TP-Link Smart Plugs
 #- platform: template
 #  sensors:
@@ -146,15 +173,3 @@
 #      friendly_name_template: "{{ states.switch.tplink_server_rack.name }}"
 #      value_template: '{{ states.switch.tplink_server_rack.attributes["current_power_w"] | float }}'
 #      unit_of_measurement: 'W'
-
-# ESP8266 Bed Sensors
-- platform: mqtt
-  state_topic: 'sensor/esp8266-bed-right'
-  name: 'bed_right_value'
-
-- platform: template
-  sensors:
-    jp_bed:
-      friendly_name_template: "J.P. Bed"
-      value_template: "{% if states('sensor.bed_right_value') | float > 300 %}Occupied{% else %}Empty{% endif %}"
-      icon_template: "{% if states('sensor.bed_right_value') | float > 300 %}mdi:hotel{% else %}mdi:bed-empty{% endif %}"
