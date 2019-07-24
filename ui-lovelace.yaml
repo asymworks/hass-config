@@ -51,15 +51,12 @@ views:
           - input_boolean.ht_set_mode_auto
           - input_boolean.ht_set_mode_datenight
 
-      - type: horizontal-stack
-        cards:
-        - type: light
-          entity: light.dining_room_lights
-        - type: entities
-          entities:
-            - scene.dining_room_normal
-            - scene.dining_room_low
-            - scene.dining_room_dim
+      - type: history-graph
+        title: 'Temperature Graph'
+        entities:
+          - sensor.zooz_living_room_temperature
+          - sensor.zp3111_bedroom_temperature
+          - sensor.zp3111_kitchen_temperature
       
   # Security Card
   - title: Security

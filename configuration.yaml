@@ -130,20 +130,13 @@ owntracks:
     Work: work
 
 # InfluxDB Configuration
-#influxdb:
-#  host: influx.ha.kraussnet.com
-#  port: 8086
-#  database: home_assistant
-#  tags:
-#    source: hass
-#    instance: !secret influxdb_instance   # dummy: dev
-
-# TP-Link Components
-#tplink:
-#  discovery: false
-#  switch:
-#    - host: 10.2.1.231
-#    - host: 10.2.1.232
+influxdb:
+  host: influx.ha.kraussnet.com
+  port: 8086
+  database: home_assistant
+  tags:
+    source: hass
+    instance: !secret influxdb_instance   # dummy: dev
 
 # WeMo Components
 wemo:
