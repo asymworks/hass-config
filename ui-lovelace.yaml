@@ -99,7 +99,7 @@ views:
         badges:
           - sensor.jp_bed
         entities:
-          - light.nightstand_right
+          - light.bedroom_light_right
           - script.sunrise
           - script.sunset
 

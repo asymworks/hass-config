@@ -50,7 +50,7 @@ sunrise:
     # Dark Red
     - service: light.turn_on
       data:
-        entity_id: light.nightstand_right
+        entity_id: light.bedroom_light_right
         xy_color: [0.67,0.39]
         brightness: 1
         transition: 60
@@ -59,7 +59,7 @@ sunrise:
     # Warm Orange
     - service: light.turn_on
       data:
-        entity_id: light.nightstand_right
+        entity_id: light.bedroom_light_right
         xy_color: [0.65,0.41]
         brightness: 85
         transition: 600
@@ -68,7 +68,7 @@ sunrise:
     # Yellow
     - service: light.turn_on
       data:
-        entity_id: light.nightstand_right
+        entity_id: light.bedroom_light_right
         xy_color: [0.60,0.40]
         brightness: 170
         transition: 600
@@ -77,7 +77,7 @@ sunrise:
     # White
     - service: light.turn_on
       data:
-        entity_id: light.nightstand_right
+        entity_id: light.bedroom_light_right
         xy_color: [0.48,0.40]
         brightness: 255
         transition: 600
@@ -90,7 +90,7 @@ sunset:
     # Yellow
     - service: light.turn_on
       data:
-        entity_id: light.nightstand_right
+        entity_id: light.bedroom_light_right
         xy_color: [0.60,0.40]
         brightness: 170
         transition: 180
@@ -99,7 +99,7 @@ sunset:
     # Warm Orange
     - service: light.turn_on
       data:
-        entity_id: light.nightstand_right
+        entity_id: light.bedroom_light_right
         xy_color: [0.65,0.41]
         brightness: 85
         transition: 180
@@ -108,7 +108,7 @@ sunset:
     # Dark Red
     - service: light.turn_on
       data:
-        entity_id: light.nightstand_right
+        entity_id: light.bedroom_light_right
         xy_color: [0.67,0.39]
         brightness: 1
         transition: 240
@@ -116,4 +116,4 @@ sunset:
         seconds: 240
     # Off
     - service: light.turn_off
-      entity_id: light.nightstand_right
+      entity_id: light.bedroom_light_right
