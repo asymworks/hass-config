@@ -20,6 +20,7 @@ mqtt:
   password: !secret mqtt_password
   certificate: /config/network-ca-chain.pem
   tls_version: '1.2'
+  discovery: true
   birth_message:
     topic: 'hass/status'
     payload: 'online'
