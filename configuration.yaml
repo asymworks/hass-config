@@ -35,10 +35,11 @@ logger:
 # API Access for Dashing
 http:
   api_password: !secret http_password
-  ip_ban_enabled: true
+  ip_ban_enabled: false
   login_attempts_threshold: 2
   trusted_networks:
     - 127.0.0.1
+    - 10.1.0.10
     - 10.1.0.13
     - 10.1.1.21
     - 10.2.1.11
@@ -93,18 +94,11 @@ panel_iframe:
 # Device Tracking
 device_tracker:
 
-  # Track WiFi with UniFi AP
-  - platform: unifi
-    host: unifi.mgmt.kraussnet.com
-    username: !secret unifi_username
-    password: !secret unifi_password
-    verify_ssl: false
-    interval_seconds: 10
-    consider_home: 60
-    detection_time: 60                # consider_home synonym for UniFi
-    new_device_defaults:
-      track_new_devices: false
-      hide_if_away: true
+# UniFi Integration Overrides
+unifi:
+  controllers:
+    - host: unifi.mgmt.kraussnet.com
+      site: !secret unifi_site
 
 # FireTV and Kodi Media Players
 media_player:
