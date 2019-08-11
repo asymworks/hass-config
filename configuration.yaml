@@ -91,21 +91,11 @@ panel_iframe:
     icon: mdi:shuffle-variant
     url: 'http://nodered.ha.kraussnet.com:1880'
 
-# Device Tracking (0.97 - Now in Integrations)
+# Device Tracking
 device_tracker:
 
-  # Track WiFi with UniFi AP
-  - platform: unifi
-    host: unifi.mgmt.kraussnet.com
-    username: !secret unifi_username
-    password: !secret unifi_password
-    verify_ssl: false
-    interval_seconds: 10
-    consider_home: 60
-    detection_time: 60                # consider_home synonym for UniFi
-    new_device_defaults:
-      track_new_devices: false
-      hide_if_away: true
+# UniFi Integration Overrides
+unifi:
 
 # FireTV and Kodi Media Players
 media_player:
