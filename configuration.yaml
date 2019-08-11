@@ -96,6 +96,9 @@ device_tracker:
 
 # UniFi Integration Overrides
 unifi:
+  controllers:
+    - host: unifi.mgmt.kraussnet.com
+      site: !secret unifi_site
 
 # FireTV and Kodi Media Players
 media_player:
