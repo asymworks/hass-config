@@ -91,7 +91,7 @@ panel_iframe:
     icon: mdi:shuffle-variant
     url: 'http://nodered.ha.kraussnet.com:1880'
 
-# Device Tracking
+# Device Tracking (0.97 - Now in Integrations)
 device_tracker:
 
   # Track WiFi with UniFi AP
