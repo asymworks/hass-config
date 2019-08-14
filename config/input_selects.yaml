@@ -47,6 +47,7 @@ ht_player_state:
     - Playing
     - Paused
     - Stopped
+    - System
   initial: Idle
 
 # Home Theater Player Media Type
@@ -56,6 +57,7 @@ ht_player_media:
     - Movie
     - Music
     - Unknown
+    - System
   initial: Unknown
 
 # Home Theater Lighting Mode
