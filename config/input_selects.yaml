@@ -48,6 +48,7 @@ ht_player_state:
     - Paused
     - Stopped
     - System
+    - Offline
   initial: Idle
 
 # Home Theater Player Media Type
