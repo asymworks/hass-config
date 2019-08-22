@@ -115,6 +115,10 @@ media_player:
     host: 10.1.2.12
     port: 80
 
+  - platform: roku
+    name: Living Room Roku
+    host: 10.1.2.13
+
 # OwnTracks Setup
 owntracks:
   max_gps_accuracy: 50
