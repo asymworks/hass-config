@@ -115,8 +115,8 @@ media_player:
     host: 10.1.2.12
     port: 80
 
-  - platform: roku
-    name: Living Room Roku
+# Roku Media Player
+roku:
     host: 10.1.2.13
 
 # OwnTracks Setup
