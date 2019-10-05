@@ -21,3 +21,14 @@
       prob_given_false: 0.3
       platform: numeric_state
       above: 80
+
+- platform: bayesian
+  prior: 0.5
+  name: jen_presence
+  probability_threshold: 0.85
+  observations:
+    - entity_id: device_tracker.jen_iphone_ip
+      prob_given_true: 0.9
+      prob_given_false: 0.1
+      platform: state
+      to_state: home
