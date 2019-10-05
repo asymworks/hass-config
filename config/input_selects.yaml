@@ -11,6 +11,17 @@ jp_presence_status:
     - Extended Away
   initial: Home
 
+# Jen Extended Presence Status
+jen_presence_status:
+  name: Jen
+  options:
+    - Home
+    - Just Arrived
+    - Just Left
+    - Away
+    - Extended Away
+  initial: Home
+
 # Global House Mode
 house_mode:
   options:
@@ -59,6 +70,14 @@ ht_player_media:
     - Music
     - Unknown
     - System
+  initial: Unknown
+
+# Home Theater Player Source
+ht_player_source:
+  options:
+    - Kodi
+    - FireTV
+    - Unknown
   initial: Unknown
 
 # Home Theater Lighting Mode
