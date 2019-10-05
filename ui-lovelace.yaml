@@ -7,7 +7,7 @@ resources:
     type: module
 
   # Compact Custom Header
-  - url: /local/custom_ui/compact-custom-header.js?v=1.3.0
+  - url: /local/custom_ui/compact-custom-header.js?v=1.3.6
     type: module
 
   # Vertical Stack in Card
