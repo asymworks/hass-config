@@ -2,7 +2,7 @@ language: python
 python:
   - "3.7"
 install:
-  - "pip install homeassistant==0.99.5"
+  - "pip install homeassistant==0.99.3"
   - "python $TRAVIS_BUILD_DIR/bin/dummy_secrets.py"
   - "sudo mkdir /config && sudo cp $TRAVIS_BUILD_DIR/bin/fake-ca.pem /config/network-ca-chain.pem"
   - "sudo mkdir /config/adb && sudo touch /config/adb/adbkey{,.pub}"
