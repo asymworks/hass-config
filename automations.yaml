@@ -82,13 +82,7 @@
   action:
     - service: input_select.select_option
       data_template: 
-        entity_id: >
-          {% if trigger.entity_id == 'binary_sensor.jp_presence' %}
-            input_select.jp_presence_status
-          {% elif trigger.entity_id == 'binary_sensor.jen_presence' %}
-            input_select.jen_presence_status
-          {% else %}
-          {% endif %}
+        entity_id: '{{ trigger.entity_id }}'
         option: 'Home'
 
 - alias: Mark Person as Away
@@ -106,13 +100,7 @@
   action:
     - service: input_select.select_option
       data_template: 
-        entity_id: >
-          {% if trigger.entity_id == 'binary_sensor.jp_presence' %}
-            input_select.jp_presence_status
-          {% elif trigger.entity_id == 'binary_sensor.jen_presence' %}
-            input_select.jen_presence_status
-          {% else %}
-          {% endif %}
+        entity_id: '{{ trigger.entity_id }}'
         option: 'Away'
 
 - alias: Mark Person as Extended Away
@@ -130,11 +118,5 @@
   action:
     - service: input_select.select_option
       data_template: 
-        entity_id: >
-          {% if trigger.entity_id == 'binary_sensor.jp_presence' %}
-            input_select.jp_presence_status
-          {% elif trigger.entity_id == 'binary_sensor.jen_presence' %}
-            input_select.jen_presence_status
-          {% else %}
-          {% endif %}
+        entity_id: '{{ trigger.entity_id }}'
         option: 'Extended Away'
