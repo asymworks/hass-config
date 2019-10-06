@@ -9,7 +9,6 @@ jp_presence_status:
     - Just Left
     - Away
     - Extended Away
-  initial: Home
 
 # Jen Extended Presence Status
 jen_presence_status:
@@ -20,7 +19,6 @@ jen_presence_status:
     - Just Left
     - Away
     - Extended Away
-  initial: Home
 
 # Global House Mode
 house_mode:
@@ -30,7 +28,6 @@ house_mode:
     - Evening
     - Night
     - Sleep
-  initial: Day
 
 # Global House Presence
 house_presence:
@@ -40,7 +37,6 @@ house_presence:
     - Just Left
     - Away
     - Extended Away
-  initial: Home
 
 # Global House Security
 house_security:
@@ -49,7 +45,6 @@ house_security:
     - Armed
     - Alarm
     - Silenced
-  initial: Disarmed
 
 # Home Theater Player State
 ht_player_state:
