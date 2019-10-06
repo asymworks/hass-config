@@ -5,6 +5,10 @@ binary_sensor.jp_presence:
   friendly_name: J.P.
   device_class: presence
 
+binary_sensor.jen_presence:
+  friendly_name: Jen
+  device_class: presence
+
 # Presence Pictures
 sensor.jp_status:
   entity_picture: https://gravatar.com/avatar/e78e623948f3675cf1c51544f9bec928
