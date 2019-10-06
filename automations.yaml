@@ -9,12 +9,12 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.jp_presence
-      from: off
-      to: on
+      from: 'off'
+      to: 'on'
     - platform: state
       entity_id: binary_sensor.jen_presence
-      from: off
-      to: on
+      from: 'off'
+      to: 'on'
   action:
     - service: input_select.select_option
       data_template: 
@@ -45,12 +45,12 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.jp_presence
-      from: on
-      to: off
+      from: 'on'
+      to: 'off'
     - platform: state
       entity_id: binary_sensor.jen_presence
-      from: on
-      to: off
+      from: 'on'
+      to: 'off'
   action:
     - service: input_select.select_option
       data_template: 
