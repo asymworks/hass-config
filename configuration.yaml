@@ -109,11 +109,6 @@ unifi:
 
 # FireTV and Kodi Media Players
 media_player:
-  - platform: androidtv
-    name: Living Room FireTV
-    host: 10.1.2.11
-    adbkey: /config/adb/adbkey
-
   - platform: kodi
     name: Living Room OSMC
     host: 10.1.2.12
