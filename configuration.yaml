@@ -152,7 +152,6 @@ wemo:
 automation: !include automations.yaml
 
 # Include Files
-group: !include config/groups.yaml
 light: !include config/lights.yaml
 scene: !include config/scenes.yaml
 script: !include config/scripts.yaml

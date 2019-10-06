@@ -1,1 +1,140 @@
+---
+# Home Assistant Automations
 
+###########################################################
+## Presence State Change Automations
+###########################################################
+
+- alias: Mark Person as Just Arrived
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.jp_presence
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.jen_presence
+      from: 'off'
+      to: 'on'
+  action:
+    - service: input_select.select_option
+      data_template: 
+        entity_id: >
+          {% if trigger.entity_id == 'binary_sensor.jp_presence' %}
+            input_select.jp_presence_status
+          {% elif trigger.entity_id == 'binary_sensor.jen_presence' %}
+            input_select.jen_presence_status
+          {% else %}
+          {% endif %}
+        option: >
+          {% if trigger.entity_id == 'binary_sensor.jp_presence' %}
+            {% if states.input_select.jp_presence_status == 'Just Left' %}
+              Home
+            {% else %}
+              Just Arrived
+            {% endif %}
+          {% elif trigger.entity_id == 'binary_sensor.jen_presence' %}
+            {% if states.input_select.jen_presence_status == 'Just Left' %}
+              Home
+            {% else %}
+              Just Arrived
+            {% endif %}
+          {% else %}
+          {% endif %}
+
+- alias: Mark Person as Just Left
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.jp_presence
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.jen_presence
+      from: 'on'
+      to: 'off'
+  action:
+    - service: input_select.select_option
+      data_template: 
+        entity_id: >
+          {% if trigger.entity_id == 'binary_sensor.jp_presence' %}
+            input_select.jp_presence_status
+          {% elif trigger.entity_id == 'binary_sensor.jen_presence' %}
+            input_select.jen_presence_status
+          {% else %}
+          {% endif %}
+        option: 'Just Left'
+
+###########################################################
+## Presence State Timed Automations
+###########################################################
+
+- alias: Mark Person as Home
+  trigger:
+    - platform: state
+      entity_id: input_select.jp_presence_status
+      to: 'Just Arrived'
+      for: 
+        minutes: 5
+    - platform: state
+      entity_id: input_select.jen_presence_status
+      to: 'Just Arrived'
+      for: 
+        minutes: 5
+  action:
+    - service: input_select.select_option
+      data_template: 
+        entity_id: >
+          {% if trigger.entity_id == 'binary_sensor.jp_presence' %}
+            input_select.jp_presence_status
+          {% elif trigger.entity_id == 'binary_sensor.jen_presence' %}
+            input_select.jen_presence_status
+          {% else %}
+          {% endif %}
+        option: 'Home'
+
+- alias: Mark Person as Away
+  trigger:
+    - platform: state
+      entity_id: input_select.jp_presence_status
+      to: 'Just Left'
+      for: 
+        minutes: 5
+    - platform: state
+      entity_id: input_select.jen_presence_status
+      to: 'Just Left'
+      for: 
+        minutes: 5
+  action:
+    - service: input_select.select_option
+      data_template: 
+        entity_id: >
+          {% if trigger.entity_id == 'binary_sensor.jp_presence' %}
+            input_select.jp_presence_status
+          {% elif trigger.entity_id == 'binary_sensor.jen_presence' %}
+            input_select.jen_presence_status
+          {% else %}
+          {% endif %}
+        option: 'Away'
+
+- alias: Mark Person as Extended Away
+  trigger:
+    - platform: state
+      entity_id: input_select.jp_presence_status
+      to: 'Away'
+      for: 
+        hours: 24
+    - platform: state
+      entity_id: input_select.jen_presence_status
+      to: 'Away'
+      for: 
+        hours: 24
+  action:
+    - service: input_select.select_option
+      data_template: 
+        entity_id: >
+          {% if trigger.entity_id == 'binary_sensor.jp_presence' %}
+            input_select.jp_presence_status
+          {% elif trigger.entity_id == 'binary_sensor.jen_presence' %}
+            input_select.jen_presence_status
+          {% else %}
+          {% endif %}
+        option: 'Extended Away'
