@@ -27,8 +27,10 @@ views:
     badges:
       - binary_sensor.front_door_open
       - binary_sensor.jp_presence
+      - binary_sensor.jen_presence
       - device_tracker.jp_n5x_ip
       - device_tracker.jp_n5xot
+      - device_tracker.jen_iphone_ip
       - sun.sun
     cards:
       - type: entities
@@ -36,6 +38,7 @@ views:
         show_header_toggle: false
         entities:
           - sensor.jp_status
+          - sensor.jen_status
 
       - type: entities
         title: Weather
