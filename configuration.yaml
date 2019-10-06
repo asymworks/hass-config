@@ -7,6 +7,15 @@ homeassistant:
   unit_system: imperial
   time_zone: America/Los_Angeles
   customize: !include customize.yaml
+  auth_providers:
+    - type: homeassistant
+    - type: trusted_networks
+      trusted_networks:
+        - 127.0.0.1
+        - 10.1.0.10
+        - 10.1.0.13
+        - 10.1.1.21
+        - 10.2.1.11
 
 # Lovelace UI in YAML Mode
 lovelace:
@@ -34,15 +43,10 @@ logger:
 
 # API Access for Dashing
 http:
-  api_password: !secret http_password
+#  api_password: !secret http_password
   ip_ban_enabled: false
   login_attempts_threshold: 2
-  trusted_networks:
-    - 127.0.0.1
-    - 10.1.0.10
-    - 10.1.0.13
-    - 10.1.1.21
-    - 10.2.1.11
+  
     
 # Enable the Front End
 frontend:
