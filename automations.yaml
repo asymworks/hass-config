@@ -109,12 +109,12 @@
       entity_id: input_select.jp_presence_status
       to: 'Away'
       for: 
-        hours: 24
+        days: 1
     - platform: state
       entity_id: input_select.jen_presence_status
       to: 'Away'
       for: 
-        hours: 24
+        days: 1
   action:
     - service: input_select.select_option
       data_template: 
