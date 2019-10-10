@@ -18,12 +18,15 @@ sensor.media_center_status:
   icon: mdi:audio-video
 
 device_tracker.monitor_entry_jp_n5x:
+  friendly_name: J.P. Nexus 5X
   icon: mdi:bluetooth
 
 device_tracker.monitor_entry_jp_gs8:
+  friendly_name: J.P. Galaxy S8
   icon: mdi:bluetooth
 
 device_tracker.monitor_entry_jen_iphone:
+  friendly_name: Jen iPhone
   icon: mdi:bluetooth
 
 # Z-Wave Door Sensor
