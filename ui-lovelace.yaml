@@ -29,8 +29,9 @@ views:
       - binary_sensor.jp_presence
       - binary_sensor.jen_presence
       - device_tracker.jp_n5x_ip
-      - device_tracker.jp_n5xot
+      - device_tracker.monitor_entry_jp_n5x
       - device_tracker.jen_iphone_ip
+      - device_tracker.monitor_entry_jen_iphone
       - sun.sun
     cards:
       - type: entities

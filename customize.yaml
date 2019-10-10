@@ -17,6 +17,15 @@ sensor.jp_status:
 sensor.media_center_status:
   icon: mdi:audio-video
 
+device_tracker.monitor_entry_jp_n5x:
+  icon: mdi:bluetooth
+
+device_tracker.monitor_entry_jp_gs8:
+  icon: mdi:bluetooth
+
+device_tracker.monitor_entry_jen_iphone:
+  icon: mdi:bluetooth
+
 # Z-Wave Door Sensor
 binary_sensor.front_door_open:
   friendly_name: Front Door
