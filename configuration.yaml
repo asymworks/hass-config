@@ -97,6 +97,11 @@ panel_iframe:
 
 # Device Tracking
 device_tracker:
+  - platform: mqtt
+    devices:
+      monitor_entry_jp_n5x: !secret tracker_entry_jp_n5x_topic
+      monitor_entry_jp_gs8: !secret tracker_entry_jp_gs8_topic
+      monitor_entry_jen_iphone: !secret tracker_entry_jen_iphone_topic
 
 # UniFi Integration Overrides
 unifi:
