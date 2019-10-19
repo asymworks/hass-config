@@ -17,5 +17,5 @@
 - name: Rehearsal
   latitude: !secret jp_reh_latitude
   longitude: !secret jp_reh_longitude
-  radius: 25
+  radius: 100
   icon: mdi:music-clef-bass
