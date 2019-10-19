@@ -4,7 +4,7 @@
 import os, re, sys
 
 # Regexes
-re_include = re.compile(r'!include\s+(?P<filename>.*\.ya?ml)\s*$')
+re_include = re.compile(r'^\s*\w+:\s+!include\s+(?P<filename>.*\.ya?ml)\s*$')
 re_secret = re.compile(r'!secret\s+(?P<key>\w+?)(\s*# dummy:?\s+(?P<default>.*))?\s*$')
 
 # Prevent Loops
