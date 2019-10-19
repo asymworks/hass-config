@@ -1,4 +1,9 @@
-#### Home Assistant Configuration for the KraussNet ###########################
+###############################################################################
+#
+# Home Assistant Configuration for the KraussNet 
+# 
+###############################################################################
+
 homeassistant:
   name: Home
   latitude: !secret home_latitude # dummy: 0.0
@@ -7,6 +12,7 @@ homeassistant:
   unit_system: imperial
   time_zone: America/Los_Angeles
   customize: !include customize.yaml
+  packages: !include_dir_named packages
   auth_providers:
     - type: homeassistant
     - type: trusted_networks
@@ -39,26 +45,32 @@ mqtt:
 
 # Logging
 logger:
-  default: warning
+  default: info
 
 # API Access for Dashing
 http:
 #  api_password: !secret http_password
   ip_ban_enabled: false
   login_attempts_threshold: 2
-  
-    
-# Enable the Front End
-frontend:
+
+###############################################################################
+#
+# Customize Default Integrations
+# 
+# Not Enabled:
+#   - cloud
+#   - mobile_app
+# 
+###############################################################################
+
+# Automation File for Configuration UI
+automation:
 
 # Enable the Configuration UI
 config:
 
-# Checks for Updates
-updater:
-
-# Discover some devices automatically
-discovery:
+# Enable the Front End
+frontend:
 
 # Enables support for tracking state changes over time
 history:
@@ -69,98 +81,60 @@ logbook:
 # Enables a map showing the location of tracked devices
 map:
 
+# Enable Person entities for device tracker grouping
+person:
+
+# Enable support for Simple Service Discovery Protocol
+# Used by Philips Hue (disable if moving to Zigbee)
+ssdp:
+
 # Track the sun
 sun:
 
 # System Health monitor
 system_health:
-        
-# Telegram Notifier
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_api_key
-    allowed_chat_ids:
-      - !secret telegram_chat_id # dummy: 1234567
 
-# Notifiers
-notify:
-  - name: telegram_bot
-    platform: telegram
-    chat_id: !secret telegram_chat_id
+# Checks for Updates
+updater:
 
-# Node-Red IFrame
-panel_iframe:
-  nodered:
-    title: 'Node-Red'
-    icon: mdi:shuffle-variant
-    url: 'http://nodered.ha.kraussnet.com:1880'
+# Enable UPnP/Zeroconf Service Discovery and Advertising
+zeroconf:
 
-# Device Tracking
-device_tracker:
-  - platform: mqtt
-    devices:
-      monitor_entry_jp_n5x: !secret tracker_entry_jp_n5x_topic
-      monitor_entry_jp_gs8: !secret tracker_entry_jp_gs8_topic
-      monitor_entry_jen_iphone: !secret tracker_entry_jen_iphone_topic
-
-# UniFi Integration Overrides
-unifi:
-  controllers:
-    - host: unifi.mgmt.kraussnet.com
-      site: !secret unifi_site
-      detection_time: 120
-      ssid_filter:
-        - !secret unifi_ssid_home
+# Discover some devices automatically
+discovery:
 
 # FireTV and Kodi Media Players
-media_player:
-  - platform: kodi
-    name: Living Room OSMC
-    host: 10.1.2.12
-    port: 80
+#media_player:
+#  - platform: kodi
+#    name: Living Room OSMC
+#    host: 10.1.2.12
+#    port: 80
 
 # Roku Media Player
-roku:
-    host: 10.1.2.13
-
-# OwnTracks Setup
-owntracks:
-  max_gps_accuracy: 50
-  waypoints: true
-  mqtt_topic: 'owntracks/#'
-  events_only: false
-  waypoint_whitelist:
-    - jp
-  region_mapping:
-    Home: home
-    Work: work
+#roku:
+#    host: 10.1.2.13
 
 # InfluxDB Configuration
-influxdb:
-  host: influx.ha.kraussnet.com
-  port: 8086
-  database: home_assistant
-  tags:
-    source: hass
-    instance: !secret influxdb_instance   # dummy: dev
+#influxdb:
+#  host: influx.ha.kraussnet.com
+#  port: 8086
+#  database: home_assistant
+#  tags:
+#    source: hass
+#    instance: !secret influxdb_instance   # dummy: dev
 
 # WeMo Components
-wemo:
-  discovery: false
-  static:
-    - 10.2.1.241
-    - 10.2.1.242
-    - 10.2.1.243
-
-# Automation File for Configuration UI
-automation: !include automations.yaml
+#wemo:
+#  discovery: false
+#  static:
+#    - 10.2.1.241
+#    - 10.2.1.242
+#    - 10.2.1.243
 
 # Include Files
-light: !include config/lights.yaml
-scene: !include config/scenes.yaml
-script: !include config/scripts.yaml
-sensor: !include config/sensors.yaml
-switch: !include config/switches.yaml
-binary_sensor: !include config/binary_sensors.yaml
-input_boolean: !include config/input_booleans.yaml
-input_select: !include config/input_selects.yaml
+#light: !include config/lights.yaml
+#scene: !include config/scenes.yaml
+#script: !include config/scripts.yaml
+#sensor: !include config/sensors.yaml
+#input_boolean: !include config/input_booleans.yaml
+#input_select: !include config/input_selects.yaml

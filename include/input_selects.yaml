@@ -1,24 +1,6 @@
 #### Input Select Definitions #################################################
 
-# J.P. Extended Presence Status
-jp_presence_status:
-  name: J.P.
-  options:
-    - Home
-    - Just Arrived
-    - Just Left
-    - Away
-    - Extended Away
 
-# Jen Extended Presence Status
-jen_presence_status:
-  name: Jen
-  options:
-    - Home
-    - Just Arrived
-    - Just Left
-    - Away
-    - Extended Away
 
 # Global House Mode
 house_mode:
@@ -29,14 +11,7 @@ house_mode:
     - Night
     - Sleep
 
-# Global House Presence
-house_presence:
-  options:
-    - Home
-    - Just Arrived
-    - Just Left
-    - Away
-    - Extended Away
+
 
 # Global House Security
 house_security:

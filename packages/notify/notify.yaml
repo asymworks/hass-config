@@ -1,0 +1,17 @@
+###############################################################################
+# Notification Package for Home Assistant
+
+# Telegram Bot for Telegram Notifications
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chat_id # dummy: 1234567
+
+# Notifiers
+notify:
+
+  # Telegram Bot
+  - name: telegram_bot
+    platform: telegram
+    chat_id: !secret telegram_chat_id

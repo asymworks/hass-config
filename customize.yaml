@@ -1,33 +1,8 @@
 #### Device Customizations ####################################################
 
-# Presence Sensors
-binary_sensor.jp_presence:
-  friendly_name: J.P.
-  device_class: presence
-
-binary_sensor.jen_presence:
-  friendly_name: Jen
-  device_class: presence
-
-# Presence Pictures
-sensor.jp_status:
-  entity_picture: https://gravatar.com/avatar/e78e623948f3675cf1c51544f9bec928
-
 # Device Pictures
 sensor.media_center_status:
   icon: mdi:audio-video
-
-device_tracker.monitor_entry_jp_n5x:
-  friendly_name: J.P. Nexus 5X
-  icon: mdi:bluetooth
-
-device_tracker.monitor_entry_jp_gs8:
-  friendly_name: J.P. Galaxy S8
-  icon: mdi:bluetooth
-
-device_tracker.monitor_entry_jen_iphone:
-  friendly_name: Jen iPhone
-  icon: mdi:bluetooth
 
 # Z-Wave Door Sensor
 binary_sensor.front_door_open:
