@@ -22,12 +22,12 @@ homeassistant:
 light:
 
   # Dining Room Lights
-  - platform: group
-    name: Dining Room Lights
-    entities:
-      - light.zb_dining_room_1
-      - light.zb_dining_room_2
-      - light.zb_dining_room_3
+  #- platform: group
+  #  name: Dining Room Lights
+  #  entities:
+  #    - light.zb_dining_room_1
+  #    - light.zb_dining_room_2
+  #    - light.zb_dining_room_3
 
   # Living Room Lights
   - platform: group
@@ -45,6 +45,7 @@ light:
 
   # Zigbee Light Groups
   - platform: mqtt
+    name: Dining Room Lights
     schema: json
     brightness: true
     color_temp: true
