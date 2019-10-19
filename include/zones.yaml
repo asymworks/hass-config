@@ -8,3 +8,14 @@
   radius: 25
   icon: mdi:home
 
+- name: !secret jp_work_name
+  latitude: !secret jp_work_latitude
+  longitude: !secret jp_work_longitude
+  radius: 250
+  icon: mdi:briefcase
+
+- name: Rehearsal
+  latitude: !secret jp_reh_latitude
+  longitude: !secret jp_reh_longitude
+  radius: 25
+  icon: mdi:music-clef-bass
