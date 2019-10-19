@@ -111,8 +111,6 @@ discovery:
 
 zone: !include include/zones.yaml
 
-#light: !include config/lights.yaml
-#scene: !include config/scenes.yaml
 #script: !include config/scripts.yaml
 #sensor: !include config/sensors.yaml
 #input_boolean: !include config/input_booleans.yaml
