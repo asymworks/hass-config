@@ -85,7 +85,7 @@ homeassistant:
     sensor.zse40_living_room_luminance:
       friendly_name: Living Room Luminance
     sensor.zse40_living_room_motion:
-      friendly_name: Living Room Motion
+      friendly_name: Living Room Motion Sensor
     sensor.zse40_living_room_relative_humidity:
       friendly_name: Living Room Relative Humidity
     sensor.zse40_living_room_temperature:
