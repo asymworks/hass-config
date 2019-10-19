@@ -43,6 +43,18 @@ light:
     entities:
       - light.zb_bedroom_jp
 
+  # Zigbee Light Groups
+  - platform: mqtt
+    schema: json
+    brightness: true
+    color_temp: true
+    command_topic: zigbee/zb_dining_room_lights/set
+    state_topic: zigbee/zb_dining_room_lights
+    availability_topic: zigbee/bridge/state
+    unique_id: zb_dining_room_lights_group_zigbee
+
+#{"brightness":true,"color_temp":true,"schema":"json","command_topic":"zigbee/zb_dining_room_3/set","state_topic":"zigbee/zb_dining_room_3","name":"zb_dining_room_3_light","unique_id":"0x00178801048830ee_light_zigbee","device":{"identifiers":["zigbee2mqtt_0x00178801048830ee"],"name":"zb_dining_room_3","sw_version":"Zigbee2mqtt 1.5.1","model":"Hue white ambiance E26 (9290011998B)","manufacturer":"Philips"},"availability_topic":"zigbee/bridge/state"}
+
 ###############################################################################
 # Lighting Scenes
 scene:
