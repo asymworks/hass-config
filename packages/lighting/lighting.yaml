@@ -19,7 +19,7 @@ homeassistant:
 
 ###############################################################################
 # Lighting Groups
-lighting:
+light:
 
   # Dining Room Lights
   - platform: group
