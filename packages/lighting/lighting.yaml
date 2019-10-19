@@ -5,6 +5,12 @@ homeassistant:
   customize:
     light.zb_bedroom_jp:
       friendly_name: "J.P. Nightstand"
+    light.zb_dining_room_1:
+      friendly_name: "Dining Room 1"
+    light.zb_dining_room_2:
+      friendly_name: "Dining Room 2"
+    light.zb_dining_room_3:
+      friendly_name: "Dining Room 3"
 
 ###############################################################################
 # Lighting Groups
@@ -14,9 +20,9 @@ lighting:
   - platform: group
     name: Dining Room Lights
     entities:
-      - light.dining_room_1
-      - light.dining_room_2
-      - light.dining_room_3
+      - light.zb_dining_room_1
+      - light.zb_dining_room_2
+      - light.zb_dining_room_3
 
   # Living Room Lights
   - platform: group
