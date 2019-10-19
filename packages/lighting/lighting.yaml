@@ -11,6 +11,11 @@ homeassistant:
       friendly_name: "Dining Room 2"
     light.zb_dining_room_3:
       friendly_name: "Dining Room 3"
+    script.sunrise:
+      friendly_name: Sunrise Script
+    script.sunset:
+      friendly_name: Sunset Script
+
 
 ###############################################################################
 # Lighting Groups

@@ -1,0 +1,109 @@
+###############################################################################
+# Z-Wave Sensor Package for Home Assistant
+
+homeassistant:
+  customize:
+    
+    # Z-Wave USB Stick
+    zwave.zooz_zst10_s2_z_wave_plus_usb_stick:
+      friendly_name: ZST10 Z-Wave+ USB Stick
+
+    # Vision Security ZP3111 Bedroom
+    sensor.zp3111_bedroom_luminance:
+      friendly_name: Bedroom Luminance
+    sensor.zp3111_bedroom_motion:
+      friendly_name: Bedroom Motion Sensor
+    sensor.zp3111_bedroom_relative_humidity:
+      friendly_name: Bedroom Relative Humidity
+    sensor.zp3111_bedroom_temperature:
+      friendly_name: Bedroom Temperature
+
+    sensor.zp3111_bedroom_clock:
+      friendly_name: Z-Wave Bedroom Clock
+      hidden: true
+    sensor.zp3111_bedroom_emergency:
+      friendly_name: Z-Wave Bedroom Emergency Sensor
+      hidden: true
+    sensor.zp3111_bedroom_power_management:
+      friendly_name: Z-Wave Bedroom Power Management
+      hidden: true
+    sensor.zp3111_bedroom_sourcenodeid:
+      friendly_name: Z-Wave Bedroom Source Node ID
+      hidden: true
+    sensor.zp3111_bedroom_system:
+      friendly_name: Z-Wave Bedroom System
+      hidden: true
+    
+    # Vision Security ZP3111 Kitchen
+    sensor.zp3111_kitchen_luminance:
+      friendly_name: Kitchen Luminance
+    sensor.zp3111_kitchen_motion:
+      friendly_name: Kitchen Motion Sensor
+    sensor.zp3111_kitchen_relative_humidity:
+      friendly_name: Kitchen Relative Humidity
+    sensor.zp3111_kitchen_temperature:
+      friendly_name: Kitchen Temperature
+  
+    sensor.zp3111_kitchen_appliance:
+      friendly_name: Z-Wave Kitchen Appliance
+      hidden: true
+    sensor.zp3111_kitchen_power_management:
+      friendly_name: Z-Wave Kitchen Power Management
+      hidden: true
+    sensor.zp3111_kitchen_sourcenodeid:
+      friendly_name: Z-Wave Kitchen Source Node ID
+      hidden: true
+    
+    # Zooz ZSE40 Living Room
+    sensor.zse40_living_room_luminance:
+      friendly_name: Living Room Luminance
+    sensor.zse40_living_room_motion:
+      friendly_name: Living Room Motion
+    sensor.zse40_living_room_relative_humidity:
+      friendly_name: Living Room Relative Humidity
+    sensor.zse40_living_room_temperature:
+      friendly_name: Living Room Temperature
+
+    sensor.zse40_living_room_alarm_level:
+      friendly_name: Z-Wave Living Room Alarm Level
+      hidden: true
+    sensor.zse40_living_room_alarm_type:
+      friendly_name: Z-Wave Living Room Alarm Type
+      hidden: true
+    sensor.zse40_living_room_sourcenodeid:
+      friendly_name: Z-Wave Living Room Source Node ID
+      hidden: true
+    sensor.zse40_living_room_system:
+      friendly_name: Z-Wave Living Room System
+      hidden: true
+
+    # Ecolink Door/Window Sensor
+    binary_sensor.zw_front_door_sensor:
+      friendly_name: Front Door
+      device_class: door
+
+    zwave.zw_front_door_sensor:
+      friendly_name: Z-Wave Front Door Sensor
+      hidden: true
+    sensor.zw_front_door_access_control:
+      friendly_name: Z-Wave Front Door Access Control
+      hidden: true
+    sensor.zw_front_door_alarm_level:
+      friendly_name: Z-Wave Front Door Alarm Level
+      hidden: true
+    sensor.zw_front_door_alarm_type:
+      friendly_name: Z-Wave Front Door Alarm Type
+      hidden: true
+    sensor.zw_front_door_battery_level:
+      friendly_name: Z-Wave Front Door Battery Level
+      hidden: true
+    sensor.zw_front_door_burglar:
+      friendly_name: Z-Wave Front Door Burglar Alarm
+      hidden: true
+    sensor.zw_front_door_power_management:
+      friendly_name: Z-Wave Front Door Power Management
+      hidden: true
+    sensor.zw_front_door_sourcenodeid:
+      friendly_name: Z-Wave Front Door Source Node ID
+      hidden: true
+
