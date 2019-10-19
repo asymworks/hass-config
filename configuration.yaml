@@ -103,35 +103,14 @@ zeroconf:
 # Discover some devices automatically
 discovery:
 
-# FireTV and Kodi Media Players
-#media_player:
-#  - platform: kodi
-#    name: Living Room OSMC
-#    host: 10.1.2.12
-#    port: 80
-
-# Roku Media Player
-#roku:
-#    host: 10.1.2.13
-
-# InfluxDB Configuration
-#influxdb:
-#  host: influx.ha.kraussnet.com
-#  port: 8086
-#  database: home_assistant
-#  tags:
-#    source: hass
-#    instance: !secret influxdb_instance   # dummy: dev
-
-# WeMo Components
-#wemo:
-#  discovery: false
-#  static:
-#    - 10.2.1.241
-#    - 10.2.1.242
-#    - 10.2.1.243
-
+###############################################################################
+#
 # Include Files
+#
+###############################################################################
+
+zone: !include include/zones.yaml
+
 #light: !include config/lights.yaml
 #scene: !include config/scenes.yaml
 #script: !include config/scripts.yaml
