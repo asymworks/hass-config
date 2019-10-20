@@ -46,6 +46,23 @@ homeassistant:
       friendly_name: Jen iPhone
       icon: mdi:bluetooth
 
+    # RSSI Sensors
+    sensor.jp_n5x_bt_rssi_raw_entry:
+      hidden: true
+    sensor.jp_n5x_bt_rssi_entry:
+      friendly_name: J.P. Nexus 5X Bluetooth RSSI (Entry)
+      hidden: true
+    sensor.jp_gs8_bt_rssi_raw_entry:
+      hidden: true
+    sensor.jp_gs8_bt_rssi_entry:
+      friendly_name: J.P. Galaxy S8 Bluetooth RSSI (Entry)
+      hidden: true
+    sensor.jen_iphone_bt_rssi_raw_entry:
+      hidden: true
+    sensor.jen_iphone_bt_rssi_entry:
+      friendly_name: Jen iPhone RSSI (Entry)
+      hidden: true
+
 ###############################################################################
 # Device Trackers
 person:
