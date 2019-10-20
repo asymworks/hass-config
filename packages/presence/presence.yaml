@@ -16,6 +16,8 @@ homeassistant:
       device_class: presence
 
     # People
+    person.jpk:
+      entity_picture: https://gravatar.com/avatar/e78e623948f3675cf1c51544f9bec928
     sensor.jp_presence_status:
       entity_picture: https://gravatar.com/avatar/e78e623948f3675cf1c51544f9bec928
 
