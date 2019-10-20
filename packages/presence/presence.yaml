@@ -143,24 +143,24 @@ sensor:
 
   # Raw RSSI Data from Monitor
   - platform: mqtt
-    name: monitor_entry_jp_n5x_rssi_raw
+    name: jp_n5x_bt_rssi_raw_entry
     state_topic: monitor/entry/jp_n5x/rssi
     unit_of_measurement: 'dBm'
 
   - platform: mqtt
-    name: monitor_entry_jp_gs8_rssi_raw
+    name: jp_gs8_bt_rssi_raw_entry
     state_topic: monitor/entry/jp_gs8/rssi
     unit_of_measurement: 'dBm'
 
   - platform: mqtt
-    name: monitor_entry_jen_iphone_rssi_raw
+    name: jen_iphone_bt_rssi_raw_entry
     state_topic: monitor/entry/jp_n5x/rssi
     unit_of_measurement: 'dBm'
 
   # Filtered RSSI Data from Monitor
   - platform: filter
-    name: monitor_entry_jp_n5x_rssi
-    entity_id: sensor.monitor_entry_jp_n5x_rssi_raw
+    name: jp_n5x_bt_rssi_entry
+    entity_id: sensor.jp_n5x_bt_rssi_raw_entry
     filters:
       - filter: outlier
         window_size: 2
@@ -172,8 +172,8 @@ sensor:
         precision: 1
 
   - platform: filter
-    name: monitor_entry_jp_gs8_rssi
-    entity_id: sensor.monitor_entry_jp_gs8_rssi_raw
+    name: jp_gs8_bt_rssi_entry
+    entity_id: sensor.jp_gs8_bt_rssi_raw_entry
     filters:
       - filter: outlier
         window_size: 2
@@ -185,8 +185,8 @@ sensor:
         precision: 1
 
   - platform: filter
-    name: monitor_entry_jen_iphone_rssi
-    entity_id: sensor.monitor_entry_jen_iphone_rssi_raw
+    name: jen_iphone_bt_rssi_entry
+    entity_id: sensor.jen_iphone_bt_rssi_raw_entry
     filters:
       - filter: outlier
         window_size: 2
