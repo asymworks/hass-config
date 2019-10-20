@@ -36,12 +36,19 @@ homeassistant:
 # Device Trackers
 device_tracker:
 
+  # Ping Platform
+  - platform: ping
+    hosts:
+      jp_n5x_ip: !secret jp_n5x_ip
+      jp_gs8_ip: !secret jp_gs8_ip
+      jen_iphone_ip: !secret jen_iphone_ip
+
   # MQTT Platform (Bluetooth Presence Sensor)
   - platform: mqtt
     devices:
-      monitor_entry_jp_n5x: monitor/entry/jp_n5x/device_tracker
-      monitor_entry_jp_gs8: monitor/entry/jp_gs8/device_tracker
-      monitor_entry_jen_iphone: monitor/entry/jen_iphone/device_tracker 
+      jp_n5x_bt_entry: monitor/entry/jp_n5x/device_tracker
+      jp_gs8_bt_entry: monitor/entry/jp_gs8/device_tracker
+      jen_iphone_bt_entry: monitor/entry/jen_iphone/device_tracker 
 
 # OwnTracks GPS Tracking
 #owntracks:
@@ -188,17 +195,12 @@ binary_sensor:
     name: jp_presence
     probability_threshold: 0.75
     observations:
-#      - entity_id: device_tracker.jp_n5x_ip
-#        prob_given_true: 0.9
-#        prob_given_false: 0.1
-#        platform: state
-#        to_state: home
-#      - entity_id: device_tracker.jp_n5xot
-#        prob_given_true: 0.7
-#        prob_given_false: 0.2
-#        platform: state
-#        to_state: home
-      - entity_id: device_tracker.monitor_entry_jp_n5x
+      - entity_id: device_tracker.jp_n5x_ip
+        prob_given_true: 0.9
+        prob_given_false: 0.5
+        platform: state
+        to_state: home
+      - entity_id: device_tracker.jp_n5x_bt_entry
         prob_given_true: 0.8
         prob_given_false: 0.3
         platform: state
@@ -209,12 +211,12 @@ binary_sensor:
     name: jen_presence
     probability_threshold: 0.75
     observations:
-#      - entity_id: device_tracker.jen_iphone_ip
-#        prob_given_true: 0.9
-#        prob_given_false: 0.1
-#        platform: state
-#        to_state: home
-      - entity_id: device_tracker.monitor_entry_jen_iphone
+      - entity_id: device_tracker.jen_iphone_ip
+        prob_given_true: 0.9
+        prob_given_false: 0.5
+        platform: state
+        to_state: home
+      - entity_id: device_tracker.jen_iphone_bt_entry
         prob_given_true: 0.8
         prob_given_false: 0.3
         platform: state
