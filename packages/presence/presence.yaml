@@ -26,6 +26,9 @@ homeassistant:
     device_tracker.jp_n5x_bt_entry:
       friendly_name: J.P. Nexus 5X
       icon: mdi:bluetooth
+    device_tracker.jp_n5x_gps:
+      friendly_name: J.P. Nexus 5X
+      icon: mdi:map-marker
 
     device_tracker.jp_gs8_ip:
       friendly_name: J.P. Galaxy S8
@@ -40,6 +43,17 @@ homeassistant:
     device_tracker.jen_iphone_bt_entry:
       friendly_name: Jen iPhone
       icon: mdi:bluetooth
+
+###############################################################################
+# Device Trackers
+person:
+  - name: J.P.
+    id: jpk
+    user_id: c67b7b511277404995406e077e2f51ce
+    device_trackers:
+      - device_tracker.jp_n5x_ip
+      - device_tracker.jp_n5x_bt_entry
+      - device_tracker.jp_n5x_gps
 
 ###############################################################################
 # Device Trackers
@@ -58,27 +72,6 @@ device_tracker:
       jp_n5x_bt_entry: monitor/entry/jp_n5x/device_tracker
       jp_gs8_bt_entry: monitor/entry/jp_gs8/device_tracker
       jen_iphone_bt_entry: monitor/entry/jen_iphone/device_tracker 
-
-# OwnTracks GPS Tracking
-#owntracks:
-#  max_gps_accuracy: 50
-#  waypoints: true
-#  mqtt_topic: 'owntracks/#'
-#  events_only: false
-#  waypoint_whitelist:
-#    - jp
-#  region_mapping:
-#    Home: home
-#    Work: work
-
-# UniFi Integration Overrides
-#unifi:
-#  controllers:
-#    - host: unifi.mgmt.kraussnet.com
-#      site: !secret unifi_site
-#      detection_time: 120
-#      ssid_filter:
-#        - !secret unifi_ssid_home
 
 ###############################################################################
 # Input Selects for Extended Presence State
