@@ -82,7 +82,8 @@ logbook:
 map:
 
 # Enable Person entities for device tracker grouping
-person:
+# NOTE: See declaration in Presence package
+#person:
 
 # Enable support for Simple Service Discovery Protocol
 # Used by Philips Hue (disable if moving to Zigbee)
