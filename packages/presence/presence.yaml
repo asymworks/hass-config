@@ -236,11 +236,11 @@ binary_sensor:
         prob_given_false: 0.2
         platform: state
         to_state: home
-      #- entity_id: device_tracker.jp_n5x_bt_entry
-      #  prob_given_true: 0.8
-      #  prob_given_false: 0.3
-      #  platform: state
-      #  to_state: home
+      - entity_id: device_tracker.jp_n5x_bt_entry
+        prob_given_true: 0.8
+        prob_given_false: 0.3
+        platform: state
+        to_state: home
 
   - platform: bayesian
     prior: 0.5
