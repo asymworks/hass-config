@@ -23,9 +23,9 @@ homeassistant:
       entity_picture: https://gravatar.com/avatar/e78e623948f3675cf1c51544f9bec928
 
     # Devices
-    device_tracker.jp_n5x_ip:
-      friendly_name: J.P. Nexus 5X
-      icon: mdi:wifi
+    #device_tracker.jp_n5x_ip:
+    #  friendly_name: J.P. Nexus 5X
+    #  icon: mdi:wifi
     device_tracker.jp_n5x_bt_entry:
       friendly_name: J.P. Nexus 5X
       source_type: bluetooth
@@ -34,17 +34,17 @@ homeassistant:
       friendly_name: J.P. Nexus 5X
       icon: mdi:map-marker
 
-    device_tracker.jp_gs8_ip:
-      friendly_name: J.P. Galaxy S8
-      icon: mdi:wifi
+    #device_tracker.jp_gs8_ip:
+    #  friendly_name: J.P. Galaxy S8
+    #  icon: mdi:wifi
     device_tracker.jp_gs8_bt_entry:
       friendly_name: J.P. Galaxy S8
       source_type: bluetooth
       icon: mdi:bluetooth
 
-    device_tracker.jen_iphone_ip:
-      friendly_name: Jen iPhone
-      icon: mdi:wifi
+    #device_tracker.jen_iphone_ip:
+    #  friendly_name: Jen iPhone
+    #  icon: mdi:wifi
     device_tracker.jen_iphone_bt_entry:
       friendly_name: Jen iPhone
       source_type: bluetooth
@@ -74,25 +74,15 @@ person:
     id: jpk
     user_id: c67b7b511277404995406e077e2f51ce
     device_trackers:
-      - device_tracker.jp_n5x_ip
+    #  - device_tracker.jp_n5x_ip
       - device_tracker.jp_n5x_bt_entry
       - device_tracker.jp_n5x_gps
 
   - name: Jen
     id: jen
     device_trackers:
-      - device_tracker.jen_iphone_ip
+    #  - device_tracker.jen_iphone_ip
       - device_tracker.jen_iphone_bt_entry
-
-###############################################################################
-# UniFi Setup
-unifi:
-  controllers:
-    - host: unifi.mgmt.kraussnet.com
-      site: !secret unifi_site
-      detection_time: 120
-      ssid_filter:
-        - !secret unifi_ssid_home
 
 ###############################################################################
 # Device Trackers
@@ -229,11 +219,11 @@ binary_sensor:
     name: jp_presence
     probability_threshold: 0.75
     observations:
-      - entity_id: device_tracker.jp_n5x_ip
-        prob_given_true: 0.9
-        prob_given_false: 0.3
-        platform: state
-        to_state: home
+    #  - entity_id: device_tracker.jp_n5x_ip
+    #    prob_given_true: 0.9
+    #    prob_given_false: 0.3
+    #    platform: state
+    #    to_state: home
       - entity_id: device_tracker.jp_n5x_gps
         prob_given_true: 0.8
         prob_given_false: 0.2
@@ -250,11 +240,11 @@ binary_sensor:
     name: jen_presence
     probability_threshold: 0.75
     observations:
-      - entity_id: device_tracker.jen_iphone_ip
-        prob_given_true: 0.9
-        prob_given_false: 0.3
-        platform: state
-        to_state: home
+      #- entity_id: device_tracker.jen_iphone_ip
+      #  prob_given_true: 0.9
+      #  prob_given_false: 0.3
+      #  platform: state
+      #  to_state: home
       #- entity_id: device_tracker.jen_iphone_bt_entry
       #  prob_given_true: 0.8
       #  prob_given_false: 0.3
