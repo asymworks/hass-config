@@ -85,15 +85,18 @@ person:
       - device_tracker.jen_iphone_bt_entry
 
 ###############################################################################
+# UniFi Setup
+unifi:
+  controllers:
+    - host: unifi.mgmt.kraussnet.com
+      site: !secret unifi_site
+      detection_time: 120
+      ssid_filter:
+        - !secret unifi_ssid_home
+
+###############################################################################
 # Device Trackers
 device_tracker:
-
-  # Ping Platform
-  - platform: ping
-    hosts:
-      jp_n5x_ip: !secret jp_n5x_ip
-      jp_gs8_ip: !secret jp_gs8_ip
-      jen_iphone_ip: !secret jen_iphone_ip
 
   # MQTT Platform (Bluetooth Presence Sensor)
   - platform: mqtt
