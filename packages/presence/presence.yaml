@@ -264,6 +264,19 @@ binary_sensor:
 automation:
 
 ###############################################################################
+# Run Arrival Scan at Home Assistant Start
+  
+  - alias: Startup Arrival Scan
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - service: mqtt.publish
+        data: 
+          topic: monitor/scan/arrive
+          payload: scan
+
+###############################################################################
 # Handle Just Arrived / Just Left from Person Entity
 
   - alias: Mark Person as Just Arrived
