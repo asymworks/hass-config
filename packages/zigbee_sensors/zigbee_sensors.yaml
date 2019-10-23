@@ -19,7 +19,7 @@ homeassistant:
     sensor.zb_button_nightstand_jen_click:
       friendly_name: Zigbee Bedroom Nightstand Button (Jen)
       hidden: true
-    sensor.zb_button_nighstand_jen_linkquality:
+    sensor.zb_button_nightstand_jen_linkquality:
       friendly_name: Zigbee Bedroom Nightstand Button Link Quality (Jen)
       hidden: true
     sensor.zb_button_nightstand_jen_temperature:
