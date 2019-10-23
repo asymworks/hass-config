@@ -221,43 +221,42 @@ sensor:
 
 binary_sensor:
   # Bayesian Presence
-  - platform: bayesian
-    prior: 0.5
-    name: jp_presence
-    probability_threshold: 0.75
-    observations:
-      - entity_id: device_tracker.jp_n5x_ip
-        prob_given_true: 0.9
-        prob_given_false: 0.3
-        platform: state
-        to_state: home
-      - entity_id: device_tracker.jp_n5x_gps
-        prob_given_true: 0.8
-        prob_given_false: 0.2
-        platform: state
-        to_state: home
-      - entity_id: device_tracker.jp_n5x_bt_entry
-        prob_given_true: 0.8
-        prob_given_false: 0.3
-        platform: state
-        to_state: home
+  #- platform: bayesian
+  #  prior: 0.5
+  #  name: jp_presence
+  #  probability_threshold: 0.75
+  #  observations:
+  #    - entity_id: device_tracker.jp_n5x_ip
+  #      prob_given_true: 0.9
+  #      prob_given_false: 0.3
+  #      platform: state
+  #      to_state: home
+  #    - entity_id: device_tracker.jp_n5x_gps
+  #      prob_given_true: 0.8
+  #      prob_given_false: 0.2
+  #      platform: state
+  #      to_state: home
+  #    - entity_id: device_tracker.jp_n5x_bt_entry
+  #      prob_given_true: 0.8
+  #      prob_given_false: 0.3
+  #      platform: state
+  #      to_state: home
 
-  - platform: bayesian
-    prior: 0.5
-    name: jen_presence
-    probability_threshold: 0.75
-    observations:
-      - entity_id: device_tracker.jen_iphone_ip
-        prob_given_true: 0.9
-        prob_given_false: 0.3
-        platform: state
-        to_state: home
+  #- platform: bayesian
+  #  prior: 0.5
+  #  name: jen_presence
+  #  probability_threshold: 0.75
+  #  observations:
+  #    - entity_id: device_tracker.jen_iphone_ip
+  #      prob_given_true: 0.9
+  #      prob_given_false: 0.3
+  #      platform: state
+  #      to_state: home
       #- entity_id: device_tracker.jen_iphone_bt_entry
       #  prob_given_true: 0.8
       #  prob_given_false: 0.3
       #  platform: state
       #  to_state: home
-
 
 ###############################################################################
 # Presence Automations
@@ -282,32 +281,30 @@ automation:
   - alias: Mark Person as Just Arrived
     trigger:
       - platform: state
-        entity_id: binary_sensor.jp_presence
-        from: 'off'
-        to: 'on'
+        entity_id: person.jpk
+        to: 'home'
       - platform: state
-        entity_id: binary_sensor.jen_presence
-        from: 'off'
-        to: 'on'
+        entity_id: person.jen
+        to: 'home'
     action:
       - service: input_select.select_option
         data_template: 
           entity_id: >
-            {% if trigger.entity_id == 'binary_sensor.jp_presence' %}
-              input_select.jp_presence_status
-            {% elif trigger.entity_id == 'binary_sensor.jen_presence' %}
-              input_select.jen_presence_status
+            {% if trigger.entity_id == 'person.jpk' %}
+              input_select.jp_presence_state
+            {% elif trigger.entity_id == 'person.jen' %}
+              input_select.jen_presence_state
             {% else %}
             {% endif %}
           option: >
-            {% if trigger.entity_id == 'binary_sensor.jp_presence' %}
-              {% if states.input_select.jp_presence_status == 'Just Left' %}
+            {% if trigger.entity_id == 'person.jpk' %}
+              {% if states.input_select.jp_presence_state == 'Just Left' %}
                 Home
               {% else %}
                 Just Arrived
               {% endif %}
-            {% elif trigger.entity_id == 'binary_sensor.jen_presence' %}
-              {% if states.input_select.jen_presence_status == 'Just Left' %}
+            {% elif trigger.entity_id == 'person.jen' %}
+              {% if states.input_select.jen_presence_state == 'Just Left' %}
                 Home
               {% else %}
                 Just Arrived
@@ -318,21 +315,19 @@ automation:
   - alias: Mark Person as Just Left
     trigger:
       - platform: state
-        entity_id: binary_sensor.jp_presence
-        from: 'on'
-        to: 'off'
+        entity_id: person.jpk
+        from: 'home'
       - platform: state
-        entity_id: binary_sensor.jen_presence
-        from: 'on'
-        to: 'off'
+        entity_id: person.jen
+        from: 'home'
     action:
       - service: input_select.select_option
         data_template: 
           entity_id: >
-            {% if trigger.entity_id == 'binary_sensor.jp_presence' %}
-              input_select.jp_presence_status
-            {% elif trigger.entity_id == 'binary_sensor.jen_presence' %}
-              input_select.jen_presence_status
+            {% if trigger.entity_id == 'person.jpk' %}
+              input_select.jp_presence_state
+            {% elif trigger.entity_id == 'person.jen' %}
+              input_select.jen_presence_state
             {% else %}
             {% endif %}
           option: 'Just Left'
@@ -343,12 +338,12 @@ automation:
   - alias: Mark Person as Home
     trigger:
       - platform: state
-        entity_id: input_select.jp_presence_status
+        entity_id: input_select.jp_presence_state
         to: 'Just Arrived'
         for: 
           minutes: 5
       - platform: state
-        entity_id: input_select.jen_presence_status
+        entity_id: input_select.jen_presence_state
         to: 'Just Arrived'
         for: 
           minutes: 5
@@ -361,12 +356,12 @@ automation:
   - alias: Mark Person as Away
     trigger:
       - platform: state
-        entity_id: input_select.jp_presence_status
+        entity_id: input_select.jp_presence_state
         to: 'Just Left'
         for: 
           minutes: 5
       - platform: state
-        entity_id: input_select.jen_presence_status
+        entity_id: input_select.jen_presence_state
         to: 'Just Left'
         for: 
           minutes: 5
@@ -379,15 +374,15 @@ automation:
   - alias: Mark Person as Extended Away
     trigger:
       - platform: state
-        entity_id: input_select.jp_presence_status
+        entity_id: input_select.jp_presence_state
         to: 'Away'
         for: 
-          days: 1
+          hours: 24
       - platform: state
-        entity_id: input_select.jen_presence_status
+        entity_id: input_select.jen_presence_state
         to: 'Away'
         for: 
-          days: 1
+          hours: 24
     action:
       - service: input_select.select_option
         data_template: 
