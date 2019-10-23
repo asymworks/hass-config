@@ -24,14 +24,6 @@ homeassistant:
 # Lighting Groups
 light:
 
-  # Dining Room Lights
-  #- platform: group
-  #  name: Dining Room Lights
-  #  entities:
-  #    - light.zb_dining_room_1
-  #    - light.zb_dining_room_2
-  #    - light.zb_dining_room_3
-
   # Living Room Lights
   - platform: group
     name: Living Room Lights
@@ -46,7 +38,7 @@ light:
     entities:
       - light.zb_bedroom_jp
 
-  # Zigbee Light Groups
+  # Dining Room Lights (Zigbee Group)
   - platform: mqtt
     name: Dining Room Lights
     schema: json

@@ -1,0 +1,41 @@
+###############################################################################
+# Zigbee Sensors Package for Home Assistant
+
+homeassistant:
+  customize:
+
+    # Zigbee Button (J.P. Nighstand)
+    sensor.zb_button_nightstand_jp_click:
+      friendly_name: Zigbee Bedroom Nightstand Button (J.P.)
+      hidden: true
+    sensor.zb_button_nighstand_jp_linkquality:
+      friendly_name: Zigbee Bedroom Nightstand Button Link Quality (J.P.)
+      hidden: true
+    sensor.zb_button_nightstand_jp_temperature:
+      friendly_name: Zigbee Bedroom Nightstand Button Temperature (J.P.)
+      hidden: true
+
+    # Zigbee Button (Jen Nighstand)
+    sensor.zb_button_nightstand_jen_click:
+      friendly_name: Zigbee Bedroom Nightstand Button (Jen)
+      hidden: true
+    sensor.zb_button_nighstand_jen_linkquality:
+      friendly_name: Zigbee Bedroom Nightstand Button Link Quality (Jen)
+      hidden: true
+    sensor.zb_button_nightstand_jen_temperature:
+      friendly_name: Zigbee Bedroom Nightstand Button Temperature (Jen)
+      hidden: true
+
+    # Zigbee Lights
+    sensor.zb_bedroom_jp_linkquality:
+      friendly_name: Zigbee Bedroom Nightstand Light Link Quality (J.P.)
+      hidden: true
+    sensor.zb_dining_room_1_linkquality:
+      friendly_name: Zigbee Dining Room Light 1 Link Quality
+      hidden: true
+    sensor.zb_dining_room_2_linkquality:
+      friendly_name: Zigbee Dining Room Light 2 Link Quality
+      hidden: true
+    sensor.zb_dining_room_3_linkquality:
+      friendly_name: Zigbee Dining Room Light 3 Link Quality
+      hidden: true
