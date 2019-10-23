@@ -6,15 +6,6 @@
 homeassistant:
   customize:
 
-    # Presence Sensors
-    binary_sensor.jp_presence:
-      friendly_name: J.P.
-      device_class: presence
-
-    binary_sensor.jen_presence:
-      friendly_name: Jen
-      device_class: presence
-
     # People
     person.jpk:
       entity_picture: https://gravatar.com/avatar/e78e623948f3675cf1c51544f9bec928
@@ -137,6 +128,21 @@ input_select:
 
 ###############################################################################
 # Presence Sensors
+binary_sensor:
+
+  # Home / Not-Home Sensors
+  - platform: template
+    sensors:
+      jp_presence:
+        friendly_name: J.P.
+        device_class: presence
+        value_template: "{{ is_state('person.jpk', 'home') }}"
+
+      jen_presence:
+        friendly_name: Jen
+        device_class: presence
+        value_template: "{{ is_state('person.jen', 'home') }}" 
+
 sensor:
 
   # J.P. Extended Presence Status
@@ -217,46 +223,7 @@ sensor:
         time_constant: 2
       - filter: time_simple_moving_average
         window_size: 00:01
-        precision: 1
-
-binary_sensor:
-  # Bayesian Presence
-  #- platform: bayesian
-  #  prior: 0.5
-  #  name: jp_presence
-  #  probability_threshold: 0.75
-  #  observations:
-  #    - entity_id: device_tracker.jp_n5x_ip
-  #      prob_given_true: 0.9
-  #      prob_given_false: 0.3
-  #      platform: state
-  #      to_state: home
-  #    - entity_id: device_tracker.jp_n5x_gps
-  #      prob_given_true: 0.8
-  #      prob_given_false: 0.2
-  #      platform: state
-  #      to_state: home
-  #    - entity_id: device_tracker.jp_n5x_bt_entry
-  #      prob_given_true: 0.8
-  #      prob_given_false: 0.3
-  #      platform: state
-  #      to_state: home
-
-  #- platform: bayesian
-  #  prior: 0.5
-  #  name: jen_presence
-  #  probability_threshold: 0.75
-  #  observations:
-  #    - entity_id: device_tracker.jen_iphone_ip
-  #      prob_given_true: 0.9
-  #      prob_given_false: 0.3
-  #      platform: state
-  #      to_state: home
-      #- entity_id: device_tracker.jen_iphone_bt_entry
-      #  prob_given_true: 0.8
-      #  prob_given_false: 0.3
-      #  platform: state
-      #  to_state: home
+        precision: 1    
 
 ###############################################################################
 # Presence Automations
