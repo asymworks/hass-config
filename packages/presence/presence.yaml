@@ -143,6 +143,13 @@ binary_sensor:
         device_class: presence
         value_template: "{{ is_state('person.jen', 'home') }}" 
 
+      house_presence:
+        friendly_name: House
+        device_class: presence
+        value_template: >-
+          {{    is_state('person.jpk', 'home') 
+             or is_state('person.jen', 'home') }}
+
 sensor:
 
   # J.P. Extended Presence Status
