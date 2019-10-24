@@ -189,7 +189,7 @@ sensor:
 
   - platform: mqtt
     name: jen_iphone_bt_rssi_raw_entry
-    state_topic: monitor/entry/jp_n5x/rssi
+    state_topic: monitor/entry/jen_iphone/rssi
     unit_of_measurement: 'dBm'
 
   # Filtered RSSI Data from Monitor
