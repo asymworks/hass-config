@@ -260,6 +260,9 @@ automation:
       - platform: state
         entity_id: person.jen
         to: 'home'
+      - platform: state
+        entity_id: binary_sensor.house_presence
+        to: 'on'
     action:
       - service: input_select.select_option
         data_template: 
@@ -268,6 +271,8 @@ automation:
               input_select.jp_presence_state
             {% elif trigger.entity_id == 'person.jen' %}
               input_select.jen_presence_state
+            {% elif trigger.entity_id == 'binary_sensor.house_presence' %}
+              input_select.house_presence_state
             {% else %}
             {% endif %}
           option: >
@@ -283,6 +288,12 @@ automation:
               {% else %}
                 Just Arrived
               {% endif %}
+            {% elif trigger.entity_id == 'binary_sensor.house_presence' %}
+              {% if states.input_select.house_presence_state == 'Just Left' %}
+                Home
+              {% else %}
+                Just Arrived
+              {% endif %}
             {% else %}
             {% endif %}
 
@@ -294,6 +305,9 @@ automation:
       - platform: state
         entity_id: person.jen
         from: 'home'
+      - platform: state
+        entity_id: binary_sensor.house_presence
+        from: 'on'
     action:
       - service: input_select.select_option
         data_template: 
@@ -302,6 +316,8 @@ automation:
               input_select.jp_presence_state
             {% elif trigger.entity_id == 'person.jen' %}
               input_select.jen_presence_state
+            {% elif trigger.entity_id == 'binary_sensor.house_presence' %}
+              input_select.house_presence_state
             {% else %}
             {% endif %}
           option: 'Just Left'
@@ -318,6 +334,11 @@ automation:
           minutes: 5
       - platform: state
         entity_id: input_select.jen_presence_state
+        to: 'Just Arrived'
+        for: 
+          minutes: 5
+      - platform: state
+        entity_id: input_select.house_presence_state
         to: 'Just Arrived'
         for: 
           minutes: 5
@@ -339,6 +360,11 @@ automation:
         to: 'Just Left'
         for: 
           minutes: 5
+      - platform: state
+        entity_id: input_select.house_presence_state
+        to: 'Just Left'
+        for: 
+          minutes: 5
     action:
       - service: input_select.select_option
         data_template: 
@@ -354,6 +380,11 @@ automation:
           hours: 24
       - platform: state
         entity_id: input_select.jen_presence_state
+        to: 'Away'
+        for: 
+          hours: 24
+      - platform: state
+        entity_id: input_select.house_presence_state
         to: 'Away'
         for: 
           hours: 24
