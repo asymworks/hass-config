@@ -119,6 +119,7 @@ input_select:
 
   # Global House Presence
   house_presence_state:
+    name: House Occupancy
     options:
       - Home
       - Just Arrived
