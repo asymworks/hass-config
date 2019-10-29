@@ -7,7 +7,14 @@ homeassistant:
   customize:
 
     # UPS Sensors
-    
+    sensor.cyberpower_ups_input_voltage:
+      hidden: true
+    sensor.cyberpower_ups_output_voltage:
+      hidden: true
+    sensor.cyberpower_ups_ups_status:
+      hidden: true
+    sensor.cyberpower_ups_ups_load:
+      hidden: true
 
 ###############################################################################
 # System Sensors
