@@ -1,0 +1,30 @@
+###############################################################################
+# System Package for Home Assistant
+
+###############################################################################
+# Customization
+homeassistant:
+  customize:
+
+    # UPS Sensors
+    
+
+###############################################################################
+# System Sensors
+sensor:
+  
+  # NUT UPS Sensors
+  - platform: nut
+    name: CyberPower UPS
+    host: localhost
+    port: 3493
+    alias: cp1000avr
+    username: !secret ups_username # dummy: ups_user
+    password: !secret ups_password # dummy: ups_pass
+    resources:
+      - ups.load
+      - ups.status
+      - ups.status.display
+      - input.voltage
+      - output.voltage
+      - battery.runtime
