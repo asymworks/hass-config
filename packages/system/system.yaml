@@ -11,9 +11,9 @@ homeassistant:
       hidden: true
     sensor.cyberpower_ups_output_voltage:
       hidden: true
-    sensor.cyberpower_ups_ups_status:
+    sensor.cyberpower_ups_status:
       hidden: true
-    sensor.cyberpower_ups_ups_load:
+    sensor.cyberpower_ups_load:
       hidden: true
 
 ###############################################################################
