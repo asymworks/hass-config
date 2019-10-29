@@ -44,7 +44,17 @@ homeassistant:
   cusomize_glob:
 
     # DarkSky Forecast Sensors
-    "sensor.dark_sky_*_d":
+    "sensor.dark_sky_*_0d":
+      hidden: true
+    "sensor.dark_sky_*_1d":
+      hidden: true
+    "sensor.dark_sky_*_2d":
+      hidden: true
+    "sensor.dark_sky_*_3d":
+      hidden: true
+    "sensor.dark_sky_*_4d":
+      hidden: true
+    "sensor.dark_sky_*_5d":
       hidden: true
 
 ###############################################################################
