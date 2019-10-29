@@ -62,22 +62,6 @@
   value_template: '{{ value_json.confidence }}'
   unit_of_measurement: '%'
 
-
-
-# Home Theater Player Status
-- platform: template
-  sensors:
-    ht_player_state_state:
-      value_template: '{{ states.input_select.ht_player_state.state }}'
-      friendly_name_template: 'Home Theater Player Status'
-
-# Home Theater Player Media
-- platform: template
-  sensors:
-    ht_player_media_state:
-      value_template: '{{ states.input_select.ht_player_media.state }}'
-      friendly_name_template: 'Home Theater Media Type'
-
 # ESP8266 Bed Sensors
 - platform: mqtt
   state_topic: 'sensor/esp8266-bed-right'

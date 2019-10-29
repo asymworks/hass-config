@@ -1,7 +1,5 @@
 #### Input Select Definitions #################################################
 
-
-
 # Global House Mode
 house_mode:
   options:
@@ -11,8 +9,6 @@ house_mode:
     - Night
     - Sleep
 
-
-
 # Global House Security
 house_security:
   options:
@@ -20,43 +16,3 @@ house_security:
     - Armed
     - Alarm
     - Silenced
-
-# Home Theater Player State
-ht_player_state:
-  options:
-    - Idle
-    - Playing
-    - Paused
-    - Stopped
-    - System
-    - Offline
-  initial: Idle
-
-# Home Theater Player Media Type
-ht_player_media:
-  options:
-    - TV
-    - Movie
-    - Music
-    - Unknown
-    - System
-  initial: Unknown
-
-# Home Theater Player Source
-ht_player_source:
-  options:
-    - Kodi
-    - FireTV
-    - Unknown
-  initial: Unknown
-
-# Home Theater Lighting Mode
-ht_lighting_mode:
-  name: Theater Lighting Mode
-  options:
-    - Disabled        # Disables Media Lighting Automation
-    - Auto            # TV or Cinema depending on Media Type (TV or Movie)
-    - TV              # Dim Lights on Playing/Pause, Raise on Stopped
-    - Cinema          # Lights Off on Playing, Dim on Pause, Low on Stopped
-    - Date Night      # Lights Off on Playing, Dim on Pause, Dim on Stopped
-  initial: Auto

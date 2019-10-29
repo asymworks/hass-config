@@ -1,0 +1,161 @@
+###############################################################################
+# Media Player Package for Home Assistant
+
+###############################################################################
+# Customization
+homeassistant:
+  customize:
+
+    # Media Center Status Sensor
+    sensor.media_center_status:
+      icon: mdi:audio-video
+
+###############################################################################
+# Media Players
+media_player:
+
+  # Kodi Living Room TV
+  - platform: kodi
+    name: Living Room OSMC
+    host: 10.1.2.12
+    port: 80
+
+# Roku Media Player
+roku:
+    host: 10.1.2.13
+
+###############################################################################
+# Inputs for Media Center State and Behavior
+input_select:
+
+  # Home Theater Player State
+  ht_player_state:
+    options:
+      - Idle
+      - Playing
+      - Paused
+      - Stopped
+      - System
+      - Offline
+    initial: Idle
+
+  # Home Theater Player Media Type
+  ht_player_media:
+    options:
+      - TV
+      - Movie
+      - Music
+      - Unknown
+      - System
+    initial: Unknown
+
+  # Home Theater Player Source
+  ht_player_source:
+    options:
+      - Kodi
+      - FireTV
+      - Unknown
+    initial: Unknown
+
+  # Home Theater Lighting Mode
+  ht_lighting_mode:
+    name: Theater Lighting Mode
+    options:
+      - Disabled        # Disables Media Lighting Automation
+      - Auto            # TV or Cinema depending on Media Type (TV or Movie)
+      - TV              # Dim Lights on Playing/Pause, Raise on Stopped
+      - Cinema          # Lights Off on Playing, Dim on Pause, Low on Stopped
+      - Date Night      # Lights Off on Playing, Dim on Pause, Dim on Stopped
+    initial: Auto
+
+input_boolean:
+
+  ht_dim_on_play:
+    name: 'Dim Lights on Media Playing'
+    icon: mdi:movie
+
+  ht_raise_on_pause:
+    name: 'Raise Lights on Media Paused'
+    icon: mdi:movie-outline
+
+  ht_raise_on_stop:
+    name: 'Raise Lights on Media Stopped'
+    icon: mdi:movie-outline
+
+  ht_reload_lights:
+    name: 'Reload Home Theater Lights'
+    icon: mdi:lightbulb-on-outline
+
+  ht_set_mode_auto:
+    name: 'Set Home Theater Lighting to Auto'
+    icon: mdi:lightbulb-on-outline
+
+  ht_set_mode_datenight:
+    name: 'Set Home Theater Lighting to Date Night'
+    icon: mdi:human-male-female
+
+###############################################################################
+# Media Sensors
+sensor:
+
+  # Home Theater Player Status
+  - platform: template
+    sensors:
+      ht_player_state_state:
+        value_template: '{{ states.input_select.ht_player_state.state }}'
+        friendly_name_template: 'Home Theater Player Status'
+
+  # Home Theater Player Media
+  - platform: template
+    sensors:
+      ht_player_media_state:
+        value_template: '{{ states.input_select.ht_player_media.state }}'
+        friendly_name_template: 'Home Theater Media Type'
+
+###############################################################################
+# Media Player Helper Scripts
+script:
+  
+  # Set Home Theater Lighting Mode to Auto
+  ht_mode_set_auto:
+    sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.ht_lighting_mode
+          option: Auto
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.ht_reload_lights
+
+  # Set Home Theater Lighting Mode to Date Night
+  ht_mode_set_date_night:
+    sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.ht_lighting_mode
+          option: Date Night
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.ht_reload_lights
+
+  # Set Home Theater Lighting Mode to Cinema
+  ht_mode_set_cinema:
+    sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.ht_lighting_mode
+          option: Cinema
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.ht_reload_lights
+
+  # Set Home Theater Lighting Mode to TV
+  ht_mode_set_tv:
+    sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.ht_lighting_mode
+          option: TV
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.ht_reload_lights

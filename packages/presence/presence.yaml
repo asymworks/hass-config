@@ -59,7 +59,7 @@ homeassistant:
       hidden: true
 
 ###############################################################################
-# Device Trackers
+# Person Entities
 person:
   - name: J.P.
     id: jpk

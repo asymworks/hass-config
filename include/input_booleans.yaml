@@ -5,30 +5,6 @@ departure_scan:
   initial: off
   icon: mdi:refresh
 
-ht_dim_on_play:
-  name: 'Dim Lights on Media Playing'
-  icon: mdi:movie
-
-ht_raise_on_pause:
-  name: 'Raise Lights on Media Paused'
-  icon: mdi:movie-outline
-
-ht_raise_on_stop:
-  name: 'Raise Lights on Media Stopped'
-  icon: mdi:movie-outline
-
-ht_reload_lights:
-  name: 'Reload Home Theater Lights'
-  icon: mdi:lightbulb-on-outline
-
-ht_set_mode_auto:
-  name: 'Set Home Theater Lighting to Auto'
-  icon: mdi:lightbulb-on-outline
-
-ht_set_mode_datenight:
-  name: 'Set Home Theater Lighting to Date Night'
-  icon: mdi:human-male-female
-
 house_guests:
   name: 'Guest Mode'
   icon: mdi:face

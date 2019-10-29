@@ -1,5 +1,1 @@
 #### Device Customizations ####################################################
-
-# Device Pictures
-sensor.media_center_status:
-  icon: mdi:audio-video
