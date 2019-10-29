@@ -19,6 +19,7 @@ homeassistant:
       hidden: true
     input_select.ht_lighting_mode:
       hidden: true
+    
     sensor.ht_player_state_state:
       hidden: true
     sensor.ht_player_media_state:
