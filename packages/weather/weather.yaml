@@ -6,7 +6,46 @@
 homeassistant:
   customize:
 
+    # DarkSky Current Sensors
+    sensor.dark_sky_icon:
+      friendly_name: Current Conditions
+    sensor.dark_sky_humidity:
+      friendly_name: Current Humidity
+    sensor.dark_sky_temperature:
+      friendly_name: Current Temperature
+
+    sensor.dark_sky_apparent_temperature:
+      hidden: true
+    sensor.dark_sky_current_text:
+      hidden: true
+    sensor.dark_sky_daily_summary:
+      hidden: true
+    sensor.dark_sky_nearest_storm_bearing:
+      hidden: true
+    sensor.dark_sky_precip:
+      hidden: true
+    sensor.dark_sky_precip_probability:
+      hidden: true
+    sensor.dark_sky_precip_intensity:
+      hidden: true
+    sensor.dark_sky_pressure:
+      hidden: true
+    sensor.dark_sky_summary:
+      hidden: true
+    sensor.dark_sky_uv_index:
+      hidden: true
+    sensor.dark_sky_visibility:
+      hidden: true
+    sensor.dark_sky_wind_bearing:
+      hidden: true
+    sensor.dark_sky_wind_speed:
+      hidden: true
+
+  cusomize_glob:
+
     # DarkSky Forecast Sensors
+    "sensor.dark_sky_*_d":
+      hidden: true
 
 ###############################################################################
 # DarkSky Forecast Card Sensors
