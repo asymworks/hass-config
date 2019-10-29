@@ -10,6 +10,20 @@ homeassistant:
     sensor.media_center_status:
       icon: mdi:audio-video
 
+    # Internal States
+    input_select.ht_player_state:
+      hidden: true
+    input_select.ht_player_media:
+      hidden: true
+    input_select.ht_player_source:
+      hidden: true
+    input_select.ht_lighting_mode:
+      hidden: true
+    sensor.ht_player_state:
+      hidden: true
+    sensor.ht_player_media_state:
+      hidden: true
+
 ###############################################################################
 # Media Players
 media_player:
@@ -54,6 +68,7 @@ input_select:
     options:
       - Kodi
       - FireTV
+      - Roku
       - Unknown
     initial: Unknown
 
