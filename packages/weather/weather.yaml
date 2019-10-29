@@ -22,6 +22,8 @@ homeassistant:
       hidden: true
     sensor.dark_sky_nearest_storm_bearing:
       hidden: true
+    sensor.dark_sky_nearest_storm_distance:
+      hidden: true
     sensor.dark_sky_precip:
       hidden: true
     sensor.dark_sky_precip_probability:
