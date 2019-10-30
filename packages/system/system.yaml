@@ -7,6 +7,9 @@ homeassistant:
   customize:
 
     # UPS Sensors
+    sensor.cyberpower_ups_battery_runtime_mins:
+      icon: mdi:timer
+
     sensor.cyberpower_ups_battery_runtime:
       hidden: true
     sensor.cyberpower_ups_input_voltage:
@@ -45,4 +48,3 @@ sensor:
         friendly_name: "CyberPower UPS Battery Runtime"
         value_template: "{{ (states('sensor.cyberpower_ups_battery_runtime')|float / 60 ) | round() }}"
         unit_of_measurement: 'Mins'
-        icon: mdi:timer
