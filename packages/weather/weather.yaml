@@ -117,3 +117,16 @@ sensor:
                          {% elif is_state("sensor.dark_sky_icon","lightning") %} Lightning
                          {% elif is_state("sensor.dark_sky_icon","thunderstorm") %} Thunderstorm
                          {% endif %}'
+
+###############################################################################
+# Exclude Forecast Sensors from History
+history:
+  exclude:
+    entities:
+      sensor.dark_sky_apparent_temperature_0d
+      sensor.dark_sky_apparent_temperature_1d
+      sensor.dark_sky_apparent_temperature_2d
+      sensor.dark_sky_apparent_temperature_3d
+      sensor.dark_sky_apparent_temperature_4d
+      sensor.dark_sky_apparent_temperature_5d
+
