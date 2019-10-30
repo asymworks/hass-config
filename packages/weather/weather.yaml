@@ -6,7 +6,7 @@
 homeassistant:
   customize:
 
-    # DarkSky Current Sensors
+    # Dark Sky Current Sensors
     sensor.dark_sky_humidity:
       friendly_name: Current Humidity
     sensor.dark_sky_temperature:
@@ -60,10 +60,19 @@ homeassistant:
       hidden: true
 
 ###############################################################################
-# DarkSky Forecast Card Sensors
+# Weather Providers
+weather:
+
+  # Dark Sky
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    mode: daily
+
+###############################################################################
+# Dark Sky Forecast Card Sensors
 sensor:
 
-  # DarkSky Weather Conditions and Forecast
+  # Dark Sky Weather Conditions and Forecast
   - platform: darksky
     api_key: !secret darksky_api_key
     forecast:
