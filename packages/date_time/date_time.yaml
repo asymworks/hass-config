@@ -1,0 +1,39 @@
+###############################################################################
+# Date-Time Package for Home Assistant
+
+###############################################################################
+# Workday Sensor
+binary_sensor:
+  - platform: workday
+    country: US
+    workdays: [mon, tue, wed, thu, fri]
+    excludes: [sat, sun, holiday]
+
+###############################################################################
+# Date/Time Sensor
+sensor:
+  - platform: time_date
+    display_options:
+      - time
+      - date
+      - date_time
+      - time_date
+      - time_utc
+      - beat
+
+###############################################################################
+# Other Time Zones
+
+  - platform: worldclock
+    time_zone: America/Denver
+    name: Casper Time
+
+###############################################################################
+# Customize History Entries
+history:
+  exclude:
+    entities:
+
+      # Exclude Date/Time Sensors
+      - binary_sensor.workday_sensor
+      - sensor.casper_time
