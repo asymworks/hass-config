@@ -71,6 +71,12 @@ config:
 
 # Enable the Front End
 frontend:
+  extra_html_url:
+
+    # Add Font Awesome Icons
+    - /local/hass-fontawesome-solid.html
+    - /local/hass-fontawesome-regular.html
+    - /local/hass-fontawesome-brands.html
 
 # Enables support for tracking state changes over time
 history:
