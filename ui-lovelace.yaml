@@ -1,0 +1,195 @@
+###############################################################################
+# Lovelace UI Configuration for Home Assistant
+
+title: Krauss Home
+
+###############################################################################
+# Resource Imports
+resources:
+  - url: /local/custom_ui/compact-custom-header.js?v=1.4.5
+    type: module
+
+###############################################################################
+# Compact Custom Header Configuration
+cch:
+  background: 'rgba(150, 150, 150, 0.2)'
+  menu: show
+  notifications: show
+  voice: hide
+  options: clock
+
+views:
+
+###############################################################################
+# Legacy Auto-Generated Card
+  
+  - name: Legacy
+    badges:
+
+      # Binary Sensors
+      - binary_sensor.alarm
+      - binary_sensor.doors
+      - binary_sensor.house_presence
+      - binary_sensor.jen_presence
+      - binary_sensor.jp_presence
+      - binary_sensor.updater
+      - binary_sensor.zp3111_bedroom_motion
+      - binary_sensor.zp3111_kitchen_motion
+      - binary_sensor.zse40_living_room_motion
+      - binary_sensor.zw_front_door_sensor
+
+      # Device Trackers
+      - device_tracker.jen_iphone_bt_entry
+      - device_tracker.jen_iphone_ip
+      - device_tracker.jp_gs8_ip
+      - device_tracker.jp_n5x_bt_entry
+      - device_tracker.jp_n5x_gps
+      - device_tracker.jp_n5x_ip
+
+      # Persons
+      - person.jen
+      - person.jpk
+
+      # Sensors
+      - sensor.cyberpower_ups_battery_runtime_mins
+      - sensor.cyberpower_ups_status_data
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_temperature
+      - sensor.house_presence_status
+      - sensor.jen_presence_status
+      - sensor.jp_presence_status
+      - sensor.zp3111_bedroom_luminance
+      - sensor.zp3111_bedroom_relative_humidity
+      - sensor.zp3111_bedroom_temperature
+      - sensor.zp3111_kitchen_luminance
+      - sensor.zp3111_kitchen_relative_humidity
+      - sensor.zp3111_kitchen_temperature
+      - sensor.zse40_living_room_luminance
+      - sensor.zse40_living_room_relative_humidity
+      - sensor.zse40_living_room_temperature
+      
+      # Sun
+      - sun.sun
+
+    cards:
+
+      # Doors
+      - type: entities
+        title: Doors
+        show_header_toggle: true
+        entities:
+          - group.doors
+
+      # Motion
+      - type: entities
+        title: Motion
+        show_header_toggle: true
+        entities:
+          - group.motion
+
+      # Alarm Panel
+      - type: alarm-panel
+        entity: alarm_controL_panel.ha_alarm
+
+      # Automations
+      - type: entities
+        title: Automation
+        show_header_toggle: true
+        entities:
+          - automation.mark_person_as_away
+          - automation.mark_person_as_extended_away
+          - automation.mark_person_as_home
+          - automation.mark_person_as_just_arrived
+          - automation.mark_person_as_just_left
+          - automation.startup_arrival_scan
+
+      # Lights
+      - type: entities
+        title: Light
+        show_header_toggle: true
+        entities:
+          - group.all_lights
+
+      # Remotes
+      - type: entities
+        title: Remote
+        show_header_toggle: true
+        entities:
+          - group.all_remotes
+
+      # Scripts
+      - type: entities
+        title: Script
+        show_header_toggle: true
+        entities:
+          - group.all_scripts
+
+      # Switches
+      - type: entities
+        title: Switch
+        show_header_toggle: true
+        entities:
+          - group.all_switches
+
+      # Input Select
+      - type: entities
+        title: Input Select
+        show_header_toggle: true
+        entities:
+          - input_select.house_presence_state
+          - input_select.jen_presence_state
+          - input_select.jp_presence_state
+
+      # Input Boolean
+      - type: entities
+        title: Input Boolean
+        show_header_toggle: true
+        entities:
+          - input_boolean.ht_dim_on_play
+          - input_boolean.ht_raise_on_pause
+          - input_boolean.ht_raise_on_stop
+          - input_boolean.ht_reload_lights
+          - input_boolean.ht_set_mode_auto
+          - input_boolean.ht_set_mode_datenight
+
+      # Z-Wave
+      - type: entities
+        title: Z-Wave
+        show_header_toggle: true
+        entities:
+          - zwave.zooz_zst10_s2_z_wave_plus_usb_stick
+
+      # Scenes
+      - type: entities
+        title: Scene
+        show_header_toggle: true
+        entities:
+          - scene.all_dim
+          - scene.all_fade_dim
+          - scene.all_fade_low
+          - scene.all_fade_off
+          - scene.all_low
+          - scene.all_off
+          - scene.dining_room_dim
+          - scene.dining_room_low
+          - scene.dining_room_normal
+          - scene.living_room_dim
+          - scene.living_room_low
+          - scene.living_room_normal
+
+      # Weather Forecast
+      - type: weather-forecast
+        entity: weather.dark_sky
+
+      # Kodi Living Room
+      - type: media-control
+        entity: media_player.living_room_osmc
+
+      # Roku
+      - type: media-control
+        entity: media_player.roku
+  
+###############################################################################
+# Main Dashboard Card
+
+  - icon: mdi:home
