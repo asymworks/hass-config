@@ -152,7 +152,7 @@ binary_sensor:
         device_class: problem
         entity_id: switch.living_room_camera
         value_template: >-
-          {{ not is_state('switch.living_room_camera', 'unavailable') }}
+          {{ is_state('switch.living_room_camera', 'unavailable') }}
 
       ## Camera Device Tracker Sensors
       logi_circle_switch:
