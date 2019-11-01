@@ -6,6 +6,10 @@
 homeassistant:
   customize:
 
+    # Alarm Control Panel
+    alarm_control_panel.ha_alarm:
+      icon: mdi:shield-home
+
 ###############################################################################
 # Entity Groups
 group:
