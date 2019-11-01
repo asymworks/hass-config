@@ -11,8 +11,6 @@ homeassistant:
     # Vision Security ZP3111 Bedroom
     sensor.zp3111_bedroom_luminance:
       friendly_name: Bedroom Luminance
-    sensor.zp3111_bedroom_motion:
-      friendly_name: Bedroom Motion Sensor
     sensor.zp3111_bedroom_relative_humidity:
       friendly_name: Bedroom Relative Humidity
     sensor.zp3111_bedroom_temperature:
@@ -38,6 +36,9 @@ homeassistant:
     sensor.zp3111_bedroom_emergency:
       friendly_name: Z-Wave Bedroom Emergency Sensor
       hidden: true
+    sensor.zp3111_bedroom_motion:
+      friendly_name: Z-Wave Bedroom Motion Level
+      hidden: true
     sensor.zp3111_bedroom_power_management:
       friendly_name: Z-Wave Bedroom Power Management
       hidden: true
@@ -51,8 +52,6 @@ homeassistant:
     # Vision Security ZP3111 Kitchen
     sensor.zp3111_kitchen_luminance:
       friendly_name: Kitchen Luminance
-    sensor.zp3111_kitchen_motion:
-      friendly_name: Kitchen Motion Sensor
     sensor.zp3111_kitchen_relative_humidity:
       friendly_name: Kitchen Relative Humidity
     sensor.zp3111_kitchen_temperature:
@@ -76,6 +75,9 @@ homeassistant:
     sensor.zp3111_kitchen_appliance:
       friendly_name: Z-Wave Kitchen Appliance
       hidden: true
+    sensor.zp3111_kitchen_motion:
+      friendly_name: Z-Wave Kitchen Motion Level
+      hidden: true
     sensor.zp3111_kitchen_power_management:
       friendly_name: Z-Wave Kitchen Power Management
       hidden: true
@@ -86,8 +88,6 @@ homeassistant:
     # Zooz ZSE40 Living Room
     sensor.zse40_living_room_luminance:
       friendly_name: Living Room Luminance
-    sensor.zse40_living_room_motion:
-      friendly_name: Living Room Motion Sensor
     sensor.zse40_living_room_relative_humidity:
       friendly_name: Living Room Relative Humidity
     sensor.zse40_living_room_temperature:
@@ -102,11 +102,14 @@ homeassistant:
     sensor.zse40_living_room_alarm_level:
       friendly_name: Z-Wave Living Room Alarm Level
       hidden: true
+    sensor.zse40_living_room_alarm_type:
+      friendly_name: Z-Wave Living Room Alarm Type
+      hidden: true
     sensor.zse40_living_room_battery_level:
       friendly_name: Z-Wave Living Room Battery Level
       hidden: true
-    sensor.zse40_living_room_alarm_type:
-      friendly_name: Z-Wave Living Room Alarm Type
+    sensor.zse40_living_room_motion:
+      friendly_name: Living Room Motion Level
       hidden: true
     sensor.zse40_living_room_sourcenodeid:
       friendly_name: Z-Wave Living Room Source Node ID
@@ -145,3 +148,22 @@ homeassistant:
       friendly_name: Z-Wave Front Door Source Node ID
       hidden: true
 
+###############################################################################
+# Binary Motion Sensor for ZSE40/ZP3111 Devices
+binary_sensor:
+  - platform: template
+    sensors:
+      zp3111_bedroom_motion:
+        friendly_name: Z-Wave Bedroom Motion Sensor
+        value_template: >-
+          {{ states('sensor.zp3111_bedroom_motion')|float > 7 }}
+      
+      zp3111_kitchen_motion:
+        friendly_name: Z-Wave Kitchen Motion Sensor
+        value_template: >-
+          {{ states('sensor.zp3111_kitchen_motion')|float > 7 }}
+
+      zse40_living_room_motion:
+        friendly_name: Z-Wave Living Room Motion Sensor
+        value_template: >-
+          {{ states('sensor.zse40_living_room_motion')|float > 7 }}
