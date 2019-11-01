@@ -41,7 +41,7 @@ views:
       # Presence Status
       - type: vertical-stack
         cards:
-          
+
           - type: glance
             entities:
               - person.jpk
@@ -62,6 +62,38 @@ views:
                 entities:
                   - device_tracker.jen_iphone_bt_entry
                   - device_tracker.jen_iphone_ip
+
+###############################################################################
+###
+### Alarm Status Card
+
+  - id: 1
+    icon: mdi:security-home
+    title: Security
+    cards:
+
+      #########################################################################
+      # Alarm Panel
+      - type: alarm-panel
+        entity: alarm_control_panel.ha_alarm
+
+      #########################################################################
+      # Door Sensor Status
+      - type: custom:group-card
+        card:
+          type: glance
+          title: Doors
+          show_header_toggle: false
+        group: group.doors
+
+      #########################################################################
+      # Motion Sensor Status
+      - type: custom:group-card
+        card:
+          type: glance
+          title: Motion
+          show_header_toggle: false
+        group: group.motion
 
 ###############################################################################
 ###
