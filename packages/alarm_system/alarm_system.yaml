@@ -146,13 +146,13 @@ binary_sensor:
             mdi:alert
           {% endif %}
 
-      ## Camera Switch Offline Sensor
-      camera_switch_offline:
-        friendly_name: Camera Switch Offline
+      ## Camera Switch Unavailable Sensor
+      camera_switch_issue:
+        friendly_name: Camera Switch Issue
         device_class: problem
-        entity_id: device_tracker.logi_switch
+        entity_id: switch.living_room_camera
         value_template: >-
-          {{ not is_state('device_tracker.logi_switch', 'home') }}
+          {{ not is_state('switch.living_room_camera', 'unavailable') }}
 
       ## Camera Device Tracker Sensors
       logi_circle_switch:
