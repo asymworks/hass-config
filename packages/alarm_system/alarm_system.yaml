@@ -10,6 +10,12 @@ homeassistant:
     alarm_control_panel.ha_alarm:
       icon: mdi:shield-home
 
+    # Camera Device Trackers
+    device_tracker.logi_switch:
+      hidden: true
+    device_tracker.logi_camera:
+      hidden: true
+
     # Camera Switch Status
     binary_sensor.camera_offline:
       device_class: problem
@@ -57,6 +63,14 @@ alarm_control_panel:
     state_topic: home/alarm
     command_topic: home/alarm/set
     code: !secret alarm_code
+
+###############################################################################
+# Device Trackers for WeMo Switch and Logi Circle Camera
+device_tracker:
+  - platform: ping
+    hosts:
+      logi_switch: !secret logi_switch_ip
+      logi_camera: !secret logi_camera_ip
 
 ###############################################################################
 # Binary Sensors for UI
@@ -125,9 +139,3 @@ binary_sensor:
           {% else %}
             mdi:alert
           {% endif %}
-
-      camera_offline:
-        friendly_name: Camera Offline
-        entity_id: switch.living_room_camera
-        value_template: >-
-          {{ states.switch.living_room_camera == 'unavailable' }}
