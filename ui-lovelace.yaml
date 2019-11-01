@@ -108,8 +108,8 @@ views:
         entities:
           - binary_sensor.camera_switch_offline
           - binary_sensor.camera_switch
-          - device_tracker.logi_switch
-          - device_tracker.logi_camera
+          - binary_sensor.logi_circle_switch
+          - binary_sensor.logi_circle_camera
 
 ###############################################################################
 ###
