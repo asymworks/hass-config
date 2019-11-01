@@ -14,7 +14,6 @@ resources:
 ###############################################################################
 # Compact Custom Header Configuration
 cch:
-  background: 'rgba(150, 150, 150, 0.2)'
   menu: show
   notifications: show
   voice: hide
@@ -23,9 +22,45 @@ cch:
 views:
 
 ###############################################################################
-# Legacy Auto-Generated Card
-  
-  - name: Legacy
+###
+### Main Dashboard Card
+
+  - id: 0
+    icon: mdi:home
+    title: Home
+    cards:
+
+      #########################################################################
+      # Glances (Alarm, Alert Sensors)
+      - type: entities
+        entities:
+          - binary_sensor.alarm
+          - binary_sensor.doors
+
+
+###############################################################################
+###
+### Battery Status Card
+
+  - icon: mdi:battery-alert
+    title: "Batteries"
+    cards:
+      - type: custom:group-card
+        card:
+          type: entities
+          title: Battery Status
+          show_header_toggle: false
+        group: group.battery_status
+      - type: custom:group-card
+        card:
+          type: entities
+          title: Battery Alert
+        group: group.battery_alert
+
+###############################################################################
+# Legacy Auto-Generated Card (Recreated)
+ 
+  - title: Legacy
     badges:
 
       # Binary Sensors
@@ -190,29 +225,3 @@ views:
       # Roku
       - type: media-control
         entity: media_player.roku
-
-###############################################################################
-# Main Dashboard Card
-
-  - icon: mdi:home
-
-###############################################################################
-# Battery Status Card
-
-  - icon: mdi:battery-alert
-    title: "Batteries"
-    cards:
-
-      - type: custom:group-card
-        card:
-          type: entities
-          title: Battery Status
-          show_header_toggle: false
-        group: group.battery_status
-
-      - type: custom:group-card
-        card:
-          type: entities
-          title: Battery Alert
-        group: group.battery_alert
-
