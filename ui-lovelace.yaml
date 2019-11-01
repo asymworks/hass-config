@@ -67,19 +67,29 @@ views:
 
       #########################################################################
       # Lighting
-      - type: custom:vertical-stack-in-card
+      - type: horizontal-stack
         cards:
-          - type: horizontal-stack
-            cards:
-              - type: entity-button
-                entity: light.living_room_lights
-                name: Living Room
-              - type: entity-button
-                entity: light.dining_room_lights
-                name: Dining Room
-              - type: entity-button
-                entity: light.bedroom_lights
-                name: Bedroom
+          - type: entity-button
+            entity: light.living_room_lights
+            name: Living Room
+            double_tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.living_room_normal
+
+          - type: entity-button
+            entity: light.dining_room_lights
+            name: Dining Room
+            double_tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.dining_room_normal
+
+          - type: entity-button
+            entity: light.bedroom_lights
+            name: Bedroom
 
 ###############################################################################
 ###
