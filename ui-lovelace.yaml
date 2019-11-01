@@ -31,12 +31,45 @@ views:
     cards:
 
       #########################################################################
-      # Glances (Alarm, Alert Sensors)
+      # Alarm and Alert Sensors
       - type: entities
         entities:
           - binary_sensor.alarm
           - binary_sensor.doors
 
+      #########################################################################
+      # Presence Status
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: entities
+                show_header_toggle: false
+                entities:
+                  - person.jpk
+                  - type: divider
+                  - binary_sensor.jp_presence
+              
+              - type: entities
+                show_header_toggle: false
+                entities:
+                  - person.jen
+                  - type: divider
+                  - binary_sensor.jen_presence
+
+          - type: horizontal-stack
+            cards:
+              - type: glance
+                entities:
+                  - device_tracker.jp_gs8_ip
+                  - device_tracker.jp_n5x_bt_entry
+                  - device_tracker.jp_n5x_gps
+                  - device_tracker.jp_n5x_ip
+
+              - type: glance
+                entities:
+                  - device_tracker.jen_iphone_bt_entry
+                  - device_tracker.jen_iphone_ip
 
 ###############################################################################
 ###
