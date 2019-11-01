@@ -8,6 +8,8 @@ title: Krauss Home
 resources:
   - url: /local/custom_ui/compact-custom-header.js?v=1.4.5
     type: module
+  - url: /local/custom_ui/group-card.js?v=0.0.2
+    type: js
 
 ###############################################################################
 # Compact Custom Header Configuration
@@ -201,13 +203,16 @@ views:
     title: "Batteries"
     cards:
 
-      - type: entities
-        title: Battery Status
-        entities:
-          - group.battery_status
+      - type: custom:group-card
+        card:
+          type: entities
+          title: Battery Status
+          show_header_toggle: false
+        group: group.battery_status
 
-      - type: entities
-        title: Battery Alert
-        entities:
-          - group.battery_alert
-  
+      - type: custom:group-card
+        card:
+          type: entities
+          title: Battery Alert
+        group: group.battery_alert
+
