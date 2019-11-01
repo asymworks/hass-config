@@ -89,7 +89,7 @@ views:
 
       # Alarm Panel
       - type: alarm-panel
-        entity: alarm_controL_panel.ha_alarm
+        entity: alarm_control_panel.ha_alarm
 
       # Automations
       - type: entities
@@ -188,8 +188,26 @@ views:
       # Roku
       - type: media-control
         entity: media_player.roku
-  
+
 ###############################################################################
 # Main Dashboard Card
 
   - icon: mdi:home
+
+###############################################################################
+# Battery Status Card
+
+  - icon: mdi:battery-alert
+    title: "Batteries"
+    cards:
+
+      - type: entities
+        title: Battery Status
+        entities:
+          - group.battery_status
+
+      - type: entities
+        title: Battery Alert
+        entities:
+          - group.battery_alert
+  
