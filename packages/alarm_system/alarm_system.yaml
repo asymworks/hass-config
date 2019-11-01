@@ -20,7 +20,11 @@ homeassistant:
 
     # Camera Switch Status
     binary_sensor.camera_switch_offline:
-      device_class: problem
+      hidden: true
+    binary_sensor.logi_circle_switch:
+      hidden: true
+    binary_sensor.logi_circle_camera:
+      hidden: true
 
 ###############################################################################
 # Entity Groups
@@ -144,7 +148,23 @@ binary_sensor:
 
       ## Camera Switch Offline Sensor
       camera_switch_offline:
-        friendly_name: Camera Switch
+        friendly_name: Camera Switch Offline
+        device_class: problem
         entity_id: device_tracker.logi_switch
         value_template: >-
           {{ not is_state('device_tracker.logi_switch', 'home') }}
+
+      ## Camera Device Tracker Sensors
+      logi_circle_switch:
+        friendly_name: Logi Circle Switch
+        device_class: connectivity
+        entity_id: device_tracker.logi_switch
+        value_template: >-
+          {{ is_state('device_tracker.logi_switch', 'home') }}
+
+      logi_circle_camera:
+        friendly_name: Logi Circle Camera
+        device_class: connectivity
+        entity_id: device_tracker.logi_camera
+        value_template: >-
+          {{ is_state('device_tracker.logi_circle', 'home') }}
