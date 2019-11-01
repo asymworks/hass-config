@@ -153,6 +153,14 @@ homeassistant:
       friendly_name: Z-Wave Front Door Source Node ID
       hidden: true
 
+    # Template Motion Sensors
+    binary_sensor.zp3111_bedroom_motion:
+      device_class: motion
+    binary_sensor.zp3111_kitchen_motion:
+      device_class: motion
+    binary_sensor.zse40_living_room_motion:
+      device_class: motion
+
 ###############################################################################
 # Binary Motion Sensor for ZSE40/ZP3111 Devices
 binary_sensor:
