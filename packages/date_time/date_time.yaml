@@ -2,6 +2,29 @@
 # Date-Time Package for Home Assistant
 
 ###############################################################################
+# Customization
+homeassistant:
+  customize:
+
+    # Hide Time Sensors
+    binary_sensor.workday_sensor:
+      hidden: true
+    sensor.casper_time:
+      hidden: true
+    sensor.date:
+      hidden: true
+    sensor.date_time:
+      hidden: true
+    sensor.internet_time:
+      hidden: true
+    sensor.time:
+      hidden: true
+    sensor.time_date:
+      hidden: true
+    sensor.time_utc:
+      hidden: true
+
+###############################################################################
 # Workday Sensor
 binary_sensor:
   - platform: workday
@@ -37,3 +60,9 @@ history:
       # Exclude Date/Time Sensors
       - binary_sensor.workday_sensor
       - sensor.casper_time
+      - sensor.date
+      - sensor.date_time
+      - sensor.internet_time
+      - sensor.time
+      - sensor.time_date
+      - sensor.time_utc
