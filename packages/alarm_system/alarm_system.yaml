@@ -147,4 +147,4 @@ binary_sensor:
         friendly_name: Camera Switch
         entity_id: device_tracker.logi_switch
         value_template: >-
-          {{ states.device_tracker.logi_switch != 'home' }}
+          {{ not is_state('device_tracker.logi_switch', 'home') }}
