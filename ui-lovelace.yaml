@@ -106,8 +106,10 @@ views:
       - type: glance
         title: Logi Circle 2
         entities:
-          - binary_sensor.camera_offline
+          - binary_sensor.camera_switch_offline
           - binary_sensor.camera_switch
+          - device_tracker.logi_switch
+          - device_tracker.logi_camera
 
 ###############################################################################
 ###
