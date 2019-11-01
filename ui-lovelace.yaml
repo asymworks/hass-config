@@ -82,7 +82,6 @@ views:
         card:
           type: glance
           title: Doors
-          show_header_toggle: false
         group: group.doors
 
       #########################################################################
@@ -91,8 +90,16 @@ views:
         card:
           type: glance
           title: Motion
-          show_header_toggle: false
         group: group.motion
+
+      #########################################################################
+      # Camera Status
+      - type: glance
+        title: Logi Circle 2
+        show_header_toggle: false
+        entities:
+          - binary_sensor.camera_offline
+          - binary_sensor.camera_switch
 
 ###############################################################################
 ###
