@@ -67,11 +67,19 @@ views:
 
       #########################################################################
       # Lighting
-      - type: custom:group-card
-        card:
-          type: entities
-          title: Lights
-        group: group.all_lights
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: entity-button
+                entity: light.living_room_lights
+                name: Living Room
+              - type: entity-button
+                entity: light.dining_room_lights
+                name: Dining Room
+              - type: entity-button
+                entity: light.bedroom_lights
+                name: Bedroom
 
 ###############################################################################
 ###
