@@ -10,6 +10,8 @@ resources:
     type: module
   - url: /local/custom_ui/group-card.js?v=0.0.2
     type: js
+  - url: /local/custom_ui/vertical-stack-in-card.js?v=0.1.3
+    type: js
 
 ###############################################################################
 # Compact Custom Header Configuration
@@ -39,7 +41,7 @@ views:
 
       #########################################################################
       # Presence Status
-      - type: vertical-stack
+      - type: custom:vertical-stack-in-card
         cards:
 
           - type: glance
