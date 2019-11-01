@@ -50,6 +50,7 @@ views:
           - type: horizontal-stack
             cards:
               - type: glance
+                show_name: false
                 entities:
                   - device_tracker.jp_gs8_ip
                   - device_tracker.jp_n5x_bt_entry
@@ -61,6 +62,14 @@ views:
                 entities:
                   - device_tracker.jen_iphone_bt_entry
                   - device_tracker.jen_iphone_ip
+
+      #########################################################################
+      # Lighting
+      - type: custom:group-card
+        card:
+          type: entities
+          title: Lights
+        group: group.all_lights
 
 ###############################################################################
 ###
