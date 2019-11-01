@@ -12,12 +12,14 @@ homeassistant:
 
     # Camera Device Trackers
     device_tracker.logi_switch:
+      friendly_name: 'Logi Circle 2 Camera Switch'
       hidden: true
     device_tracker.logi_camera:
+      friendly_name: 'Logi Circle 2 Camera'
       hidden: true
 
     # Camera Switch Status
-    binary_sensor.camera_offline:
+    binary_sensor.camera_switch_offline:
       device_class: problem
 
 ###############################################################################
@@ -139,3 +141,10 @@ binary_sensor:
           {% else %}
             mdi:alert
           {% endif %}
+
+      ## Camera Switch Offline Sensor
+      camera_switch_offline:
+        friendly_name: Camera Switch
+        entity_id: device_tracker.logi_switch
+        value_template: >-
+          {{ states.device_tracker.logi_switch != 'home' }}
