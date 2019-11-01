@@ -22,6 +22,7 @@ homeassistant:
       friendly_name: Vision Security ZP3111 Bedroom
     binary_sensor.zp3111_bedroom_sensor:
       friendly_name: Z-Wave Bedroom Sensor
+      hidden: true
     sensor.zp3111_bedroom_alarm_level:
       friendly_name: Z-Wave Bedroom Alarm Level
       hidden: true
@@ -62,6 +63,7 @@ homeassistant:
       hidden: true
     binary_sensor.zp3111_kitchen_sensor:
       friendly_name: Z-Wave Kitchen Sensor
+      hidden: true
     sensor.zp3111_kitchen_alarm_level:
       friendly_name: Z-Wave Kitchen Alarm Level
       hidden: true
@@ -96,6 +98,7 @@ homeassistant:
       hidden: true
     binary_sensor.zse40_living_room_sensor:
       friendly_name: Z-Wave Living Room Sensor
+      hidden: true
     sensor.zse40_living_room_alarm_level:
       friendly_name: Z-Wave Living Room Alarm Level
       hidden: true
