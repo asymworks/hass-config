@@ -18,6 +18,8 @@ homeassistant:
 
     zwave.zp3111_bedroom:
       friendly_name: Vision Security ZP3111 Bedroom
+      battery_sensor_creation_disabled: true
+      hidden: true
     binary_sensor.zp3111_bedroom_sensor:
       friendly_name: Z-Wave Bedroom Sensor
       hidden: true
@@ -59,6 +61,7 @@ homeassistant:
   
     zwave.zp3111_kitchen:
       friendly_name: Vision Security ZP3111 Kitchen
+      battery_sensor_creation_disabled: true
       hidden: true
     binary_sensor.zp3111_kitchen_sensor:
       friendly_name: Z-Wave Kitchen Sensor
@@ -95,6 +98,7 @@ homeassistant:
 
     zwave.zse40_living_room:
       friendly_name: Zooz ZSE40 Living Room
+      battery_sensor_creation_disabled: true
       hidden: true
     binary_sensor.zse40_living_room_sensor:
       friendly_name: Z-Wave Living Room Sensor
@@ -125,6 +129,7 @@ homeassistant:
 
     zwave.zw_front_door_sensor:
       friendly_name: Z-Wave Front Door Sensor
+      battery_sensor_creation_disabled: true
       hidden: true
     sensor.zw_front_door_access_control:
       friendly_name: Z-Wave Front Door Access Control
