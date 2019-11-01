@@ -116,11 +116,7 @@ binary_sensor:
         friendly_name: Camera Switch
         entity_id: switch.living_room_camera
         value_template: >-
-          {% if is_state('switch.living_room_camera', 'on') %}
-            on
-          {% else %}
-            off
-          {% endif %}
+          {{ states.switch.living_room_camera == 'on' }}
         icon_template: >-
           {% if is_state('switch.living_room_camera', 'on') %}
             mdi:camera-wireless
@@ -134,8 +130,4 @@ binary_sensor:
         friendly_name: Camera Offline
         entity_id: switch.living_room_camera
         value_template: >-
-          {% if is_state('switch.living_room_camera', 'unavailable') %}
-            on
-          {% else %}
-            off
-          {% endif %}
+          {{ states.switch.living_room_camera == 'unavailable' }}
