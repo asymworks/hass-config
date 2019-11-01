@@ -156,14 +156,14 @@ binary_sensor:
       zp3111_bedroom_motion:
         friendly_name: Z-Wave Bedroom Motion Sensor
         value_template: >-
-          {{ states('sensor.zp3111_bedroom_motion')|float > 7 }}
+          {{ states('sensor.zp3111_bedroom_motion')|float > 7 and states('sensor.zp3111_bedroom_motion')|float < 9 }}
       
       zp3111_kitchen_motion:
         friendly_name: Z-Wave Kitchen Motion Sensor
         value_template: >-
-          {{ states('sensor.zp3111_kitchen_motion')|float > 7 }}
+          {{ states('sensor.zp3111_kitchen_motion')|float > 7 and states('sensor.zp3111_kitchen_motion')|float < 9 }}
 
       zse40_living_room_motion:
         friendly_name: Z-Wave Living Room Motion Sensor
         value_template: >-
-          {{ states('sensor.zse40_living_room_motion')|float > 7 }}
+          {{ states('sensor.zse40_living_room_motion')|float > 7 and states('sensor.zse40_living_room_motion')|float < 9 }}
