@@ -78,7 +78,7 @@ frontend:
     - /local/custom_ui/fas/hass-fontawesome-brands.html
 
   # Add Themes
-  themes: !include_dir_list themes
+  themes: !include_dir_merge_list themes
 
 # Enables support for tracking state changes over time
 history:
