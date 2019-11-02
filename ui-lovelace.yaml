@@ -107,14 +107,14 @@ views:
           - type: custom:mini-graph-card
             entities:
               - sensor.zp3111_kitchen_temperature
-            name: Bedroom
+            name: Kitchen
             line_color: '#b58e31'
             line_width: 6
 
           - type: custom:mini-graph-card
             entities:
               - sensor.zse40_living_room_temperature
-            name: Bedroom
+            name: Living Room
             line_color: '#b93829'
             line_width: 6
 
