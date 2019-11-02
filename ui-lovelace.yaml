@@ -12,6 +12,10 @@ resources:
     type: js
   - url: /local/custom_ui/mini-graph-card-bundle.js?v=0.8.2
     type: module
+  - url: /local/custom_ui/mini-media-player-bundle.js?v=1.4.1
+    type: module
+  - url: /local/custom_ui/simple-weather-card-bundle.js?v=0.5.0
+    type: module
   - url: /local/custom_ui/vertical-stack-in-card.js?v=0.1.3
     type: js
 
@@ -92,6 +96,12 @@ views:
           - type: entity-button
             entity: light.bedroom_lights
             name: Bedroom
+
+      #########################################################################
+      # Weather
+      - type: custom:simple-weather-card
+        entity: weather.dark_sky
+        secondary_info: humidity
 
       #########################################################################
       # Climate
