@@ -93,6 +93,31 @@ views:
             entity: light.bedroom_lights
             name: Bedroom
 
+      #########################################################################
+      # Climate
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.zp3111_bedroom_temperature
+            name: Bedroom
+            line_color: '#2980b9'
+            line_width: 6
+
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.zp3111_kitchen_temperature
+            name: Bedroom
+            line_color: '#b58e31'
+            line_width: 6
+
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.zse40_living_room_temperature
+            name: Bedroom
+            line_color: '#b93829'
+            line_width: 6
+
 ###############################################################################
 ###
 ### Alarm Status Card
