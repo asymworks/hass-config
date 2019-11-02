@@ -128,6 +128,28 @@ views:
             line_color: '#b93829'
             line_width: 6
 
+      #########################################################################
+      # Media Players
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-media-player
+            entity: media_player.living_room_osmc
+            info: short
+            artwork: cover
+            hide:
+              mute: true
+              icon: true
+              power_state: false
+
+          - type: custom:mini-media-player
+            entity: media_player.roku
+            info: short
+            artwork: cover
+            hide:
+              mute: true
+              icon: true
+              power_state: false
+
 ###############################################################################
 ###
 ### Alarm Status Card
