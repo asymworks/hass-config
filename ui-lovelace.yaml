@@ -60,10 +60,10 @@ views:
               - type: glance
                 show_name: false
                 entities:
-                  - device_tracker.jp_gs8_ip
                   - device_tracker.jp_n5x_bt_entry
                   - device_tracker.jp_n5x_gps
-                  - device_tracker.jp_n5x_ip
+                  - device_tracker.jp_n5x_ap
+                  - device_tracker.jp_gs8_ap
 
               - type: glance
                 show_name: false
