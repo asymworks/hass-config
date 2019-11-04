@@ -14,7 +14,7 @@ homeassistant:
       entity_picture: https://gravatar.com/avatar/e78e623948f3675cf1c51544f9bec928
 
     # Devices
-    device_tracker.jp_n5x_ip:
+    device_tracker.jp_n5x_ap:
       friendly_name: J.P. Nexus 5X
       icon: mdi:wifi
     device_tracker.jp_n5x_bt_entry:
@@ -25,7 +25,7 @@ homeassistant:
       friendly_name: J.P. Nexus 5X
       icon: mdi:map-marker
 
-    device_tracker.jp_gs8_ip:
+    device_tracker.jp_gs8_ap:
       friendly_name: J.P. Galaxy S8
       icon: mdi:wifi
     device_tracker.jp_gs8_bt_entry:
@@ -33,7 +33,7 @@ homeassistant:
       source_type: bluetooth
       icon: mdi:bluetooth
 
-    device_tracker.jen_iphone_ip:
+    device_tracker.jen_iphone_ap:
       friendly_name: Jen iPhone
       icon: mdi:wifi
     device_tracker.jen_iphone_bt_entry:
