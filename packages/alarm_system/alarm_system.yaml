@@ -81,6 +81,8 @@ alarm_control_panel:
     armed_away:
       pending_time: 60
       delay_time: 30
+    triggered:
+      pending_time: 0
 
 ###############################################################################
 # Device Trackers for WeMo Switch and Logi Circle Camera
