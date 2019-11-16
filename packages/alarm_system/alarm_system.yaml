@@ -73,7 +73,6 @@ alarm_control_panel:
     state_topic: home/alarm
     command_topic: home/alarm/set
     code: !secret alarm_code
-    pending_time: 60
     trigger_time: 1800
     disarm_after_trigger: false
     armed_home:
