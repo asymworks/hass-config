@@ -4,6 +4,7 @@
 # Telegram Bot for Telegram Notifications
 telegram_bot:
   - platform: polling
+    parse_mode: html
     api_key: !secret telegram_api_key
     allowed_chat_ids:
       - !secret telegram_chat_id # dummy: 1234567
