@@ -8,6 +8,8 @@ title: Krauss Home
 resources:
   - url: /local/custom_ui/compact-custom-header.js?v=1.4.5
     type: module
+  - url: /local/custom_ui/dark-sky-weather-card.js?v=7.1
+    type: module
   - url: /local/custom_ui/group-card.js?v=0.0.2
     type: js
   - url: /local/custom_ui/mini-graph-card-bundle.js?v=0.8.2
