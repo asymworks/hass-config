@@ -193,6 +193,22 @@ views:
 
 ###############################################################################
 ###
+### Holiday / Special Events View
+
+  - icon: fas:holly-berry
+    title: Holiday
+    cards:
+
+      #########################################################################
+      # Christmas Lights
+      - type: entities
+        title: Christmas
+        show_header_toggle: true
+        entities:
+          - switch.christmas_tree
+
+###############################################################################
+###
 ### Weather View
   
   - icon: mdi:weather-hail
