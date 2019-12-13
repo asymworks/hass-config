@@ -12,3 +12,4 @@ wemo:
   discovery: true
   static:
     - !secret logi_switch_ip
+    - !secret xmas_tree_ip
