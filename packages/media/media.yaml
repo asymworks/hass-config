@@ -35,6 +35,11 @@ media_player:
     host: 10.1.2.12
     port: 80
 
+  # Spotify (Main Account)
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
+
 # Roku Media Player
 roku:
     host: 10.1.2.13
