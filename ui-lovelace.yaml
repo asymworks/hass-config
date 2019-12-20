@@ -294,6 +294,26 @@ views:
         group: group.battery_alert
 
 ###############################################################################
+###
+### Advanced Utilities View
+
+  - icon: mdi:dip-switch
+    title: Advanced
+    cards:
+      - type: entities
+        title: Bluetooth Presence Monitor
+        show_header_toggle: false
+        entities:
+          - type: call-service
+            icon: mdi:refresh
+            name: Departure Scan
+            action_name: Run Scan
+            service: mqtt.publish
+            service_data:
+              topic: monitor/scan/depart
+              payload: start
+
+###############################################################################
 # Legacy Auto-Generated View (Recreated)
  
   - title: Legacy
