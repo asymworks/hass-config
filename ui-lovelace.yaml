@@ -210,21 +210,16 @@ views:
             group: true
             hide:
               power: true
-              volume: true
+              icon: true
             info: short
-            source: icon
-          - entity: media_player.snapcast_client_stereo
-            type: 'custom:mini-media-player'
-            group: true
-            hide:
-              power: true
-              controls: true
-          - entity: media_player.snapcast_client_office
-            type: 'custom:mini-media-player'
-            group: true
-            hide:
-              power: true
-              controls: true
+            speaker_group:
+              platform: snapcast
+              show_group_count: true
+              entities:
+                - entity_id: media_player.snapcast_client_stereo
+                  name: Living Room Stereo
+                - entity: media_player.snapcast_client_office
+                  name: Office Workstation
 
 ###############################################################################
 ###
