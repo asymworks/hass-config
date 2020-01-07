@@ -40,6 +40,10 @@ media_player:
     client_id: !secret spotify_client_id
     client_secret: !secret spotify_client_secret
 
+  # Snapcast Multi-Room Audio Server
+  - platform: snapcast
+    host: 10.1.4.15
+
 # Roku Media Player
 roku:
     host: 10.1.2.13
