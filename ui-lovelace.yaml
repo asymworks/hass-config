@@ -193,6 +193,41 @@ views:
 
 ###############################################################################
 ###
+### Home Audio System
+
+  - icon: mdi:speaker
+    title: Home Audio
+    cards:
+
+      #########################################################################
+      # Snapcast Client/Group Setup
+      - type: entities
+        title: Snapcast Control
+        show_header_toggle: false
+        entities:
+          - entity: media_player.snapcast_group_home
+            type: 'custom:mini-media-player'
+            group: true
+            hide:
+              power: true
+              volume: true
+            info: short
+            source: icon
+          - entity: media_player.snapcast_client_stereo
+            type: 'custom:mini-media-player'
+            group: true
+            hide:
+              power: true
+              controls: true
+          - entity: media_player.snapcast_client_office
+            type: 'custom:mini-media-player'
+            group: true
+            hide:
+              power: true
+              controls: true
+
+###############################################################################
+###
 ### Holiday / Special Events View
 
   - icon: fas:holly-berry
