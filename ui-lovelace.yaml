@@ -429,14 +429,14 @@ views:
           - automation.startup_arrival_scan
 
       # Lights
-      type: custom:auto-entities
-      card:
-        type: entities
-        title: Lights
-        show_header_toggle: true
-      filter:
-        include:
-          - domain: light
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Lights
+          show_header_toggle: true
+        filter:
+          include:
+            - domain: light
 
       # Remotes
       - type: custom:auto-entities
