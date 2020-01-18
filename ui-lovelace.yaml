@@ -6,6 +6,8 @@ title: Krauss Home
 ###############################################################################
 # Resource Imports
 resources:
+  - url: /local/custom_ui/auto-entities.js?v=14
+    type: module
   - url: /local/custom_ui/compact-custom-header.js?v=1.4.5
     type: module
   - url: /local/custom_ui/dark-sky-weather-card.js?v=7.1
@@ -218,7 +220,7 @@ views:
               entities:
                 - entity_id: media_player.snapcast_client_stereo
                   name: Living Room Stereo
-                - entity: media_player.snapcast_client_office
+                - entity_id: media_player.snapcast_client_office
                   name: Office Workstation
 
 ###############################################################################
@@ -427,32 +429,44 @@ views:
           - automation.startup_arrival_scan
 
       # Lights
-      - type: entities
-        title: Light
+      type: custom:auto-entities
+      card:
+        type: entities
+        title: Lights
         show_header_toggle: true
-        entities:
-          - group.all_lights
+      filter:
+        include:
+          - domain: light
 
       # Remotes
-      - type: entities
-        title: Remote
-        show_header_toggle: true
-        entities:
-          - group.all_remotes
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Remotes
+          show_header_toggle: true
+        filter:
+          include:
+            - domain: remote
 
       # Scripts
-      - type: entities
-        title: Script
-        show_header_toggle: true
-        entities:
-          - group.all_scripts
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Scripts
+          show_header_toggle: true
+        filter:
+          include:
+            - domain: script
 
       # Switches
-      - type: entities
-        title: Switch
-        show_header_toggle: true
-        entities:
-          - group.all_switches
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Switches
+          show_header_toggle: true
+        filter:
+          include:
+            - domain: switch
 
       # Input Select
       - type: entities
