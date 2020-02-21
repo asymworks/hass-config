@@ -42,7 +42,7 @@ media_player:
 
   # Snapcast Multi-Room Audio Server
   - platform: snapcast
-    host: 10.1.4.15
+    host: 10.1.4.20
 
 # Roku Media Player
 roku:
