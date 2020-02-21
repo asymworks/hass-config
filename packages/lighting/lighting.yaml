@@ -5,6 +5,8 @@ homeassistant:
   customize:
     light.zb_bedroom_jp:
       friendly_name: "J.P. Nightstand"
+    light.zb_bedroom_jen:
+      friendly_name: "Jen Nightstand"
     light.zb_dining_room_1:
       friendly_name: "Dining Room 1"
       hidden: true
@@ -37,6 +39,7 @@ light:
     name: Bedroom Lights
     entities:
       - light.zb_bedroom_jp
+      - light.zb_bedroom_jen
 
   # Dining Room Lights (Zigbee Group)
   - platform: mqtt
@@ -171,7 +174,9 @@ script:
       # Dark Red
       - service: light.turn_on
         data:
-          entity_id: light.zb_bedroom_jp
+          entity_id: 
+            - light.zb_bedroom_jp
+            - light.zb_bedroom_jen
           xy_color: [0.67,0.39]
           brightness: 1
           transition: 60
@@ -180,7 +185,9 @@ script:
       # Warm Orange
       - service: light.turn_on
         data:
-          entity_id: light.zb_bedroom_jp
+          entity_id: 
+            - light.zb_bedroom_jp
+            - light.zb_bedroom_jen
           xy_color: [0.65,0.41]
           brightness: 85
           transition: 600
@@ -189,7 +196,9 @@ script:
       # Yellow
       - service: light.turn_on
         data:
-          entity_id: light.zb_bedroom_jp
+          entity_id: 
+            - light.zb_bedroom_jp
+            - light.zb_bedroom_jen
           xy_color: [0.60,0.40]
           brightness: 170
           transition: 600
@@ -198,7 +207,9 @@ script:
       # White
       - service: light.turn_on
         data:
-          entity_id: light.zb_bedroom_jp
+          entity_id: 
+            - light.zb_bedroom_jp
+            - light.zb_bedroom_jen
           xy_color: [0.48,0.40]
           brightness: 255
           transition: 600
@@ -211,7 +222,9 @@ script:
       # Yellow
       - service: light.turn_on
         data:
-          entity_id: light.zb_bedroom_jp
+          entity_id: 
+            - light.zb_bedroom_jp
+            - light.zb_bedroom_jen
           xy_color: [0.60,0.40]
           brightness: 170
           transition: 180
@@ -220,7 +233,9 @@ script:
       # Warm Orange
       - service: light.turn_on
         data:
-          entity_id: light.zb_bedroom_jp
+          entity_id: 
+            - light.zb_bedroom_jp
+            - light.zb_bedroom_jen
           xy_color: [0.65,0.41]
           brightness: 85
           transition: 180
@@ -229,7 +244,9 @@ script:
       # Dark Red
       - service: light.turn_on
         data:
-          entity_id: light.zb_bedroom_jp
+          entity_id: 
+            - light.zb_bedroom_jp
+            - light.zb_bedroom_jen
           xy_color: [0.67,0.39]
           brightness: 1
           transition: 240
@@ -237,4 +254,6 @@ script:
           seconds: 240
       # Off
       - service: light.turn_off
-        entity_id: light.zb_bedroom_jp
+        entity_id: 
+          - light.zb_bedroom_jp
+          - light.zb_bedroom_jen
