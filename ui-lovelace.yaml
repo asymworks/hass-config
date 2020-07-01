@@ -14,8 +14,6 @@ resources:
     type: module
   - url: /local/custom_ui/mini-media-player-bundle.js?v=1.9.1
     type: module
-  - url: /local/custom_ui/simple-weather-card-bundle.js?v=0.5.0
-    type: module
   - url: /local/custom_ui/vertical-stack-in-card.js?v=0.3.3
     type: js
 
@@ -99,9 +97,10 @@ views:
 
       #########################################################################
       # Weather
-      - type: custom:simple-weather-card
+      - type: weather-forecast
         entity: weather.dark_sky
-        secondary_info: humidity
+        show_forecast: false
+        secondary_info_attribute: humidity
 
       #########################################################################
       # Climate
