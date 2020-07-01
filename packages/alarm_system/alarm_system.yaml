@@ -37,7 +37,6 @@ group:
   security:
     name: Security
     icon: mdi:security-home
-    view: yes
     entities:
       - group.alarms
       - group.doors
@@ -46,21 +45,18 @@ group:
   alarms:
     name: Alarms
     icon: mdi:security
-    view: no
     entities:
       - alarm_control_panel.ha_alarm
 
   doors:
     name: Doors
     icon: mdi:door
-    view: no
     entities:
       - binary_sensor.zw_front_door_sensor
 
   motion:
     name: Motion
     icon: mdi:walk
-    view: no
     entities:
       - binary_sensor.zp3111_bedroom_motion
       - binary_sensor.zp3111_kitchen_motion
