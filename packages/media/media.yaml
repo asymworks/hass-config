@@ -30,10 +30,10 @@ homeassistant:
 media_player:
 
   # Kodi Living Room TV
-  - platform: kodi
-    name: Living Room OSMC
-    host: 10.1.2.12
-    port: 80
+  #- platform: kodi
+  #  name: Living Room OSMC
+  #  host: 10.1.2.12
+  #  port: 80
 
   # Spotify (Main Account)
   - platform: spotify
