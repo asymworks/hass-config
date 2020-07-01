@@ -26,22 +26,6 @@ homeassistant:
 sensor:
   
   # NUT UPS Sensors
-  - platform: nut
-    name: CyberPower UPS
-    host: localhost
-    port: 3493
-    alias: cp1000avr
-    username: !secret ups_username # dummy: ups_user
-    password: !secret ups_password # dummy: ups_pass
-    resources:
-      - ups.load
-      - ups.status
-      - ups.status.display
-      - input.voltage
-      - output.voltage
-      - battery.runtime
-
-  # Runtime in Minutes
   - platform: template
     sensors:
       cyberpower_ups_battery_runtime_mins:
