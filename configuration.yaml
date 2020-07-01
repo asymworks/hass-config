@@ -13,6 +13,8 @@ homeassistant:
   time_zone: America/Los_Angeles
   customize: !include customize.yaml
   packages: !include_dir_named packages
+  internal_url: !secret http_internal_url
+  external_url: !secret http_external_url
   auth_providers:
     - type: homeassistant
     - type: trusted_networks
@@ -51,8 +53,6 @@ logger:
 http:
 #  api_password: !secret http_password
 #  base_url: !secret http_base_url
-  internal_url: !secret http_internal_url
-  external_url: !secret http_external_url
   ip_ban_enabled: false
   login_attempts_threshold: 2
 
