@@ -166,19 +166,23 @@ views:
 
       #########################################################################
       # Door Sensor Status
-      - type: custom:group-card
+      - type: custom:auto-entities
         card:
           type: glance
           title: Doors
-        group: group.doors
+        filter:
+          include:
+            - group: group.doors
 
       #########################################################################
       # Motion Sensor Status
-      - type: custom:group-card
+      - type: custom:auto-entities
         card:
           type: glance
           title: Motion
-        group: group.motion
+        filter:
+          include:
+            - group: group.motion
 
       #########################################################################
       # Camera Status
