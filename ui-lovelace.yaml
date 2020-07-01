@@ -6,30 +6,27 @@ title: Krauss Home
 ###############################################################################
 # Resource Imports
 resources:
-  - url: /local/custom_ui/auto-entities.js?v=14
+  - url: /local/custom_ui/auto-entities.js?v=16
     type: module
-  - url: /local/custom_ui/compact-custom-header.js?v=1.4.5
+  - url: /local/custom_ui/custom-header.js?v=1.6.5
     type: module
-  - url: /local/custom_ui/dark-sky-weather-card.js?v=7.1
+  - url: /local/custom_ui/mini-graph-card-bundle.js?v=0.9.3
     type: module
-  - url: /local/custom_ui/group-card.js?v=0.0.2
-    type: js
-  - url: /local/custom_ui/mini-graph-card-bundle.js?v=0.8.2
-    type: module
-  - url: /local/custom_ui/mini-media-player-bundle.js?v=1.5.1
+  - url: /local/custom_ui/mini-media-player-bundle.js?v=1.9.1
     type: module
   - url: /local/custom_ui/simple-weather-card-bundle.js?v=0.5.0
     type: module
-  - url: /local/custom_ui/vertical-stack-in-card.js?v=0.1.3
+  - url: /local/custom_ui/vertical-stack-in-card.js?v=0.3.3
     type: js
 
 ###############################################################################
 # Compact Custom Header Configuration
-cch:
-  menu: show
-  notifications: show
-  voice: hide
-  options: clock
+custom_header:
+  compact_mode: true
+  menu_hide: false
+  voice_hide: true
+  button_text:
+    options: '{{ hours12 }}:{{ minutesLZ }}'
 
 views:
 
@@ -241,92 +238,6 @@ views:
 
 ###############################################################################
 ###
-### Weather View
-  
-  - icon: mdi:weather-hail
-    title: Weather
-    cards:
-
-      #########################################################################
-      # DarkSky Forecast
-      - type: 'custom:dark-sky-weather-card'
-        # Required Sensor Entries
-        entity_current_conditions: sensor.dark_sky_icon
-        entity_temperature: sensor.dark_sky_temperature
-        entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1d
-        entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2d
-        entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3d
-        entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4d
-        entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5d
-        entity_forecast_icon_1: sensor.dark_sky_icon_1d
-        entity_forecast_icon_2: sensor.dark_sky_icon_2d
-        entity_forecast_icon_3: sensor.dark_sky_icon_3d
-        entity_forecast_icon_4: sensor.dark_sky_icon_4d
-        entity_forecast_icon_5: sensor.dark_sky_icon_5d
-        entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature_0d
-        entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_1d
-        entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_2d
-        entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_3d
-        entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_4d
-        entity_summary_1: sensor.dark_sky_summary_1d
-        entity_summary_2: sensor.dark_sky_summary_2d
-        entity_summary_3: sensor.dark_sky_summary_3d
-        entity_summary_4: sensor.dark_sky_summary_4d
-        entity_summary_5: sensor.dark_sky_summary_5d
-        # Optional Sensor Entries
-        entity_sun: sun.sun
-        entity_visibility: sensor.dark_sky_visibility
-        entity_daytime_high: sensor.dark_sky_daytime_high_temperature_0d
-        entity_wind_bearing: sensor.dark_sky_wind_bearing
-        entity_wind_speed: sensor.dark_sky_wind_speed
-        entity_humidity: sensor.dark_sky_humidity
-        entity_pressure: sensor.dark_sky_pressure
-        entity_apparent_temp: sensor.dark_sky_apparent_temperature
-        entity_daily_summary: sensor.dark_sky_daily_summary
-        entity_pop: sensor.dark_sky_precip_probability
-        entity_pop_intensity: sensor.dark_sky_precip_intensity
-        entity_pop_1: sensor.dark_sky_precip_probability_1d
-        entity_pop_2: sensor.dark_sky_precip_probability_2d
-        entity_pop_3: sensor.dark_sky_precip_probability_3d
-        entity_pop_4: sensor.dark_sky_precip_probability_4d
-        entity_pop_5: sensor.dark_sky_precip_probability_5d
-        entity_current_text: sensor.dark_sky_current_text
-        # Configuration Flags
-        locale: en
-        static_icons: true
-        tooltip_bg_color: 'rgb( 75,155,239)'
-        tooltip_border_color: orange
-        tooltip_border_width: 3
-        tooltip_caret_size: 10
-        tooltip_fg_color: '#fff'
-        tooltip_left_offset: -12
-        tooltip_width: 100
-        tooltips: true
-        old_daily_format: false
-        time_format: 24
-        show_beaufort: true
-
-###############################################################################
-###
-### Battery Status View
-
-  - icon: mdi:battery-alert
-    title: Batteries
-    cards:
-      - type: custom:group-card
-        card:
-          type: entities
-          title: Battery Status
-          show_header_toggle: false
-        group: group.battery_status
-      - type: custom:group-card
-        card:
-          type: entities
-          title: Battery Alert
-        group: group.battery_alert
-
-###############################################################################
-###
 ### Advanced Utilities View
 
   - icon: mdi:dip-switch
@@ -345,183 +256,3 @@ views:
               topic: monitor/scan/depart
               payload: start
 
-###############################################################################
-# Legacy Auto-Generated View (Recreated)
- 
-  - title: Legacy
-    badges:
-
-      # Binary Sensors
-      - binary_sensor.alarm
-      - binary_sensor.doors
-      - binary_sensor.house_presence
-      - binary_sensor.jen_presence
-      - binary_sensor.jp_presence
-      - binary_sensor.updater
-      - binary_sensor.zp3111_bedroom_motion
-      - binary_sensor.zp3111_kitchen_motion
-      - binary_sensor.zse40_living_room_motion
-      - binary_sensor.zw_front_door_sensor
-
-      # Device Trackers
-      - device_tracker.jen_iphone_bt_entry
-      - device_tracker.jen_iphone_ip
-      - device_tracker.jp_gs8_ip
-      - device_tracker.jp_n5x_bt_entry
-      - device_tracker.jp_n5x_gps
-      - device_tracker.jp_n5x_ip
-
-      # Persons
-      - person.jen
-      - person.jpk
-
-      # Sensors
-      - sensor.cyberpower_ups_battery_runtime_mins
-      - sensor.cyberpower_ups_status_data
-      - sensor.dark_sky_humidity
-      - sensor.dark_sky_temperature
-      - sensor.house_presence_status
-      - sensor.jen_presence_status
-      - sensor.jp_presence_status
-      - sensor.zp3111_bedroom_luminance
-      - sensor.zp3111_bedroom_relative_humidity
-      - sensor.zp3111_bedroom_temperature
-      - sensor.zp3111_kitchen_luminance
-      - sensor.zp3111_kitchen_relative_humidity
-      - sensor.zp3111_kitchen_temperature
-      - sensor.zse40_living_room_luminance
-      - sensor.zse40_living_room_relative_humidity
-      - sensor.zse40_living_room_temperature
-      
-      # Sun
-      - sun.sun
-
-    cards:
-
-      # Doors
-      - type: entities
-        title: Doors
-        show_header_toggle: true
-        entities:
-          - group.doors
-
-      # Motion
-      - type: entities
-        title: Motion
-        show_header_toggle: true
-        entities:
-          - group.motion
-
-      # Alarm Panel
-      - type: alarm-panel
-        entity: alarm_control_panel.ha_alarm
-
-      # Automations
-      - type: entities
-        title: Automation
-        show_header_toggle: true
-        entities:
-          - automation.mark_person_as_away
-          - automation.mark_person_as_extended_away
-          - automation.mark_person_as_home
-          - automation.mark_person_as_just_arrived
-          - automation.mark_person_as_just_left
-          - automation.startup_arrival_scan
-
-      # Lights
-      - type: custom:auto-entities
-        card:
-          type: entities
-          title: Lights
-          show_header_toggle: true
-        filter:
-          include:
-            - domain: light
-
-      # Remotes
-      - type: custom:auto-entities
-        card:
-          type: entities
-          title: Remotes
-          show_header_toggle: true
-        filter:
-          include:
-            - domain: remote
-
-      # Scripts
-      - type: custom:auto-entities
-        card:
-          type: entities
-          title: Scripts
-          show_header_toggle: true
-        filter:
-          include:
-            - domain: script
-
-      # Switches
-      - type: custom:auto-entities
-        card:
-          type: entities
-          title: Switches
-          show_header_toggle: true
-        filter:
-          include:
-            - domain: switch
-
-      # Input Select
-      - type: entities
-        title: Input Select
-        show_header_toggle: true
-        entities:
-          - input_select.house_presence_state
-          - input_select.jen_presence_state
-          - input_select.jp_presence_state
-
-      # Input Boolean
-      - type: entities
-        title: Input Boolean
-        show_header_toggle: true
-        entities:
-          - input_boolean.ht_dim_on_play
-          - input_boolean.ht_raise_on_pause
-          - input_boolean.ht_raise_on_stop
-          - input_boolean.ht_reload_lights
-          - input_boolean.ht_set_mode_auto
-          - input_boolean.ht_set_mode_datenight
-
-      # Z-Wave
-      - type: entities
-        title: Z-Wave
-        show_header_toggle: true
-        entities:
-          - zwave.zooz_zst10_s2_z_wave_plus_usb_stick
-
-      # Scenes
-      - type: entities
-        title: Scene
-        show_header_toggle: true
-        entities:
-          - scene.all_dim
-          - scene.all_fade_dim
-          - scene.all_fade_low
-          - scene.all_fade_off
-          - scene.all_low
-          - scene.all_off
-          - scene.dining_room_dim
-          - scene.dining_room_low
-          - scene.dining_room_normal
-          - scene.living_room_dim
-          - scene.living_room_low
-          - scene.living_room_normal
-
-      # Weather Forecast
-      - type: weather-forecast
-        entity: weather.dark_sky
-
-      # Kodi Living Room
-      - type: media-control
-        entity: media_player.living_room_osmc
-
-      # Roku
-      - type: media-control
-        entity: media_player.roku
