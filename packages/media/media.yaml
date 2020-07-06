@@ -35,6 +35,11 @@ media_player:
   #  host: 10.1.2.12
   #  port: 80
 
+  # Jellyfin
+  - platform: emby
+    host: !secret jellyfin_host
+    api_key: !secret jellyfin_api_key
+
   # Spotify (Main Account)
   - platform: spotify
     client_id: !secret spotify_client_id
