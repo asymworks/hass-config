@@ -50,11 +50,14 @@ logger:
   default: info
 
 # InfluxDB Logging
-influx:
+influxdb:
   host: !secret influxdb_host
   database: home_assistant
   username: !secret influxdb_username
   password: !secret influxdb_password
+  default_measurement: state
+  tags_attributes:
+    - friendly_name
 
 # API Access for Dashing
 http:
