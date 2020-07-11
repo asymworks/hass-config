@@ -49,6 +49,13 @@ mqtt:
 logger:
   default: info
 
+# InfluxDB Logging
+influx:
+  host: !secret influxdb_host
+  database: home_assistant
+  username: !secret influxdb_username
+  password: !secret influxdb_password
+
 # API Access for Dashing
 http:
 #  api_password: !secret http_password
