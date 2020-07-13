@@ -61,6 +61,7 @@ group:
       - binary_sensor.zp3111_bedroom_motion
       - binary_sensor.zp3111_kitchen_motion
       - binary_sensor.zse40_living_room_motion
+      - binary_sensor.zse40_office_motion
 
 ###############################################################################
 # Manual MQTT Control Panel
