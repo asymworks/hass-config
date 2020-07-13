@@ -122,6 +122,25 @@ homeassistant:
       friendly_name: Z-Wave Living Room System
       hidden: true
 
+    # Zooz ZSE40 Office
+    sensor.zse40_office_luminance:
+      friendly_name: Office Luminance
+    sensor.zse40_office_relative_humidity:
+      friendly_name: Office Relative Humidity
+    sensor.zse40_office_temperature:
+      friendly_name: Office Temperature
+
+    zwave.zse40_office:
+      friendly_name: Zooz ZSE40 Office
+      battery_sensor_creation_disabled: true
+      hidden: true
+    sensor.zse40_office_motion:
+      friendly_name: Office Motion Level
+      hidden: true
+    sensor.zse40_office_sourcenodeid:
+      friendly_name: Z-Wave Office Source Node ID
+      hidden: true
+
     # Ecolink Door/Window Sensor
     binary_sensor.zw_front_door_sensor:
       friendly_name: Front Door
@@ -160,6 +179,8 @@ homeassistant:
       device_class: motion
     binary_sensor.zse40_living_room_motion:
       device_class: motion
+    binary_sensor.zse40_office_motion:
+      device_class: motion
 
 ###############################################################################
 # Binary Motion Sensor for ZSE40/ZP3111 Devices
@@ -180,3 +201,8 @@ binary_sensor:
         friendly_name: Z-Wave Living Room Motion Sensor
         value_template: >-
           {{ states('sensor.zse40_living_room_motion')|float > 7 and states('sensor.zse40_living_room_motion')|float < 9 }}
+
+      zse40_office_motion:
+        friendly_name: Z-Wave Office Motion Sensor
+        value_template: >-
+          {{ states('sensor.zse40_office_motion')|float > 7 and states('sensor.zse40_office_motion')|float < 9 }}
