@@ -136,6 +136,15 @@ views:
             line_color: '#b93829'
             line_width: 6
 
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.zp3111_garage_temperature
+            name: Garage
+            line_color: '#b58e31'
+            line_width: 6
+
       #########################################################################
       # Media Players
       - type: horizontal-stack
