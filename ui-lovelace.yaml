@@ -140,7 +140,7 @@ views:
         cards:
           - type: custom:mini-graph-card
             entities:
-              - sensor.zp3111_garage_temperature
+              - sensor.zse40_garage_temperature
             name: Garage
             line_color: '#b58e31'
             line_width: 6
