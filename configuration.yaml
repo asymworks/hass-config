@@ -84,14 +84,14 @@ config:
 
 # Enable the Front End
 frontend:
-  extra_html_url:
-    # Add Font Awesome Icons
-    - /local/custom_ui/fas/hass-fontawesome-solid.html
-    - /local/custom_ui/fas/hass-fontawesome-regular.html
-    - /local/custom_ui/fas/hass-fontawesome-brands.html
 
   # Add Themes
   themes: !include_dir_merge_named themes
+
+# Configure FontAwesome Icons
+fontawesome:
+  regular:
+  solid:
 
 # Enables support for tracking state changes over time
 history:
