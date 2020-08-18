@@ -256,7 +256,7 @@ binary_sensor:
         value_template: >-
           {{ states('sensor.zse40_office_motion')|float > 7 and states('sensor.zse40_office_motion')|float < 9 }}
 
-      zse40_office_motion:
+      zse40_garage_motion:
         friendly_name: Z-Wave Garage Motion Sensor
         value_template: >-
           {{ states('sensor.zse40_garage_motion')|float > 7 and states('sensor.zse40_garage_motion')|float < 9 }}
