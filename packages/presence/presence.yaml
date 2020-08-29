@@ -282,6 +282,7 @@ automation:
     trigger:
       - platform: homeassistant
         event: start
+    mode: queued
     action:
       - service: mqtt.publish
         data: 
@@ -302,6 +303,7 @@ automation:
       - platform: state
         entity_id: binary_sensor.house_presence
         to: 'on'
+    mode: queued
     action:
       - service: input_select.select_option
         data_template: 
@@ -347,6 +349,7 @@ automation:
       - platform: state
         entity_id: binary_sensor.house_presence
         from: 'on'
+    mode: queued
     action:
       - service: input_select.select_option
         data_template: 
@@ -381,6 +384,7 @@ automation:
         to: 'Just Arrived'
         for: 
           minutes: 5
+    mode: queued
     action:
       - service: input_select.select_option
         data_template: 
@@ -404,6 +408,7 @@ automation:
         to: 'Just Left'
         for: 
           minutes: 5
+    mode: queued
     action:
       - service: input_select.select_option
         data_template: 
@@ -427,6 +432,7 @@ automation:
         to: 'Away'
         for: 
           hours: 24
+    mode: queued
     action:
       - service: input_select.select_option
         data_template: 
