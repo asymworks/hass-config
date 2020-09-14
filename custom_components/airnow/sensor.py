@@ -15,8 +15,8 @@ from .const import (
     ATTR_API_PM25,
     ATTR_API_O3,
     DOMAIN,
-    SENSOR_AQI_LEVEL,
     SENSOR_AQI_ATTR_DESCR,
+    SENSOR_AQI_ATTR_LEVEL,
 )
 
 ATTRIBUTION = "Data provided by AirNow"
@@ -33,12 +33,6 @@ SENSOR_TYPES = {
         ATTR_ICON: "mdi:blur",
         ATTR_LABEL: ATTR_API_AQI,
         ATTR_UNIT: 'aqi',
-    },
-    ATTR_API_AQI_LEVEL: {
-        ATTR_DEVICE_CLASS: None,
-        ATTR_ICON: "mdi:blur",
-        ATTR_LABEL: SENSOR_AQI_LEVEL,
-        ATTR_UNIT: None,
     },
     ATTR_API_PM25: {
         ATTR_DEVICE_CLASS: None,
@@ -82,7 +76,8 @@ class AirNowSensor(Entity):
         self._icon = None
         self._unit_of_measurement = None
         self._attrs = {ATTR_ATTRIBUTION: ATTRIBUTION}
-        if self.kind == ATTR_API_AQI_LEVEL:
+        if self.kind == ATTR_API_AQI:
+            self._attrs[SENSOR_AQI_ATTR_LEVEL] = None
             self._attrs[SENSOR_AQI_ATTR_DESCR] = None
 
     @property
@@ -127,8 +122,10 @@ class AirNowSensor(Entity):
     @property
     def device_state_attributes(self):
         """Return the state attributes."""
-        if self.kind == ATTR_API_AQI_LEVEL:
+        if self.kind == ATTR_API_AQI:
+            self._attrs[SENSOR_AQI_ATTR_LEVEL] = self.coordinator.data[ATTR_API_AQI_LEVEL]
             self._attrs[SENSOR_AQI_ATTR_DESCR] = self.coordinator.data[ATTR_API_AQI_DESCRIPTION]
+
         return self._attrs
 
     @property
