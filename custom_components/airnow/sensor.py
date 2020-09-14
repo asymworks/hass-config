@@ -10,9 +10,11 @@ from homeassistant.helpers.entity import Entity
 
 from .const import (
     ATTR_API_AQI,
+    ATTR_API_AQI_LEVEL,
     ATTR_API_PM25,
     ATTR_API_O3,
     DOMAIN,
+    SENSOR_AQI_LEVEL,
 )
 
 ATTRIBUTION = "Data provided by AirNow"
@@ -28,6 +30,12 @@ SENSOR_TYPES = {
         ATTR_DEVICE_CLASS: None,
         ATTR_ICON: "mdi:blur",
         ATTR_LABEL: ATTR_API_AQI,
+        ATTR_UNIT: 'aqi',
+    },
+    ATTR_API_AQI_LEVEL: {
+        ATTR_DEVICE_CLASS: None,
+        ATTR_ICON: "mdi:blur",
+        ATTR_LABEL: SENSOR_AQI_LEVEL,
         ATTR_UNIT: None,
     },
     ATTR_API_PM25: {
