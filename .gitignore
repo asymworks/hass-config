@@ -9,6 +9,7 @@
 adb/
 deps/
 tts/
+__pycache__/
 secrets.yaml
 home-assistant*.log
 home-assistant*.db
