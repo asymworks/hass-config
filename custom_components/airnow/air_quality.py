@@ -8,7 +8,7 @@ from homeassistant.components.air_quality import (
     AirQualityEntity,
 )
 from homeassistant.const import CONF_NAME
-from homeassistant.helpers.update_coordinator import CoordinatorEntity
+from homeassistant.helpers.entity import Entity
 
 from .const import (
     ATTR_API_AQI,
@@ -48,14 +48,42 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     async_add_entities([AirNowAirQuality(coordinator, name)], False)
 
 
-class AirNowAirQuality(CoordinatorEntity, AirQualityEntity):
+class AirNowAirQuality(AirQualityEntity):
     """Define an Airly air quality."""
 
     def __init__(self, coordinator, name):
         """Initialize."""
-        super().__init__(coordinator)
+        self.coordinator = coordinator
         self._name = name
         self._icon = "mdi:blur"
+
+    @property
+    def should_poll(self) -> bool:
+        """No need to poll. Coordinator notifies entity of updates."""
+        return False
+
+    @property
+    def available(self) -> bool:
+        """Return if entity is available."""
+        return self.coordinator.last_update_success
+
+    async def async_added_to_hass(self) -> None:
+        """When entity is added to hass."""
+        await super().async_added_to_hass()
+        self.async_on_remove(
+            self.coordinator.async_add_listener(self.async_write_ha_state)
+        )
+
+    async def async_update(self) -> None:
+        """Update the entity.
+        Only used by the generic entity update service.
+        """
+
+        # Ignore manual update requests if the entity is disabled
+        if not self.enabled:
+            return
+
+        await self.coordinator.async_request_refresh()
 
     @property
     def name(self):
