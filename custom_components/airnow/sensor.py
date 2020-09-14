@@ -11,10 +11,12 @@ from homeassistant.helpers.entity import Entity
 from .const import (
     ATTR_API_AQI,
     ATTR_API_AQI_LEVEL,
+    ATTR_API_AQI_DESCRIPTION,
     ATTR_API_PM25,
     ATTR_API_O3,
     DOMAIN,
     SENSOR_AQI_LEVEL,
+    SENSOR_AQI_ATTR_DESCR,
 )
 
 ATTRIBUTION = "Data provided by AirNow"
@@ -80,6 +82,8 @@ class AirNowSensor(Entity):
         self._icon = None
         self._unit_of_measurement = None
         self._attrs = {ATTR_ATTRIBUTION: ATTRIBUTION}
+        if self.kind == ATTR_API_AQI_LEVEL:
+            self._attrs[SENSOR_AQI_ATTR_DESCR] = None
 
     @property
     def should_poll(self) -> bool:
@@ -123,6 +127,8 @@ class AirNowSensor(Entity):
     @property
     def device_state_attributes(self):
         """Return the state attributes."""
+        if self.kind == ATTR_API_AQI_LEVEL:
+            self._attrs[SENSOR_AQI_ATTR_DESCR] = self.coordinator.data[ATTR_API_AQI_DESCRIPTION]
         return self._attrs
 
     @property
