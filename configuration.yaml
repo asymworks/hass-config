@@ -28,6 +28,17 @@ homeassistant:
 # Lovelace UI in YAML Mode
 lovelace:
   mode: yaml
+  resources:
+    - url: /local/custom_ui/auto-entities.js?v=16
+      type: module
+    - url: /local/custom_ui/custom-header.js?v=1.6.5
+      type: module
+    - url: /local/custom_ui/mini-graph-card-bundle.js?v=0.9.3
+      type: module
+    - url: /local/custom_ui/mini-media-player-bundle.js?v=1.9.1
+      type: module
+    - url: /local/custom_ui/vertical-stack-in-card.js?v=0.3.3
+      type: js
 
 # MQTT Broker Connection
 mqtt:
