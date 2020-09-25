@@ -57,29 +57,179 @@ views:
 
       #########################################################################
       # Lighting
-      - type: horizontal-stack
+      - type: custom:vertical-stack-in-card
         cards:
-          - type: entity-button
+          - type: button
             entity: light.living_room_lights
             name: Living Room
-            double_tap_action:
-              action: call-service
-              service: scene.turn_on
-              service_data:
-                entity_id: scene.living_room_normal
+            icon_height: 40px
 
-          - type: entity-button
+          - type: custom:vertical-stack-in-card
+            horizontal: true
+            cards:
+              - type: button
+                name: Full
+                show_icon: false
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data:
+                    entity_id: scene.living_room_normal
+
+              - type: button
+                name: Low
+                show_icon: false
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data:
+                    entity_id: scene.living_room_low
+
+              - type: button
+                name: Dim
+                show_icon: false
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data:
+                    entity_id: scene.living_room_dim
+
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: button
             entity: light.dining_room_lights
             name: Dining Room
-            double_tap_action:
-              action: call-service
-              service: scene.turn_on
-              service_data:
-                entity_id: scene.dining_room_normal
+            icon_height: 40px
 
-          - type: entity-button
-            entity: light.bedroom_lights
-            name: Bedroom
+          - type: custom:vertical-stack-in-card
+            horizontal: true
+            cards:
+              - type: button
+                name: Full
+                show_icon: false
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data:
+                    entity_id: scene.dining_room_normal
+
+              - type: button
+                name: Low
+                show_icon: false
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data:
+                    entity_id: scene.dining_room_low
+
+              - type: button
+                name: Dim
+                show_icon: false
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data:
+                    entity_id: scene.dining_room_dim
+
+      #########################################################################
+      # Bedroom Room Card
+      - type: custom:vertical-stack-in-card
+        cards:
+          # Header
+          - type: picture-elements
+            image: /local/custom_ui/img/title-dark.png
+            elements:
+              # Title
+              - type: custom:text-element
+                text: Bedroom
+                style:
+                  color: white
+                  font-size: 175%
+                  left: 5%
+                  top: 35%
+                  transform: initial
+
+              # Temperature Slot
+              - type: state-label
+                entity: sensor.zp3111_bedroom_temperature
+                style:
+                  right: 2%
+                  top: 21%
+                  transform: initial
+
+          # Card Body
+          - type: picture-elements
+            image: /local/custom_ui/img/background200.png
+            elements:
+              # Temperature Graph
+              - type: custom:mini-graph-card
+                upper_bound: 100
+                lower_bound: 60
+                line_width: 0.5
+                entities:
+                  - entity: sensor.zp3111_bedroom_temperature
+                    index: 0
+                height: 202
+                show:
+                  icon: false
+                  name: false
+                  state: false
+                style:
+                  right: -50%
+                  top: 47%
+                  width: 100%
+
+              # Button #1
+              - type: custom:button-card
+                color: auto
+                entity: light.zb_bedroom_jen
+                show_name: false
+                style:
+                  left: 12%
+                  top: 32%
+                styles:
+                  card:
+                    - border-radius: 50px
+                    - width: 50px
+                    - height: 50px
+                    - background-color: '#424242'            
+                  icon:
+                    - width: 30px
+                    - height: 30px
+                tap_action:
+                  action: more-info
+
+              - type: custom:text-element
+                style:
+                  left: 12%
+                  top: 60%
+                text: Light (Jen)
+
+              # Button #2
+              - type: custom:button-card
+                color: auto
+                entity: light.zb_bedroom_jp
+                show_name: false
+                style:
+                  left: 31%
+                  top: 32%
+                styles:
+                  card:
+                    - border-radius: 50px
+                    - width: 50px
+                    - height: 50px
+                    - background-color: '#424242'            
+                  icon:
+                    - width: 30px
+                    - height: 30px
+                tap_action:
+                  action: more-info
+
+              - type: custom:text-element
+                style:
+                  left: 31%
+                  top: 60%
+                text: Light (J.P.)
 
       #########################################################################
       # Weather
@@ -152,6 +302,12 @@ views:
               mute: true
               icon: true
               power_state: false
+
+      - type: entities
+        title: Media Center
+        entities:
+          - input_select.ht_lighting_mode
+
 
 ###############################################################################
 ###

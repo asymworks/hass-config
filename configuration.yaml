@@ -31,14 +31,27 @@ lovelace:
   resources:
     - url: /local/custom_ui/auto-entities.js?v=16
       type: module
+    - url: /local/custom_ui/button-card.js?v=3.3.6
+      type: module
     - url: /local/custom_ui/custom-header.js?v=1.6.5
+      type: module
+    - url: /local/custom_ui/layout-card.js?v=16
       type: module
     - url: /local/custom_ui/mini-graph-card-bundle.js?v=0.9.3
       type: module
     - url: /local/custom_ui/mini-media-player-bundle.js?v=1.9.1
       type: module
+    - url: /local/custom_ui/text-element.js?v=0.0.2
+      type: js
     - url: /local/custom_ui/vertical-stack-in-card.js?v=0.3.3
       type: js
+
+  # Dashboards
+  dashboards:
+    dashboard-main:
+      mode: yaml
+      filename: ui-dashboard-main.yaml
+      title: Dashboard Main
 
 # MQTT Broker Connection
 mqtt:
