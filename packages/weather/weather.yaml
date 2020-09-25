@@ -19,9 +19,9 @@ homeassistant:
 weather:
 
   # Open Weather Map
-  - platform: openweathermap
-    api_key: !secret owm_api_key
-    mode: daily
+  #- platform: openweathermap
+  #  api_key: !secret owm_api_key
+  #  mode: daily
 
 
 ###############################################################################
