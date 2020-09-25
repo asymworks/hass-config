@@ -149,10 +149,20 @@ views:
                   top: 35%
                   transform: initial
 
+              # Glance Slot #4
+              - type: state-icon
+                entity: binary_sensor.zp3111_bedroom_motion
+                style:
+                  color: white
+                  right: 13%
+                  top: 20%
+                  transform: initial
+
               # Temperature Slot
               - type: state-label
                 entity: sensor.zp3111_bedroom_temperature
                 style:
+                  color: white
                   right: 2%
                   top: 21%
                   transform: initial
