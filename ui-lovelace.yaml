@@ -154,8 +154,8 @@ views:
                 entity: binary_sensor.zp3111_bedroom_motion
                 style:
                   color: white
-                  right: 13%
-                  top: 20%
+                  right: 16%
+                  top: 15%
                   transform: initial
 
               # Temperature Slot
@@ -212,7 +212,7 @@ views:
                 style:
                   left: 12%
                   top: 60%
-                text: Light (Jen)
+                text: Jen
 
               # Button #2
               - type: custom:button-card
@@ -237,7 +237,7 @@ views:
                 style:
                   left: 31%
                   top: 60%
-                text: Light (J.P.)
+                text: J.P.
 
       #########################################################################
       # Weather
