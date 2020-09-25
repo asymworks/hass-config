@@ -84,7 +84,7 @@ views:
       #########################################################################
       # Weather
       - type: weather-forecast
-        entity: weather.dark_sky
+        entity: weather.owm
         show_forecast: false
         secondary_info_attribute: humidity
 
