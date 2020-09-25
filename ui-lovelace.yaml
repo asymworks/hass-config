@@ -198,11 +198,12 @@ views:
                 tap_action:
                   action: more-info
 
-              - type: custom:text-element
+              - type: markdown
+                content: >
+                  Light (Jen)
                 style:
                   left: 12%
                   top: 60%
-                text: Light (Jen)
 
               # Button #2
               - type: custom:button-card
