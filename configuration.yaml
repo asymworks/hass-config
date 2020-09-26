@@ -20,10 +20,9 @@ homeassistant:
     - type: trusted_networks
       trusted_networks:
         - 127.0.0.1
-        - 10.1.0.10
-        - 10.1.0.13
-        - 10.1.1.21
         - 10.2.1.11
+        - 10.1.0.0/16
+        - !secret proxy_ip4
         - !secret proxy_ip6
 
 # Lovelace UI in YAML Mode
@@ -89,6 +88,10 @@ http:
 #  base_url: !secret http_base_url
   ip_ban_enabled: false
   login_attempts_threshold: 2
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - proxy_ip4
+    - proxy_ip6
 
 ###############################################################################
 #
