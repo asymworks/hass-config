@@ -90,8 +90,8 @@ http:
   login_attempts_threshold: 2
   use_x_forwarded_for: true
   trusted_proxies:
-    - proxy_ip4
-    - proxy_ip6
+    - !secret proxy_ip4
+    - !secret proxy_ip6
 
 ###############################################################################
 #
