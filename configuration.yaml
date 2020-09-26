@@ -21,7 +21,8 @@ homeassistant:
       trusted_networks:
         - 127.0.0.1
         - 10.2.1.11
-        - 10.1.0.0/16
+        - !secret lan_net_ip4
+        - !secret lan_net_ip6
         - !secret proxy_ip4
         - !secret proxy_ip6
 
