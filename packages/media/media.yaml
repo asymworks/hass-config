@@ -92,11 +92,9 @@ input_select:
     name: Theater Lighting Mode
     options:
       - Disabled        # Disables Media Lighting Automation
-      - Auto            # TV or Cinema depending on Media Type (TV or Movie)
-      - TV              # Dim Lights on Playing/Pause, Raise on Stopped
-      - Cinema          # Lights Off on Playing, Dim on Pause, Low on Stopped
-      - Date Night      # Lights Off on Playing, Dim on Pause, Dim on Stopped
-    initial: Auto
+      - Normal          # Lights Off on Playing, Dim on Pause, No Change on Stopped
+      - Dimmed          # Lights Dim on Playing/Pause, Raise on Stopped
+    initial: Normal
 
 input_boolean:
 
@@ -115,14 +113,6 @@ input_boolean:
   ht_reload_lights:
     name: 'Reload Home Theater Lights'
     icon: mdi:lightbulb-on-outline
-
-  ht_set_mode_auto:
-    name: 'Set Home Theater Lighting to Auto'
-    icon: mdi:lightbulb-on-outline
-
-  ht_set_mode_datenight:
-    name: 'Set Home Theater Lighting to Date Night'
-    icon: mdi:human-male-female
 
 ###############################################################################
 # Media Sensors
@@ -145,47 +135,36 @@ sensor:
 ###############################################################################
 # Media Player Helper Scripts
 script:
+
+  # Set Home Theater Lighting Mode to Disabled
+  ht_mode_set_disabled:
+    sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.ht_lighting_mode
+          option: Disabled
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.ht_reload_lights
   
-  # Set Home Theater Lighting Mode to Auto
-  ht_mode_set_auto:
+  # Set Home Theater Lighting Mode to Normal
+  ht_mode_set_normal:
     sequence:
       - service: input_select.select_option
         data:
           entity_id: input_select.ht_lighting_mode
-          option: Auto
+          option: Normal
       - service: input_boolean.turn_on
         data:
           entity_id: input_boolean.ht_reload_lights
 
-  # Set Home Theater Lighting Mode to Date Night
-  ht_mode_set_date_night:
+  # Set Home Theater Lighting Mode to Dimmed
+  ht_mode_set_dimmed:
     sequence:
       - service: input_select.select_option
         data:
           entity_id: input_select.ht_lighting_mode
-          option: Date Night
-      - service: input_boolean.turn_on
-        data:
-          entity_id: input_boolean.ht_reload_lights
-
-  # Set Home Theater Lighting Mode to Cinema
-  ht_mode_set_cinema:
-    sequence:
-      - service: input_select.select_option
-        data:
-          entity_id: input_select.ht_lighting_mode
-          option: Cinema
-      - service: input_boolean.turn_on
-        data:
-          entity_id: input_boolean.ht_reload_lights
-
-  # Set Home Theater Lighting Mode to TV
-  ht_mode_set_tv:
-    sequence:
-      - service: input_select.select_option
-        data:
-          entity_id: input_select.ht_lighting_mode
-          option: TV
+          option: Dimmed
       - service: input_boolean.turn_on
         data:
           entity_id: input_boolean.ht_reload_lights

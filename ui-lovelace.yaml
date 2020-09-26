@@ -247,49 +247,6 @@ views:
         secondary_info_attribute: humidity
 
       #########################################################################
-      # Climate
-      - type: horizontal-stack
-        cards:
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.zp3111_bedroom_temperature
-            name: Bedroom
-            line_color: '#2980b9'
-            line_width: 6
-
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.zse40_office_temperature
-            name: Office
-            line_color: '#b93829'
-            line_width: 6
-
-      - type: horizontal-stack
-        cards:
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.zp3111_kitchen_temperature
-            name: Kitchen
-            line_color: '#b58e31'
-            line_width: 6
-
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.zse40_living_room_temperature
-            name: Living Room
-            line_color: '#b93829'
-            line_width: 6
-
-      - type: horizontal-stack
-        cards:
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.zse40_garage_temperature
-            name: Garage
-            line_color: '#b58e31'
-            line_width: 6
-
-      #########################################################################
       # Media Players
       - type: horizontal-stack
         cards:
@@ -406,6 +363,57 @@ views:
         show_header_toggle: true
         entities:
           - switch.christmas_tree
+
+###############################################################################
+###
+### Climate Control
+
+  - icon: fas:temperature-high
+    title: Climate
+    cards:
+
+      #########################################################################
+      # Climate
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.zp3111_bedroom_temperature
+            name: Bedroom
+            line_color: '#2980b9'
+            line_width: 6
+
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.zse40_office_temperature
+            name: Office
+            line_color: '#b93829'
+            line_width: 6
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.zp3111_kitchen_temperature
+            name: Kitchen
+            line_color: '#b58e31'
+            line_width: 6
+
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.zse40_living_room_temperature
+            name: Living Room
+            line_color: '#b93829'
+            line_width: 6
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.zse40_garage_temperature
+            name: Garage
+            line_color: '#b58e31'
+            line_width: 6
 
 ###############################################################################
 ###
