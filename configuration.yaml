@@ -24,6 +24,7 @@ homeassistant:
         - 10.1.0.13
         - 10.1.1.21
         - 10.2.1.11
+        - !secret proxy_ip6
 
 # Lovelace UI in YAML Mode
 lovelace:
