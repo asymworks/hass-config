@@ -20,11 +20,8 @@ homeassistant:
     - type: trusted_networks
       trusted_networks:
         - 127.0.0.1
-        - 10.2.1.11
         - !secret lan_net_ip4
         - !secret lan_net_ip6
-        - !secret proxy_ip4
-        - !secret proxy_ip6
 
 # Lovelace UI in YAML Mode
 lovelace:
@@ -83,12 +80,10 @@ influxdb:
   tags_attributes:
     - friendly_name
 
-# API Access for Dashing
+# HTTP Access
 http:
-#  api_password: !secret http_password
-#  base_url: !secret http_base_url
-  ip_ban_enabled: false
-  login_attempts_threshold: 2
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
   use_x_forwarded_for: true
   trusted_proxies:
     - !secret proxy_ip4
