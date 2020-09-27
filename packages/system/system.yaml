@@ -53,7 +53,7 @@ automation:
       - service: notify.telegram_bot
         data_template:
           title: "{{ state_attr('persistent_notification.http_login', message) }}"
-          message: 'url: https://whatismyipaddress.com/ip/{{ state_attr('persistent_notification.http_login', message).split ("from ") [1]}}'
+          message: 'url: https://whatismyipaddress.com/ip/{{ state_attr("persistent_notification.http_login", message).split ("from ") [1]}}'
       - service: notify.email
         data_template:
           title: "Failed Login"
