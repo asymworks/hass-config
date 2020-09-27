@@ -32,3 +32,26 @@ sensor:
         friendly_name: "CyberPower UPS Battery Runtime"
         value_template: "{{ (states('sensor.cyberpower_ups_battery_runtime')|float / 60 ) | round() }}"
         unit_of_measurement: 'Mins'
+
+###############################################################################
+# System Automations
+automation:
+
+###############################################################################
+# Notify on Failed Login
+  
+  - alias: "Notify on Failed Login"
+    initial_state: true
+    mode: queued
+    trigger:
+      - platform: state
+        entity_id: persistent_notification.http_login
+    condition:
+      - condition: template
+        value_template: "{{ trigger.to_state.state != 'None' }}"
+    action:
+      - service: notify.telegram_bot
+        data_template:
+          title: "{{ states.persistent_notification.http_login.attributes.message }}"
+          message: 'url: https://whatismyipaddress.com/ip/{{ states.persistent_notification.http_login.attributes.message.split ("from ") [1]}}'
+      
