@@ -50,13 +50,9 @@ automation:
       - condition: template
         value_template: "{{ trigger.to_state.state != 'None' }}"
     action:
-      - service: notify.telegram_bot
-        data_template:
-          title: "{{ state_attr('persistent_notification.http_login', 'message') }}"
-          message: 'url: https://whatismyipaddress.com/ip/{{ state_attr("persistent_notification.http_login", "message").split ("from ") [1]}}'
       - service: notify.email
         data_template:
-          title: "Failed Login"
+          title: "Home Assistant Failed Login"
           message: >
             {{ state_attr('persistent_notification.http_login', 'message') }}
 
@@ -65,4 +61,35 @@ automation:
 
       - service: persistent_notification.dismiss
         data:
-          notification_id: 'http_login' 
+          notification_id: 'http_login'
+
+###############################################################################
+# Notify on IP Ban
+  
+  - alias: "Notify on IP Ban"
+    initial_state: true
+    mode: queued
+    trigger:
+      - platform: state
+        entity_id: persistent_notification.ip_ban
+    condition:
+      - condition: template
+        value_template: "{{ trigger.to_state.state != 'None' }}"
+    action:
+      - service: notify.telegram_bot
+        data_template:
+          title: "{{ state_attr('persistent_notification.ip_ban', 'message') }}"
+          message: 'url: https://whatismyipaddress.com/ip/{{ state_attr("persistent_notification.ip_ban", "message").split ("from ") [1]}}'
+      
+      - service: notify.email
+        data_template:
+          title: "Home Assistant Failed Login"
+          message: >
+            {{ state_attr('persistent_notification.ip_ban', 'message') }}
+
+            More Information:
+            https://whatismyipaddress.com/ip/{{ state_attr('persistent_notification.ip_ban', 'message').split ('from ') [1]}}
+
+      - service: persistent_notification.dismiss
+        data:
+          notification_id: 'ip_ban' 
