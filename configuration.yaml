@@ -90,7 +90,7 @@ http:
   trusted_proxies:
     - !secret proxy_ip4
     - !secret proxy_ip6
-    - !secret gateway_ipv4
+    - !secret gateway_ip4
 
 ###############################################################################
 #
