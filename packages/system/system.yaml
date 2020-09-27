@@ -54,6 +54,15 @@ automation:
         data_template:
           title: "{{ state_attr('persistent_notification.http_login', message) }}"
           message: 'url: https://whatismyipaddress.com/ip/{{ state_attr('persistent_notification.http_login', message).split ("from ") [1]}}'
+      - service: notify.email
+        data_template:
+          title: "Failed Login"
+          message: >
+            {{ state_attr('persistent_notification.http_login', message) }}
+
+            More Information:
+            https://whatismyipaddress.com/ip/{{ state_attr('persistent_notification.http_login', message).split ("from ") [1]}}
+
       - service: persistent_notification.dismiss
         data:
           notification_id: 'http_login' 
