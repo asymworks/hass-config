@@ -52,8 +52,8 @@ automation:
     action:
       - service: notify.telegram_bot
         data_template:
-          title: "{{ states.persistent_notification.http_login.attributes.message }}"
-          message: 'url: https://whatismyipaddress.com/ip/{{ states.persistent_notification.http_login.attributes.message.split ("from ") [1]}}'
+          title: "{{ state_attr('persistent_notification.http_login', message) }}"
+          message: 'url: https://whatismyipaddress.com/ip/{{ state_attr('persistent_notification.http_login', message).split ("from ") [1]}}'
       - service: persistent_notification.dismiss
         data:
           notification_id: 'http_login' 
