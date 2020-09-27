@@ -15,6 +15,8 @@ homeassistant:
   packages: !include_dir_named packages
   internal_url: !secret http_internal_url
   external_url: !secret http_external_url
+  auth_mfa_modules:
+    - type: totp
   auth_providers:
     - type: homeassistant
     - type: trusted_networks
