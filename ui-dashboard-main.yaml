@@ -66,3 +66,38 @@ views:
                 gridrow: 1/6                         # card
                 name: TV Lamp                        #
                 template: default                    #
+
+              - type: 'custom:button-card'           #
+                entity: light.living_room_back       #
+                gridcol: 1/6                         # Your first
+                gridrow: 1/6                         # card
+                name: Desk Lamp                        #
+                template: default                    #
+
+              - type: 'custom:button-card'           #
+                entity: light.living_room_entry      #
+                gridcol: 1/6                         # Your first
+                gridrow: 1/6                         # card
+                name: Entry Lamp                        #
+                template: default                    #
+
+              - type: 'custom:button-card'           #
+                entity: light.dining_room_1      #
+                gridcol: 1/6                         # Your first
+                gridrow: 1/6                         # card
+                name: Dining Room 1                     #
+                template: default                    #
+
+              - type: 'custom:button-card'           #
+                entity: light.dining_room_2      #
+                gridcol: 1/6                         # Your first
+                gridrow: 1/6                         # card
+                name: Dining Room 2                     #
+                template: default                    #
+
+              - type: 'custom:button-card'           #
+                entity: light.dining_room_3      #
+                gridcol: 1/6                         # Your first
+                gridrow: 1/6                         # card
+                name: Dining Room 3                   #
+                template: default                    #
