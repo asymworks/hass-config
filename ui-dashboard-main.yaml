@@ -57,8 +57,8 @@ views:
         cards:
           - type: custom:layout-card
             layout: grid
-            gridcols: 158px 158px 158px 158px 158px 158px
-            gridrows: 158px 158px 158px 158px 158px 158px
+            gridcols: 168px 168px 168px 168px 168px 168px
+            gridrows: 168px 168px 168px 168px 168px 168px
             cards:
               - type: 'custom:button-card'           #
                 entity: light.living_room_front      #
@@ -69,35 +69,35 @@ views:
 
               - type: 'custom:button-card'           #
                 entity: light.living_room_back       #
-                gridcol: 1/6                         # Your first
+                gridcol: 2/6                         # Your first
                 gridrow: 1/6                         # card
                 name: Desk Lamp                        #
                 template: default                    #
 
               - type: 'custom:button-card'           #
                 entity: light.living_room_entry      #
-                gridcol: 1/6                         # Your first
+                gridcol: 3/6                         # Your first
                 gridrow: 1/6                         # card
                 name: Entry Lamp                        #
                 template: default                    #
 
               - type: 'custom:button-card'           #
                 entity: light.dining_room_1      #
-                gridcol: 1/6                         # Your first
+                gridcol: 4/6                         # Your first
                 gridrow: 1/6                         # card
                 name: Dining Room 1                     #
                 template: default                    #
 
               - type: 'custom:button-card'           #
                 entity: light.dining_room_2      #
-                gridcol: 1/6                         # Your first
+                gridcol: 5/6                         # Your first
                 gridrow: 1/6                         # card
                 name: Dining Room 2                     #
                 template: default                    #
 
               - type: 'custom:button-card'           #
                 entity: light.dining_room_3      #
-                gridcol: 1/6                         # Your first
+                gridcol: 6/6                         # Your first
                 gridrow: 1/6                         # card
                 name: Dining Room 3                   #
                 template: default                    #
