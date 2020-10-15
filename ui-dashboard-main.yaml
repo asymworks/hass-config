@@ -1,0 +1,22 @@
+title: Living Room Dashboard
+views:
+  - title: Dashboard
+    path: dashboard
+    theme: dark-mode
+    panel: true
+    cards:
+      - type: custom:layout_card
+        column_width: 100%
+        layout: vertical
+        cards:
+          - type: custom:layout_card
+            layout: grid
+            gridcols: 158px 158px 158px 158px 158px 158px
+            gridrows: 158px 158px 158px 158px 158px 158px
+            cards:
+              - type: 'custom:button-card'           #
+                entity: light.living_room_front      #
+                gridcol: 1/6                         # Your first
+                gridrow: 1/6                         # card
+                name: TV Lamp                        #
+                template: default                    #

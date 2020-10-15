@@ -4,6 +4,52 @@
 title: Krauss Home
 
 ###############################################################################
+# Button Card Templates
+
+button_card_templates:
+  
+  # Default Button 150 x 150
+  default:
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    show_state: true
+    size: 30%
+    state:
+      - styles:
+          card:
+            - filter: opacity(50%)
+          icon:
+            - filter: grayscale(100%)
+        value: 'off'
+      - styles:
+          card:
+            - filter: opacity(25%)
+          icon:
+            - filter: grayscale(100%)
+        value: unavailable
+    styles:
+      card:
+        - width: 150px
+        - height: 150px
+      grid:
+        - grid-template-areas: '"i" "n" "s"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr min-content min-content
+      img_cell:
+        - justify-content: start
+        - margin-left: 20px
+        - margin-bottom: 30px
+      name:
+        - justify-self: start
+        - margin-left: 10px
+      state:
+        - justify-self: start
+        - margin-left: 10px
+        - font-weight: lighter
+
+###############################################################################
 # Compact Custom Header Configuration
 custom_header:
   compact_mode: true
