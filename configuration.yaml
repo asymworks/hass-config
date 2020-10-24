@@ -116,6 +116,9 @@ frontend:
   # Add Themes
   themes: !include_dir_merge_named themes
 
+# Enable Browser_Mod
+browser_mod:
+
 # Configure FontAwesome Icons
 fontawesome:
   regular:
