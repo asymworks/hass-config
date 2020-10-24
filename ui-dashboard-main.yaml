@@ -215,5 +215,9 @@ views:
                 gridrow: 3 / 5
                 name: Weather
                 template: weather
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> d46b22931b15239b612a0832e592d60ed9707722
 
