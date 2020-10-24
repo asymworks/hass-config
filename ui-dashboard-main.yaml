@@ -223,3 +223,10 @@ views:
                 name: Weather
                 template: weather
 
+              - type: custom:button-card
+                entity: light.dining_room_lights
+                gridcol: 5 / 7
+                gridrow: 3 / 5
+                name: Living Room
+                template: default
+
