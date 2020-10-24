@@ -96,7 +96,7 @@ button_card_templates:
     label: '[[[ return `${entity.attributes.temperature}°F` ]]]'
     show_label: true
     show_state: true
-    size: 70%
+    size: 60%
     state:
       - icon: 'mdi:weather-night'
         value: clear-night
@@ -132,16 +132,16 @@ button_card_templates:
       card:
         - height: 168px
       grid:
-        - grid-template-areas: '"i l" "n n" "s s"'
-        - grid-template-columns: 1fr 2fr
+        - grid-template-areas: '"i l rh" "n n n" "s s s"'
+        - grid-template-columns: 1fr 1fr 1fr
         - grid-template-rows: 1fr min-content min-content
       img_cell:
         - align-content: start
         - justify-content: start
-        - margin-left: 20px
+        - margin-left: 30px
       label:
         - justify-self: start
-        - font-size: 250%
+        - font-size: 180%
       name:
         - justify-self: start
         - margin-left: 10px
@@ -150,6 +150,13 @@ button_card_templates:
         - margin-left: 10px
         - margin-bottom: '-6px'
         - font-weight: lighter
+      custom_fields:
+        rh:
+          - justify-self: start
+          - margin-left: 4px
+          - font-size: 180%
+    custom_fields:
+      rh: '[[[ return `${entity.attributes.humidity}%` ]]]'
 
 title: Living Room Dashboard
 views:
@@ -211,13 +218,8 @@ views:
 
               - type: custom:button-card
                 entity: weather.owm
-                gridcol: 1 / 4
+                gridcol: 1 / 5
                 gridrow: 3 / 5
                 name: Weather
                 template: weather
-<<<<<<< HEAD
-
-=======
-                
->>>>>>> d46b22931b15239b612a0832e592d60ed9707722
 
