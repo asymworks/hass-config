@@ -192,6 +192,21 @@ views:
                 gridrow: 1 / 3
                 name: Living Room
                 template: default
+                double_tap_action:
+                  action: call-service
+                  service: browser_mod.popup
+                  service_data:
+                    title: Living Room Lights
+                    card:
+                      type: entities
+                      show_header_toggle: false
+                      entities:
+                        - light.living_room_entry
+                        - light.living_room_front
+                        - light.living_room_back
+                    hide_header: true
+                    deviceId:
+                      - this
 
               - type: custom:button-card
                 entity: binary_sensor.zse40_living_room_motion
@@ -206,6 +221,41 @@ views:
                 gridrow: 1 / 3
                 name: Living Room
                 template: temperature
+
+              - type: custom:vertical-stack-in-card
+                gridcol: 7 / 9
+                gridrow: 1 / 3
+                cards:
+                  - type: markdown
+                    content: >
+                      Living Room Scenes
+
+                  - type: button
+                    name: Normal
+                    show_icon: false
+                    tap_action:
+                      action: call-service
+                      service: scene.turn_on
+                      service_data:
+                        entity_id: scene.living_room_normal
+
+                  - type: button
+                    name: Low
+                    show_icon: false
+                    tap_action:
+                      action: call-service
+                      service: scene.turn_on
+                      service_data:
+                        entity_id: scene.living_room_low
+
+                  - type: button
+                    name: Dim
+                    show_icon: false
+                    tap_action:
+                      action: call-service
+                      service: scene.turn_on
+                      service_data:
+                        entity_id: scene.living_room_dim
 
               - type: custom:button-card
                 entity: light.dining_room_lights
