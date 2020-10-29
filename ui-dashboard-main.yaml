@@ -290,6 +290,33 @@ views:
                 name: Kitchen
                 template: temperature
 
+              - type: custom:vertical-stack-in-card
+                gridcol: 7 / 9
+                gridrow: 3 / 5
+                cards:
+                  - type: markdown
+                    style: |
+                      ha-card {
+                        height: 44px;
+                      }
+                    content: >
+                      Dining Room Scenes
+
+                  - type: custom:button-card
+                    name: Normal
+                    entity: scene.dining_room_normal
+                    template: scene_button
+
+                  - type: custom:button-card
+                    name: Low
+                    entity: scene.dining_room_low
+                    template: scene_button
+
+                  - type: custom:button-card
+                    name: Dim
+                    entity: scene.dining_room_dim
+                    template: scene_button
+
               - type: custom:button-card
                 entity: weather.owm
                 gridcol: 9 / 13
