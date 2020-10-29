@@ -252,7 +252,7 @@ views:
                         height: 44px;
                       }
                     content: >
-                      Living Room Scenes
+                      Living Room
 
                   - type: custom:button-card
                     name: Normal
@@ -300,7 +300,7 @@ views:
                         height: 44px;
                       }
                     content: >
-                      Dining Room Scenes
+                      Dining Room
 
                   - type: custom:button-card
                     name: Normal
@@ -327,7 +327,7 @@ views:
               - type: custom:button-card
                 entity: input_select.ht_lighting_mode
                 gridcol: 9 / 13
-                gridrow: 4 / 5
+                gridrow: 3 / 4
                 icon: mdi:movie-filter
                 tap_action:
                   action: call-service
