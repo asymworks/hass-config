@@ -43,6 +43,8 @@ lovelace:
       type: module
     - url: /local/custom_ui/mini-media-player-bundle.js?v=1.9.1
       type: module
+    - url: /local/custom_ui/popup-backdrop-filter.js?v=1
+      type: module
     - url: /local/custom_ui/text-element.js?v=0.0.2
       type: module
     - url: /local/custom_ui/vertical-stack-in-card.js?v=0.3.3
