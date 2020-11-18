@@ -82,6 +82,7 @@ scene:
     entities:
       light.dining_room_lights:
         state: on
+        transition: 2
         brightness_pct: 100
         color_temp: 366
 
@@ -89,6 +90,7 @@ scene:
     entities:
       light.dining_room_lights:
         state: on
+        transition: 2
         brightness_pct: 40
         color_temp: 366
 
@@ -96,6 +98,7 @@ scene:
     entities:
       light.dining_room_lights:
         state: on
+        transition: 2
         brightness_pct: 15
         color_temp: 366
 
