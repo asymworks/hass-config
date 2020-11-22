@@ -50,6 +50,7 @@ button_card_templates:
       service: scene.turn_on
       service_data: 
         entity_id: '[[[ return entity.entity_id ]]]'
+        transition: 3
     show_icon: false
     show_state: false
     styles:

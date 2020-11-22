@@ -75,6 +75,7 @@ views:
                   service: scene.turn_on
                   service_data:
                     entity_id: scene.living_room_normal
+                    transition: 3
 
               - type: button
                 name: Low
@@ -84,6 +85,7 @@ views:
                   service: scene.turn_on
                   service_data:
                     entity_id: scene.living_room_low
+                    transition: 3
 
               - type: button
                 name: Dim
@@ -93,6 +95,7 @@ views:
                   service: scene.turn_on
                   service_data:
                     entity_id: scene.living_room_dim
+                    transition: 3
 
       - type: custom:vertical-stack-in-card
         cards:
@@ -112,6 +115,7 @@ views:
                   service: scene.turn_on
                   service_data:
                     entity_id: scene.dining_room_normal
+                    transition: 3
 
               - type: button
                 name: Low
@@ -121,6 +125,7 @@ views:
                   service: scene.turn_on
                   service_data:
                     entity_id: scene.dining_room_low
+                    transition: 3
 
               - type: button
                 name: Dim
@@ -130,6 +135,7 @@ views:
                   service: scene.turn_on
                   service_data:
                     entity_id: scene.dining_room_dim
+                    transition: 3
 
       #########################################################################
       # Bedroom Room Card
