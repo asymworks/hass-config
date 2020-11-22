@@ -60,61 +60,61 @@ scene:
     entities:
       light.living_room_lights:
         state: on
-        brightness_pct: 100
+        brightness: 255
 
   - name: Living Room Low
     entities:
       light.living_room_lights:
         state: on
-        brightness_pct: 40
+        brightness: 100
 
   - name: Living Room Dim
     entities:
       light.living_room_lights:
         state: on
-        brightness_pct: 20
+        brightness: 40
 
   # Dining Room Scenes
   - name: Dining Room Normal
     entities:
       light.dining_room_lights:
         state: on
-        brightness_pct: 100
+        brightness: 255
         color_temp: 366
 
   - name: Dining Room Low
     entities:
       light.dining_room_lights:
         state: on
-        brightness_pct: 40
+        brightness: 100
         color_temp: 366
 
   - name: Dining Room Dim
     entities:
       light.dining_room_lights:
         state: on
-        brightness_pct: 15
+        brightness: 40
         color_temp: 366
 
   - name: All Low
     entities:
       light.dining_room_lights:
         state: on
-        brightness_pct: 40
+        brightness: 100
         color_temp: 366
       light.living_room_lights:
         state: on
-        brightness_pct: 40
+        brightness: 100
 
   - name: All Dim
     entities:
       light.dining_room_lights:
         state: on
-        brightness_pct: 15
+        brightness: 40
         color_temp: 366
       light.living_room_lights:
         state: on
-        brightness_pct: 15
+        brightness: 40
 
   - name: All Off
     entities:
