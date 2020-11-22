@@ -50,8 +50,8 @@ media_player:
     host: 10.1.4.20
 
 # Roku Media Player
-roku:
-    host: 10.1.2.13
+#roku:
+#    host: 10.1.2.13
 
 ###############################################################################
 # Inputs for Media Center State and Behavior
