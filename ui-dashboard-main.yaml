@@ -355,3 +355,10 @@ views:
                   state:
                     - justify-self: start
                     - font-weight: lighter
+
+              - type: custom:button-card
+                entity: switch.christmas_tree
+                gridcol: 1 / 3
+                gridrow: 5 / 7
+                name: Christmas Tree
+                template: default
