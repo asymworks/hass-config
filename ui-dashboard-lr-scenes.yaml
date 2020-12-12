@@ -3,7 +3,7 @@
 
 button_card_templates:
   
-  # Activate Scene Button (164 x 164)
+  # Activate Scene Button (138 x 138)
   activate_scene:
     tap_action:
       action: call-service
@@ -11,8 +11,8 @@ button_card_templates:
       service_data: 
         entity_id: '[[[ return entity.entity_id ]]]'
         transition: 3
-    show_state: true
-    size: 30%
+    show_state: false
+    size: 25%
     state:
       - styles:
           card:
@@ -28,22 +28,23 @@ button_card_templates:
         value: unavailable
     styles:
       card: 
-        - height: 164px
+        - height: 138px
       grid:
-        - grid-template-areas: '"i" "n" "s"'
+        - grid-template-areas: '"i" "n"'
         - grid-template-columns: 1fr
-        - grid-template-rows: 1fr min-content min-content
+        - grid-template-rows: 1fr min-content
       img_cell:
         - justify-content: start
         - margin-left: 20px
-        - margin-bottom: 30px
+        - margin-bottom: 20px
       name:
         - justify-self: start
         - margin-left: 10px
-      state:
-        - justify-self: start
-        - margin-left: 10px
-        - font-weight: lighter
+        - font-size: 87%
+        - text-align: left
+        - text-overflow: unset
+        - white-space: unset
+        - word-break: break-word
 
 title: Living Room Scenes
 views:
@@ -58,8 +59,8 @@ views:
         cards:
           - type: custom:layout-card
             layout: grid
-            gridcols: repeat(12, 84px)
-            gridrows: repeat(6, 84px)
+            gridcols: repeat(14, 72px)
+            gridrows: repeat(7, 72px)
             cards:
               - type: custom:button-card
                 entity: scene.living_room_normal
