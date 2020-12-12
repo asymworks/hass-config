@@ -55,7 +55,7 @@ button_card_templates:
     show_state: false
     styles:
       card:
-        - height: 28px
+        - height: 32px
       grid:
         - grid-template-areas: '"n"'
         - grid-template-columns: 1fr
@@ -63,7 +63,7 @@ button_card_templates:
       name:
         - justify-self: start
         - margin-left: 10px
-        - text-size: 80%
+        - text-size: 75%
 
   # Sensor Card (148 x 148)
   sensor:
@@ -251,7 +251,7 @@ views:
                   - type: markdown
                     style: |
                       ha-card {
-                        height: 44px;
+                        height: 40px;
                       }
                     content: >
                       Living Room

@@ -3,7 +3,7 @@
 
 button_card_templates:
   
-  # Activate Scene Button (138 x 138)
+  # Activate Scene Button (148 x 148)
   activate_scene:
     tap_action:
       action: call-service
@@ -28,7 +28,7 @@ button_card_templates:
         value: unavailable
     styles:
       card: 
-        - height: 138px
+        - height: 148px
       grid:
         - grid-template-areas: '"i" "n"'
         - grid-template-columns: 1fr
@@ -59,8 +59,8 @@ views:
         cards:
           - type: custom:layout-card
             layout: grid
-            gridcols: repeat(14, 72px)
-            gridrows: repeat(7, 72px)
+            gridcols: repeat(14, 78px)
+            gridrows: repeat(7, 78px)
             cards:
               - type: custom:button-card
                 entity: scene.living_room_normal
