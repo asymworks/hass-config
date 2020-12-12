@@ -26,7 +26,7 @@ button_card_templates:
         value: unavailable
     styles:
       card: 
-        - height: 138px
+        - height: 140px
       grid:
         - grid-template-areas: '"i" "n" "s"'
         - grid-template-columns: 1fr
@@ -71,7 +71,7 @@ button_card_templates:
     size: 30%
     styles:
       card: 
-        - height: 138px
+        - height: 140px
       grid:
         - grid-template-areas: '"i" "n" "s"'
         - grid-template-columns: 1fr
@@ -86,7 +86,7 @@ button_card_templates:
         - margin-left: 10px
         - font-weight: lighter
 
-  # Temperature Card (138 x 138)
+  # Temperature Card (140 x 140)
   temperature:
     label: Temperature
     show_label: true
@@ -94,7 +94,7 @@ button_card_templates:
     size: 70%
     styles:
       card: 
-        - height: 138px
+        - height: 140px
       grid:
         - grid-template-areas: '"i s" "n n" "l l"'
         - grid-template-columns: 1fr 2fr
@@ -152,7 +152,7 @@ button_card_templates:
         value: exceptional
     styles:
       card:
-        - height: 138px
+        - height: 140px
       grid:
         - grid-template-areas: '"i l rh" "n n aqi_index" "s s aqi_level"'
         - grid-template-columns: 1fr 1fr 1fr
@@ -205,8 +205,8 @@ views:
         cards:
           - type: custom:layout-card
             layout: grid
-            gridcols: repeat(14, 72px)
-            gridrows: repeat(7, 72px)
+            gridcols: repeat(14, 74px)
+            gridrows: repeat(7, 74px)
             cards:
               - type: custom:button-card
                 entity: light.living_room_lights
