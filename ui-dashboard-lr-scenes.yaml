@@ -46,6 +46,58 @@ button_card_templates:
         - white-space: unset
         - word-break: break-word
 
+  # Title Card
+  title:
+    show_icon: false
+    show_name: true
+    show_state: false
+    styles:
+      card:
+        - width: 300px
+        - height: 40px
+        - background: none
+        - box-shadow: none
+      name:
+        - justify-self: start
+        - margin-left: 10px
+        - font-weight: lighter
+        - font-size: x-large
+
+  # Title Return Link Card
+  title_back_link:
+    show_icon: false
+    show_name: true
+    show_state: false
+    styles:
+      card:
+        - width: 150px
+        - height: 40px
+        - background: none
+        - box-shadow: none
+      name:
+        - justify-self: start
+        - margin-left: 10px
+        - font-size: x-large
+        - font-weight: lighter
+        - color: var(--accent-color)
+
+  # Title Link Card
+  title_link:
+    show_icon: false
+    show_name: true
+    show_state: false
+    styles:
+      card:
+        - width: 150px
+        - height: 40px
+        - background: none
+        - box-shadow: none
+      name:
+        - justify-self: start
+        - margin-left: 10px
+        - font-size: x-large
+        - color: var(--primary-color)
+
 title: Living Room Scenes
 views:
   - title: Dashboard
@@ -62,6 +114,21 @@ views:
             gridcols: repeat(14, 78px)
             gridrows: repeat(7, 78px)
             cards:
+              - type: custom:button-card
+                gridcol: 1 / 3
+                gridrow: 1 / 2
+                name: '< Back'
+                template: title_back_link
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-main/dashboard
+              
+              - type: custom:button-card
+                gridcol: 3 / 7
+                gridrow: 1 / 2
+                name: Living Room Scenes
+                template: title
+
               - type: custom:button-card
                 entity: scene.living_room_normal
                 gridcol: 1 / 3
