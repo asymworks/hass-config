@@ -73,6 +73,59 @@ scene:
       light.living_room_lights:
         state: on
         brightness: 40
+  
+  - name: Reading Back
+    entities:
+      light.living_room_back:
+        state: on
+        brightness: 224
+      light.living_room_front:
+        state: off
+      light.living_room_entry:
+        state: off
+  
+  - name: Reading Entry
+    entities:
+      light.living_room_entry:
+        state: on
+        brightness: 224
+      light.living_room_front:
+        state: off
+      light.living_room_back:
+        state: off
+  
+  - name: TV Normal
+    entities:
+      light.living_room_front:
+        state: on
+        brightness: 255
+      light.living_room_entry:
+        state: on
+        brightness: 255
+      light.living_room_back:
+        state: off
+  
+  - name: TV Low
+    entities:
+      light.living_room_front:
+        state: on
+        brightness: 100
+      light.living_room_entry:
+        state: on
+        brightness: 100
+      light.living_room_back:
+        state: off
+  
+  - name: TV Dim
+    entities:
+      light.living_room_front:
+        state: on
+        brightness: 40
+      light.living_room_entry:
+        state: on
+        brightness: 40
+      light.living_room_back:
+        state: off
 
   # Dining Room Scenes
   - name: Dining Room Normal
@@ -95,7 +148,8 @@ scene:
         state: on
         brightness: 40
         color_temp: 366
-
+  
+  # All Light Scenes
   - name: All Low
     entities:
       light.dining_room_lights:

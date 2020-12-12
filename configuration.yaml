@@ -56,6 +56,11 @@ lovelace:
       mode: yaml
       filename: ui-dashboard-main.yaml
       title: Dashboard Main
+    livingroom-scenes:
+      mode: yaml
+      filename: ui-dashboard-lr-scenes.yaml
+      show_in_sidebar: true
+      title: Living Room Scenes
 
 # MQTT Broker Connection
 mqtt:
