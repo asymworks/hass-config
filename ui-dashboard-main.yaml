@@ -113,6 +113,40 @@ button_card_templates:
         - margin-right: 40px
         - font-size: x-large
 
+  # Title Card
+  title:
+    show_icon: false
+    show_name: true
+    show_state: false
+    styles:
+      card:
+        - width: 300px
+        - height: 40px
+        - background: none
+        - box-shadow: none
+      name:
+        - justify-self: start
+        - margin-left: 10px
+        - font-weight: lighter
+        - font-size: x-large
+
+  # Title Link Card
+  title_link:
+    show_icon: false
+    show_name: true
+    show_state: false
+    styles:
+      card:
+        - width: 150px
+        - height: 40px
+        - background: none
+        - box-shadow: none
+      name:
+        - justify-self: start
+        - margin-left: 10px
+        - font-size: x-large
+        - color: var(--primary-color)
+
   # Weather Card (212 x 148)
   weather:
     label: '[[[ return `${entity.attributes.temperature}°F` ]]]'
@@ -208,6 +242,21 @@ views:
             gridcols: repeat(14, 78px)
             gridrows: repeat(7, 78px)
             cards:
+              - type: custom:button-card
+                gridcol: 3 / 7
+                gridrow: 1 / 2
+                name: Living Room Overview
+                template: title
+
+              - type: custom:button-card
+                gridcol: 7 / 9
+                gridrow: 1 / 2
+                name: Scenes
+                template: title_link
+                tap_action:
+                  action: navigate
+                  navigation_path: /livingroom-scenes/dashboard
+
               - type: custom:button-card
                 entity: light.living_room_lights
                 gridcol: 1 / 3
