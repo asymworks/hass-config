@@ -10,7 +10,7 @@ button_card_templates:
     hold_action:
       action: more-info
     show_state: true
-    size: 30%
+    size: 25%
     state:
       - styles:
           card:
@@ -26,7 +26,7 @@ button_card_templates:
         value: unavailable
     styles:
       card: 
-        - height: 164px
+        - height: 138px
       grid:
         - grid-template-areas: '"i" "n" "s"'
         - grid-template-columns: 1fr
@@ -67,10 +67,10 @@ button_card_templates:
   # Sensor Card (164 x 164)
   sensor:
     show_state: true
-    size: 30%
+    size: 25%
     styles:
       card: 
-        - height: 164px
+        - height: 138px
       grid:
         - grid-template-areas: '"i" "n" "s"'
         - grid-template-columns: 1fr
@@ -90,10 +90,10 @@ button_card_templates:
     label: Temperature
     show_label: true
     show_state: true
-    size: 80%
+    size: 70%
     styles:
       card: 
-        - height: 164px
+        - height: 138px
       grid:
         - grid-template-areas: '"i s" "n n" "l l"'
         - grid-template-columns: 1fr 2fr
@@ -112,7 +112,7 @@ button_card_templates:
         - margin-right: 40px
         - font-size: x-large
 
-  # Weather Card (248 x 164)
+  # Weather Card (212 x 138)
   weather:
     label: '[[[ return `${entity.attributes.temperature}°F` ]]]'
     show_label: true
@@ -151,7 +151,7 @@ button_card_templates:
         value: exceptional
     styles:
       card:
-        - height: 164px
+        - height: 138px
       grid:
         - grid-template-areas: '"i l rh" "n n aqi_index" "s s aqi_level"'
         - grid-template-columns: 1fr 1fr 1fr
@@ -204,8 +204,8 @@ views:
         cards:
           - type: custom:layout-card
             layout: grid
-            gridcols: repeat(12, 84px)
-            gridrows: repeat(6, 84px)
+            gridcols: repeat(14, 72px)
+            gridrows: repeat(7, 72px)
             cards:
               - type: custom:button-card
                 entity: light.living_room_lights
