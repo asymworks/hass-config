@@ -3,7 +3,7 @@
 
 button_card_templates:
   
-  # Default Button (138 x 138)
+  # Default Button (148 x 148)
   default:
     tap_action:
       action: toggle
@@ -26,7 +26,7 @@ button_card_templates:
         value: unavailable
     styles:
       card: 
-        - height: 140px
+        - height: 148px
       grid:
         - grid-template-areas: '"i" "n" "s"'
         - grid-template-columns: 1fr
@@ -43,7 +43,7 @@ button_card_templates:
         - margin-left: 10px
         - font-weight: lighter
 
-  # Scene Button (138 x 20)
+  # Scene Button (148 x 20)
   scene_button:
     tap_action:
       action: call-service
@@ -55,7 +55,7 @@ button_card_templates:
     show_state: false
     styles:
       card:
-        - height: 30px
+        - height: 28px
       grid:
         - grid-template-areas: '"n"'
         - grid-template-columns: 1fr
@@ -63,15 +63,15 @@ button_card_templates:
       name:
         - justify-self: start
         - margin-left: 10px
-        - text-size: 87%
+        - text-size: 80%
 
-  # Sensor Card (138 x 138)
+  # Sensor Card (148 x 148)
   sensor:
     show_state: true
     size: 30%
     styles:
       card: 
-        - height: 140px
+        - height: 148px
       grid:
         - grid-template-areas: '"i" "n" "s"'
         - grid-template-columns: 1fr
@@ -86,7 +86,7 @@ button_card_templates:
         - margin-left: 10px
         - font-weight: lighter
 
-  # Temperature Card (140 x 140)
+  # Temperature Card (148 x 148)
   temperature:
     label: Temperature
     show_label: true
@@ -94,7 +94,7 @@ button_card_templates:
     size: 70%
     styles:
       card: 
-        - height: 140px
+        - height: 148px
       grid:
         - grid-template-areas: '"i s" "n n" "l l"'
         - grid-template-columns: 1fr 2fr
@@ -113,7 +113,7 @@ button_card_templates:
         - margin-right: 40px
         - font-size: x-large
 
-  # Weather Card (212 x 138)
+  # Weather Card (212 x 148)
   weather:
     label: '[[[ return `${entity.attributes.temperature}°F` ]]]'
     show_label: true
@@ -152,7 +152,7 @@ button_card_templates:
         value: exceptional
     styles:
       card:
-        - height: 140px
+        - height: 148px
       grid:
         - grid-template-areas: '"i l rh" "n n aqi_index" "s s aqi_level"'
         - grid-template-columns: 1fr 1fr 1fr
@@ -205,8 +205,8 @@ views:
         cards:
           - type: custom:layout-card
             layout: grid
-            gridcols: repeat(14, 74px)
-            gridrows: repeat(7, 74px)
+            gridcols: repeat(14, 78px)
+            gridrows: repeat(7, 78px)
             cards:
               - type: custom:button-card
                 entity: light.living_room_lights
