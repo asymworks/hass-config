@@ -57,6 +57,7 @@ button_card_templates:
         - height: 40px
         - background: none
         - box-shadow: none
+        - padding-top: 10px
       name:
         - justify-self: start
         - margin-left: 10px
@@ -74,6 +75,7 @@ button_card_templates:
         - height: 40px
         - background: none
         - box-shadow: none
+        - padding-top: 10px
       name:
         - justify-self: start
         - margin-left: 10px
@@ -92,6 +94,7 @@ button_card_templates:
         - height: 40px
         - background: none
         - box-shadow: none
+        - padding-top: 10px
       name:
         - justify-self: start
         - margin-left: 10px
