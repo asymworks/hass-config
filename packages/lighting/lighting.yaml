@@ -20,6 +20,16 @@ homeassistant:
       friendly_name: Sunrise Script
     script.sunset:
       friendly_name: Sunset Script
+    scene.living_room_normal:
+      icon: mdi:floor-lamp-dual
+    scene.tv_normal:
+      icon: mdi:television-ambient-light
+    scene.tv_dim:
+      icon: mdi:television
+    scene.reading_back:
+      icon: mdi:book-open-variant
+    scene.reading_entry:
+      icon: mdi:book-open-variant
 
 
 ###############################################################################
