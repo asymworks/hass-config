@@ -211,7 +211,7 @@ views:
               - type: custom:button-card
                 entity: light.living_room_lights
                 gridcol: 1 / 3
-                gridrow: 1 / 3
+                gridrow: 2 / 4
                 name: Living Room
                 template: default
                 double_tap_action:
@@ -233,20 +233,20 @@ views:
               - type: custom:button-card
                 entity: binary_sensor.zse40_living_room_motion
                 gridcol: 3 / 5
-                gridrow: 1 / 3
+                gridrow: 2 / 4
                 name: Living Room
                 template: sensor
 
               - type: custom:button-card
                 entity: sensor.zse40_living_room_temperature
                 gridcol: 5 / 7
-                gridrow: 1 / 3
+                gridrow: 2 / 4
                 name: Living Room
                 template: temperature
 
               - type: custom:vertical-stack-in-card
                 gridcol: 7 / 9
-                gridrow: 1 / 3
+                gridrow: 2 / 4
                 cards:
                   - type: markdown
                     style: |
@@ -274,27 +274,27 @@ views:
               - type: custom:button-card
                 entity: light.dining_room_lights
                 gridcol: 1 / 3
-                gridrow: 3 / 5
+                gridrow: 4 / 6
                 name: Dining Room
                 template: default
 
               - type: custom:button-card
                 entity: binary_sensor.zp3111_kitchen_motion
                 gridcol: 3 / 5
-                gridrow: 3 / 5
+                gridrow: 4 / 6
                 name: Kitchen
                 template: sensor
 
               - type: custom:button-card
                 entity: sensor.zp3111_kitchen_temperature
                 gridcol: 5 / 7
-                gridrow: 3 / 5
+                gridrow: 4 / 6
                 name: Kitchen
                 template: temperature
 
               - type: custom:vertical-stack-in-card
                 gridcol: 7 / 9
-                gridrow: 3 / 5
+                gridrow: 4 / 6
                 cards:
                   - type: markdown
                     style: |
@@ -321,15 +321,15 @@ views:
 
               - type: custom:button-card
                 entity: weather.owm
-                gridcol: 9 / 13
-                gridrow: 1 / 3
+                gridcol: 9 / 14
+                gridrow: 2 / 4
                 name: Weather
                 template: weather
 
               - type: custom:button-card
                 entity: input_select.ht_lighting_mode
                 gridcol: 9 / 13
-                gridrow: 3 / 4
+                gridrow: 4 / 5
                 icon: mdi:movie-filter
                 tap_action:
                   action: call-service
@@ -360,6 +360,6 @@ views:
               - type: custom:button-card
                 entity: switch.christmas_tree
                 gridcol: 1 / 3
-                gridrow: 5 / 7
+                gridrow: 6 / 8
                 name: Christmas Tree
                 template: default
