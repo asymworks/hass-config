@@ -3,14 +3,14 @@
 
 button_card_templates:
   
-  # Default Button (164 x 164)
+  # Default Button (138 x 138)
   default:
     tap_action:
       action: toggle
     hold_action:
       action: more-info
     show_state: true
-    size: 25%
+    size: 30%
     state:
       - styles:
           card:
@@ -34,7 +34,7 @@ button_card_templates:
       img_cell:
         - justify-content: start
         - margin-left: 20px
-        - margin-bottom: 30px
+        - margin-bottom: 25px
       name:
         - justify-self: start
         - margin-left: 10px
@@ -43,7 +43,7 @@ button_card_templates:
         - margin-left: 10px
         - font-weight: lighter
 
-  # Scene Button (164 x 20)
+  # Scene Button (138 x 20)
   scene_button:
     tap_action:
       action: call-service
@@ -55,7 +55,7 @@ button_card_templates:
     show_state: false
     styles:
       card:
-        - height: 40px
+        - height: 30px
       grid:
         - grid-template-areas: '"n"'
         - grid-template-columns: 1fr
@@ -63,11 +63,12 @@ button_card_templates:
       name:
         - justify-self: start
         - margin-left: 10px
+        - text-size: 87%
 
-  # Sensor Card (164 x 164)
+  # Sensor Card (138 x 138)
   sensor:
     show_state: true
-    size: 25%
+    size: 30%
     styles:
       card: 
         - height: 138px
@@ -76,7 +77,7 @@ button_card_templates:
         - grid-template-columns: 1fr
         - grid-template-rows: 1fr min-content min-content
       img_cell:
-        - margin-bottom: 30px
+        - margin-bottom: 25px
       name:
         - justify-self: start
         - margin-left: 10px
@@ -85,7 +86,7 @@ button_card_templates:
         - margin-left: 10px
         - font-weight: lighter
 
-  # Temperature Card (164 x 164)
+  # Temperature Card (138 x 138)
   temperature:
     label: Temperature
     show_label: true
@@ -99,7 +100,7 @@ button_card_templates:
         - grid-template-columns: 1fr 2fr
         - grid-template-rows: 1fr min-content
       img_cell:
-        - margin-bottom: 30px
+        - margin-bottom: 25px
       label:
         - justify-self: start
         - margin-left: 10px
@@ -159,7 +160,7 @@ button_card_templates:
       img_cell:
         - align-content: start
         - justify-content: start
-        - margin-left: 30px
+        - margin-left: 25px
       label:
         - justify-self: start
         - font-size: 180%
