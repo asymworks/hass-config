@@ -121,7 +121,7 @@ button_card_templates:
     styles:
       card:
         - width: 300px
-        - height: 40px
+        - height: 60px
         - background: none
         - box-shadow: none
         - padding-top: 10px
@@ -139,7 +139,7 @@ button_card_templates:
     styles:
       card:
         - width: 150px
-        - height: 40px
+        - height: 60px
         - background: none
         - box-shadow: none
         - padding-top: 10px
