@@ -2,7 +2,7 @@ language: python
 python:
   - "3.7"
 install:
-  - "pip install homeassistant==0.118.2"
+  - "pip install homeassistant~=2020.12"
   - "cp $TRAVIS_BUILD_DIR/bin/dummy_secrets.yaml $TRAVIS_BUILD_DIR/secrets.yaml"
   - "sudo mkdir /config && sudo cp $TRAVIS_BUILD_DIR/bin/fake-ca.pem /config/network-ca-chain.pem"
 script: "bash $TRAVIS_BUILD_DIR/bin/check_config.sh"
