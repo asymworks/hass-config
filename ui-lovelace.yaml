@@ -274,6 +274,15 @@ views:
               icon: true
               power_state: false
 
+          - type: custom:mini-media-player
+            entity: media_player.rpi_spkr_2
+            info: short
+            artwork: cover
+            hide:
+              mute: true
+              icon: true
+              power_state: false
+
       - type: entities
         title: Media Center
         entities:
