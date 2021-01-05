@@ -83,13 +83,25 @@ logger:
 
 # InfluxDB Logging
 influxdb:
+  api_version: '1'
   host: !secret influxdb_host
   database: home_assistant
-  username: !secret influxdb_username
-  password: !secret influxdb_password
+  measurement_attr: domain__device_class
   default_measurement: state
+  precision: ms
   tags_attributes:
     - friendly_name
+  exclude:
+    domains:
+      - automation
+      - device_tracker
+      - group
+      - input_boolean
+      - input_select
+      - media_player
+      - scene
+      - script
+      - zone
 
 # HTTP Access
 http:
