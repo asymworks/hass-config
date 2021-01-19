@@ -418,6 +418,18 @@ views:
                   service: script.turn_on
                   service_data:
                     entity_id: script.living_room_sunrise
+                styles:
+                  card:
+                    - height: 80px
+                  grid:
+                    - grid-template-areas: '"i n" "i s"'
+                    - grid-template-columns: 1fr 2fr
+                    - grid-template-rows: 1fr 1fr
+                  name:
+                    - justify-self: start
+                  state:
+                    - justify-self: start
+                    - font-weight: lighter
 
 #              - type: custom:button-card
 #                entity: switch.christmas_tree
