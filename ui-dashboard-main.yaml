@@ -379,7 +379,7 @@ views:
 
               - type: custom:button-card
                 entity: input_select.ht_lighting_mode
-                gridcol: 9 / 13
+                gridcol: 9 / 14
                 gridrow: 4 / 5
                 icon: mdi:movie-filter
                 tap_action:
@@ -397,7 +397,7 @@ views:
                     color: rgb(222, 207, 44)
                 styles:
                   card:
-                    - height: 80px
+                    - height: 70px
                   grid:
                     - grid-template-areas: '"i n" "i s"'
                     - grid-template-columns: 1fr 2fr
@@ -409,10 +409,10 @@ views:
                     - font-weight: lighter
 
               - type: custom:button-card
-                entity: light.dining_room_lights
-                gridcol: 9 / 13
+                entity: script.living_room_sunrise
+                gridcol: 9 / 14
                 gridrow: 5 / 6
-                icon: mdi:wb_twilight
+                icon: mdi:sun
                 tap_action:
                   action: call-service
                   service: script.turn_on
@@ -420,11 +420,11 @@ views:
                     entity_id: script.living_room_sunrise
                 styles:
                   card:
-                    - height: 80px
+                    - height: 70px
                   grid:
-                    - grid-template-areas: '"i n" "i s"'
+                    - grid-template-areas: '"i n"'
                     - grid-template-columns: 1fr 2fr
-                    - grid-template-rows: 1fr 1fr
+                    - grid-template-rows: 1fr
                   name:
                     - justify-self: start
                   state:
