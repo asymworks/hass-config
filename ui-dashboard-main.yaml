@@ -408,6 +408,17 @@ views:
                     - justify-self: start
                     - font-weight: lighter
 
+              - type: custom:button-card
+                entity: light.dining_room_lights
+                gridcol: 9 / 13
+                gridrow: 5 / 6
+                icon: mdi:wb_twilight
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  service_data:
+                    entity_id: script.living_room_sunrise
+
 #              - type: custom:button-card
 #                entity: switch.christmas_tree
 #                gridcol: 1 / 3
