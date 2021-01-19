@@ -20,6 +20,8 @@ homeassistant:
       friendly_name: Sunrise Script
     script.sunset:
       friendly_name: Sunset Script
+    script.living_room_sunrise:
+      friendly_name: Living/Dining Room Sunrise
     scene.living_room_normal:
       icon: mdi:floor-lamp-dual
     scene.tv_normal:
@@ -278,3 +280,52 @@ script:
         entity_id: 
           - light.zb_bedroom_jp
           - light.zb_bedroom_jen
+
+
+  living_room_sunrise:
+    # Simulated Sunrise on Dining and Living Room Lamps (30 min, from Off)
+    sequence:
+      # Dark Red
+      - service: light.turn_on
+        data:
+          entity_id: 
+            - light.dining_room_lights
+            - light.living_room_lights
+          color_temp: 500
+          brightness: 1
+          transition: 60
+      - delay:
+          seconds: 60
+      # Warm Orange
+      - service: light.turn_on
+        data:
+          entity_id: 
+            - light.dining_room_lights
+            - light.living_room_lights
+          color_temp: 500
+          brightness: 85
+          transition: 600
+      - delay:
+          seconds: 600
+      # Yellow
+      - service: light.turn_on
+        data:
+          entity_id: 
+            - light.dining_room_lights
+            - light.living_room_lights
+          color_temp: 350
+          brightness: 170
+          transition: 600
+      - delay:
+          seconds: 600
+      # White
+      - service: light.turn_on
+        data:
+          entity_id: 
+            - light.dining_room_lights
+            - light.living_room_lights
+          color_temp: 200
+          brightness: 255
+          transition: 600
+      - delay:
+          seconds: 600
