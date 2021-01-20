@@ -305,8 +305,8 @@ script:
             - light.dining_room_lights
             - light.living_room_lights
           color_temp: 500
-          brightness: 1
-          transition: 60
+          brightness: 2
+          transition: 10
       - delay:
           seconds: 60
       # Warm Orange
