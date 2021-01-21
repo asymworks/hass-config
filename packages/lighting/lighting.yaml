@@ -73,28 +73,28 @@ scene:
       light.living_room_lights:
         state: on
         brightness: 255
-        color_temp: 200
+        color_temp: 280
 
   - name: Living Room Low
     entities:
       light.living_room_lights:
         state: on
         brightness: 100
-        color_temp: 200
+        color_temp: 280
 
   - name: Living Room Dim
     entities:
       light.living_room_lights:
         state: on
         brightness: 40
-        color_temp: 200
+        color_temp: 280
   
   - name: Reading Back
     entities:
       light.living_room_back:
         state: on
         brightness: 224
-        color_temp: 200
+        color_temp: 280
       light.living_room_front:
         state: off
       light.living_room_entry:
@@ -105,7 +105,7 @@ scene:
       light.living_room_entry:
         state: on
         brightness: 224
-        color_temp: 200
+        color_temp: 280
       light.living_room_front:
         state: off
       light.living_room_back:
@@ -116,11 +116,11 @@ scene:
       light.living_room_front:
         state: on
         brightness: 255
-        color_temp: 200
+        color_temp: 280
       light.living_room_entry:
         state: on
         brightness: 255
-        color_temp: 200
+        color_temp: 280
       light.living_room_back:
         state: off
   
@@ -129,11 +129,11 @@ scene:
       light.living_room_front:
         state: on
         brightness: 100
-        color_temp: 200
+        color_temp: 280
       light.living_room_entry:
         state: on
         brightness: 100
-        color_temp: 200
+        color_temp: 280
       light.living_room_back:
         state: off
   
@@ -142,11 +142,11 @@ scene:
       light.living_room_front:
         state: on
         brightness: 40
-        color_temp: 200
+        color_temp: 280
       light.living_room_entry:
         state: on
         brightness: 40
-        color_temp: 200
+        color_temp: 280
       light.living_room_back:
         state: off
 
@@ -182,7 +182,7 @@ scene:
       light.living_room_lights:
         state: on
         brightness: 100
-        color_temp: 200
+        color_temp: 280
 
   - name: All Dim
     entities:
@@ -193,7 +193,7 @@ scene:
       light.living_room_lights:
         state: on
         brightness: 40
-        color_temp: 200
+        color_temp: 280
 
   - name: All Off
     entities:
