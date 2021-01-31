@@ -40,11 +40,6 @@ media_player:
     host: !secret jellyfin_host
     api_key: !secret jellyfin_api_key
 
-  # Spotify (Main Account)
-  - platform: spotify
-    client_id: !secret spotify_client_id
-    client_secret: !secret spotify_client_secret
-
   # Raspberry Pi Speakers
   - platform: mpd
     host: 10.1.2.42
@@ -57,6 +52,11 @@ media_player:
 # Roku Media Player
 #roku:
 #    host: 10.1.2.13
+
+# Spotify (Main Account)
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
 
 ###############################################################################
 # Inputs for Media Center State and Behavior
