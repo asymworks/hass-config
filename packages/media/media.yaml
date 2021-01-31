@@ -188,8 +188,9 @@ script:
       - service: media_player.play_media
         data:
           entity_id: "{{ entity_id }}"
-          media_source_type: playlist
-          media_source_id: "{{ playlist }}"
+          media_content_type: playlist
+          media_content_id: "{{ playlist }}"
+
       - service: media_player.volume_set
         data:
           entity_id: "{{ entity_id }}"
