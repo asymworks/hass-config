@@ -41,13 +41,14 @@ media_player:
     api_key: !secret jellyfin_api_key
 
   # Spotify (Main Account)
-  #- platform: spotify
-  #  client_id: !secret spotify_client_id
-  #  client_secret: !secret spotify_client_secret
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
 
   # Raspberry Pi Speakers
   - platform: mpd
     host: 10.1.2.42
+    name: MPD Living Room
 
   # Snapcast Multi-Room Audio Server
   - platform: snapcast
@@ -172,3 +173,24 @@ script:
       - service: input_boolean.turn_on
         data:
           entity_id: input_boolean.ht_reload_lights
+
+  # Start a MPD Playlist on a Speaker
+  speaker_play_mpd:
+    description: Start an MPD Playlist on a Speaker
+    fields:
+      entity_id:
+        description: MPD Entity Id
+        example: media_player.mpd
+      playlist:
+        description: MPD Playlist Name
+        example: Big Mix
+    sequence:
+      - service: media_player.play_media
+        data:
+          entity_id: "{{ entity_id }}"
+          media_source_type: playlist
+          media_source_id: "{{ playlist }}"
+      - service: media_player.volume_set
+        data:
+          entity_id: "{{ entity_id }}"
+          volume_level: 0.65
