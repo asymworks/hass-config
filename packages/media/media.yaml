@@ -138,6 +138,15 @@ sensor:
         friendly_name_template: 'Home Theater Media Type'
 
 ###############################################################################
+# Media Player Shell Scripts
+shell_command:
+  # Turn Home Theater TV On with HDMI CEC Helper
+  ht_tv_on: /config/packages/media/tv_power.sh on
+
+  # Turn Home Theater TV Off with HDMI CEC Helper
+  ht_tv_off: /config/packages/media/tv_power.sh standby
+
+###############################################################################
 # Media Player Helper Scripts
 script:
 
@@ -173,6 +182,37 @@ script:
       - service: input_boolean.turn_on
         data:
           entity_id: input_boolean.ht_reload_lights
+
+  # Turn on the Home Theater System
+  ht_turn_on:
+    description: Turn on the Home Theater
+    fields:
+      source:
+        description: Roku Source to Active
+        example: Netflix, Jellyfin Beta, Sling TV
+    sequence:
+      - service: shell_command.tv_on
+
+      - service: media_player.turn_on
+        data:
+          entity_id: media_player.home_theater
+
+      - service: media_player.turn_on
+        data:
+          entity_id: media_player.roku
+
+      - delay:
+          seconds: 5
+
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.home_theater
+          source: Roku
+
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.roku
+          source: "{{ source }}"
 
   # Start a MPD Playlist on a Speaker
   speaker_play_mpd:
