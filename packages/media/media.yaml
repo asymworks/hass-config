@@ -191,7 +191,7 @@ script:
         description: Roku Source to Active
         example: Netflix, Jellyfin Beta, Sling TV
     sequence:
-      - service: shell_command.tv_on
+      - service: shell_command.ht_tv_on
 
       - service: media_player.turn_on
         data:
