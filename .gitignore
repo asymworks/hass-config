@@ -6,6 +6,7 @@
 *.pem
 *.crt
 *.key
+*.tar.gz
 adb/
 deps/
 tts/
