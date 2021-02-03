@@ -437,3 +437,75 @@ views:
 #                gridrow: 6 / 8
 #                name: Christmas Tree
 #                template: default
+
+              - type: custom:button-card
+                entity: script.ht_turn_on
+                gridcol: 1 / 3
+                gridrow: 6 / 9
+                icon: mdi:cast
+                name: Netflix
+                tap_action:
+                  action: call-service
+                  service: script.ht_turn_on
+                  service_data:
+                    source: Netflix
+                styles:
+                  card:
+                    - height: 70px
+                  grid:
+                    - grid-template-areas: '"i n"'
+                    - grid-template-columns: 1fr 2fr
+                    - grid-template-rows: 1fr
+                  name:
+                    - justify-self: start
+                  state:
+                    - justify-self: start
+                    - font-weight: lighter
+
+              - type: custom:button-card
+                entity: script.ht_turn_on
+                gridcol: 3 / 5
+                gridrow: 6 / 9
+                icon: mdi:cast
+                name: Sling TV
+                tap_action:
+                  action: call-service
+                  service: script.ht_turn_on
+                  service_data:
+                    source: Sling TV
+                styles:
+                  card:
+                    - height: 70px
+                  grid:
+                    - grid-template-areas: '"i n"'
+                    - grid-template-columns: 1fr 2fr
+                    - grid-template-rows: 1fr
+                  name:
+                    - justify-self: start
+                  state:
+                    - justify-self: start
+                    - font-weight: lighter
+
+              - type: custom:button-card
+                entity: script.ht_turn_on
+                gridcol: 5 / 7
+                gridrow: 6 / 9
+                icon: mdi:cast
+                name: Jellyfin
+                tap_action:
+                  action: call-service
+                  service: script.ht_turn_on
+                  service_data:
+                    source: Jellyfin Beta
+                styles:
+                  card:
+                    - height: 70px
+                  grid:
+                    - grid-template-areas: '"i n"'
+                    - grid-template-columns: 1fr 2fr
+                    - grid-template-rows: 1fr
+                  name:
+                    - justify-self: start
+                  state:
+                    - justify-self: start
+                    - font-weight: lighter
