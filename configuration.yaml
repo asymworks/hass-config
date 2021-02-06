@@ -24,6 +24,7 @@ homeassistant:
         - 127.0.0.1
         - !secret lan_net_ip4
         - !secret lan_net_ip6
+        - !secret tablet_net_ip4
 
 # Lovelace UI in YAML Mode
 lovelace:
