@@ -52,8 +52,8 @@ sensor:
     name: Casper Time
 
 ###############################################################################
-# Customize History Entries
-history:
+# Customize Recorder Entries
+recorder:
   exclude:
     entities:
 
