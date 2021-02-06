@@ -1,6 +1,6 @@
 language: python
 python:
-  - "3.7"
+  - "3.9"
 install:
   - "pip install homeassistant~=2021.2.1"
   - "cp $TRAVIS_BUILD_DIR/bin/dummy_secrets.yaml $TRAVIS_BUILD_DIR/secrets.yaml"
