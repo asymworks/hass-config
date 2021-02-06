@@ -224,9 +224,9 @@ button_card_templates:
     custom_fields:
       rh: '[[[ return `${entity.attributes.humidity}%` ]]]'
       aqi_index: >
-        [[[ return `AQI: ${states["air_quality.airnow"].attributes.air_quality_index}` ]]]
+        [[[ return `AQI: ${states["sensor.airnow_aqi"].state}` ]]]
       aqi_level: >
-        [[[ return `${states["air_quality.airnow"].attributes.air_quality_index_description}` ]]]
+        [[[ return `${states["sensor.airnow_aqi"].attributes.description}` ]]]
 
 title: Living Room Dashboard
 views:
