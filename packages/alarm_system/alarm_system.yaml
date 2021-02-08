@@ -146,7 +146,7 @@ binary_sensor:
       camera_switch:
         friendly_name: Camera Switch
         value_template: >-
-          {{ states.switch.logi_camera == 'on' }}
+          {{ is_state('switch.logi_camera', 'on') }}
         icon_template: >-
           {% if is_state('switch.logi_camera', 'on') %}
             mdi:camera-wireless
