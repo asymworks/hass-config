@@ -467,12 +467,12 @@ views:
                 gridcol: 3 / 5
                 gridrow: 6 / 9
                 icon: mdi:cast
-                name: Sling TV
+                name: Discovery+
                 tap_action:
                   action: call-service
                   service: script.ht_turn_on
                   service_data:
-                    source: Sling TV
+                    source: discovery plus
                 styles:
                   card:
                     - height: 70px
