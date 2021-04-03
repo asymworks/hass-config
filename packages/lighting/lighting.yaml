@@ -333,7 +333,7 @@ script:
         data:
           entity_id: script.living_room_sunrise
       - service: light.toggle
-        date:
+        data:
           entity_id: light.living_room_lights
 
   living_room_sunrise:
