@@ -265,6 +265,12 @@ views:
                 gridrow: 2 / 4
                 name: Living Room
                 template: default
+                tap_action:
+                  action: call-service
+                  service: script.living_room_light_toggle
+                  service_data: 
+                    light_id: light.living_room_lights
+                    transition: 1
                 double_tap_action:
                   action: call-service
                   service: browser_mod.popup
@@ -328,6 +334,12 @@ views:
                 gridrow: 4 / 6
                 name: Dining Room
                 template: default
+                tap_action:
+                  action: call-service
+                  service: script.living_room_light_toggle
+                  service_data: 
+                    light_id: light.dining_room_lights
+                    transition: 1
 
               - type: custom:button-card
                 entity: binary_sensor.zp3111_kitchen_motion

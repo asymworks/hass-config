@@ -88,6 +88,11 @@ scene:
         state: on
         brightness: 40
         color_temp: 280
+
+  - name: Living Room Off
+    entities:
+      light.living_room_lights:
+        state: off
   
   - name: Reading Back
     entities:
@@ -171,6 +176,11 @@ scene:
         state: on
         brightness: 40
         color_temp: 366
+
+  - name: Dining Room Off
+    entities:
+      light.dining_room_lights:
+        state: off
   
   # All Light Scenes
   - name: All Low
@@ -294,7 +304,6 @@ script:
           - light.zb_bedroom_jp
           - light.zb_bedroom_jen
 
-
   living_room_scene:
     # Set a Living or Dining Room Scene and cancel any sunset/sunrise scripts
     fields:
@@ -313,6 +322,19 @@ script:
           entity_id: "{{ scene_id }}"
           transition: "{{ transition }}"
 
+  living_room_light_toggle:
+    # Toggle the Living Room Lights and cancel any sunset/sunrise scripts
+    fields:
+      light_id:
+        description: "Light to toggle"
+        example: "light.living_room_lights"
+    sequence:
+      - service: script.turn_off
+        data:
+          entity_id: script.living_room_sunrise
+      - service: light.toggle
+        date:
+          entity_id: light.living_room_lights
 
   living_room_sunrise:
     # Simulated Sunrise on Dining and Living Room Lamps (30 min, from Off)
