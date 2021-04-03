@@ -295,9 +295,37 @@ script:
           - light.zb_bedroom_jen
 
 
+  living_room_scene:
+    # Set a Living or Dining Room Scene and cancel any sunset/sunrise scripts
+    fields:
+      scene_id:
+        description: "Scene including 'scene' domain"
+        example: "scene.living_room_normal"
+    sequence:
+      - service: script.turn_off
+        data:
+          entity_id: script.living_room_sunrise
+      - service: script.turn_on
+        data:
+          entity_id: "{{ scene_id }}"
+
+
   living_room_sunrise:
     # Simulated Sunrise on Dining and Living Room Lamps (30 min, from Off)
     sequence:
+      # Do not run if lights are on or it is after dawn
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: light.living_room_lights
+            state: "off"
+          - condition: state
+            entity_id: light.dining_room_lights
+            state: "off"
+          - condition: state
+            entity_id: sun.sun
+            state: "below_horizon"
+
       # Dark Red
       - service: light.turn_on
         data:

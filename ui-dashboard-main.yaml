@@ -47,9 +47,9 @@ button_card_templates:
   scene_button:
     tap_action:
       action: call-service
-      service: scene.turn_on
+      service: script.living_room_scene
       service_data: 
-        entity_id: '[[[ return entity.entity_id ]]]'
+        scene_id: '[[[ return entity.entity_id ]]]'
         transition: 3
     show_icon: false
     show_state: false
