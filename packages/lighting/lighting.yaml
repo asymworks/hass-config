@@ -301,13 +301,17 @@ script:
       scene_id:
         description: "Scene including 'scene' domain"
         example: "scene.living_room_normal"
+      transition:
+        description: "Transition time (seconds)"
+        example: 3
     sequence:
       - service: script.turn_off
         data:
           entity_id: script.living_room_sunrise
-      - service: script.turn_on
+      - service: scene.turn_on
         data:
           entity_id: "{{ scene_id }}"
+          transition: "{{ transition }}"
 
 
   living_room_sunrise:
