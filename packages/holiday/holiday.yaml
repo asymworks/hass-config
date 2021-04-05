@@ -1,0 +1,12 @@
+###############################################################################
+# Holiday Entity Package for Home Assistant
+
+###############################################################################
+# Customization
+homeassistant:
+  customize:
+
+    # Christmas Tree Light Switch
+    switch.christmas_tree:
+      friendly_name: Christmas Tree Lights
+      icon: mdi:pine-tree

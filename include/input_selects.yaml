@@ -1,0 +1,18 @@
+#### Input Select Definitions #################################################
+
+# Global House Mode
+house_mode:
+  options:
+    - Morning
+    - Day
+    - Evening
+    - Night
+    - Sleep
+
+# Global House Security
+house_security:
+  options:
+    - Disarmed
+    - Armed
+    - Alarm
+    - Silenced

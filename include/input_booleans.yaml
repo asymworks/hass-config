@@ -1,0 +1,10 @@
+#### Input Boolean Definitions ################################################
+
+departure_scan:
+  name: 'Trigger Departure Scan'
+  initial: off
+  icon: mdi:refresh
+
+house_guests:
+  name: 'Guest Mode'
+  icon: mdi:face

@@ -1,0 +1,24 @@
+###############################################################################
+# OctoPrint Package for Home Assistant
+
+octoprint:
+    - host: !secret octoprint_host
+      api_key: !secret octoprint_api_key
+      name: Creality Ender 3 v2
+      bed: true
+      number_of_tools: 1
+
+###############################################################################
+# OctoPrint Camera (Creality Ender 3 V2)
+camera:
+    - platform: mjpeg
+      name: OctoPrint (Creality Ender 3 V2)
+      still_image_url: !secret octoprint_still_url
+      mjpeg_url: !secret octoprint_stream_url
+
+###############################################################################
+# OctoPrint Scripts
+
+
+###############################################################################
+# OctoPrint Automations

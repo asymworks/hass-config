@@ -1,0 +1,45 @@
+###############################################################################
+# Weather Package for Home Assistant
+
+###############################################################################
+# Customization
+homeassistant:
+  customize:
+
+    # Dark Sky Current Sensors
+    sensor.owm_humidity:
+      friendly_name: Current Humidity
+    sensor.owm_temperature:
+      friendly_name: Current Temperature
+
+    
+
+###############################################################################
+# Weather Providers
+weather:
+
+  # Open Weather Map
+  #- platform: openweathermap
+  #  api_key: !secret owm_api_key
+  #  mode: daily
+
+
+###############################################################################
+# Customize History Entries
+history:
+  exclude:
+    entities:
+
+      # Exclude Weather and Sensors
+      - weather.owm
+      - sensor.owm_weather
+      - sensor.owm_temperature
+      - sensor.owm_wind_bearing
+      - sensor.owm_wind_speed
+      - sensor.owm_humidity
+      - sensor.owm_pressure
+      - sensor.owm_clouds
+      - sensor.owm_rain
+      - sensor.owm_snow
+      - sensor.owm_condition
+      - sensor.owm_weather_code

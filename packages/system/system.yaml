@@ -1,0 +1,95 @@
+###############################################################################
+# System Package for Home Assistant
+
+###############################################################################
+# Customization
+homeassistant:
+  customize:
+
+    # UPS Sensors
+    sensor.cyberpower_ups_battery_runtime_mins:
+      icon: mdi:timer
+
+    sensor.cyberpower_ups_battery_runtime:
+      hidden: true
+    sensor.cyberpower_ups_input_voltage:
+      hidden: true
+    sensor.cyberpower_ups_output_voltage:
+      hidden: true
+    sensor.cyberpower_ups_status:
+      hidden: true
+    sensor.cyberpower_ups_load:
+      hidden: true
+
+###############################################################################
+# System Sensors
+sensor:
+  
+  # NUT UPS Sensors
+  - platform: template
+    sensors:
+      cyberpower_ups_battery_runtime_mins:
+        friendly_name: "CyberPower UPS Battery Runtime"
+        value_template: "{{ (states('sensor.cyberpower_ups_battery_runtime')|float / 60 ) | round() }}"
+        unit_of_measurement: 'Mins'
+
+###############################################################################
+# System Automations
+automation:
+
+###############################################################################
+# Notify on Failed Login
+  
+  - alias: "Notify on Failed Login"
+    initial_state: true
+    mode: queued
+    trigger:
+      - platform: state
+        entity_id: persistent_notification.http_login
+    condition:
+      - condition: template
+        value_template: "{{ trigger.to_state.state != 'None' }}"
+    action:
+      - service: notify.email
+        data_template:
+          title: "Home Assistant Failed Login"
+          message: >
+            {{ state_attr('persistent_notification.http_login', 'message') }}
+
+            More Information:
+            https://whatismyipaddress.com/ip/{{ state_attr('persistent_notification.http_login', 'message').split ('from ') [1]}}
+
+      - service: persistent_notification.dismiss
+        data:
+          notification_id: 'http_login'
+
+###############################################################################
+# Notify on IP Ban
+  
+  - alias: "Notify on IP Ban"
+    initial_state: true
+    mode: queued
+    trigger:
+      - platform: state
+        entity_id: persistent_notification.ip_ban
+    condition:
+      - condition: template
+        value_template: "{{ trigger.to_state.state != 'None' }}"
+    action:
+      - service: notify.telegram_bot
+        data_template:
+          title: "{{ state_attr('persistent_notification.ip_ban', 'message') }}"
+          message: 'url: https://whatismyipaddress.com/ip/{{ state_attr("persistent_notification.ip_ban", "message").split ("from ") [1]}}'
+      
+      - service: notify.email
+        data_template:
+          title: "Home Assistant Failed Login"
+          message: >
+            {{ state_attr('persistent_notification.ip_ban', 'message') }}
+
+            More Information:
+            https://whatismyipaddress.com/ip/{{ state_attr('persistent_notification.ip_ban', 'message').split ('from ') [1]}}
+
+      - service: persistent_notification.dismiss
+        data:
+          notification_id: 'ip_ban' 

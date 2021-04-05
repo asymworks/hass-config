@@ -1,0 +1,9 @@
+###############################################################################
+# Z-Wave Sensor Package for Home Assistant
+
+homeassistant:
+  customize:
+    
+    # Z-Wave USB Stick
+    zwave.zooz_zst10_s2_z_wave_plus_usb_stick:
+      friendly_name: ZST10 Z-Wave+ USB Stick
