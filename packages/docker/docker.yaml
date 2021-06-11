@@ -13,3 +13,12 @@ monitor_docker:
       node-red: Node Red
       zwavejs2mqtt: Z-Wave JS to MQTT
       mosquitto: Mosquitto
+
+
+script:
+  restart_nut:
+    # Restart the NUT Docker container
+    sequence:
+      - service: monitor_docker.restart
+        data:
+          name: nut

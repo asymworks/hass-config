@@ -450,3 +450,14 @@ views:
               topic: monitor/scan/depart
               payload: start
 
+      - type: entities
+        title: Restart NUT
+        show_header_toggle: false
+        entities:
+          - type: call-service
+            icon: mdi:refresh
+            name: Restart NUT
+            action_name: Restart
+            service: monitor_docker.restart
+            service_data:
+              name: nut
