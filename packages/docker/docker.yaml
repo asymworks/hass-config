@@ -1,0 +1,15 @@
+###############################################################################
+# Lighting Package for Home Assistant
+
+monitor_docker:
+  - name: Docker
+    containers:
+      - nut
+      - node-red
+      - zwavejs2mqtt
+      - mosquitto
+    rename:
+      nut: Network UPS Tools
+      node-red: Node Red
+      zwavejs2mqtt: Z-Wave JS to MQTT
+      mosquitto: Mosquitto
