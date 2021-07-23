@@ -14,12 +14,14 @@ sensor:
   - platform: mqtt
     state_topic: sensor/aq/000001c1793e/baseline
     unique_id: aq_000001c1793e_bl_eco2
-    name: Baseline eCO2
+    name: aq_000001c1793e_bl_eco2
+    unit_of_measurement: " "
     value_template: "{{ value_json.co2 }}"
 
   # TVOC Baseline
   - platform: mqtt
     state_topic: sensor/aq/000001c1793e/baseline
     unique_id: aq_000001c1793e_bl_tvoc
-    name: Baseline TVOC
+    name: aq_000001c1793e_bl_tvoc
+    unit_of_measurement: " "
     value_template: "{{ value_json.tvoc }}"
