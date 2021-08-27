@@ -84,9 +84,12 @@ logger:
 
 # InfluxDB Logging
 influxdb:
-  api_version: '1'
+  api_version: '2'
   host: !secret influxdb_host
-  database: home_assistant
+  port: !secret influxdb_port
+  organization: !secret influxdb2_org
+  token: !secret influxdb2_token
+  bucket: ha
   measurement_attr: domain__device_class
   default_measurement: state
   precision: ms
