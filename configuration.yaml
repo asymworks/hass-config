@@ -85,6 +85,7 @@ logger:
 # InfluxDB Logging
 influxdb:
   api_version: '2'
+  ssl: false
   host: !secret influxdb2_host
   port: !secret influxdb2_port
   organization: !secret influxdb2_org
