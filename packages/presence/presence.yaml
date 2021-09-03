@@ -84,14 +84,17 @@ person:
       #- device_tracker.jp_n5x_ap
       #- device_tracker.jp_n5x_bt_entry
       #- device_tracker.jp_n5x_gps
-      - device_tracker.jp_p3a_ap
+      #- device_tracker.jp_p3a_ap
+      - device_tracker.jp_p3a_ip
       - device_tracker.jp_p3a_bt_entry
       - device_tracker.jp_p3a_gps
 
   - name: Jen
     id: jen
+    user_id: 7164da8e96fd499ebf0391c62682f47c
     device_trackers:
-      - device_tracker.jen_iphone_ap
+      #- device_tracker.jen_iphone_ap
+      - device_tracker.jen_iphone_ip
       - device_tracker.jen_iphone_bt_entry
 
 ###############################################################################
@@ -99,11 +102,13 @@ person:
 device_tracker:
 
   # Ping Platform - SUPERSEDED by UniFi Integration with _ap Device Trackers
-  #- platform: ping
-  #  hosts:
-  #    jp_n5x_ip: !secret jp_n5x_ip
-  #    jp_gs8_ip: !secret jp_gs8_ip
-  #    jen_iphone_ip: !secret jen_iphone_ip
+  # UN-SUPERSEDED by TP-Link Omada not having a Device Tracker
+  - platform: ping
+    hosts:
+      # jp_n5x_ip: !secret jp_n5x_ip
+      jp_p3a_ip: !secret jp_p3a_ip
+      jp_gs8_ip: !secret jp_gs8_ip
+      jen_iphone_ip: !secret jen_iphone_ip
 
   # MQTT Platform (Bluetooth Presence Sensor)
   - platform: mqtt
