@@ -45,14 +45,14 @@ views:
               - type: glance
                 show_name: false
                 entities:
-                  - device_tracker.jp_p3a_ap
+                  - device_tracker.jp_p3a_ip
                   - device_tracker.jp_p3a_bt_entry
                   - device_tracker.jp_p3a_gps
 
               - type: glance
                 show_name: false
                 entities:
-                  - device_tracker.jen_iphone_ap
+                  - device_tracker.jen_iphone_ip
                   - device_tracker.jen_iphone_bt_entry
 
       #########################################################################
