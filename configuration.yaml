@@ -161,6 +161,26 @@ map:
 # NOTE: See declaration in Presence package
 #person:
 
+# Record events to a database
+recorder:
+  purge_keep_days: 2
+  exclude:
+    domains:
+      - automation
+      - device_tracker
+      - group
+      - input_boolean
+      - input_select
+      - media_player
+      - scene
+      - script
+      - sun
+      - zone
+    entity_globs:
+      - sensor.194804da_30d013a8
+      - sensor.a9e1b274_dbf95fb3
+      - sensor.docker_*
+
 # Enable support for Simple Service Discovery Protocol
 # Used by Philips Hue (disable if moving to Zigbee)
 ssdp:
