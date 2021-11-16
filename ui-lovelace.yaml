@@ -5,12 +5,12 @@ title: Krauss Home
 
 ###############################################################################
 # Compact Custom Header Configuration
-custom_header:
-  compact_mode: true
-  menu_hide: false
-  voice_hide: true
-  button_text:
-    options: '{{ hours12 }}:{{ minutesLZ }}'
+# custom_header:
+#   compact_mode: true
+#   menu_hide: false
+#   voice_hide: true
+#   button_text:
+#     options: '{{ hours12 }}:{{ minutesLZ }}'
 
 views:
 

@@ -36,8 +36,6 @@ lovelace:
       type: module
     - url: /local/custom_ui/card-mod.js?v=2.0.3
       type: module
-    - url: /local/custom_ui/custom-header.js?v=1.6.5
-      type: module
     - url: /local/custom_ui/layout-card.js?v=16
       type: module
     - url: /local/custom_ui/mini-graph-card-bundle.js?v=0.9.3
