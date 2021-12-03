@@ -161,21 +161,21 @@ scene:
       light.dining_room_lights:
         state: on
         brightness: 255
-        color_temp: 366
+        color_temp: 320
 
   - name: Dining Room Low
     entities:
       light.dining_room_lights:
         state: on
         brightness: 100
-        color_temp: 366
+        color_temp: 320
 
   - name: Dining Room Dim
     entities:
       light.dining_room_lights:
         state: on
         brightness: 40
-        color_temp: 366
+        color_temp: 320
 
   - name: Dining Room Off
     entities:
@@ -188,7 +188,7 @@ scene:
       light.dining_room_lights:
         state: on
         brightness: 100
-        color_temp: 366
+        color_temp: 320
       light.living_room_lights:
         state: on
         brightness: 100
@@ -199,7 +199,7 @@ scene:
       light.dining_room_lights:
         state: on
         brightness: 40
-        color_temp: 366
+        color_temp: 320
       light.living_room_lights:
         state: on
         brightness: 40
@@ -210,6 +210,21 @@ scene:
       light.dining_room_lights:
         state: off
       light.living_room_lights:
+        state: off
+
+  - name: Evening
+    entities:
+      light.dining_room_lights:
+        state: off
+      light.living_room_front:
+        state: on
+        brightness: 100
+        color_temp: 280
+      light.living_room_entry:
+        state: on
+        brightness: 100
+        color_temp: 280
+      light.living_room_back:
         state: off
 
 
