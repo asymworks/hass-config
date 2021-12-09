@@ -218,11 +218,11 @@ scene:
         state: off
       light.living_room_front:
         state: on
-        brightness: 100
+        brightness: 255
         color_temp: 280
       light.living_room_entry:
         state: on
-        brightness: 100
+        brightness: 255
         color_temp: 280
       light.living_room_back:
         state: off
