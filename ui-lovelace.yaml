@@ -216,48 +216,6 @@ views:
       # Lighting
 
 
-      #########################################################################
-      # Weather
-      - type: weather-forecast
-        entity: weather.owm
-        show_forecast: false
-        secondary_info_attribute: humidity
-
-      # #########################################################################
-      # # Media Players
-      # - type: horizontal-stack
-      #   cards:
-      #     #- type: custom:mini-media-player
-      #     #  entity: media_player.living_room_osmc
-      #     #  info: short
-      #     #  artwork: cover
-      #     #  hide:
-      #     #    mute: true
-      #     #    icon: true
-      #     #    power_state: false
-
-      #     - type: custom:mini-media-player
-      #       entity: media_player.roku_ultra
-      #       info: short
-      #       artwork: cover
-      #       hide:
-      #         mute: true
-      #         icon: true
-      #         power_state: false
-
-      #     - type: custom:mini-media-player
-      #       entity: media_player.mpd
-      #       info: short
-      #       artwork: cover
-      #       hide:
-      #         mute: true
-      #         icon: true
-      #         power_state: false
-
-      # - type: entities
-      #   title: Media Center
-      #   entities:
-      #     - input_select.ht_lighting_mode
 
 ###############################################################################
 ###
