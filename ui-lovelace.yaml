@@ -122,6 +122,26 @@ views:
                       state:
                         - color: 'var(--aqi-state-unhealthy, #df4c1e)'
 
+              - type: custom:button-card
+                  entity: sensor.zb_aqara_outdoor_temperature
+                  name: OAT
+                  show_state: true
+                  show_icon: false
+                  show_units: true
+                  styles:
+                    grid:
+                      - grid-template-areas: '"n s"'
+                      - grid-template-rows: 1fr
+                      - grid-template-columns: 'min-content 1fr'
+                    name:
+                      - align-self: center
+                      - justify-self: end
+                      - padding: '0 0.6em'
+                      - font-weight: '500'
+                    state:
+                      - align-self: center
+                      - justify-self: end
+
 
       #########################################################################
       # Areas
