@@ -47,8 +47,43 @@ views:
 
       #########################################################################
       # Areas
-      - type: area
-        area: living_room
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: area
+            area: 130b3aba5ba74ebf898cea9c5f2fdef9    # Living Room
+
+          - type: custom:vertical-stack-in-card
+            horizontal: true
+            cards:
+              - type: button
+                name: Full
+                show_icon: false
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data:
+                    entity_id: scene.living_room_normal
+                    transition: 3
+
+              - type: button
+                name: Low
+                show_icon: false
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data:
+                    entity_id: scene.living_room_low
+                    transition: 3
+
+              - type: button
+                name: Dim
+                show_icon: false
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data:
+                    entity_id: scene.living_room_dim
+                    transition: 3
 
       - type: area
         area: dining_room
