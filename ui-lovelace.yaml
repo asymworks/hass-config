@@ -55,18 +55,12 @@ views:
           - type: custom:vertical-stack-in-card
             horizontal: true
             cards:
-              - type: button
-                name: Full
-                show_icon: false
-                card_mod:
-                  style: |
-                    ha-card {
-                      background: rgba(var(--primary-text-color), 0.45);
-                      margin-top: 0.5em;
-                    }
-                    ha-card ha-card {
-                      background: rgba(var(--primary-text-color), 0.45);
-                    }
+              - type: custom:button-card
+                label: Full
+                styles:
+                  card:
+                    background: rgba(33, 33, 33, 0.9)
+                    margin-top: 0.5em
                 tap_action:
                   action: call-service
                   service: scene.turn_on
@@ -157,7 +151,8 @@ views:
                 show_icon: false
                 styles:
                   card:
-                    background: rgba(33, 33, 33, 0)
+                    background: rgba(33, 33, 33, 0.9)
+                    margin-top: 0.5em
                 tap_action:
                   action: call-service
                   service: scene.turn_on
