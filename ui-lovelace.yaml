@@ -56,9 +56,11 @@ views:
             horizontal: true
             cards:
               - type: custom:button-card
-                label: Full
+                name: Full
+                entity: scene.living_room_normal
                 show_icon: false
                 show_state: false
+                show_name: true
                 styles:
                   card:
                     background: rgba(33, 33, 33, 0.9)
@@ -67,7 +69,7 @@ views:
                   action: call-service
                   service: scene.turn_on
                   service_data:
-                    entity_id: scene.living_room_normal
+                    entity_id: '[[[ return entity.entity_id ]]]'
                     transition: 3
 
               - type: button
