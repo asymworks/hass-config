@@ -60,7 +60,8 @@ views:
                 show_icon: false
                 styles:
                   card:
-                    background: rgba(33, 33, 33, 0)
+                    background-color: rgba(33, 33, 33, 0)
+                    margin-top: 0.5em
                 tap_action:
                   action: call-service
                   service: scene.turn_on
@@ -73,7 +74,8 @@ views:
                 show_icon: false
                 styles:
                   card:
-                    background: rgba(33, 33, 33, 0)
+                    background-color: rgba(33, 33, 33, 0)
+                    margin-top: 0.5em
                 tap_action:
                   action: call-service
                   service: scene.turn_on
@@ -86,7 +88,8 @@ views:
                 show_icon: false
                 styles:
                   card:
-                    background: rgba(33, 33, 33, 0)
+                    background-color: rgba(33, 33, 33, 0)
+                    margin-top: 0.5em
                 tap_action:
                   action: call-service
                   service: scene.turn_on
