@@ -54,15 +54,13 @@ views:
 
           - type: custom:vertical-stack-in-card
             horizontal: true
-            card_mod:
-              style: |
-                ha-card {
-                  background: rgba(33, 33, 33, 0);
-                }
             cards:
               - type: button
                 name: Full
                 show_icon: false
+                styles:
+                  card:
+                    background: rgba(33, 33, 33, 0)
                 tap_action:
                   action: call-service
                   service: scene.turn_on
@@ -73,6 +71,9 @@ views:
               - type: button
                 name: Low
                 show_icon: false
+                styles:
+                  card:
+                    background: rgba(33, 33, 33, 0)
                 tap_action:
                   action: call-service
                   service: scene.turn_on
@@ -83,6 +84,9 @@ views:
               - type: button
                 name: Dim
                 show_icon: false
+                styles:
+                  card:
+                    background: rgba(33, 33, 33, 0)
                 tap_action:
                   action: call-service
                   service: scene.turn_on
@@ -92,15 +96,13 @@ views:
 
           - type: custom:vertical-stack-in-card
             horizontal: true
-            card_mod:
-              style: |
-                ha-card {
-                  background: rgba(33, 33, 33, 0);
-                }
             cards:
               - type: button
                 name: TV Normal
                 show_icon: false
+                styles:
+                  card:
+                    background: rgba(33, 33, 33, 0)
                 tap_action:
                   action: call-service
                   service: scene.turn_on
@@ -111,6 +113,9 @@ views:
               - type: button
                 name: Reading (Entry)
                 show_icon: false
+                styles:
+                  card:
+                    background: rgba(33, 33, 33, 0)
                 tap_action:
                   action: call-service
                   service: scene.turn_on
@@ -121,6 +126,9 @@ views:
               - type: button
                 name: Reading (Back)
                 show_icon: false
+                styles:
+                  card:
+                    background: rgba(33, 33, 33, 0)
                 tap_action:
                   action: call-service
                   service: scene.turn_on
@@ -134,16 +142,14 @@ views:
             area: dining_room
 
           - type: custom:vertical-stack-in-card
-            horizontal: true
-            card_mod:
-              style: |
-                ha-card {
-                  background: rgba(33, 33, 33, 0);
-                }
+            horizontal: zse40_living_room_temperature
             cards:
               - type: button
                 name: Full
                 show_icon: false
+                styles:
+                  card:
+                    background: rgba(33, 33, 33, 0)
                 tap_action:
                   action: call-service
                   service: scene.turn_on
@@ -154,6 +160,9 @@ views:
               - type: button
                 name: Low
                 show_icon: false
+                styles:
+                  card:
+                    background: rgba(33, 33, 33, 0)
                 tap_action:
                   action: call-service
                   service: scene.turn_on
@@ -164,6 +173,9 @@ views:
               - type: button
                 name: Dim
                 show_icon: false
+                styles:
+                  card:
+                    background: rgba(33, 33, 33, 0)
                 tap_action:
                   action: call-service
                   service: scene.turn_on
