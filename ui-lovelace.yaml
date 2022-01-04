@@ -63,8 +63,8 @@ views:
                 show_name: true
                 styles:
                   card:
-                    background: rgba(33, 33, 33, 0.9)
-                    margin-top: 0.5em
+                    - 'border-top': '1px solid var(--divider-color)'
+                    - 'padding-top': '0.5em'
                 tap_action:
                   action: call-service
                   service: scene.turn_on
