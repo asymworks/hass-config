@@ -30,24 +30,25 @@ homeassistant:
 lovelace:
   mode: yaml
   resources:
-    - url: /local/custom_ui/auto-entities.js?v=16
+    - url: /hacsfiles/button-card/button-card.js
       type: module
-    - url: /local/custom_ui/button-card.js?v=3.3.6
+    - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
       type: module
-    - url: /local/custom_ui/card-mod.js?v=2.0.3
+    - url: /hacsfiles/lovelace-card-mod/card-mod.js
       type: module
-    - url: /local/custom_ui/layout-card.js?v=16
+    - url: /hacsfiles/lovelace-layout-card/layout-card.js
       type: module
-    - url: /local/custom_ui/mini-graph-card-bundle.js?v=0.9.3
+    - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
       type: module
-    - url: /local/custom_ui/mini-media-player-bundle.js?v=1.9.1
+    - url: /hacsfiles/mini-media-player-bundle/mini-media-player-bundle.js
       type: module
+    - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
+      type: js
+
     - url: /local/custom_ui/popup-backdrop-filter.js?v=1
       type: module
     - url: /local/custom_ui/text-element.js?v=0.0.2
       type: module
-    - url: /local/custom_ui/vertical-stack-in-card.js?v=0.3.3
-      type: js
 
   # Dashboards
   dashboards:
