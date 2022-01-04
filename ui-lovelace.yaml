@@ -78,9 +78,50 @@ views:
             cards:
               - type: custom:button-card
                 entity: sensor.airnow_aqi
-                show_name: true
+                name: AQI
                 show_state: true
                 show_icon: false
+                show_units: false
+                state_display: '[[[ return `${entity.state} (${entity.attributes.description})` ]]]'
+                styles:
+                  grid:
+                    - grid-template-areas: '"n s"'
+                    - grid-template-rows: 1fr
+                    - grid-template-columns: 'min-content 1fr'
+                  name:
+                    - align-self: center
+                    - justify-self: start
+                    - padding: '0 0.6em'
+                    - font-weight: '500'
+                  state:
+                    - align-self: center
+                    - justify-self: start
+                state:
+                  - value: unavailable
+                    styles:
+                      state:
+                        - color: 'var(--aqi-state-unavailable, #9e9e9e)'
+                  - operator: <=
+                    value: 50
+                    styles:
+                      state:
+                        - color: 'var(--aqi-state-good, #039be5)'
+                  - operator: <=
+                    value: 100
+                    styles:
+                      state:
+                        - color: 'var(--aqi-state-moderate, #0da035)'
+                  - operator: <=
+                    value: 150
+                    styles:  
+                      state:
+                        - color: 'var(--aqi-state-poor, #f4b400)'
+                  - operator: >
+                    value: 150
+                    styles:
+                      state:
+                        - color: 'var(--aqi-state-unhealthy, #df4c1e)'
+
 
       #########################################################################
       # Areas
