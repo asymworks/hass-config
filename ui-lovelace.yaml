@@ -61,9 +61,10 @@ views:
                 card_mod:
                   style: |
                     ha-card {
+                      background: rgba(var(--primary-text-color), 0.45);
                       margin-top: 0.5em;
                     }
-                    ha-card$ {
+                    ha-card ha-card {
                       background: rgba(var(--primary-text-color), 0.45);
                     }
                 tap_action:
