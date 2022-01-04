@@ -12,9 +12,9 @@ button_card_templates:
         - 'padding': '0.5em 0'
     tap_action:
       action: call-service
-      service: scene.turn_on
-      service_data:
-        entity_id: '[[[ return entity.entity_id ]]]'
+      service: script.living_room_scene
+      service_data: 
+        scene_id: '[[[ return entity.entity_id ]]]'
         transition: 3
 
 ###############################################################################
@@ -64,6 +64,23 @@ views:
                 entities:
                   - device_tracker.jen_iphone_ip
                   - device_tracker.jen_iphone_bt_entry
+
+      #########################################################################
+      # Weather
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: weather-forecast
+            entity: weather.owm
+            show_forecast: false
+            secondary_info_attribute: humidity
+
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                entity: sensor.airnow_aqi
+                show_name: true
+                show_state: true
+                show_icon: false
 
       #########################################################################
       # Areas
