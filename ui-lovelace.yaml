@@ -54,6 +54,11 @@ views:
 
           - type: custom:vertical-stack-in-card
             horizontal: true
+            card_mod:
+              style: |
+                ha-card {
+                  background: linear-gradient(0deg, rgba(33, 33, 33, 0.9) 0%, rgba(33, 33, 33, 0) 45%);
+                }
             cards:
               - type: button
                 name: Full
@@ -87,6 +92,11 @@ views:
 
           - type: custom:vertical-stack-in-card
             horizontal: true
+            card_mod:
+              style: |
+                ha-card {
+                  background: linear-gradient(0deg, rgba(33, 33, 33, 0.9) 0%, rgba(33, 33, 33, 0) 45%);
+                }
             cards:
               - type: button
                 name: TV Normal
@@ -125,6 +135,11 @@ views:
 
           - type: custom:vertical-stack-in-card
             horizontal: true
+            card_mod:
+              style: |
+                ha-card {
+                  background: linear-gradient(0deg, rgba(33, 33, 33, 0.9) 0%, rgba(33, 33, 33, 0) 45%);
+                }
             cards:
               - type: button
                 name: Full
