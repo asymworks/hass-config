@@ -57,6 +57,8 @@ views:
             cards:
               - type: custom:button-card
                 label: Full
+                show_icon: false
+                show_state: false
                 styles:
                   card:
                     background: rgba(33, 33, 33, 0.9)
