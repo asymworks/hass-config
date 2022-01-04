@@ -10,6 +10,7 @@ button_card_templates:
       card:
         - 'border-top': '1px solid var(--divider-color)'
         - 'padding': '0.5em 0'
+        - 'font-size': 100%
     tap_action:
       action: call-service
       service: script.living_room_scene
@@ -84,6 +85,8 @@ views:
                 show_units: false
                 state_display: '[[[ return `${entity.state} (${entity.attributes.description})` ]]]'
                 styles:
+                  card:
+                    - font-size: 100%
                   grid:
                     - grid-template-areas: '"n s"'
                     - grid-template-rows: 1fr
@@ -129,18 +132,20 @@ views:
                 show_icon: false
                 show_units: true
                 styles:
+                  card:
+                    - font-size: 100%
                   grid:
                     - grid-template-areas: '"n s"'
                     - grid-template-rows: 1fr
                     - grid-template-columns: 'min-content 1fr'
                   name:
                     - align-self: center
-                    - justify-self: end
+                    - justify-self: start
                     - padding: '0 0.6em'
                     - font-weight: '500'
                   state:
                     - align-self: center
-                    - justify-self: end
+                    - justify-self: start
 
 
       #########################################################################
