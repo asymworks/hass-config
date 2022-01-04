@@ -58,10 +58,12 @@ views:
               - type: button
                 name: Full
                 show_icon: false
-                styles:
-                  card:
-                    background-color: rgba(33, 33, 33, 0)
-                    margin-top: 0.5em
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: rgba(var(--primary-text-color), 0.45);
+                      margin-top: 0.5em;
+                    }
                 tap_action:
                   action: call-service
                   service: scene.turn_on
