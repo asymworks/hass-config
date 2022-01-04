@@ -85,90 +85,57 @@ views:
                     entity_id: scene.living_room_dim
                     transition: 3
 
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: area
+            area: dining_room
+
+          - type: custom:vertical-stack-in-card
+            cards:
+              - type: button
+                entity: light.dining_room_lights
+                name: Dining Room
+                icon_height: 40px
+
+              - type: custom:vertical-stack-in-card
+                horizontal: true
+                cards:
+                  - type: button
+                    name: Full
+                    show_icon: false
+                    tap_action:
+                      action: call-service
+                      service: scene.turn_on
+                      service_data:
+                        entity_id: scene.dining_room_normal
+                        transition: 3
+
+                  - type: button
+                    name: Low
+                    show_icon: false
+                    tap_action:
+                      action: call-service
+                      service: scene.turn_on
+                      service_data:
+                        entity_id: scene.dining_room_low
+                        transition: 3
+
+                  - type: button
+                    name: Dim
+                    show_icon: false
+                    tap_action:
+                      action: call-service
+                      service: scene.turn_on
+                      service_data:
+                        entity_id: scene.dining_room_dim
+                        transition: 3
+
       - type: area
-        area: dining_room
+        area: 95cfad3ed8724e9fb9536dd6dee2ff70    # Bedroom
 
       #########################################################################
       # Lighting
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: button
-            entity: light.living_room_lights
-            name: Living Room
-            icon_height: 40px
 
-          - type: custom:vertical-stack-in-card
-            horizontal: true
-            cards:
-              - type: button
-                name: Full
-                show_icon: false
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.living_room_normal
-                    transition: 3
-
-              - type: button
-                name: Low
-                show_icon: false
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.living_room_low
-                    transition: 3
-
-              - type: button
-                name: Dim
-                show_icon: false
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.living_room_dim
-                    transition: 3
-
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: button
-            entity: light.dining_room_lights
-            name: Dining Room
-            icon_height: 40px
-
-          - type: custom:vertical-stack-in-card
-            horizontal: true
-            cards:
-              - type: button
-                name: Full
-                show_icon: false
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.dining_room_normal
-                    transition: 3
-
-              - type: button
-                name: Low
-                show_icon: false
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.dining_room_low
-                    transition: 3
-
-              - type: button
-                name: Dim
-                show_icon: false
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.dining_room_dim
-                    transition: 3
 
       # #########################################################################
       # # Bedroom Room Card
