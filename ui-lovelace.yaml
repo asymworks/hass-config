@@ -1,6 +1,26 @@
 ###############################################################################
 # Lovelace UI Configuration for Home Assistant
 
+button_card_templates:
+  area_scene:
+    show_icon: false
+    show_state: false
+    show_name: true
+    styles:
+      card:
+        - 'border-top': '1px solid var(--divider-color)'
+        - 'padding-top': '0.5em'
+    tap_action:
+      action: call-service
+      service: scene.turn_on
+      service_data:
+        entity_id: '[[[ return entity.entity_id ]]]'
+        transition: 3
+
+###############################################################################
+###
+### Main Dashboard
+
 title: Krauss Home
 views:
 
@@ -58,89 +78,35 @@ views:
               - type: custom:button-card
                 name: Full
                 entity: scene.living_room_normal
-                show_icon: false
-                show_state: false
-                show_name: true
-                styles:
-                  card:
-                    - 'border-top': '1px solid var(--divider-color)'
-                    - 'padding-top': '0.5em'
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: '[[[ return entity.entity_id ]]]'
-                    transition: 3
+                template: area_scene
 
-              - type: button
+              - type: custom:button-card
                 name: Low
-                show_icon: false
-                styles:
-                  card:
-                    background-color: rgba(33, 33, 33, 0)
-                    margin-top: 0.5em
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.living_room_low
-                    transition: 3
+                entity: scene.living_room_low
+                template: area_scene
 
-              - type: button
+              - type: custom:button-card
                 name: Dim
-                show_icon: false
-                styles:
-                  card:
-                    background-color: rgba(33, 33, 33, 0)
-                    margin-top: 0.5em
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.living_room_dim
-                    transition: 3
+                entity: scene.living_room_dim
+                template: area_scene
 
           - type: custom:vertical-stack-in-card
             horizontal: true
             cards:
-              - type: button
+              - type: custom:button-card
                 name: TV Normal
-                show_icon: false
-                styles:
-                  card:
-                    background: rgba(33, 33, 33, 0)
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.tv_normal
-                    transition: 3
+                entity: scene.tv_normal
+                template: area_scene
 
-              - type: button
-                name: Reading (Entry)
-                show_icon: false
-                styles:
-                  card:
-                    background: rgba(33, 33, 33, 0)
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.reading_entry
-                    transition: 3
+              - type: custom:button-card
+                name: Reading - Back
+                entity: scene.reading_back
+                template: area_scene
 
-              - type: button
-                name: Reading (Back)
-                show_icon: false
-                styles:
-                  card:
-                    background: rgba(33, 33, 33, 0)
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.reading_back
-                    transition: 3
+              - type: custom:button-card
+                name: Reading - Entry
+                entity: scene.reading_entry
+                template: area_scene
 
       - type: custom:vertical-stack-in-card
         cards:
@@ -150,45 +116,20 @@ views:
           - type: custom:vertical-stack-in-card
             horizontal: zse40_living_room_temperature
             cards:
-              - type: button
+              - type: custom:button-card
                 name: Full
-                show_icon: false
-                styles:
-                  card:
-                    background: rgba(33, 33, 33, 0.9)
-                    margin-top: 0.5em
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.dining_room_normal
-                    transition: 3
+                entity: scene.dining_room_normal
+                template: area_scene
 
-              - type: button
+              - type: custom:button-card
                 name: Low
-                show_icon: false
-                styles:
-                  card:
-                    background: rgba(33, 33, 33, 0)
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.dining_room_low
-                    transition: 3
+                entity: scene.dining_room_low
+                template: area_scene
 
-              - type: button
+              - type: custom:button-card
                 name: Dim
-                show_icon: false
-                styles:
-                  card:
-                    background: rgba(33, 33, 33, 0)
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.dining_room_dim
-                    transition: 3
+                entity: scene.dining_room_dim
+                template: area_scene
 
       - type: area
         area: 95cfad3ed8724e9fb9536dd6dee2ff70    # Bedroom
