@@ -46,6 +46,14 @@ views:
                   - device_tracker.jen_iphone_bt_entry
 
       #########################################################################
+      # Areas
+      - type: area
+        area: living_room
+
+      - type: area
+        area: dining_room
+
+      #########################################################################
       # Lighting
       - type: custom:vertical-stack-in-card
         cards:
@@ -277,7 +285,6 @@ views:
       #   title: Media Center
       #   entities:
       #     - input_select.ht_lighting_mode
-
 
 ###############################################################################
 ###
