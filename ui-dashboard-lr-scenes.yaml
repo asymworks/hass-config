@@ -104,65 +104,73 @@ button_card_templates:
 title: Living Room Scenes
 views:
   - title: Dashboard
+    type: custom:vertical-layout
     path: dashboard
     theme: dark-mode
     panel: true
+    layout:
+      max_width: 100%
+      max_cols: 1
     cards:
       - type: custom:layout-card
-        column_width: 100%
-        layout: vertical
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: repeat(14, 78px)
+          grid-template-rows: repeat(7, 78px)
         cards:
-          - type: custom:layout-card
-            layout: grid
-            gridcols: repeat(14, 78px)
-            gridrows: repeat(7, 78px)
-            cards:
-              - type: custom:button-card
-                gridcol: 1 / 3
-                gridrow: 1 / 2
-                name: '< Back'
-                template: title_back_link
-                tap_action:
-                  action: navigate
-                  navigation_path: /dashboard-main/dashboard
-              
-              - type: custom:button-card
-                gridcol: 3 / 7
-                gridrow: 1 / 2
-                name: Living Room Scenes
-                template: title
+          - type: custom:button-card
+            view_layout:
+              grid-column: 1 / 3
+              grid-row: 1 / 2
+            name: '< Back'
+            template: title_back_link
+            tap_action:
+              action: navigate
+              navigation_path: /dashboard-main/dashboard
+          
+          - type: custom:button-card
+            view_layout:
+              grid-column: 3 / 7
+              grid-row: 1 / 2
+            name: Living Room Scenes
+            template: title
 
-              - type: custom:button-card
-                entity: scene.living_room_normal
-                gridcol: 1 / 3
-                gridrow: 2 / 4
-                name: Normal
-                template: activate_scene
+          - type: custom:button-card
+            entity: scene.living_room_normal
+            view_layout:
+              grid-column: 1 / 3
+              grid-row: 2 / 4
+            name: Normal
+            template: activate_scene
 
-              - type: custom:button-card
-                entity: scene.reading_back
-                gridcol: 3 / 5
-                gridrow: 2 / 4
-                name: Reading (Back Lamp)
-                template: activate_scene
+          - type: custom:button-card
+            entity: scene.reading_back
+            view_layout:
+              grid-column: 3 / 5
+              grid-row: 2 / 4
+            name: Reading (Back Lamp)
+            template: activate_scene
 
-              - type: custom:button-card
-                entity: scene.reading_entry
-                gridcol: 5 / 7
-                gridrow: 2 / 4
-                name: Reading (Entry Lamp)
-                template: activate_scene
-              
-              - type: custom:button-card
-                entity: scene.tv_normal
-                gridcol: 1 / 3
-                gridrow: 4 / 6
-                name: TV Normal
-                template: activate_scene
-              
-              - type: custom:button-card
-                entity: scene.tv_dim
-                gridcol: 3 / 5
-                gridrow: 4 / 6
-                name: TV Dim
-                template: activate_scene
+          - type: custom:button-card
+            entity: scene.reading_entry
+            view_layout:
+              grid-column: 5 / 7
+              grid-row: 2 / 4
+            name: Reading (Entry Lamp)
+            template: activate_scene
+          
+          - type: custom:button-card
+            entity: scene.tv_normal
+            view_layout:
+              grid-column: 1 / 3
+              grid-row: 4 / 6
+            name: TV Normal
+            template: activate_scene
+          
+          - type: custom:button-card
+            entity: scene.tv_dim
+            view_layout:
+              grid-column: 3 / 5
+              grid-row: 4 / 6
+            name: TV Dim
+            template: activate_scene
