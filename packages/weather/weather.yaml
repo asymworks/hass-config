@@ -27,19 +27,17 @@ weather:
 ###############################################################################
 # Customize History Entries
 history:
-  exclude:
+  include:
     entities:
-
-      # Exclude Weather and Sensors
-      - weather.owm
-      - sensor.owm_weather
+      - sensor.owm_humidity
       - sensor.owm_temperature
+      - sensor.owm_dew_point
+      - sensor.owm_pressure
       - sensor.owm_wind_bearing
       - sensor.owm_wind_speed
-      - sensor.owm_humidity
-      - sensor.owm_pressure
-      - sensor.owm_clouds
-      - sensor.owm_rain
-      - sensor.owm_snow
-      - sensor.owm_condition
-      - sensor.owm_weather_code
+  exclude:
+    entities:
+      # Exclude Weather and Sensors
+      - weather.owm
+    entity_globs:
+      - sensor.owm_*
