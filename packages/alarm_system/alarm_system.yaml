@@ -1,0 +1,215 @@
+###############################################################################
+# Alarm System Package for Home Assistant
+
+###############################################################################
+# Customization
+homeassistant:
+  customize:
+
+    # Alarm Control Panel
+    alarm_control_panel.ha_alarm:
+      icon: mdi:shield-home
+
+    # Alarm Status Sensor
+    sensor.alarm_status:
+      hidden: true
+
+    # Camera Device Trackers
+    device_tracker.logi_switch:
+      friendly_name: 'Logi Circle 2 Camera Switch'
+      hidden: true
+    device_tracker.logi_camera:
+      friendly_name: 'Logi Circle 2 Camera'
+      hidden: true
+
+    # Camera Switch Status
+    binary_sensor.camera_switch_offline:
+      hidden: true
+    binary_sensor.logi_circle_switch:
+      hidden: true
+    binary_sensor.logi_circle_camera:
+      hidden: true
+
+###############################################################################
+# Entity Groups
+group:
+
+  security:
+    name: Security
+    icon: mdi:security-home
+    entities:
+      - group.alarms
+      - group.doors
+      - group.motion
+
+  alarms:
+    name: Alarms
+    icon: mdi:security
+    entities:
+      - alarm_control_panel.ha_alarm
+
+  doors:
+    name: Doors
+    icon: mdi:door
+    entities:
+      - binary_sensor.zw_front_door_sensor
+
+  motion:
+    name: Motion
+    icon: mdi:walk
+    entities:
+      - binary_sensor.zp3111_bedroom_motion
+      - binary_sensor.zp3111_kitchen_motion
+      - binary_sensor.zse40_living_room_motion
+      - binary_sensor.zse40_office_motion
+      - binary_sensor.zse40_garage_motion
+
+###############################################################################
+# Manual MQTT Control Panel
+alarm_control_panel:
+  - platform: manual_mqtt
+    state_topic: home/alarm
+    command_topic: home/alarm/set
+    code: !secret alarm_code
+    pending_time: 30
+    delay_time: 20
+    trigger_time: 1800
+    disarm_after_trigger: false
+    disarmed:
+      trigger_time: 0
+    armed_home:
+      pending_time: 0
+      delay_time: 0
+    triggered:
+      pending_time: 0
+
+###############################################################################
+# Device Trackers for WeMo Switch and Logi Circle Camera
+device_tracker:
+  - platform: ping
+    hosts:
+      logi_switch: !secret logi_switch_ip
+      logi_camera: !secret logi_camera_ip
+
+###############################################################################
+# Binary Sensors for UI
+binary_sensor:
+
+  - platform: template
+    sensors:
+
+      ## Door Sensors
+      doors:
+        friendly_name: Doors
+        device_class: door
+        value_template: "{{ is_state('group.doors', 'on') }}"
+        icon_template: >-
+          {% if is_state('group.doors', 'on') %}
+            fas:door-open
+          {% elif is_state('group.doors', 'off') %}
+            fas:door-closed         
+          {% else %}
+            mdi:alert
+          {% endif %}
+
+      ## Alarm Status Sensor
+      alarm:
+        friendly_name: Alarm
+        value_template: >-
+          {% if is_state('alarm_control_panel.ha_alarm', 'armed_home') %}
+            on
+          {% elif is_state('alarm_control_panel.ha_alarm', 'armed_away') %}
+            on
+          {% elif is_state('alarm_control_panel.ha_alarm', 'pending') %}
+            on
+          {% elif is_state('alarm_control_panel.ha_alarm', 'triggered') %}
+            on
+          {% else %}
+            off
+          {% endif %}
+        icon_template: >-
+          {% if is_state('alarm_control_panel.ha_alarm', 'armed_home') %}
+            mdi:shield-home
+          {% elif is_state('alarm_control_panel.ha_alarm', 'armed_away') %}
+            mdi:shield-lock
+          {% elif is_state('alarm_control_panel.ha_alarm', 'pending') %}
+            mdi:security
+          {% elif is_state('alarm_control_panel.ha_alarm', 'triggered') %}
+            mdi:shield-close
+          {% elif is_state('alarm_control_panel.ha_alarm', 'disarmed') %}
+            mdi:shield-home
+          {% else %}
+            mdi:alert
+          {% endif %}
+
+      ## Camera Switch Status Sensor
+      camera_switch:
+        friendly_name: Camera Switch
+        value_template: >-
+          {{ is_state('switch.logi_camera', 'on') }}
+        icon_template: >-
+          {% if is_state('switch.logi_camera', 'on') %}
+            mdi:camera-wireless
+          {% elif is_state('switch.logi_camera', 'off') %}
+            mdi:camera-wireless-outline
+          {% else %}
+            mdi:alert
+          {% endif %}
+
+      ## Camera Switch Unavailable Sensor
+      camera_switch_issue:
+        friendly_name: Camera Switch Issue
+        device_class: problem
+        value_template: >-
+          {{ is_state('switch.logi_camera', 'unavailable') }}
+
+      ## Camera Device Tracker Sensors
+      logi_circle_switch:
+        friendly_name: Logi Circle Switch
+        device_class: connectivity
+        value_template: >-
+          {{ is_state('device_tracker.logi_switch', 'home') }}
+
+      logi_circle_camera:
+        friendly_name: Logi Circle Camera
+        device_class: connectivity
+        value_template: >-
+          {{ is_state('device_tracker.logi_camera', 'home') }}
+
+###############################################################################
+# Template Sensors for UI
+sensor:
+  - platform: template
+    sensors:
+
+      # House Alarm Status
+      alarm_status:
+        friendly_name: 'Alarm Status'
+        value_template: >-
+          {% if is_state('alarm_control_panel.ha_alarm', 'armed_home') %}
+            Armed Home
+          {% elif is_state('alarm_control_panel.ha_alarm', 'armed_away') %}
+            Armed Away
+          {% elif is_state('alarm_control_panel.ha_alarm', 'pending') %}
+            Pending
+          {% elif is_state('alarm_control_panel.ha_alarm', 'triggered') %}
+            Triggered
+          {% elif is_state('alarm_control_panel.ha_alarm', 'disarmed') %}
+            Disarmed
+          {% else %}
+            Unknown
+          {% endif %}
+        icon_template: >-
+          {% if is_state('alarm_control_panel.ha_alarm', 'armed_home') %}
+            mdi:shield-home
+          {% elif is_state('alarm_control_panel.ha_alarm', 'armed_away') %}
+            mdi:shield-lock
+          {% elif is_state('alarm_control_panel.ha_alarm', 'pending') %}
+            mdi:security
+          {% elif is_state('alarm_control_panel.ha_alarm', 'triggered') %}
+            mdi:shield-close
+          {% elif is_state('alarm_control_panel.ha_alarm', 'disarmed') %}
+            mdi:shield-home
+          {% else %}
+            mdi:alert
+          {% endif %}

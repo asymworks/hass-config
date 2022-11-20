@@ -1,0 +1,413 @@
+###############################################################################
+# Lighting Package for Home Assistant
+
+homeassistant:
+  customize:
+    light.zb_bedroom_jp:
+      friendly_name: "J.P. Nightstand"
+    light.zb_bedroom_jen:
+      friendly_name: "Jen Nightstand"
+    light.zb_dining_room_1:
+      friendly_name: "Dining Room 1"
+      hidden: true
+    light.zb_dining_room_2:
+      friendly_name: "Dining Room 2"
+      hidden: true
+    light.zb_dining_room_3:
+      friendly_name: "Dining Room 3"
+      hidden: true
+    script.sunrise:
+      friendly_name: Sunrise Script
+    script.sunset:
+      friendly_name: Sunset Script
+    script.living_room_sunrise:
+      friendly_name: Living/Dining Room Sunrise
+    scene.living_room_normal:
+      icon: mdi:floor-lamp-dual
+    scene.tv_normal:
+      icon: mdi:television-ambient-light
+    scene.tv_dim:
+      icon: mdi:television
+    scene.reading_back:
+      icon: mdi:book-open-variant
+    scene.reading_entry:
+      icon: mdi:book-open-variant
+
+
+###############################################################################
+# Lighting Groups
+light:
+
+  # Living Room Lights
+  - platform: group
+    name: Living Room Lights
+    entities:
+      - light.living_room_entry
+      - light.living_room_front
+      - light.living_room_back
+
+  # Bedroom Lights
+  - platform: group
+    name: Bedroom Lights
+    entities:
+      - light.zb_bedroom_jp
+      - light.zb_bedroom_jen
+
+  # Dining Room Lights (Zigbee Group)
+  - platform: mqtt
+    name: Dining Room Lights
+    schema: json
+    brightness: true
+    color_temp: true
+    command_topic: zigbee/zb_dining_room_lights/set
+    state_topic: zigbee/zb_dining_room_lights
+    availability_topic: zigbee/bridge/state
+    unique_id: zb_dining_room_lights_group_zigbee
+
+###############################################################################
+# Lighting Scenes
+scene:
+  # Living Room Scenes
+  - name: Living Room Normal
+    entities:
+      light.living_room_lights:
+        state: on
+        brightness: 255
+        color_temp: 280
+
+  - name: Living Room Low
+    entities:
+      light.living_room_lights:
+        state: on
+        brightness: 100
+        color_temp: 280
+
+  - name: Living Room Dim
+    entities:
+      light.living_room_lights:
+        state: on
+        brightness: 40
+        color_temp: 280
+
+  - name: Living Room Off
+    entities:
+      light.living_room_lights:
+        state: off
+  
+  - name: Reading Back
+    entities:
+      light.living_room_back:
+        state: on
+        brightness: 224
+        color_temp: 280
+      light.living_room_front:
+        state: off
+      light.living_room_entry:
+        state: off
+  
+  - name: Reading Entry
+    entities:
+      light.living_room_entry:
+        state: on
+        brightness: 224
+        color_temp: 280
+      light.living_room_front:
+        state: off
+      light.living_room_back:
+        state: off
+  
+  - name: TV Normal
+    entities:
+      light.living_room_front:
+        state: on
+        brightness: 255
+        color_temp: 280
+      light.living_room_entry:
+        state: on
+        brightness: 255
+        color_temp: 280
+      light.living_room_back:
+        state: off
+  
+  - name: TV Low
+    entities:
+      light.living_room_front:
+        state: on
+        brightness: 100
+        color_temp: 280
+      light.living_room_entry:
+        state: on
+        brightness: 100
+        color_temp: 280
+      light.living_room_back:
+        state: off
+  
+  - name: TV Dim
+    entities:
+      light.living_room_front:
+        state: on
+        brightness: 40
+        color_temp: 280
+      light.living_room_entry:
+        state: on
+        brightness: 40
+        color_temp: 280
+      light.living_room_back:
+        state: off
+
+  # Dining Room Scenes
+  - name: Dining Room Normal
+    entities:
+      light.dining_room_lights:
+        state: on
+        brightness: 255
+        color_temp: 320
+
+  - name: Dining Room Low
+    entities:
+      light.dining_room_lights:
+        state: on
+        brightness: 100
+        color_temp: 320
+
+  - name: Dining Room Dim
+    entities:
+      light.dining_room_lights:
+        state: on
+        brightness: 40
+        color_temp: 320
+
+  - name: Dining Room Off
+    entities:
+      light.dining_room_lights:
+        state: off
+  
+  # All Light Scenes
+  - name: All Low
+    entities:
+      light.dining_room_lights:
+        state: on
+        brightness: 100
+        color_temp: 320
+      light.living_room_lights:
+        state: on
+        brightness: 100
+        color_temp: 280
+
+  - name: All Dim
+    entities:
+      light.dining_room_lights:
+        state: on
+        brightness: 40
+        color_temp: 320
+      light.living_room_lights:
+        state: on
+        brightness: 40
+        color_temp: 280
+
+  - name: All Off
+    entities:
+      light.dining_room_lights:
+        state: off
+      light.living_room_lights:
+        state: off
+
+  - name: Evening
+    entities:
+      light.dining_room_lights:
+        state: off
+      light.living_room_front:
+        state: on
+        brightness: 255
+        color_temp: 280
+      light.living_room_entry:
+        state: on
+        brightness: 255
+        color_temp: 280
+      light.living_room_back:
+        state: off
+
+
+script:
+  sunrise:
+    # Simulated Sunrise on (House) Right Nightstand Lamp (30 min, from Off)
+    sequence:
+      # Dark Red
+      - service: light.turn_on
+        data:
+          entity_id: 
+            - light.zb_bedroom_jp
+            - light.zb_bedroom_jen
+          xy_color: [0.67,0.39]
+          brightness: 1
+          transition: 60
+      - delay:
+          seconds: 60
+      # Warm Orange
+      - service: light.turn_on
+        data:
+          entity_id: 
+            - light.zb_bedroom_jp
+            - light.zb_bedroom_jen
+          xy_color: [0.65,0.41]
+          brightness: 85
+          transition: 600
+      - delay:
+          seconds: 600
+      # Yellow
+      - service: light.turn_on
+        data:
+          entity_id: 
+            - light.zb_bedroom_jp
+            - light.zb_bedroom_jen
+          xy_color: [0.60,0.40]
+          brightness: 170
+          transition: 600
+      - delay:
+          seconds: 600
+      # White
+      - service: light.turn_on
+        data:
+          entity_id: 
+            - light.zb_bedroom_jp
+            - light.zb_bedroom_jen
+          xy_color: [0.48,0.40]
+          brightness: 255
+          transition: 600
+      - delay:
+          seconds: 600
+
+  sunset:
+    # Simulated Sunset on (House) Right Nightstand Lamp (10 min, from On)
+    sequence:
+      # Yellow
+      - service: light.turn_on
+        data:
+          entity_id: 
+            - light.zb_bedroom_jp
+            - light.zb_bedroom_jen
+          xy_color: [0.60,0.40]
+          brightness: 170
+          transition: 180
+      - delay:
+          seconds: 180
+      # Warm Orange
+      - service: light.turn_on
+        data:
+          entity_id: 
+            - light.zb_bedroom_jp
+            - light.zb_bedroom_jen
+          xy_color: [0.65,0.41]
+          brightness: 85
+          transition: 180
+      - delay:
+          seconds: 180
+      # Dark Red
+      - service: light.turn_on
+        data:
+          entity_id: 
+            - light.zb_bedroom_jp
+            - light.zb_bedroom_jen
+          xy_color: [0.67,0.39]
+          brightness: 1
+          transition: 240
+      - delay:
+          seconds: 240
+      # Off
+      - service: light.turn_off
+        entity_id: 
+          - light.zb_bedroom_jp
+          - light.zb_bedroom_jen
+
+  living_room_scene:
+    # Set a Living or Dining Room Scene and cancel any sunset/sunrise scripts
+    fields:
+      scene_id:
+        description: "Scene including 'scene' domain"
+        example: "scene.living_room_normal"
+      transition:
+        description: "Transition time (seconds)"
+        example: 3
+    sequence:
+      - service: script.turn_off
+        data:
+          entity_id: script.living_room_sunrise
+      - service: scene.turn_on
+        data:
+          entity_id: "{{ scene_id }}"
+          transition: "{{ transition }}"
+
+  living_room_light_toggle:
+    # Toggle the Living Room Lights and cancel any sunset/sunrise scripts
+    fields:
+      light_id:
+        description: "Light to toggle"
+        example: "light.living_room_lights"
+    sequence:
+      - service: script.turn_off
+        data:
+          entity_id: script.living_room_sunrise
+      - service: light.toggle
+        data:
+          entity_id: "{{ light_id }}"
+
+  living_room_sunrise:
+    # Simulated Sunrise on Dining and Living Room Lamps (30 min, from Off)
+    sequence:
+      # Do not run if lights are on or it is after dawn
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: light.living_room_lights
+            state: "off"
+          - condition: state
+            entity_id: light.dining_room_lights
+            state: "off"
+          - condition: state
+            entity_id: sun.sun
+            state: "below_horizon"
+
+      # Dark Red
+      - service: light.turn_on
+        data:
+          entity_id: 
+            - light.dining_room_lights
+            - light.living_room_lights
+          color_temp: 500
+          brightness: 2
+          transition: 10
+      - delay:
+          seconds: 10
+      # Warm Orange
+      - service: light.turn_on
+        data:
+          entity_id: 
+            - light.dining_room_lights
+            - light.living_room_lights
+          color_temp: 500
+          brightness: 85
+          transition: 900
+      - delay:
+          seconds: 900
+      # Yellow
+      - service: light.turn_on
+        data:
+          entity_id: 
+            - light.dining_room_lights
+            - light.living_room_lights
+          color_temp: 350
+          brightness: 170
+          transition: 900
+      - delay:
+          seconds: 900
+      # White
+      - service: light.turn_on
+        data:
+          entity_id: 
+            - light.dining_room_lights
+            - light.living_room_lights
+          color_temp: 200
+          brightness: 255
+          transition: 900
+      - delay:
+          seconds: 900

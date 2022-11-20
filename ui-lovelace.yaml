@@ -1,193 +1,396 @@
-#### Lovelace UI Configuration ################################################
+###############################################################################
+# Lovelace UI Configuration for Home Assistant
+
+button_card_templates:
+  area_scene:
+    show_icon: false
+    show_state: false
+    show_name: true
+    styles:
+      card:
+        - 'border-top': '1px solid var(--divider-color)'
+        - 'padding': '0.5em 0'
+        - 'font-size': 100%
+    tap_action:
+      action: call-service
+      service: script.living_room_scene
+      service_data: 
+        scene_id: '[[[ return entity.entity_id ]]]'
+        transition: 3
+
+###############################################################################
+###
+### Main Dashboard
 
 title: Krauss Home
-resources:
-  # Animated DarkSky Card
-  - url: /local/custom_ui/dark-sky-weather-card.js?v=7.1
-    type: module
-
-  # Compact Custom Header
-  - url: /local/custom_ui/compact-custom-header.js?v=1.3.6
-    type: module
-
-  # Vertical Stack in Card
-  - url: /local/custom_ui/vertical-stack-in-card.js?v=0.1.3
-    type: js
-
-cch:
-  # Compact Custom Header Configuration
-  menu: show
-  notifications: show
-  voice: hide
-  options: clock
-
 views:
-  # Main Dashboard Card
-  - title: Home
-    badges:
-      - binary_sensor.front_door_open
-      - binary_sensor.jp_presence
-      - binary_sensor.jen_presence
-      - device_tracker.jp_n5x_ip
-      - device_tracker.monitor_entry_jp_n5x
-      - device_tracker.jen_iphone_ip
-      - device_tracker.monitor_entry_jen_iphone
-      - sun.sun
+
+###############################################################################
+###
+### Main Dashboard View
+
+  - id: 0
+    icon: mdi:home
+    title: Home
     cards:
+
+      #########################################################################
+      # Alarm and Alert Sensors
       - type: entities
-        title: People
+        entities:
+          - binary_sensor.alarm
+          - binary_sensor.doors
+
+      #########################################################################
+      # Presence Status
+      - type: custom:vertical-stack-in-card
+        cards:
+
+          - type: glance
+            entities:
+              - person.jpk
+              - person.jen
+
+          - type: horizontal-stack
+            cards:
+              - type: glance
+                show_name: false
+                entities:
+                  - device_tracker.jp_p3a_ip
+                  - device_tracker.jp_p3a_bt_entry
+                  - device_tracker.jp_p3a_gps
+
+              - type: glance
+                show_name: false
+                entities:
+                  - device_tracker.jen_iphone_ip
+                  - device_tracker.jen_iphone_bt_entry
+
+      #########################################################################
+      # Weather
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: weather-forecast
+            entity: weather.owm
+            show_forecast: false
+            secondary_info_attribute: humidity
+
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                entity: sensor.airnow_aqi
+                name: AQI
+                show_state: true
+                show_icon: false
+                show_units: false
+                state_display: '[[[ return `${entity.state} (${entity.attributes.description})` ]]]'
+                styles:
+                  card:
+                    - font-size: 100%
+                  grid:
+                    - grid-template-areas: '"n s"'
+                    - grid-template-rows: 1fr
+                    - grid-template-columns: 'min-content 1fr'
+                  name:
+                    - align-self: center
+                    - justify-self: start
+                    - padding: '0 0.6em'
+                    - font-weight: '500'
+                  state:
+                    - align-self: center
+                    - justify-self: start
+                state:
+                  - value: unavailable
+                    styles:
+                      state:
+                        - color: 'var(--aqi-state-unavailable, #9e9e9e)'
+                  - operator: <=
+                    value: 50
+                    styles:
+                      state:
+                        - color: 'var(--aqi-state-good, #039be5)'
+                  - operator: <=
+                    value: 100
+                    styles:
+                      state:
+                        - color: 'var(--aqi-state-moderate, #0da035)'
+                  - operator: <=
+                    value: 150
+                    styles:  
+                      state:
+                        - color: 'var(--aqi-state-poor, #f4b400)'
+                  - operator: >
+                    value: 150
+                    styles:
+                      state:
+                        - color: 'var(--aqi-state-unhealthy, #df4c1e)'
+
+              - type: custom:button-card
+                entity: sensor.zb_aqara_outdoor_temperature
+                name: OAT
+                show_state: true
+                show_icon: false
+                show_units: true
+                styles:
+                  card:
+                    - font-size: 100%
+                  grid:
+                    - grid-template-areas: '"n s"'
+                    - grid-template-rows: 1fr
+                    - grid-template-columns: 'min-content 1fr'
+                  name:
+                    - align-self: center
+                    - justify-self: start
+                    - padding: '0 0.6em'
+                    - font-weight: '500'
+                  state:
+                    - align-self: center
+                    - justify-self: start
+
+
+      #########################################################################
+      # Areas
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: area
+            area: 130b3aba5ba74ebf898cea9c5f2fdef9    # Living Room
+
+          - type: custom:vertical-stack-in-card
+            horizontal: true
+            cards:
+              - type: custom:button-card
+                name: Full
+                entity: scene.living_room_normal
+                template: area_scene
+
+              - type: custom:button-card
+                name: Low
+                entity: scene.living_room_low
+                template: area_scene
+
+              - type: custom:button-card
+                name: Dim
+                entity: scene.living_room_dim
+                template: area_scene
+
+          - type: custom:vertical-stack-in-card
+            horizontal: true
+            cards:
+              - type: custom:button-card
+                name: TV Normal
+                entity: scene.tv_normal
+                template: area_scene
+
+              - type: custom:button-card
+                name: Reading - Back
+                entity: scene.reading_back
+                template: area_scene
+
+              - type: custom:button-card
+                name: Reading - Entry
+                entity: scene.reading_entry
+                template: area_scene
+
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: area
+            area: dining_room
+
+          - type: custom:vertical-stack-in-card
+            horizontal: zse40_living_room_temperature
+            cards:
+              - type: custom:button-card
+                name: Full
+                entity: scene.dining_room_normal
+                template: area_scene
+
+              - type: custom:button-card
+                name: Low
+                entity: scene.dining_room_low
+                template: area_scene
+
+              - type: custom:button-card
+                name: Dim
+                entity: scene.dining_room_dim
+                template: area_scene
+
+      - type: area
+        area: 95cfad3ed8724e9fb9536dd6dee2ff70    # Bedroom
+
+      #########################################################################
+      # Lighting
+
+
+
+###############################################################################
+###
+### Alarm Status View
+
+  - id: 1
+    icon: mdi:security
+    title: Security
+    cards:
+
+      #########################################################################
+      # Alarm Panel
+      - type: alarm-panel
+        entity: alarm_control_panel.ha_alarm
+
+      #########################################################################
+      # Door Sensor Status
+      - type: custom:auto-entities
+        card:
+          type: glance
+          title: Doors
+        filter:
+          include:
+            - group: group.doors
+
+      #########################################################################
+      # Motion Sensor Status
+      - type: custom:auto-entities
+        card:
+          type: glance
+          title: Motion
+        filter:
+          include:
+            - group: group.motion
+
+      #########################################################################
+      # Camera Status
+      - type: glance
+        title: Logi Circle 2
+        entities:
+          - binary_sensor.camera_switch_issue
+          - binary_sensor.camera_switch
+          - binary_sensor.logi_circle_switch
+          - binary_sensor.logi_circle_camera
+
+###############################################################################
+###
+### Home Audio System
+
+  - icon: mdi:speaker
+    title: Home Audio
+    cards:
+
+      #########################################################################
+      # Snapcast Client/Group Setup
+      - type: entities
+        title: Snapcast Control
         show_header_toggle: false
         entities:
-          - sensor.jp_status
-          - sensor.jen_status
+          - entity: media_player.snapcast_group_home
+            type: 'custom:mini-media-player'
+            group: true
+            hide:
+              power: true
+              icon: true
+            info: short
+            speaker_group:
+              platform: snapcast
+              show_group_count: true
+              entities:
+                - entity_id: media_player.snapcast_client_stereo
+                  name: Living Room Stereo
+                - entity_id: media_player.snapcast_client_office
+                  name: Office Workstation
 
+###############################################################################
+###
+### Holiday / Special Events View
+
+  - icon: fas:holly-berry
+    title: Holiday
+    cards:
+
+      #########################################################################
+      # Christmas Lights
       - type: entities
-        title: Weather
-        show_header_toggle: false
+        title: Christmas
+        show_header_toggle: true
         entities:
-          - sensor.dark_sky_summary
-          - sensor.dark_sky_temperature
+          - switch.christmas_tree
 
-      - type: entities
-        title: Presets
-        show_header_toggle: false
-        entities:
-          - input_boolean.ht_set_mode_auto
-          - input_boolean.ht_set_mode_datenight
+###############################################################################
+###
+### Climate Control
 
-      - type: history-graph
-        title: 'Temperature Graph'
-        entities:
-          - sensor.zooz_living_room_temperature
-          - sensor.zp3111_bedroom_temperature
-          - sensor.zp3111_kitchen_temperature
-      
-  # Security Card
-  - title: Security
+  - icon: fas:temperature-high
+    title: Climate
+    cards:
+
+      #########################################################################
+      # Climate
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.zp3111_bedroom_temperature
+            name: Bedroom
+            line_color: '#2980b9'
+            line_width: 6
+
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.zse40_office_temperature
+            name: Office
+            line_color: '#b93829'
+            line_width: 6
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.zp3111_kitchen_temperature
+            name: Kitchen
+            line_color: '#b58e31'
+            line_width: 6
+
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.zse40_living_room_temperature
+            name: Living Room
+            line_color: '#b93829'
+            line_width: 6
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.zse40_garage_temperature
+            name: Garage
+            line_color: '#b58e31'
+            line_width: 6
+
+###############################################################################
+###
+### Advanced Utilities View
+
+  - icon: mdi:dip-switch
+    title: Advanced
     cards:
       - type: entities
-        title: Inside Camera Switches
-        entities:
-          - switch.living_room_camera
-
-  # Lighting Card
-  - title: Lighting
-    cards:
-      - type: entities
-        title: Living Room
-        entities:
-          - light.living_room_front
-          - light.living_room_back
-          - light.living_room_entry
-          - type: divider
-            background-color: “#B3B3B3”
-          - scene.living_room_normal
-          - scene.living_room_low
-          - scene.living_room_dim
-
-      - type: entities
-        title: Dining Room
-        entities:
-          - light.dining_room_1
-          - light.dining_room_2
-          - light.dining_room_3
-          - type: divider
-            background-color: “#B3B3B3”
-          - scene.dining_room_normal
-          - scene.dining_room_low
-          - scene.dining_room_dim
-
-      - type: entities
-        title: Bedroom
-        show_header_toggle: false
-        badges:
-          - sensor.jp_bed
-        entities:
-          - light.bedroom_light_right
-          - script.sunrise
-          - script.sunset
-
-  # Home Theater Card
-  - title: Theater
-    cards:
-      - type: entities
-        title: Cinema Mode
+        title: Bluetooth Presence Monitor
         show_header_toggle: false
         entities:
-          - input_select.ht_lighting_mode
-          - type: divider
-            background-color: “#B3B3B3”
-          - input_boolean.ht_dim_on_play
-          - input_boolean.ht_raise_on_pause
-          - input_boolean.ht_raise_on_stop
-          - type: divider
-            background-color: “#B3B3B3”
-          - sensor.ht_player_state_state
-          - sensor.ht_player_media_state
-          
-      - type: media-control
-        entity: media_player.living_room_osmc
+          - type: call-service
+            icon: mdi:refresh
+            name: Departure Scan
+            action_name: Run Scan
+            service: mqtt.publish
+            service_data:
+              topic: monitor/scan/depart
+              payload: start
 
-      - type: media-control
-        entity: media_player.living_room_firetv
-
-
-  # DarkSky Animated Weather Card Dev
-  - title: DarkSky
-    cards:
-      - type: 'custom:dark-sky-weather-card'
-        # Required Sensor Entries
-        entity_current_conditions: sensor.dark_sky_icon
-        entity_temperature: sensor.dark_sky_temperature
-        entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1d
-        entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2d
-        entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3d
-        entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4d
-        entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5d
-        entity_forecast_icon_1: sensor.dark_sky_icon_1d
-        entity_forecast_icon_2: sensor.dark_sky_icon_2d
-        entity_forecast_icon_3: sensor.dark_sky_icon_3d
-        entity_forecast_icon_4: sensor.dark_sky_icon_4d
-        entity_forecast_icon_5: sensor.dark_sky_icon_5d
-        entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature_0d
-        entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_1d
-        entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_2d
-        entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_3d
-        entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_4d
-        entity_summary_1: sensor.dark_sky_summary_1d
-        entity_summary_2: sensor.dark_sky_summary_2d
-        entity_summary_3: sensor.dark_sky_summary_3d
-        entity_summary_4: sensor.dark_sky_summary_4d
-        entity_summary_5: sensor.dark_sky_summary_5d
-        # Optional Sensor Entries
-        entity_sun: sun.sun
-        entity_visibility: sensor.dark_sky_visibility
-        entity_daytime_high: sensor.dark_sky_daytime_high_temperature_0d
-        entity_wind_bearing: sensor.dark_sky_wind_bearing
-        entity_wind_speed: sensor.dark_sky_wind_speed
-        entity_humidity: sensor.dark_sky_humidity
-        entity_pressure: sensor.dark_sky_pressure
-        entity_apparent_temp: sensor.dark_sky_apparent_temperature
-        entity_daily_summary: sensor.dark_sky_daily_summary
-        entity_pop: sensor.dark_sky_precip_probability
-        entity_pop_intensity: sensor.dark_sky_precip_intensity
-        entity_pop_1: sensor.dark_sky_precip_probability_1d
-        entity_pop_2: sensor.dark_sky_precip_probability_2d
-        entity_pop_3: sensor.dark_sky_precip_probability_3d
-        entity_pop_4: sensor.dark_sky_precip_probability_4d
-        entity_pop_5: sensor.dark_sky_precip_probability_5d
-        entity_current_text: sensor.dark_sky_current_text
-        # Configuration Flags
-        locale: en
-        static_icons: true
-        tooltip_bg_color: 'rgb( 75,155,239)'
-        tooltip_border_color: orange
-        tooltip_border_width: 3
-        tooltip_caret_size: 10
-        tooltip_fg_color: '#fff'
-        tooltip_left_offset: -12
-        tooltip_width: 100
-        tooltips: true
-        old_daily_format: false
-        time_format: 24
-        show_beaufort: true
+      - type: entities
+        title: Restart NUT
+        show_header_toggle: false
+        entities:
+          - type: call-service
+            icon: mdi:refresh
+            name: Restart NUT
+            action_name: Restart
+            service: monitor_docker.restart
+            service_data:
+              name: nut

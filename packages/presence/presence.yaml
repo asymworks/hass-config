@@ -1,0 +1,445 @@
+###############################################################################
+# Presence Package for Home Assistant
+
+###############################################################################
+# Customization
+homeassistant:
+  customize:
+
+    # People
+    person.jpk:
+      entity_picture: https://gravatar.com/avatar/e78e623948f3675cf1c51544f9bec928
+    
+    sensor.jp_presence_status:
+      entity_picture: https://gravatar.com/avatar/e78e623948f3675cf1c51544f9bec928
+
+    # Devices
+    device_tracker.jp_n5x_ap:
+      friendly_name: J.P. Nexus 5X
+      icon: mdi:wifi
+    device_tracker.jp_n5x_bt_entry:
+      friendly_name: J.P. Nexus 5X
+      source_type: bluetooth
+      icon: mdi:bluetooth
+    device_tracker.jp_n5x_gps:
+      friendly_name: J.P. Nexus 5X
+      icon: mdi:map-marker
+
+    device_tracker.jp_p3a_ap:
+      friendly_name: J.P. Pixel 3a
+      icon: mdi:wifi
+    device_tracker.jp_p3a_bt_entry:
+      friendly_name: J.P. Pixel 3a
+      source_type: bluetooth
+      icon: mdi:bluetooth
+    device_tracker.jp_p3a_gps:
+      friendly_name: J.P. Pixel 3a
+      icon: mdi:map-marker
+    
+    device_tracker.jp_gs8_ap:
+      friendly_name: J.P. Galaxy S8
+      icon: mdi:wifi
+    device_tracker.jp_gs8_bt_entry:
+      friendly_name: J.P. Galaxy S8
+      source_type: bluetooth
+      icon: mdi:bluetooth
+
+    device_tracker.jen_iphone_ap:
+      friendly_name: Jen iPhone
+      icon: mdi:wifi
+    device_tracker.jen_iphone_bt_entry:
+      friendly_name: Jen iPhone
+      source_type: bluetooth
+      icon: mdi:bluetooth
+
+    # RSSI Sensors
+    sensor.jp_n5x_bt_rssi_raw_entry:
+      hidden: true
+    sensor.jp_n5x_bt_rssi_entry:
+      friendly_name: J.P. Nexus 5X Bluetooth RSSI (Entry)
+      hidden: true
+    sensor.jp_p3a_bt_rssi_raw_entry:
+      hidden: true
+    sensor.jp_p3a_bt_rssi_entry:
+      friendly_name: J.P. Pixel 3a Bluetooth RSSI (Entry)
+      hidden: true
+    sensor.jp_gs8_bt_rssi_raw_entry:
+      hidden: true
+    sensor.jp_gs8_bt_rssi_entry:
+      friendly_name: J.P. Galaxy S8 Bluetooth RSSI (Entry)
+      hidden: true
+    sensor.jen_iphone_bt_rssi_raw_entry:
+      hidden: true
+    sensor.jen_iphone_bt_rssi_entry:
+      friendly_name: Jen iPhone RSSI (Entry)
+      hidden: true
+
+###############################################################################
+# Person Entities
+person:
+  - name: J.P.
+    id: jpk
+    user_id: c67b7b511277404995406e077e2f51ce
+    device_trackers:
+      #- device_tracker.jp_n5x_ap
+      #- device_tracker.jp_n5x_bt_entry
+      #- device_tracker.jp_n5x_gps
+      #- device_tracker.jp_p3a_ap
+      - device_tracker.jp_p3a_ip
+      - device_tracker.jp_p3a_bt_entry
+      - device_tracker.jp_p3a_gps
+
+  - name: Jen
+    id: jen
+    user_id: 7164da8e96fd499ebf0391c62682f47c
+    device_trackers:
+      #- device_tracker.jen_iphone_ap
+      - device_tracker.jen_iphone_ip
+      - device_tracker.jen_iphone_bt_entry
+
+###############################################################################
+# Device Trackers
+device_tracker:
+
+  # Ping Platform - SUPERSEDED by UniFi Integration with _ap Device Trackers
+  # UN-SUPERSEDED by TP-Link Omada not having a Device Tracker
+  - platform: ping
+    hosts:
+      # jp_n5x_ip: !secret jp_n5x_ip
+      jp_p3a_ip: !secret jp_p3a_ip
+      jp_gs8_ip: !secret jp_gs8_ip
+      jen_iphone_ip: !secret jen_iphone_ip
+
+  # MQTT Platform (Bluetooth Presence Sensor)
+  - platform: mqtt
+    devices:
+      jp_n5x_bt_entry: monitor/entry/jp_n5x/device_tracker
+      jp_gs8_bt_entry: monitor/entry/jp_gs8/device_tracker
+      jp_p3a_bt_entry: monitor/entry/jp_p3a/device_tracker
+      jen_iphone_bt_entry: monitor/entry/jen_iphone/device_tracker 
+
+###############################################################################
+# Input Selects for Extended Presence State
+input_select:
+
+  # J.P. Extended Presence State
+  jp_presence_state:
+    name: J.P.
+    options:
+      - Home
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+
+  # Jen Extended Presence State
+  jen_presence_state:
+    name: Jen
+    options:
+      - Home
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+
+  # Global House Presence
+  house_presence_state:
+    name: House Occupancy
+    options:
+      - Home
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+
+###############################################################################
+# Presence Sensors
+binary_sensor:
+
+  # Home / Not-Home Sensors
+  - platform: template
+    sensors:
+      jp_presence:
+        friendly_name: J.P.
+        device_class: presence
+        value_template: "{{ is_state('person.jpk', 'home') }}"
+
+      jen_presence:
+        friendly_name: Jen
+        device_class: presence
+        value_template: "{{ is_state('person.jen', 'home') }}" 
+
+      house_presence:
+        friendly_name: House
+        device_class: presence
+        value_template: >-
+          {{    is_state('person.jpk', 'home') 
+             or is_state('person.jen', 'home') }}
+
+sensor:
+
+  # J.P. Extended Presence Status
+  - platform: template
+    sensors:
+      jp_presence_status:
+        value_template: '{{ states.input_select.jp_presence_state.state }}'
+        friendly_name_template: 'J.P. Presence Status'
+
+  # Jen Extended Presence Status
+  - platform: template
+    sensors:
+      jen_presence_status:
+        value_template: '{{ states.input_select.jen_presence_state.state }}'
+        friendly_name_template: 'Jen Presence Status'
+
+  # House Extended Presence Status
+  - platform: template
+    sensors:
+      house_presence_status:
+        value_template: '{{ states.input_select.house_presence_state.state }}'
+        friendly_name_template: 'House Presence Status'
+
+###############################################################################
+# RSSI Sensors
+
+  # Raw RSSI Data from Monitor
+  - platform: mqtt
+    name: jp_n5x_bt_rssi_raw_entry
+    state_topic: monitor/entry/jp_n5x/rssi
+    unit_of_measurement: 'dBm'
+
+  - platform: mqtt
+    name: jp_p3a_bt_rssi_raw_entry
+    state_topic: monitor/entry/jp_p3a/rssi
+    unit_of_measurement: 'dBm'
+
+  - platform: mqtt
+    name: jp_gs8_bt_rssi_raw_entry
+    state_topic: monitor/entry/jp_gs8/rssi
+    unit_of_measurement: 'dBm'
+
+  - platform: mqtt
+    name: jen_iphone_bt_rssi_raw_entry
+    state_topic: monitor/entry/jen_iphone/rssi
+    unit_of_measurement: 'dBm'
+
+  # Filtered RSSI Data from Monitor
+  - platform: filter
+    name: jp_n5x_bt_rssi_entry
+    entity_id: sensor.jp_n5x_bt_rssi_raw_entry
+    filters:
+      - filter: outlier
+        window_size: 2
+        radius: 1.0
+      - filter: lowpass
+        time_constant: 2
+      - filter: time_simple_moving_average
+        window_size: 00:01
+        precision: 1
+
+  - platform: filter
+    name: jp_p3a_bt_rssi_entry
+    entity_id: sensor.jp_p3a_bt_rssi_raw_entry
+    filters:
+      - filter: outlier
+        window_size: 2
+        radius: 1.0
+      - filter: lowpass
+        time_constant: 2
+      - filter: time_simple_moving_average
+        window_size: 00:01
+        precision: 1
+
+  - platform: filter
+    name: jp_gs8_bt_rssi_entry
+    entity_id: sensor.jp_gs8_bt_rssi_raw_entry
+    filters:
+      - filter: outlier
+        window_size: 2
+        radius: 1.0
+      - filter: lowpass
+        time_constant: 2
+      - filter: time_simple_moving_average
+        window_size: 00:01
+        precision: 1
+
+  - platform: filter
+    name: jen_iphone_bt_rssi_entry
+    entity_id: sensor.jen_iphone_bt_rssi_raw_entry
+    filters:
+      - filter: outlier
+        window_size: 2
+        radius: 1.0
+      - filter: lowpass
+        time_constant: 2
+      - filter: time_simple_moving_average
+        window_size: 00:01
+        precision: 1    
+
+###############################################################################
+# Presence Automations
+automation:
+
+###############################################################################
+# Run Arrival Scan at Home Assistant Start
+  
+  - alias: Startup Arrival Scan
+    trigger:
+      - platform: homeassistant
+        event: start
+    mode: queued
+    action:
+      - service: mqtt.publish
+        data: 
+          topic: monitor/scan/arrive
+          payload: scan
+
+###############################################################################
+# Handle Just Arrived / Just Left from Person Entity
+
+  - alias: Mark Person as Just Arrived
+    trigger:
+      - platform: state
+        entity_id: person.jpk
+        to: 'home'
+      - platform: state
+        entity_id: person.jen
+        to: 'home'
+      - platform: state
+        entity_id: binary_sensor.house_presence
+        to: 'on'
+    mode: queued
+    action:
+      - service: input_select.select_option
+        data_template: 
+          entity_id: >
+            {% if trigger.entity_id == 'person.jpk' %}
+              input_select.jp_presence_state
+            {% elif trigger.entity_id == 'person.jen' %}
+              input_select.jen_presence_state
+            {% elif trigger.entity_id == 'binary_sensor.house_presence' %}
+              input_select.house_presence_state
+            {% else %}
+            {% endif %}
+          option: >
+            {% if trigger.entity_id == 'person.jpk' %}
+              {% if states.input_select.jp_presence_state == 'Just Left' %}
+                Home
+              {% else %}
+                Just Arrived
+              {% endif %}
+            {% elif trigger.entity_id == 'person.jen' %}
+              {% if states.input_select.jen_presence_state == 'Just Left' %}
+                Home
+              {% else %}
+                Just Arrived
+              {% endif %}
+            {% elif trigger.entity_id == 'binary_sensor.house_presence' %}
+              {% if states.input_select.house_presence_state == 'Just Left' %}
+                Home
+              {% else %}
+                Just Arrived
+              {% endif %}
+            {% else %}
+            {% endif %}
+
+  - alias: Mark Person as Just Left
+    trigger:
+      - platform: state
+        entity_id: person.jpk
+        from: 'home'
+      - platform: state
+        entity_id: person.jen
+        from: 'home'
+      - platform: state
+        entity_id: binary_sensor.house_presence
+        from: 'on'
+    mode: queued
+    action:
+      - service: input_select.select_option
+        data_template: 
+          entity_id: >
+            {% if trigger.entity_id == 'person.jpk' %}
+              input_select.jp_presence_state
+            {% elif trigger.entity_id == 'person.jen' %}
+              input_select.jen_presence_state
+            {% elif trigger.entity_id == 'binary_sensor.house_presence' %}
+              input_select.house_presence_state
+            {% else %}
+            {% endif %}
+          option: 'Just Left'
+
+###############################################################################
+# Handle Timed Updates to Home / Away / Extended Away
+
+  - alias: Mark Person as Home
+    trigger:
+      - platform: state
+        entity_id: input_select.jp_presence_state
+        to: 'Just Arrived'
+        for: 
+          minutes: 5
+      - platform: state
+        entity_id: input_select.jen_presence_state
+        to: 'Just Arrived'
+        for: 
+          minutes: 5
+      - platform: state
+        entity_id: input_select.house_presence_state
+        to: 'Just Arrived'
+        for: 
+          minutes: 5
+    mode: queued
+    action:
+      - service: input_select.select_option
+        data_template: 
+          entity_id: '{{ trigger.entity_id }}'
+          option: 'Home'
+
+  - alias: Mark Person as Away
+    trigger:
+      - platform: state
+        entity_id: input_select.jp_presence_state
+        to: 'Just Left'
+        for: 
+          minutes: 5
+      - platform: state
+        entity_id: input_select.jen_presence_state
+        to: 'Just Left'
+        for: 
+          minutes: 5
+      - platform: state
+        entity_id: input_select.house_presence_state
+        to: 'Just Left'
+        for: 
+          minutes: 5
+    mode: queued
+    action:
+      - service: input_select.select_option
+        data_template: 
+          entity_id: '{{ trigger.entity_id }}'
+          option: 'Away'
+
+  - alias: Mark Person as Extended Away
+    trigger:
+      - platform: state
+        entity_id: input_select.jp_presence_state
+        to: 'Away'
+        for: 
+          hours: 24
+      - platform: state
+        entity_id: input_select.jen_presence_state
+        to: 'Away'
+        for: 
+          hours: 24
+      - platform: state
+        entity_id: input_select.house_presence_state
+        to: 'Away'
+        for: 
+          hours: 24
+    mode: queued
+    action:
+      - service: input_select.select_option
+        data_template: 
+          entity_id: '{{ trigger.entity_id }}'
+          option: 'Extended Away'

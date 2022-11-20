@@ -1,0 +1,176 @@
+###############################################################################
+# Button Card Templates
+
+button_card_templates:
+  
+  # Activate Scene Button (148 x 148)
+  activate_scene:
+    tap_action:
+      action: call-service
+      service: script.living_room_scene
+      service_data: 
+        scene_id: '[[[ return entity.entity_id ]]]'
+        transition: 3
+    show_state: false
+    size: 25%
+    state:
+      - styles:
+          card:
+            - filter: opacity(50%)
+          icon:
+            - filter: grayscale(100%)
+        value: 'off'
+      - styles:
+          card:
+            - filter: opacity(25%)
+          icon:
+            - filter: grayscale(100%)
+        value: unavailable
+    styles:
+      card: 
+        - height: 148px
+      grid:
+        - grid-template-areas: '"i" "n"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr min-content
+      img_cell:
+        - justify-content: start
+        - margin-left: 20px
+        - margin-bottom: 20px
+      name:
+        - justify-self: start
+        - margin-left: 10px
+        - font-size: 87%
+        - text-align: left
+        - text-overflow: unset
+        - white-space: unset
+        - word-break: break-word
+
+  # Title Card
+  title:
+    show_icon: false
+    show_name: true
+    show_state: false
+    styles:
+      card:
+        - width: 300px
+        - height: 60px
+        - background: none
+        - box-shadow: none
+        - padding-top: 10px
+      name:
+        - justify-self: start
+        - margin-left: 10px
+        - font-weight: lighter
+        - font-size: x-large
+
+  # Title Return Link Card
+  title_back_link:
+    show_icon: false
+    show_name: true
+    show_state: false
+    styles:
+      card:
+        - width: 150px
+        - height: 60px
+        - background: none
+        - box-shadow: none
+        - padding-top: 10px
+      name:
+        - justify-self: start
+        - margin-left: 10px
+        - font-size: x-large
+        - font-weight: lighter
+        - color: var(--accent-color)
+
+  # Title Link Card
+  title_link:
+    show_icon: false
+    show_name: true
+    show_state: false
+    styles:
+      card:
+        - width: 150px
+        - height: 60px
+        - background: none
+        - box-shadow: none
+        - padding-top: 10px
+      name:
+        - justify-self: start
+        - margin-left: 10px
+        - font-size: x-large
+        - color: var(--primary-color)
+
+title: Living Room Scenes
+views:
+  - title: Dashboard
+    type: custom:vertical-layout
+    path: dashboard
+    theme: dark-mode
+    panel: true
+    layout:
+      max_width: 100%
+      max_cols: 1
+    cards:
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: repeat(14, 78px)
+          grid-template-rows: repeat(7, 78px)
+        cards:
+          - type: custom:button-card
+            view_layout:
+              grid-column: 1 / 3
+              grid-row: 1 / 2
+            name: '< Back'
+            template: title_back_link
+            tap_action:
+              action: navigate
+              navigation_path: /dashboard-main/dashboard
+          
+          - type: custom:button-card
+            view_layout:
+              grid-column: 3 / 7
+              grid-row: 1 / 2
+            name: Living Room Scenes
+            template: title
+
+          - type: custom:button-card
+            entity: scene.living_room_normal
+            view_layout:
+              grid-column: 1 / 3
+              grid-row: 2 / 4
+            name: Normal
+            template: activate_scene
+
+          - type: custom:button-card
+            entity: scene.reading_back
+            view_layout:
+              grid-column: 3 / 5
+              grid-row: 2 / 4
+            name: Reading (Back Lamp)
+            template: activate_scene
+
+          - type: custom:button-card
+            entity: scene.reading_entry
+            view_layout:
+              grid-column: 5 / 7
+              grid-row: 2 / 4
+            name: Reading (Entry Lamp)
+            template: activate_scene
+          
+          - type: custom:button-card
+            entity: scene.tv_normal
+            view_layout:
+              grid-column: 1 / 3
+              grid-row: 4 / 6
+            name: TV Normal
+            template: activate_scene
+          
+          - type: custom:button-card
+            entity: scene.tv_dim
+            view_layout:
+              grid-column: 3 / 5
+              grid-row: 4 / 6
+            name: TV Dim
+            template: activate_scene

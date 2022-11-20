@@ -1,14 +1,14 @@
 language: python
 python:
-  - "3.7"
+  - "3.9"
 install:
-  - "pip install homeassistant==0.99.3"
-  - "python $TRAVIS_BUILD_DIR/bin/dummy_secrets.py"
+  - "pip install homeassistant~=2021.11"
+  - "cp $TRAVIS_BUILD_DIR/bin/dummy_secrets.yaml $TRAVIS_BUILD_DIR/secrets.yaml"
   - "sudo mkdir /config && sudo cp $TRAVIS_BUILD_DIR/bin/fake-ca.pem /config/network-ca-chain.pem"
-  - "sudo mkdir /config/adb && sudo touch /config/adb/adbkey{,.pub}"
 script: "bash $TRAVIS_BUILD_DIR/bin/check_config.sh"
 notifications:
   email: false
 branches:
   only:
     - staging
+    - dev
